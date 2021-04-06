@@ -30,6 +30,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".eslintrc.js"
+    ".eslintrc.js",
+    "tailwind.config.js",
+    "postcss.config.js"
   ]
 }
