@@ -1,6 +1,7 @@
 import type { FunctionComponent } from 'react';
-import Link from 'next/link';
 import type { Story } from '@prezly/sdk';
+
+import StoryItem from './StoryItem';
 
 type Props = {
     stories: Story[];
@@ -9,12 +10,7 @@ type Props = {
 const Stories: FunctionComponent<Props> = ({ stories }) => (
     <div>
         {stories.map((story) => (
-            <Link key={story.id} href={`/${story.slug}`} passHref>
-                <a style={{ display: 'block', marginBottom: 20 }}>
-                    <img src={story.thumbnail_url} alt="" />
-                    <span>{story.title}</span>
-                </a>
-            </Link>
+            <StoryItem key={story.id} story={story} />
         ))}
     </div>
 );
