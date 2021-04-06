@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Story } from '@prezly/sdk';
 
 import Icon from '@/components/Icon';
+import getCategoryUrl from '@/utils/prezly/getCategoryUrl';
 
 type Props = {
     story: Story;
@@ -11,7 +12,6 @@ type Props = {
 const StoryItem: FunctionComponent<Props> = ({ story }) => {
     const {
         categories,
-        culture,
         published_at,
         title,
         subtitle,
@@ -24,8 +24,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
             {!!categories.length && (
                 <div className="flex mb-3">
                     {categories.map((category) => (
-                        // TODO: Create a proper dynamic slug URL
-                        <Link key={category.id} href={`/category/${category.i18n[culture.code].slug}`} passHref>
+                        <Link key={category.id} href={getCategoryUrl(category)} passHref>
                             <a className="uppercase text-xs leading-5 py-1 px-2 bg-gray-700 rounded mr-3 mb-3">
                                 {category.display_name}
                             </a>
