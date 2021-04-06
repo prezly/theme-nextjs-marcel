@@ -1,9 +1,7 @@
-# Prezly Theme Starter Kit
+# Prezly Marcel Theme 
 
-Prezly Theme starter kit for your newsroom or blog based on Next.js 10+ framework. Made with [Next.js](https://nextjs.org), [PrezlySDK](https://github.com/prezly/javascript-sdk), [TypeScript](https://www.typescriptlang.org), [ESLint](https://eslint.org) and [Slate Renderer](https://www.npmjs.com/package/@prezly/slate-renderer).
+Marcel Prezly Theme is based on Next.js 10+ framework. Made with [Next.js](https://nextjs.org), [PrezlySDK](https://github.com/prezly/javascript-sdk), [TypeScript](https://www.typescriptlang.org), [ESLint](https://eslint.org) and [Slate Renderer](https://www.npmjs.com/package/@prezly/slate-renderer).
 
-
-As we do not want to tell you how to style your project (CSS vs Sas vs CSS-in-JS vs styled components) and sure as hell do not want to force you on our preferred CSS framework **this theme does not have any styling loaded**. It is intended to be used as a boilerplate to start a new theme from.
 
 ## Features
 
@@ -40,8 +38,8 @@ As we do not want to tell you how to style your project (CSS vs Sas vs CSS-in-JS
 Run the following command on your local environment
 
 ```
-git clone https://github.com/prezly/theme-nextjs-starter
-cd theme-nextjs-starter
+git clone https://github.com/prezly/theme-nextjs-marcel
+cd theme-nextjs-marcel
 npm i
 ```
 
