@@ -6,5 +6,8 @@ module.exports = {
     }
 
     return config
+  },
+  images: {
+    domains: ['cdn.uc.assets.prezly.com']
   }
 }

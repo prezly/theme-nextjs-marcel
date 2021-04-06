@@ -13,7 +13,7 @@ const CategoryComponent = ({ category }: Props) => {
 
     return (
         <Link href={`/category/${category.i18n[locale].slug}`}>
-            <a>{category.display_name}</a>
+            <a className="px-2 py-1 leading-6 tracking-wide">{category.display_name}</a>
         </Link>
     );
 };

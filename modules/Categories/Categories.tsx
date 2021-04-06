@@ -7,9 +7,9 @@ type Props = {
 };
 
 const Categories: FunctionComponent<Props> = ({ categories }) => (
-    <ul>
+    <ul className="lg:flex lg:uppercase">
         {categories.map((c) => (
-            <li key={c.id}>
+            <li key={c.id} className="mx-2">
                 <CategoryComponent category={c} />
             </li>
         ))}
