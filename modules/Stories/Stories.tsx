@@ -8,7 +8,7 @@ type Props = {
 };
 
 const Stories: FunctionComponent<Props> = ({ stories }) => (
-    <div>
+    <div className="pt-10">
         {stories.map((story) => (
             <StoryItem key={story.id} story={story} />
         ))}
