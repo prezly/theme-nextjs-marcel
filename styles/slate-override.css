@@ -4,6 +4,8 @@
 .prezly-slate-heading-3,
 .prezly-slate-heading-4,
 .prezly-slate-heading-5,
-.prezly-slate-heading-6 {
-    @apply text-gray-50;
+.prezly-slate-heading-6,
+.prezly-slate-list-item-text,
+.prezly-slate-contact {
+    @apply !text-gray-400;
 }
