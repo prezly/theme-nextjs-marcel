@@ -1,6 +1,7 @@
 import type { FunctionComponent } from 'react';
 import Link from 'next/link';
 import type { Story } from '@prezly/sdk';
+import { format } from 'date-fns';
 
 import Icon from '@/components/Icon';
 import getCategoryUrl from '@/utils/prezly/getCategoryUrl';
@@ -19,6 +20,11 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
         intro,
         slug,
     } = story;
+
+    const publishedDate = format(
+        new Date(published_at as string),
+        'dd/MM/yyyy',
+    );
 
     return (
         <div className="mb-16">
@@ -42,7 +48,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 )}
                 <div className="flex items-center mb-6 md:mb-0 text-gray-400">
                     <Icon name="calendar" className="mr-2" />
-                    {published_at}
+                    {publishedDate}
                 </div>
             </div>
 

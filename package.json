@@ -17,6 +17,7 @@
     "@prezly/sdk": "^2.5.2",
     "@prezly/slate-renderer": "0.1.0-alpha.39",
     "classnames": "^2.3.1",
+    "date-fns": "^2.19.0",
     "next": "latest",
     "next-seo": "^4.23.0",
     "react": "^17.0.1",
