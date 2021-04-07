@@ -1,0 +1,9 @@
+.prezly-slate-paragraph,
+.prezly-slate-heading-1,
+.prezly-slate-heading-2,
+.prezly-slate-heading-3,
+.prezly-slate-heading-4,
+.prezly-slate-heading-5,
+.prezly-slate-heading-6 {
+    @apply text-gray-50;
+}

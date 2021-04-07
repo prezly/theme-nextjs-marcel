@@ -10,4 +10,17 @@
         font-family: 'Inter', sans-serif;
     }
 
+    /* Use this class inside a container to create a block that breaks outside of fixed width 
+    ** and stretches to the entire screen width 
+    */
+    .full-width {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+    }
 }
+
+@import './slate-override';
