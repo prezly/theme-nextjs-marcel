@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next';
 import { getPrezlyApi } from '@/utils/prezly';
 import Layout from '@/components/Layout';
 import Stories from '@/modules/Stories';
+import Sidebar from '@/modules/Sidebar';
 import { Category, Newsroom } from '@prezly/sdk/dist/types';
 import { PageSeo } from '@/components/seo';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
@@ -27,9 +28,14 @@ const IndexPage: FunctionComponent<Props> = ({
             imageUrl={getAssetsUrl(newsroom.newsroom_logo?.uuid as string)}
         />
         <Layout categories={categories} newsroom={newsroom}>
-            <h1>{category.display_name}</h1>
-            <p>{category.display_description}</p>
-            <Stories stories={stories} />
+            <div className="pt-10 lg:flex lg:flex-nowrap">
+                <div>
+                    <h3 className="uppercase text-gray-400 text-lg mb-6 tracking-wide">Browsing Category</h3>
+                    <h1 className="text-gray-50 font-extrabold mb-12 text-4xl">{category.display_name}</h1>
+                    <Stories stories={stories} />
+                </div>
+                <Sidebar newsroom={newsroom} />
+            </div>
         </Layout>
     </>
 );
