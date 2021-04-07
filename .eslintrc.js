@@ -34,11 +34,16 @@ module.exports = {
             'warn',
             {
                 selector: 'variable',
-                format: ['snake_case', 'PascalCase', 'strictCamelCase', 'UPPER_CASE'], // snake_case enabled for Slate types
+                format: [
+                    'snake_case', 'PascalCase', 'strictCamelCase', 'UPPER_CASE',
+                ], // snake_case enabled for Slate types
             },
         ],
         '@typescript-eslint/indent': ['error', 4],
         'jsx-a11y/anchor-is-valid': 'off', // next links break this rule
+        'jsx-a11y/label-has-associated-control': ['warn', {
+            assert: 'either',
+        }],
         radix: 'off',
         'no-return-assign': 'off',
         'import/prefer-default-export': 'off',
