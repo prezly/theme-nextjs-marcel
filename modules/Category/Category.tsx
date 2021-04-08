@@ -1,14 +1,28 @@
 import getCategoryUrl from '@/utils/prezly/getCategoryUrl';
 import { Category } from '@prezly/sdk/dist/types';
+import classNames from 'classnames';
 import Link from 'next/link';
 
 type Props = {
     category: Category;
+    forcePopup?: boolean;
 };
 
-const CategoryComponent = ({ category }: Props) => (
+const CategoryComponent = ({ category, forcePopup }: Props) => (
     <Link href={getCategoryUrl(category)}>
-        <a className="px-2 py-1 leading-6 tracking-wide">{category.display_name}</a>
+        <a
+            className={classNames(
+                'px-4 py-1.5 leading-7 block',
+                'hover:bg-gray-600 focus-visible:bg-gray-600',
+                'focus-visible:ring focus-visible:ring-inset focus-visible:ring-4',
+                'focus-visible:ring-blue-300 focus:outline-none',
+                !forcePopup && 'lg:focus-visible:ring focus-visible:bg-transparent',
+                !forcePopup && 'lg:px-2 lg:py-1 lg:leading-6 lg:tracking-wide',
+                !forcePopup && 'lg:rounded-md lg:hover:bg-gray-700 lg:active:bg-gray-600 lg:active:text-gray-100',
+            )}
+        >
+            {category.display_name}
+        </a>
     </Link>
 );
 
