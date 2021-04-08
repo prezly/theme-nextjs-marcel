@@ -1,5 +1,6 @@
 import type { FunctionComponent } from 'react';
 import Link from 'next/link';
+import classNames from 'classnames';
 import type { Story } from '@prezly/sdk';
 
 import Icon from '@/components/Icon';
@@ -32,13 +33,24 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-400" />
             </div>
 
-            <h2 className="text-gray-50 text-xl font-bold mb-3 leading-9">{title}</h2>
+            <h2 className="text-gray-50 text-xl font-bold mb-3 leading-9">
+                <Link href={`/${slug}`} passHref>
+                    <a className="hover:underline">
+                        {title}
+                    </a>
+                </Link>
+            </h2>
             {subtitle && (
                 <h3 className="text-gray-300 font-semibold text-lg leading-7">{subtitle}</h3>
             )}
             <p className="mt-6 mb-4">{intro}</p>
             <Link href={`/${slug}`} passHref>
-                <a className="text-blue-400 flex items-center">
+                <a
+                    className={classNames(
+                        'text-blue-400 inline-flex items-center border-b-2 border-transparent',
+                        'hover:text-blue-500 hover:border-blue-500',
+                    )}
+                >
                     Read more
                     <Icon name="arrow-right" className="ml-2" />
                 </a>
