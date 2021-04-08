@@ -12,7 +12,7 @@ type Props = {
 
 const StoryPage: NextPage<Props> = ({ story, categories, newsroom }) => (
     <Layout categories={categories} newsroom={newsroom}>
-        <Story story={story} />
+        <Story story={story} newsroom={newsroom} />
     </Layout>
 );
 

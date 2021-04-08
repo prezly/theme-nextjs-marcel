@@ -1,19 +1,24 @@
 import type { FunctionComponent } from 'react';
-import type { ExtendedStory } from '@prezly/sdk/dist/types';
+import type { ExtendedStory, Newsroom } from '@prezly/sdk/dist/types';
 import SlateRenderer from 'components/SlateRenderer';
 import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 import { StorySeo } from '@/components/seo';
 import CategoryTag from '@/components/CategoryTag';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
+import StoryStickyBar from '@/components/StoryStickyBar';
 import classNames from 'classnames';
 import Image from 'next/image';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
+import SubscriptionForm from '../Sidebar/SubscriptionForm';
+import Boilerplate from '../Sidebar/Boilerplate';
+import SocialLinks from '../Sidebar/SocialLinks';
 
 type Props = {
     story: ExtendedStory;
+    newsroom: Newsroom;
 };
 
-const Story: FunctionComponent<Props> = ({ story }) => {
+const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
     if (!story) {
         return null;
     }
@@ -79,8 +84,20 @@ const Story: FunctionComponent<Props> = ({ story }) => {
                         <SlateRenderer nodes={JSON.parse(content as string)} />
                     )}
                 </div>
-
             </article>
+
+            <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
+                <SubscriptionForm
+                    newsroom={newsroom}
+                    className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
+                />
+                <div>
+                    <Boilerplate newsroom={newsroom} />
+                    <SocialLinks newsroom={newsroom} />
+                </div>
+            </div>
+
+            <StoryStickyBar story={story} />
         </>
     );
 };

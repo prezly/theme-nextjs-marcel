@@ -19,6 +19,7 @@ module.exports = {
         'max-len': ['warn', { code: 120 }],
         'react/react-in-jsx-scope': 'off',
         'react/prop-types': 'off',
+        'react/require-default-props': 'off',
         'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
         'react/jsx-indent': ['error', 4],
         'react/jsx-indent-props': ['error', 4],
