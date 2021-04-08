@@ -40,7 +40,7 @@ const Header: FunctionComponent<Props> = ({ newsroom, categories }) => {
                 </Link>
 
                 {categories && (
-                    <div className="relative flex items-center z-0">
+                    <div className="relative flex items-center z-10">
                         {isMenuOpen && (
                             // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
                             <div

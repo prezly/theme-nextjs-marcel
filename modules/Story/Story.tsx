@@ -38,43 +38,44 @@ const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
         <>
             <StorySeo story={story} />
             <article>
-                <div className="full-width bg-gray-700 py-6 md:py-20 z-0">
-                    {headerImage && (
-                        <Image
-                            src={getAssetsUrl(headerImage.uuid)}
-                            layout="fill"
-                            objectFit="cover"
-                            className="z-[-1]"
-                        />
-                    )}
-
-                    <div className="px-6 md:px-10 lg:max-w-[1200px] lg:mx-auto">
-                        <div className="bg-gray-800 bg-opacity-70 p-6 md:p-10">
+                <div className="full-width bg-gray-700 bg-opacity-30">
+                    <div className="lg:flex lg:max-w-[1600px] lg:mx-auto">
+                        {headerImage && (
+                            <div className="lg:w-1/2 lg:flex-shrink-0 relative min-h-[22rem] lg:min-h-[30rem]">
+                                <Image
+                                    src={getAssetsUrl(headerImage.uuid)}
+                                    layout="fill"
+                                    objectFit="cover"
+                                />
+                            </div>
+                        )}
+                        <div className="flex flex-col p-6 lg:p-10 lg:px-16 lg:flex-grow lg:justify-center">
+                            {!!categories.length && (
+                                <div className="flex mb-3 order-1">
+                                    {categories.map((category) => (
+                                        <CategoryTag category={category} />
+                                    ))}
+                                </div>
+                            )}
                             <h1
                                 className={classNames(
-                                    'text-gray-50 font-extrabold text-3xl mb-8 text-center',
-                                    'md:text-4xl md:text-left',
+                                    'text-gray-50 font-extrabold text-3xl mb-6',
+                                    'md:text-4xl order-3',
                                 )}
                             >
                                 {title}
                             </h1>
 
-                            <div className="flex flex-col md:flex-row items-center">
-                                {!!categories.length && (
-                                    <div className="flex mb-3 md:mb-0 md:mr-6">
-                                        {categories.map((category) => (
-                                            <CategoryTag category={category} />
-                                        ))}
-                                    </div>
-                                )}
-                                <StoryPublicationDate story={story} className="text-gray-200" />
+                            <h3 className="mb-6 text-gray-400 text-lg order-4">{subtitle}</h3>
+
+                            <div className="flex items-center mb-8 order-2 lg:order-5 lg:mb-0">
+                                <StoryPublicationDate story={story} className="text-gray-400" />
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div className="pt-10 lg:max-w-[920px] lg:mx-auto">
-                    <h3 className="mb-10 font-semibold text-gray-300 text-xl">{subtitle}</h3>
                     {format_version === FormatVersion.HTML && (
                         // @ts-expect-error
                         // eslint-disable-next-line react/no-danger
