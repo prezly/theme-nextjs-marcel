@@ -7,5 +7,5 @@
 .prezly-slate-heading-6,
 .prezly-slate-list-item-text,
 .prezly-slate-contact {
-    @apply !text-gray-400;
+    @apply text-gray-400 !important;
 }
