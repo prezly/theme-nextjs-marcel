@@ -9,21 +9,26 @@ type Props = {
     forcePopup?: boolean;
 };
 
-const Categories: FunctionComponent<Props> = ({ categories, forcePopup }) => (
-    <ul
-        className={classNames(
-            !forcePopup && 'lg:flex lg:uppercase lg:items-center',
-        )}
-    >
-        {categories.map((c) => (
-            <li
-                key={c.id}
-                className={classNames(!forcePopup && 'mx-2')}
-            >
-                <CategoryComponent category={c} forcePopup={forcePopup} />
-            </li>
-        ))}
-    </ul>
-);
+const Categories: FunctionComponent<Props> = ({ categories, forcePopup }) => {
+    const isExtendedDisplay = categories.some(({ display_description }) => !!display_description);
+
+    return (
+        <ul
+            className={classNames(
+                !forcePopup && 'lg:flex lg:uppercase lg:items-center',
+                isExtendedDisplay && 'min-w-[300px]',
+            )}
+        >
+            {categories.map((c) => (
+                <li
+                    key={c.id}
+                    className={classNames(!forcePopup && 'mx-2')}
+                >
+                    <CategoryComponent category={c} forcePopup={forcePopup} isExtendedDisplay={isExtendedDisplay} />
+                </li>
+            ))}
+        </ul>
+    );
+};
 
 export default Categories;

@@ -74,7 +74,7 @@ const Header: FunctionComponent<Props> = ({ newsroom, categories }) => {
                                 isMenuOpen && 'bg-gray-700 border border-gray-600 rounded-xl py-1 overflow-hidden min-w-[200px]',
                             )}
                         >
-                            <Categories categories={categories} forcePopup={!canShowCategories} />
+                            <Categories categories={categories} forcePopup={!canShowCategories || isMenuOpen} />
                         </div>
                     </div>
                 )}
