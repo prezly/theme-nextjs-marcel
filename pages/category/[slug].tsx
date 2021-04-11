@@ -5,7 +5,7 @@ import { getPrezlyApi } from '@/utils/prezly';
 import Layout from '@/components/Layout';
 import Stories from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
-import { Category, Newsroom } from '@prezly/sdk/dist/types';
+import { Category, Newsroom, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import { PageSeo } from '@/components/seo';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
 
@@ -15,10 +15,11 @@ type Props = {
     categories: Category[];
     newsroom: Newsroom;
     slug: string;
+    companyInformation?: NewsroomCompanyInformation;
 };
 
 const IndexPage: FunctionComponent<Props> = ({
-    category, stories, categories, slug, newsroom,
+    category, stories, categories, slug, newsroom, companyInformation,
 }) => (
     <>
         <PageSeo
@@ -34,7 +35,7 @@ const IndexPage: FunctionComponent<Props> = ({
                     <h1 className="text-gray-50 font-extrabold mb-12 text-4xl">{category.display_name}</h1>
                     <Stories stories={stories} />
                 </div>
-                <Sidebar newsroom={newsroom} />
+                <Sidebar companyInformation={companyInformation} />
             </div>
         </Layout>
     </>
@@ -46,6 +47,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const categories = await api.getCategories();
     const category = await api.getCategoryBySlug(slug);
     const newsroom = await api.getNewsroom();
+    const companyInformation = await api.getCompanyInformation();
 
     if (!category) {
         return {
@@ -62,6 +64,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
             categories,
             newsroom,
             slug,
+            companyInformation,
         },
     };
 };

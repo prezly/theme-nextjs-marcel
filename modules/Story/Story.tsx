@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react';
-import type { ExtendedStory, Newsroom } from '@prezly/sdk/dist/types';
+import type { ExtendedStory, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import SlateRenderer from 'components/SlateRenderer';
 import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 import { StorySeo } from '@/components/seo';
@@ -16,10 +16,10 @@ import SocialLinks from '../Sidebar/SocialLinks';
 
 type Props = {
     story: ExtendedStory;
-    newsroom: Newsroom;
+    companyInformation?: NewsroomCompanyInformation;
 };
 
-const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
+const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
     if (!story) {
         return null;
     }
@@ -90,12 +90,12 @@ const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
 
             <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
                 <SubscriptionForm
-                    newsroom={newsroom}
+                    companyInformation={companyInformation}
                     className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
                 />
                 <div>
-                    <Boilerplate newsroom={newsroom} />
-                    <SocialLinks newsroom={newsroom} />
+                    <Boilerplate companyInformation={companyInformation} />
+                    <SocialLinks companyInformation={companyInformation} />
                 </div>
             </div>
 

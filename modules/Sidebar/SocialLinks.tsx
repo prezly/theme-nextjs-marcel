@@ -1,11 +1,11 @@
-import { Newsroom } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import Icon from '@/components/Icon';
 
 type Props = {
-    newsroom: Newsroom;
+    companyInformation: NewsroomCompanyInformation;
 };
 
-const SocialLinks = ({ newsroom }: Props) => (
+const SocialLinks = ({ companyInformation }: Props) => (
     <div className="flex items-center">
         <a className="mr-6 text-gray-400 hover:text-blue-400" href="https://discord.com/">
             <Icon name="social-discord" />

@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 import type { Story } from '@prezly/sdk';
-import { Category, Newsroom } from '@prezly/sdk/dist/types';
+import { Category, Newsroom, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import { GetServerSideProps } from 'next';
 
 import { getPrezlyApi } from '@/utils/prezly';
@@ -14,9 +14,12 @@ type Props = {
     stories: Story[];
     categories?: Array<Category>;
     newsroom: Newsroom;
+    companyInformation?: NewsroomCompanyInformation;
 };
 
-const IndexPage: FunctionComponent<Props> = ({ stories, categories, newsroom }) => (
+const IndexPage: FunctionComponent<Props> = ({
+    stories, categories, newsroom, companyInformation,
+}) => (
     <>
         <PageSeo
             title={newsroom.display_name}
@@ -27,7 +30,7 @@ const IndexPage: FunctionComponent<Props> = ({ stories, categories, newsroom }) 
         <Layout categories={categories} newsroom={newsroom}>
             <div className="pt-10 lg:flex lg:flex-nowrap">
                 <Stories stories={stories} />
-                <Sidebar newsroom={newsroom} />
+                <Sidebar companyInformation={companyInformation} />
             </div>
         </Layout>
     </>
@@ -38,9 +41,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     const stories = await api.getStories();
     const categories = await api.getCategories();
     const newsroom = await api.getNewsroom();
+    const companyInformation = await api.getCompanyInformation();
 
     return {
-        props: { stories, categories, newsroom },
+        props: {
+            stories, categories, newsroom, companyInformation,
+        },
     };
 };
 

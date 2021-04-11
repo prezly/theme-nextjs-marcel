@@ -1,12 +1,12 @@
-import { Newsroom } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import classNames from 'classnames';
 
 type Props = {
-    newsroom: Newsroom;
+    companyInformation: NewsroomCompanyInformation;
     className?: string;
 };
 
-const SubscriptionForm = ({ newsroom, className }: Props) => (
+const SubscriptionForm = ({ companyInformation, className }: Props) => (
     <form className={classNames('bg-gray-700 bg-opacity-40 rounded-xl p-6 mb-12', className)}>
         <h3 className="text-lg leading-6 font-bold mb-2 text-gray-200">Subscribe to our newsletter</h3>
         <p className="leading-7 text-gray-400 mb-6">Good news in your inbox weekly. No spam, unsubscribe at anytime.</p>

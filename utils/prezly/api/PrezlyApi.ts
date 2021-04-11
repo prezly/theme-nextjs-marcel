@@ -31,6 +31,22 @@ export default class PrezlyApi {
         return this.newsroom;
     }
 
+    async getNewsroomDefaultLanguage() {
+        const languageSettings = await this.sdk.newsroomLanguages.list(this.newsroomUuid);
+
+        return languageSettings.languages.find(({ is_default }) => !!is_default);
+    }
+
+    async getCompanyInformation() {
+        const languageSettings = await this.getNewsroomDefaultLanguage();
+
+        if (!languageSettings) {
+            return undefined;
+        }
+
+        return languageSettings.company_information;
+    }
+
     async getAllStories(order: SortOrder = DEFAULT_SORT_ORDER) {
         const sortOrder = getSortByPublishedDate(order);
         const newsroom = await this.getNewsroom();
