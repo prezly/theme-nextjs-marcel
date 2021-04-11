@@ -47,8 +47,8 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
-                        'text-blue-400 inline-flex items-center border-b-2 border-transparent',
-                        'hover:text-blue-500 hover:border-blue-500',
+                        'default-link inline-flex items-center border-b-2 border-transparent',
+                        'hover:border-blue-500',
                     )}
                 >
                     Read more

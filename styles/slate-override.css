@@ -1,11 +1,33 @@
-.prezly-slate-paragraph,
-.prezly-slate-heading-1,
-.prezly-slate-heading-2,
-.prezly-slate-heading-3,
-.prezly-slate-heading-4,
-.prezly-slate-heading-5,
-.prezly-slate-heading-6,
-.prezly-slate-list-item-text,
-.prezly-slate-contact {
-    @apply text-gray-400 !important;
+.prezly-slate-document {
+    @apply text-gray-300 text-base leading-7 !important;
+}
+
+.prezly-slate-document .prezly-slate-image {
+    @apply my-16;
+}
+
+.prezly-slate-document .prezly-slate-image--full-width .prezly-slate-image-rollover {
+    @apply lg:max-w-[1280px] lg:mx-auto;
+}
+
+.prezly-slate-document .prezly-slate-image__caption {
+    @apply text-gray-400 not-italic;
+}
+
+.prezly-slate-document > h2,
+.prezly-slate-document > h3,
+.prezly-slate-document > h4 {
+    @apply mt-12 mb-6 font-bold text-gray-50;
+}
+
+.prezly-slate-document > h2 {
+    @apply text-3xl;
+}
+
+.prezly-slate-document > h3 {
+    @apply text-2xl;
+}
+
+.prezly-slate-document > h4 {
+    @apply text-xl;
 }

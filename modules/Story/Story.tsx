@@ -6,6 +6,7 @@ import { StorySeo } from '@/components/seo';
 import CategoryTag from '@/components/CategoryTag';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
 import StoryStickyBar from '@/components/StoryStickyBar';
+import SocialShare from '@/components/SocialShare';
 import classNames from 'classnames';
 import Image from 'next/image';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
@@ -49,9 +50,9 @@ const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
                                 />
                             </div>
                         )}
-                        <div className="flex flex-col p-6 lg:p-10 lg:px-16 lg:flex-grow lg:justify-center">
+                        <div className="flex flex-col p-6 py-10 lg:px-16 lg:flex-grow lg:justify-center">
                             {!!categories.length && (
-                                <div className="flex mb-3 order-1">
+                                <div className="flex mb-3">
                                     {categories.map((category) => (
                                         <CategoryTag category={category} />
                                     ))}
@@ -60,16 +61,17 @@ const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
                             <h1
                                 className={classNames(
                                     'text-gray-50 font-extrabold text-3xl mb-6',
-                                    'md:text-4xl order-3',
+                                    'md:text-4xl',
                                 )}
                             >
                                 {title}
                             </h1>
 
-                            <h3 className="mb-6 text-gray-400 text-lg order-4">{subtitle}</h3>
+                            <h3 className="mb-6 text-gray-400 text-lg">{subtitle}</h3>
 
-                            <div className="flex items-center mb-8 order-2 lg:order-5 lg:mb-0">
-                                <StoryPublicationDate story={story} className="text-gray-400" />
+                            <div className="lg:flex lg:items-center">
+                                <StoryPublicationDate story={story} className="text-gray-400 mb-8 lg:mb-0 lg:mr-6" />
+                                <SocialShare story={story} />
                             </div>
                         </div>
                     </div>
@@ -77,7 +79,6 @@ const Story: FunctionComponent<Props> = ({ story, newsroom }) => {
 
                 <div className="pt-10 lg:max-w-[920px] lg:mx-auto">
                     {format_version === FormatVersion.HTML && (
-                        // @ts-expect-error
                         // eslint-disable-next-line react/no-danger
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                     )}
