@@ -5,6 +5,7 @@ import { GetServerSideProps } from 'next';
 
 import { getPrezlyApi } from '@/utils/prezly';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
+import { NewsroomContext } from '@/utils/prezly/context';
 import Layout from '@/components/Layout';
 import Stories from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
@@ -12,7 +13,7 @@ import { PageSeo } from '@/components/seo';
 
 type Props = {
     stories: Story[];
-    categories?: Array<Category>;
+    categories: Array<Category>;
     newsroom: Newsroom;
     companyInformation?: NewsroomCompanyInformation;
 };
@@ -20,20 +21,20 @@ type Props = {
 const IndexPage: FunctionComponent<Props> = ({
     stories, categories, newsroom, companyInformation,
 }) => (
-    <>
+    <NewsroomContext.Provider value={{ newsroom, categories }}>
         <PageSeo
             title={newsroom.display_name}
             description=""
             url={newsroom.url}
             imageUrl={getAssetsUrl(newsroom.newsroom_logo?.uuid as string)}
         />
-        <Layout categories={categories} newsroom={newsroom}>
+        <Layout>
             <div className="pt-10 lg:flex lg:flex-nowrap">
                 <Stories stories={stories} />
                 <Sidebar companyInformation={companyInformation} />
             </div>
         </Layout>
-    </>
+    </NewsroomContext.Provider>
 );
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {

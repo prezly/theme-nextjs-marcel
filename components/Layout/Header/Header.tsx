@@ -1,22 +1,21 @@
 import { FunctionComponent, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import { Category, Newsroom } from '@prezly/sdk/dist/types';
 
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
+import { useCategories } from '@/utils/prezly/hooks/useCategories';
+import { useNewsroom } from '@/utils/prezly/hooks/useNewsroom';
 import Categories from '@/modules/Categories';
 import Icon from '@/components/Icon';
 
-type Props = {
-    newsroom: Newsroom;
-    categories?: Array<Category>;
-};
-
 const MAX_DISPLAYED_CATEGORIES = 5;
 
-const Header: FunctionComponent<Props> = ({ newsroom, categories }) => {
+const Header: FunctionComponent = () => {
+    const newsroom = useNewsroom();
+    const categories = useCategories();
+
     // TODO: Show logo when Image component from `website-nextjs` repo is extracted to a package
-    const { display_name, newsroom_logo } = newsroom;
+    const { display_name, newsroom_logo } = newsroom || {};
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
