@@ -42,7 +42,7 @@ const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
                 <div className="full-width bg-gray-700 bg-opacity-30">
                     <div className="lg:flex lg:max-w-[1600px] lg:mx-auto">
                         {headerImage && (
-                            <div className="lg:w-1/2 lg:flex-shrink-0 relative min-h-[22rem] lg:min-h-[30rem]">
+                            <div className="lg:w-1/2 lg:flex-shrink-0 relative min-h-[20rem]">
                                 <Image
                                     src={getAssetsUrl(headerImage.uuid)}
                                     layout="fill"
@@ -51,27 +51,29 @@ const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
                             </div>
                         )}
                         <div className="flex flex-col p-6 py-10 lg:px-16 lg:flex-grow lg:justify-center">
-                            {!!categories.length && (
-                                <div className="flex mb-3">
-                                    {categories.map((category) => (
-                                        <CategoryTag category={category} />
-                                    ))}
-                                </div>
-                            )}
-                            <h1
-                                className={classNames(
-                                    'text-gray-50 font-extrabold text-3xl mb-6',
-                                    'md:text-4xl',
+                            <div className={headerImage ? '' : 'lg:max-w-[920px] lg:mx-auto'}>
+                                {!!categories.length && (
+                                    <div className="flex mb-3">
+                                        {categories.map((category) => (
+                                            <CategoryTag category={category} />
+                                        ))}
+                                    </div>
                                 )}
-                            >
-                                {title}
-                            </h1>
+                                <h1
+                                    className={classNames(
+                                        'text-gray-50 font-extrabold text-3xl mb-6',
+                                        'md:text-4xl',
+                                    )}
+                                >
+                                    {title}
+                                </h1>
 
-                            <h3 className="mb-6 text-gray-400 text-lg">{subtitle}</h3>
+                                <h3 className="mb-6 text-gray-400 text-lg">{subtitle}</h3>
 
-                            <div className="lg:flex lg:items-center">
-                                <StoryPublicationDate story={story} className="text-gray-400 mb-8 lg:mb-0 lg:mr-6" />
-                                <SocialShare story={story} />
+                                <div className="lg:flex lg:items-center">
+                                    <StoryPublicationDate story={story} className="text-gray-400 mb-8 lg:mb-0 lg:mr-6" />
+                                    <SocialShare story={story} />
+                                </div>
                             </div>
                         </div>
                     </div>

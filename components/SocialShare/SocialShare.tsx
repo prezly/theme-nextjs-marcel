@@ -1,26 +1,18 @@
 import React, { FunctionComponent } from 'react';
 
 import { Story } from '@prezly/sdk/dist/types';
-import Icon from '../Icon';
+import SocialLink from './SocialLink';
 
 interface Props {
     story: Story;
 }
 
 const SocialShare: FunctionComponent<Props> = ({ story }) => (
-    <div className="flex items-center">
-        <a className="mr-6 text-gray-400 hover:text-blue-400" href="https://discord.com/">
-            <Icon name="social-facebook" />
-        </a>
-        <a className="mr-6 text-gray-400 hover:text-blue-400" href="https://discord.com/">
-            <Icon name="social-instagram" />
-        </a>
-        <a className="mr-6 text-gray-400 hover:text-blue-400" href="https://discord.com/">
-            <Icon name="social-linkedin" />
-        </a>
-        <a className="mr-6 text-gray-400 hover:text-blue-400" href="https://discord.com/">
-            <Icon name="social-twitter" />
-        </a>
+    <div className="flex items-center -mx-1.5 lg:mx-0">
+        <SocialLink iconName="social-facebook" link="https://discord.com/" />
+        <SocialLink iconName="social-instagram" link="https://discord.com/" />
+        <SocialLink iconName="social-linkedin" link="https://discord.com/" />
+        <SocialLink iconName="social-twitter" link="https://discord.com/" />
     </div>
 );
 
