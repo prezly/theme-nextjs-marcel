@@ -63,7 +63,7 @@ const Header: FunctionComponent<Props> = ({ newsroom, categories }) => {
                             )}
                             onClick={toggleMenu}
                         >
-                            <Icon name="menu" />
+                            <Icon name="menu" className="w-3.5 h-3.5" />
                             <span className="hidden md:block uppercase ml-2">Categories</span>
                         </button>
 

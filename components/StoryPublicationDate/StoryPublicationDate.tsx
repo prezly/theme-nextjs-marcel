@@ -20,7 +20,7 @@ const StoryPublicationDate: FunctionComponent<Props> = ({ story, className }) =>
 
     return (
         <div className={classNames('flex items-center', className)}>
-            <Icon name="calendar" className="mr-2" />
+            <Icon name="calendar" className="w-5 h-5 lg:w-4 lg:h-4 mr-2" />
             {publishedDate}
         </div>
     );

@@ -52,7 +52,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                     )}
                 >
                     Read more
-                    <Icon name="arrow-right" className="ml-2" />
+                    <Icon name="arrow-right" className="w-3.5 h-3.5 ml-2" />
                 </a>
             </Link>
         </div>

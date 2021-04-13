@@ -27,7 +27,7 @@ const StoryStickyBar: FunctionComponent<Props> = ({ story }) => {
                         href="https://www.prezly.com/"
                         className="ml-2 text-blue-400 hover:text-blue-500"
                     >
-                        <Icon name="prezly-logo" />
+                        <Icon name="prezly-logo" className="w-auto h-5" />
                     </a>
                 </p>
 
@@ -58,7 +58,7 @@ const StoryStickyBar: FunctionComponent<Props> = ({ story }) => {
                                 'text-center text-blue-400 cursor-pointer',
                             )}
                             >
-                                <Icon name="paste" />
+                                <Icon name="paste" className="w-[1.125rem] h-[1.125rem]" />
                             </div>
                         </div>
                     </div>

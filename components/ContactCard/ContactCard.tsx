@@ -48,25 +48,25 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
                 <div className="mt-6 lg:mt-4 flex flex-col lg:flex-row items-center">
                     {email && (
                         <a href={`mailto:${email}`} className="default-link lg:mr-6 flex items-center">
-                            <Icon name="email" className="transform scale-75 mr-2" />
+                            <Icon name="email" className="w-4 h-4 mr-2" />
                             {email}
                         </a>
                     )}
                     {mobile && (
                         <a href={`tel:${mobile}`} className="default-link lg:mr-6 flex items-center">
-                            <Icon name="phone" className="transform scale-75 mr-2" />
+                            <Icon name="phone" className="w-4 h-4 mr-2" />
                             {mobile}
                         </a>
                     )}
                     {phone && (
                         <a href={`tel:${phone}`} className="default-link lg:mr-6 flex items-center">
-                            <Icon name="phone" className="transform scale-75 mr-2" />
+                            <Icon name="phone" className="w-4 h-4 mr-2" />
                             {phone}
                         </a>
                     )}
                     {twitter && (
                         <a href={`https://twitter.com/${twitter}`} className="default-link lg:mr-6 flex items-center">
-                            <Icon name="social-twitter" className="transform scale-75 mr-2" />
+                            <Icon name="social-twitter" className="w-4 h-4 mr-2" />
                             {`@${twitter}`}
                         </a>
                     )}

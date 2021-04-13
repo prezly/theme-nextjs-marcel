@@ -1,4 +1,5 @@
 import React, { FunctionComponent } from 'react';
+import classNames from 'classnames';
 
 const iconsContext = (require as any).context(
     '!@svgr/webpack!../../public/images/icons',
@@ -19,11 +20,11 @@ interface Props {
     height?: number;
 }
 
-const Icon: FunctionComponent<Props> = ({ name, ...restProps }) => {
+const Icon: FunctionComponent<Props> = ({ name, className, ...restProps }) => {
     const iconFilename = `icon-${name}.svg`;
     const IconComponent = icons[iconFilename] || null;
     // eslint-disable-next-line react/jsx-props-no-spreading
-    return IconComponent ? <IconComponent {...restProps} /> : null;
+    return IconComponent ? <IconComponent {...restProps} className={classNames('svg-icon', className)} /> : null;
 };
 
 export default Icon;
