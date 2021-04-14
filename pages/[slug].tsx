@@ -5,7 +5,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { getPrezlyApi } from '@/utils/prezly';
 import Story from '@/modules/Story';
 import Layout from '@/components/Layout';
-import { NewsroomContext } from '@/utils/prezly/context';
+import { NewsroomContext } from '@/contexts/newsroom';
 
 type Props = {
     story: ExtendedStory;

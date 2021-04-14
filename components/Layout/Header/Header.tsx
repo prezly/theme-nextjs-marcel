@@ -3,8 +3,8 @@ import Link from 'next/link';
 import classNames from 'classnames';
 
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
-import { useCategories } from '@/utils/prezly/hooks/useCategories';
-import { useNewsroom } from '@/utils/prezly/hooks/useNewsroom';
+import { useCategories } from '@/hooks/useCategories';
+import { useNewsroom } from '@/hooks/useNewsroom';
 import Categories from '@/modules/Categories';
 import Icon from '@/components/Icon';
 

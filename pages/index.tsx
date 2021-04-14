@@ -5,7 +5,7 @@ import { GetServerSideProps } from 'next';
 
 import { getPrezlyApi } from '@/utils/prezly';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
-import { NewsroomContext } from '@/utils/prezly/context';
+import { NewsroomContext } from '@/contexts/newsroom';
 import Layout from '@/components/Layout';
 import Stories from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';

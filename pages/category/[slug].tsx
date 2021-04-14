@@ -8,7 +8,7 @@ import Sidebar from '@/modules/Sidebar';
 import { Category, Newsroom, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import { PageSeo } from '@/components/seo';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
-import { NewsroomContext } from '@/utils/prezly/context';
+import { NewsroomContext } from '@/contexts/newsroom';
 
 type Props = {
     stories: Story[];
