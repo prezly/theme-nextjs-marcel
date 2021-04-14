@@ -1,8 +1,9 @@
 import type { FunctionComponent } from 'react';
 import type { Story } from '@prezly/sdk';
-import { Category, Newsroom, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import { GetServerSideProps } from 'next';
 
+import { BasePageProps } from 'types';
 import { getPrezlyApi } from '@/utils/prezly';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
 import { NewsroomContextProvider } from '@/contexts/newsroom';
@@ -11,12 +12,10 @@ import Stories from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
 import { PageSeo } from '@/components/seo';
 
-type Props = {
+interface Props extends BasePageProps {
     stories: Story[];
-    categories: Category[];
-    newsroom: Newsroom;
     companyInformation?: NewsroomCompanyInformation;
-};
+}
 
 const IndexPage: FunctionComponent<Props> = ({
     stories, categories, newsroom, companyInformation,

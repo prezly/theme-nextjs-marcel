@@ -5,19 +5,18 @@ import { getPrezlyApi } from '@/utils/prezly';
 import Layout from '@/components/Layout';
 import Stories from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
-import { Category, Newsroom, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { Category, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import { PageSeo } from '@/components/seo';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
 import { NewsroomContextProvider } from '@/contexts/newsroom';
+import { BasePageProps } from 'types';
 
-type Props = {
+interface Props extends BasePageProps {
     stories: Story[];
     category: Category;
-    categories: Category[];
-    newsroom: Newsroom;
     slug: string;
     companyInformation?: NewsroomCompanyInformation;
-};
+}
 
 const IndexPage: FunctionComponent<Props> = ({
     category, stories, categories, slug, newsroom, companyInformation,
@@ -39,7 +38,7 @@ const IndexPage: FunctionComponent<Props> = ({
                 <Sidebar companyInformation={companyInformation} />
             </div>
         </Layout>
-    </NewsroomContext.Provider>
+    </NewsroomContextProvider>
 );
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
