@@ -15,13 +15,22 @@ interface Props extends BasePageProps {
     stories: Story[];
     category: Category;
     slug: string;
-    companyInformation?: NewsroomCompanyInformation;
+    companyInformation: NewsroomCompanyInformation;
 }
 
 const IndexPage: FunctionComponent<Props> = ({
-    category, stories, categories, slug, newsroom, companyInformation,
+    category,
+    stories,
+    categories,
+    slug,
+    newsroom,
+    companyInformation,
 }) => (
-    <NewsroomContextProvider categories={categories} newsroom={newsroom}>
+    <NewsroomContextProvider
+        categories={categories}
+        newsroom={newsroom}
+        companyInformation={companyInformation}
+    >
         <PageSeo
             title={category.display_name}
             description={category.display_description as string}

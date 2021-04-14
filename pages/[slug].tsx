@@ -10,13 +10,17 @@ import { BasePageProps } from 'types';
 
 interface Props extends BasePageProps {
     story: ExtendedStory;
-    companyInformation?: NewsroomCompanyInformation;
+    companyInformation: NewsroomCompanyInformation;
 }
 
 const StoryPage: NextPage<Props> = ({
     story, categories, newsroom, companyInformation,
 }) => (
-    <NewsroomContextProvider categories={categories} newsroom={newsroom}>
+    <NewsroomContextProvider
+        categories={categories}
+        newsroom={newsroom}
+        companyInformation={companyInformation}
+    >
         <Layout>
             <Story story={story} companyInformation={companyInformation} />
         </Layout>
@@ -38,7 +42,10 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     return {
         props: {
-            story, categories, newsroom, companyInformation,
+            story,
+            categories,
+            newsroom,
+            companyInformation,
         },
     };
 };
