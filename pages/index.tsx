@@ -13,7 +13,7 @@ import { PageSeo } from '@/components/seo';
 
 type Props = {
     stories: Story[];
-    categories: Array<Category>;
+    categories: Category[];
     newsroom: Newsroom;
     companyInformation?: NewsroomCompanyInformation;
 };
