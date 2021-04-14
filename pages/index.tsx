@@ -14,13 +14,20 @@ import { PageSeo } from '@/components/seo';
 
 interface Props extends BasePageProps {
     stories: Story[];
-    companyInformation?: NewsroomCompanyInformation;
+    companyInformation: NewsroomCompanyInformation;
 }
 
 const IndexPage: FunctionComponent<Props> = ({
-    stories, categories, newsroom, companyInformation,
+    stories,
+    categories,
+    newsroom,
+    companyInformation,
 }) => (
-    <NewsroomContextProvider categories={categories} newsroom={newsroom}>
+    <NewsroomContextProvider
+        categories={categories}
+        newsroom={newsroom}
+        companyInformation={companyInformation}
+    >
         <PageSeo
             title={newsroom.display_name}
             description=""
@@ -45,7 +52,10 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
 
     return {
         props: {
-            stories, categories, newsroom, companyInformation,
+            stories,
+            categories,
+            newsroom,
+            companyInformation,
         },
     };
 };
