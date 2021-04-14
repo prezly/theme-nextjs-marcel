@@ -5,7 +5,7 @@ import { GetServerSideProps, NextPage } from 'next';
 import { getPrezlyApi } from '@/utils/prezly';
 import Story from '@/modules/Story';
 import Layout from '@/components/Layout';
-import { NewsroomContext } from '@/contexts/newsroom';
+import { NewsroomContextProvider } from '@/contexts/newsroom';
 
 type Props = {
     story: ExtendedStory;
@@ -17,11 +17,11 @@ type Props = {
 const StoryPage: NextPage<Props> = ({
     story, categories, newsroom, companyInformation,
 }) => (
-    <NewsroomContext.Provider value={{ categories, newsroom }}>
+    <NewsroomContextProvider categories={categories} newsroom={newsroom}>
         <Layout>
             <Story story={story} companyInformation={companyInformation} />
         </Layout>
-    </NewsroomContext.Provider>
+    </NewsroomContextProvider>
 );
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
