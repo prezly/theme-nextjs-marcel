@@ -23,10 +23,10 @@ interface Props {
 
 const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
     [BULLETED_LIST_NODE_TYPE]: ({ children }) => (
-        <ul className="list-disc pl-6 my-6">{children}</ul>
+        <ul className="list-disc pl-6 my-4">{children}</ul>
     ),
     [NUMBERED_LIST_NODE_TYPE]: ({ children }) => (
-        <ol className="list-decimal">{children}</ol>
+        <ol className="list-decimal pl-6 my-4">{children}</ol>
     ),
     [LIST_ITEM_NODE_TYPE]: ({ children }) => <li>{children}</li>,
     [LIST_ITEM_TEXT_NODE_TYPE]: ({ children }) => <>{children}</>,
@@ -48,9 +48,9 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
     [LINK_NODE_TYPE]: ({ children, node }) => (
         <a href={node.href} className="default-link hover:underline">{children}</a>
     ),
-    [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-6">{children}</p>,
+    [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3">{children}</p>,
     [QUOTE_NODE_TYPE]: ({ children }) => <blockquote>{children}</blockquote>,
-    [DIVIDER_NODE_TYPE]: () => <hr className="" />,
+    [DIVIDER_NODE_TYPE]: () => <hr className="my-10 border-gray-500" />,
     [CONTACT_NODE_TYPE]: ({ node }) => <ContactCard contact={node.contact} />,
 });
 

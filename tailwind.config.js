@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme');
+
 module.exports = {
     // Read more about JIT functionality @ https://tailwindcss.com/docs/just-in-time-mode
     mode: 'jit',
@@ -8,6 +10,11 @@ module.exports = {
     ],
     darkMode: false, // or 'media' or 'class'
     theme: {
+        fontSize: {
+            ...defaultTheme.fontSize,
+            '3xl': ['1.75rem', '2.5rem'],
+            '4xl': ['2rem', '3rem'],
+        },
         extend: {},
     },
     variants: {

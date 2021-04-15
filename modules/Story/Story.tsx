@@ -62,7 +62,7 @@ const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
                                 <h1
                                     className={classNames(
                                         'text-gray-50 font-extrabold text-3xl mb-6',
-                                        'md:text-4xl',
+                                        'lg:text-4xl',
                                     )}
                                 >
                                     {title}
@@ -71,7 +71,10 @@ const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
                                 <h3 className="mb-6 text-gray-400 text-lg">{subtitle}</h3>
 
                                 <div className="lg:flex lg:items-center">
-                                    <StoryPublicationDate story={story} className="text-gray-400 mb-8 lg:mb-0 lg:mr-6" />
+                                    <StoryPublicationDate
+                                        story={story}
+                                        className="text-gray-400 mb-8 lg:mb-0 lg:mr-6"
+                                    />
                                     <SocialShare story={story} />
                                 </div>
                             </div>
@@ -90,16 +93,18 @@ const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
                 </div>
             </article>
 
-            <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
-                <SubscriptionForm
-                    companyInformation={companyInformation}
-                    className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
-                />
-                <div>
-                    <Boilerplate companyInformation={companyInformation} />
-                    <SocialLinks companyInformation={companyInformation} />
+            {companyInformation && (
+                <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
+                    <SubscriptionForm
+                        companyInformation={companyInformation}
+                        className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
+                    />
+                    <div>
+                        <Boilerplate companyInformation={companyInformation} />
+                        <SocialLinks companyInformation={companyInformation} />
+                    </div>
                 </div>
-            </div>
+            )}
 
             <StoryStickyBar story={story} />
         </>
