@@ -5,7 +5,7 @@ import { getPrezlyApi } from '@/utils/prezly';
 import Layout from '@/components/Layout';
 import Stories from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
-import { Category, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { Category } from '@prezly/sdk/dist/types';
 import { PageSeo } from '@/components/seo';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
 import { NewsroomContextProvider } from '@/contexts/newsroom';
@@ -15,7 +15,6 @@ interface Props extends BasePageProps {
     stories: Story[];
     category: Category;
     slug: string;
-    companyInformation: NewsroomCompanyInformation;
 }
 
 const IndexPage: FunctionComponent<Props> = ({

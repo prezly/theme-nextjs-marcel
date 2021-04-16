@@ -1,6 +1,5 @@
 import type { FunctionComponent } from 'react';
 import type { Story } from '@prezly/sdk';
-import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
 import { GetServerSideProps } from 'next';
 
 import { BasePageProps } from 'types';
@@ -14,7 +13,6 @@ import { PageSeo } from '@/components/seo';
 
 interface Props extends BasePageProps {
     stories: Story[];
-    companyInformation: NewsroomCompanyInformation;
 }
 
 const IndexPage: FunctionComponent<Props> = ({

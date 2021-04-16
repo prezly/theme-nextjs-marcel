@@ -1,6 +1,4 @@
-import type {
-    ExtendedStory, NewsroomCompanyInformation,
-} from '@prezly/sdk/dist/types';
+import type { ExtendedStory } from '@prezly/sdk/dist/types';
 import { GetServerSideProps, NextPage } from 'next';
 import { getPrezlyApi } from '@/utils/prezly';
 import Story from '@/modules/Story';
@@ -10,7 +8,6 @@ import { BasePageProps } from 'types';
 
 interface Props extends BasePageProps {
     story: ExtendedStory;
-    companyInformation: NewsroomCompanyInformation;
 }
 
 const StoryPage: NextPage<Props> = ({
