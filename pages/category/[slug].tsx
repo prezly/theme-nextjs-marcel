@@ -29,6 +29,7 @@ const IndexPage: FunctionComponent<Props> = ({
         categories={categories}
         newsroom={newsroom}
         companyInformation={companyInformation}
+        selectedCategory={category}
     >
         <PageSeo
             title={category.display_name}
@@ -43,7 +44,7 @@ const IndexPage: FunctionComponent<Props> = ({
                     <h1 className="text-gray-50 font-extrabold mb-12 text-4xl">{category.display_name}</h1>
                     <Stories stories={stories} />
                 </div>
-                <Sidebar companyInformation={companyInformation} />
+                <Sidebar />
             </div>
         </Layout>
     </NewsroomContextProvider>

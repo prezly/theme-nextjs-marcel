@@ -19,7 +19,7 @@ const StoryPage: NextPage<Props> = ({
         companyInformation={companyInformation}
     >
         <Layout>
-            <Story story={story} companyInformation={companyInformation} />
+            <Story story={story} />
         </Layout>
     </NewsroomContextProvider>
 );

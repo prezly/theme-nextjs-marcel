@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react';
-import type { ExtendedStory, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import type { ExtendedStory } from '@prezly/sdk/dist/types';
 import SlateRenderer from 'components/SlateRenderer';
 import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 import { StorySeo } from '@/components/seo';
@@ -10,16 +10,18 @@ import SocialShare from '@/components/SocialShare';
 import classNames from 'classnames';
 import Image from 'next/image';
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
+import { useCompanyInformation } from '@/hooks/useCompanyInformation';
 import SubscriptionForm from '../Sidebar/SubscriptionForm';
 import Boilerplate from '../Sidebar/Boilerplate';
 import SocialLinks from '../Sidebar/SocialLinks';
 
 type Props = {
     story: ExtendedStory;
-    companyInformation?: NewsroomCompanyInformation;
 };
 
-const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
+const Story: FunctionComponent<Props> = ({ story }) => {
+    const companyInformation = useCompanyInformation();
+
     if (!story) {
         return null;
     }
