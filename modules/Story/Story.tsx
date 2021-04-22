@@ -55,7 +55,7 @@ const Story: FunctionComponent<Props> = ({ story, companyInformation }) => {
                                 {!!categories.length && (
                                     <div className="flex mb-3">
                                         {categories.map((category) => (
-                                            <CategoryTag category={category} />
+                                            <CategoryTag key={category.id} category={category} />
                                         ))}
                                     </div>
                                 )}
