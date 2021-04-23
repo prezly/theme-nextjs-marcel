@@ -12,11 +12,13 @@ import {
     QUOTE_NODE_TYPE,
     DIVIDER_NODE_TYPE,
     CONTACT_NODE_TYPE,
+    ATTACHMENT_NODE_TYPE,
 } from '@prezly/slate-types';
 import '@prezly/slate-renderer/build/styles.css';
 
 import Icon from '@/components/Icon';
 import ContactCard from '@/components/ContactCard';
+import Attachment from '../Attachment';
 
 interface Props {
     nodes: Node | Node[];
@@ -59,6 +61,7 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
     ),
     [DIVIDER_NODE_TYPE]: () => <hr className="my-10 border-gray-500" />,
     [CONTACT_NODE_TYPE]: ({ node }) => <ContactCard contact={node.contact} />,
+    [ATTACHMENT_NODE_TYPE]: ({ node }) => <Attachment file={node.file} description={node.description} />,
 });
 
 const SlateRenderer: FunctionComponent<Props> = ({ nodes }) => <Renderer nodes={nodes} options={getDefaultOptions()} />;
