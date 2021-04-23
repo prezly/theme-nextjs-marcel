@@ -15,6 +15,7 @@ import {
 } from '@prezly/slate-types';
 import '@prezly/slate-renderer/build/styles.css';
 
+import Icon from '@/components/Icon';
 import ContactCard from '@/components/ContactCard';
 
 interface Props {
@@ -49,7 +50,13 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
         <a href={node.href} className="text-gray-200 underline hover:text-blue-400 active:text-blue-500">{children}</a>
     ),
     [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3">{children}</p>,
-    [QUOTE_NODE_TYPE]: ({ children }) => <blockquote>{children}</blockquote>,
+    [QUOTE_NODE_TYPE]: ({ children }) => (
+        <blockquote className="story-blockquote">
+            <Icon name="quote" className="story-blockquote-icon" />
+            <span className="my-4 md:my-0 md:mx-4">{children}</span>
+            <Icon name="quote" className="story-blockquote-icon story-blockquote-icon--inverted" />
+        </blockquote>
+    ),
     [DIVIDER_NODE_TYPE]: () => <hr className="my-10 border-gray-500" />,
     [CONTACT_NODE_TYPE]: ({ node }) => <ContactCard contact={node.contact} />,
 });

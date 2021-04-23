@@ -84,7 +84,7 @@ const Story: FunctionComponent<Props> = ({ story }) => {
                     </div>
                 </div>
 
-                <div className="pt-10 lg:max-w-[920px] lg:mx-auto">
+                <div className="pt-10 py-6 lg:max-w-[920px] lg:mx-auto">
                     {format_version === FormatVersion.HTML && (
                         // eslint-disable-next-line react/no-danger
                         <div dangerouslySetInnerHTML={{ __html: content }} />
