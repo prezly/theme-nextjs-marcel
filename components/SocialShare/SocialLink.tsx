@@ -8,7 +8,7 @@ interface Props {
 }
 
 const SocialLink: FunctionComponent<Props> = ({ iconName, link }) => (
-    <a className="mr-5 p-1.5 text-gray-400 hover:text-blue-400" href={link}>
+    <a className="mr-5 p-1.5 text-gray-400 hover:text-blue-400 active:text-blue-500" href={link}>
         <Icon name={iconName} className="w-7 h-7 lg:w-4 lg:h-4" />
     </a>
 );

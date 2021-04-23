@@ -46,7 +46,7 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
         return <h2>{children}</h2>;
     },
     [LINK_NODE_TYPE]: ({ children, node }) => (
-        <a href={node.href} className="default-link hover:underline">{children}</a>
+        <a href={node.href} className="text-gray-200 underline hover:text-blue-400 active:text-blue-500">{children}</a>
     ),
     [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3">{children}</p>,
     [QUOTE_NODE_TYPE]: ({ children }) => <blockquote>{children}</blockquote>,

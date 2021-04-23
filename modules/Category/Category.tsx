@@ -15,6 +15,7 @@ const CategoryComponent = ({ category, forcePopup, isExtendedDisplay }: Props) =
             className={classNames(
                 'px-4 leading-7 block',
                 'hover:bg-gray-600 focus-visible:bg-gray-600',
+                'active:bg-gray-500',
                 'focus-visible:ring focus-visible:ring-inset focus-visible:ring-4',
                 'focus-visible:ring-blue-300 focus:outline-none',
                 !forcePopup && 'lg:focus-visible:ring focus-visible:bg-transparent',

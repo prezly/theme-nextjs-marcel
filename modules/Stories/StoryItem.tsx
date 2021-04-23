@@ -35,7 +35,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
 
             <h2 className="text-gray-50 text-xl font-bold mb-3 leading-9">
                 <Link href={`/${slug}`} passHref>
-                    <a className="hover:underline">
+                    <a className="hover:underline hover:text-blue-300 active:text-blue-400">
                         {title}
                     </a>
                 </Link>

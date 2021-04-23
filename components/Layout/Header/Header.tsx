@@ -20,6 +20,7 @@ const Header: FunctionComponent = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const toggleMenu = () => setIsMenuOpen((o) => !o);
+    const closeMenu = () => setIsMenuOpen(false);
 
     const canShowCategories = categories && categories.length <= MAX_DISPLAYED_CATEGORIES;
 
@@ -73,7 +74,11 @@ const Header: FunctionComponent = () => {
                                 isMenuOpen && 'bg-gray-700 border border-gray-600 rounded-xl py-1 overflow-hidden min-w-[200px]',
                             )}
                         >
-                            <Categories categories={categories} forcePopup={!canShowCategories || isMenuOpen} />
+                            <Categories
+                                categories={categories}
+                                forcePopup={!canShowCategories || isMenuOpen}
+                                onClosePopup={closeMenu}
+                            />
                         </div>
                     </div>
                 )}

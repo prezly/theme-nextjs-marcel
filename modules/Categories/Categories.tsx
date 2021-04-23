@@ -7,9 +7,10 @@ import CategoryComponent from '../Category';
 type Props = {
     categories: Category[];
     forcePopup?: boolean;
+    onClosePopup?: () => void;
 };
 
-const Categories: FunctionComponent<Props> = ({ categories, forcePopup }) => {
+const Categories: FunctionComponent<Props> = ({ categories, forcePopup, onClosePopup }) => {
     const isExtendedDisplay = categories.some(({ display_description }) => !!display_description);
 
     return (
@@ -20,9 +21,12 @@ const Categories: FunctionComponent<Props> = ({ categories, forcePopup }) => {
             )}
         >
             {categories.map((c) => (
+                // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <li
                     key={c.id}
                     className={classNames(!forcePopup && 'mx-2')}
+                    role="menuitem"
+                    onClick={onClosePopup}
                 >
                     <CategoryComponent category={c} forcePopup={forcePopup} isExtendedDisplay={isExtendedDisplay} />
                 </li>

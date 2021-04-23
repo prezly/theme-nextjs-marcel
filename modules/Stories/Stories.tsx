@@ -13,7 +13,7 @@ const Stories: FunctionComponent<Props> = ({ stories }) => (
             <p className="text-2xl text-center py-10">No stories here yet.</p>
         )}
         {stories.map((story) => (
-            <StoryItem key={story.id} story={story} />
+            <StoryItem key={story.uuid} story={story} />
         ))}
     </div>
 );

@@ -35,7 +35,7 @@ const IndexPage: FunctionComponent<Props> = ({
         <Layout>
             <div className="pt-10 lg:flex lg:flex-nowrap">
                 <Stories stories={stories} />
-                <Sidebar companyInformation={companyInformation} />
+                <Sidebar />
             </div>
         </Layout>
     </NewsroomContextProvider>
