@@ -30,7 +30,13 @@ module.exports = {
                 tsx: 'never',
             },
         ],
-        indent: ['error', 4],
+        indent: [
+            'error',
+            4,
+            {
+                SwitchCase: 1,
+            },
+        ],
         '@typescript-eslint/naming-convention': [
             'warn',
             {
