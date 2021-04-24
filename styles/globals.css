@@ -14,12 +14,11 @@
     ** and stretches to the entire screen width 
     */
     .full-width {
-        width: 100vw;
-        position: relative;
-        left: 50%;
-        right: 50%;
-        margin-left: -50vw;
-        margin-right: -50vw;
+        @apply w-screen relative left-1/2 right-1/2 ml-[-50vw] mr-[-50vw];
+    }
+
+    .lg\:full-width {
+        @apply lg:w-screen lg:relative lg:left-1/2 lg:right-1/2 lg:ml-[-50vw] lg:mr-[-50vw];
     }
 
     .default-link {

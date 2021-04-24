@@ -45,10 +45,10 @@ const StoryStickyBar: FunctionComponent<Props> = ({ story }) => {
     };
 
     return (
-        <div className="full-width lg:fixed lg:bottom-0 lg:bg-gray-800">
+        <div className="lg:full-width lg:fixed lg:bottom-0 lg:bg-gray-800">
             <div
                 className={classNames(
-                    'lg:max-w-[1280px] lg:mx-auto px-6 lg:px-12 mb-60 lg:mb-0',
+                    'lg:max-w-[1280px] lg:mx-auto lg:px-12 mb-10 lg:mb-0',
                     'lg:py-7 lg:flex lg:items-center lg:justify-between',
                 )}
             >

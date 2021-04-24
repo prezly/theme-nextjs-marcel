@@ -7,7 +7,7 @@ const Sidebar = () => {
     const companyInformation = useCompanyInformation();
 
     return (
-        <div className="mb-72 lg:mb-0 lg:w-80 lg:flex-shrink-0 lg:ml-16">
+        <div className="mb-16 lg:mb-0 lg:w-80 lg:flex-shrink-0 lg:ml-16">
             {companyInformation && (
                 <>
                     <SubscriptionForm companyInformation={companyInformation} />
