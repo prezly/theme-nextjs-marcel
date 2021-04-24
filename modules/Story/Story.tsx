@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 import type { ExtendedStory } from '@prezly/sdk/dist/types';
-import SlateRenderer from 'components/SlateRenderer';
+import SlateRenderer from '@/components/SlateRenderer';
 import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 import { StorySeo } from '@/components/seo';
 import CategoryTag from '@/components/CategoryTag';
@@ -90,7 +90,7 @@ const Story: FunctionComponent<Props> = ({ story }) => {
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                     )}
                     {format_version === FormatVersion.SLATEJS && (
-                        <SlateRenderer nodes={JSON.parse(content as string)} />
+                        <SlateRenderer nodes={JSON.parse(content)} />
                     )}
                 </div>
             </article>

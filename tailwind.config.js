@@ -1,4 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 const defaultTheme = require('tailwindcss/defaultTheme');
+const lineClampPlugin = require('@tailwindcss/line-clamp');
 
 module.exports = {
     // Read more about JIT functionality @ https://tailwindcss.com/docs/just-in-time-mode
@@ -20,5 +22,7 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [],
+    plugins: [
+        lineClampPlugin,
+    ],
 };

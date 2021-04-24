@@ -1,10 +1,10 @@
 import type { FunctionComponent } from 'react';
-import type { Story } from '@prezly/sdk';
 
 import StoryItem from './StoryItem';
+import { StoryWithContent } from './types';
 
 type Props = {
-    stories: Story[];
+    stories: StoryWithContent[];
 };
 
 const Stories: FunctionComponent<Props> = ({ stories }) => (

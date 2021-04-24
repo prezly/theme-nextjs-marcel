@@ -4,12 +4,19 @@ import PrezlySDK, {
     StoriesSearchRequest,
 } from '@prezly/sdk';
 import { Category, Newsroom } from '@prezly/sdk/dist/types';
+import { ExtraStoryFields } from '@prezly/sdk/dist/types/Story';
 import { getSlugQuery, getSortByPublishedDate, getStoriesQuery } from './queries';
 
 const DEFAULT_STORIES_COUNT = 6;
 const DEFAULT_SORT_ORDER: SortOrder = 'desc';
 
 type SortOrder = 'desc' | 'asc';
+
+interface GetStoriesOptions {
+    limit?: number;
+    order?: SortOrder;
+    include?: (keyof ExtraStoryFields)[];
+}
 
 export default class PrezlyApi {
     private readonly sdk: PrezlySDK;
@@ -67,16 +74,22 @@ export default class PrezlyApi {
         return stories;
     }
 
-    async getStories(limit = DEFAULT_STORIES_COUNT, order: SortOrder = DEFAULT_SORT_ORDER) {
+    async getStories({
+        limit = DEFAULT_STORIES_COUNT,
+        order = DEFAULT_SORT_ORDER,
+        include,
+    }: GetStoriesOptions = {}) {
         const sortOrder = getSortByPublishedDate(order);
         const jsonQuery = JSON.stringify(getStoriesQuery(this.newsroomUuid));
 
-        const { stories } = await this.searchStories({ limit, sortOrder, jsonQuery });
+        const { stories } = await this.searchStories({
+            limit, sortOrder, include, jsonQuery,
+        });
         return stories;
     }
 
-    async getStoriesExtended(limit = DEFAULT_STORIES_COUNT, order: SortOrder = 'desc') {
-        const stories = await this.getStories(limit, order);
+    async getStoriesExtended(limit = DEFAULT_STORIES_COUNT, order: SortOrder = DEFAULT_SORT_ORDER) {
+        const stories = await this.getStories({ limit, order });
         const extendedStoriesPromises = stories.map((story) => this.getStory(story.id));
 
         return Promise.all(extendedStoriesPromises);
@@ -87,7 +100,7 @@ export default class PrezlyApi {
         limit = DEFAULT_STORIES_COUNT,
         order: SortOrder = DEFAULT_SORT_ORDER,
     ) {
-        const stories = await this.getStoriesFromCategory(category, limit, order);
+        const stories = await this.getStoriesFromCategory(category, { limit, order });
         const extendedStoriesPromises = stories?.map((story) => this.getStory(story.id)) || [];
 
         return Promise.all(extendedStoriesPromises);
@@ -95,13 +108,18 @@ export default class PrezlyApi {
 
     async getStoriesFromCategory(
         category: Category,
-        limit = DEFAULT_STORIES_COUNT,
-        order: SortOrder = DEFAULT_SORT_ORDER,
+        {
+            limit = DEFAULT_STORIES_COUNT,
+            order = DEFAULT_SORT_ORDER,
+            include,
+        }: GetStoriesOptions = {},
     ) {
         const sortOrder = getSortByPublishedDate(order);
         const jsonQuery = JSON.stringify(getStoriesQuery(this.newsroomUuid, category.id));
 
-        const { stories } = await this.searchStories({ limit, sortOrder, jsonQuery });
+        const { stories } = await this.searchStories({
+            limit, sortOrder, include, jsonQuery,
+        });
 
         return stories;
     }
@@ -132,7 +150,7 @@ export default class PrezlyApi {
         return categories.find((category) => Object.values(category.i18n).some((t) => t.slug === slug));
     }
 
-    searchStories(options: StoriesSearchRequest) {
+    searchStories<Include extends readonly (keyof ExtraStoryFields)[]>(options: StoriesSearchRequest<Include>) {
         return this.sdk.stories.search(options);
     }
 }

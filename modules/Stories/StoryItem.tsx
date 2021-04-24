@@ -1,14 +1,15 @@
 import type { FunctionComponent } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import type { Story } from '@prezly/sdk';
 
 import Icon from '@/components/Icon';
 import CategoryTag from '@/components/CategoryTag';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
+import getStoryExcerpt from './lib/getStoryExcerpt';
+import { StoryWithContent } from './types';
 
 type Props = {
-    story: Story;
+    story: StoryWithContent;
 };
 
 const StoryItem: FunctionComponent<Props> = ({ story }) => {
@@ -16,9 +17,10 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
         categories,
         title,
         subtitle,
-        intro,
         slug,
     } = story;
+
+    const excerpt = getStoryExcerpt(story);
 
     return (
         <div className="mb-16">
@@ -43,7 +45,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
             {subtitle && (
                 <h3 className="text-gray-300 font-semibold text-lg leading-7">{subtitle}</h3>
             )}
-            <p className="mt-6 mb-4">{intro}</p>
+            <div className="mt-6 mb-4 text-gray-400 line-clamp-3">{excerpt}</div>
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(

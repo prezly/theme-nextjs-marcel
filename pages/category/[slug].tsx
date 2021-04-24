@@ -1,9 +1,8 @@
 import type { FunctionComponent } from 'react';
-import type { Story } from '@prezly/sdk';
 import { GetServerSideProps } from 'next';
 import { getPrezlyApi } from '@/utils/prezly';
 import Layout from '@/components/Layout';
-import Stories from '@/modules/Stories';
+import Stories, { StoryWithContent } from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
 import { Category } from '@prezly/sdk/dist/types';
 import { PageSeo } from '@/components/seo';
@@ -12,7 +11,7 @@ import { NewsroomContextProvider } from '@/contexts/newsroom';
 import { BasePageProps } from 'types';
 
 interface Props extends BasePageProps {
-    stories: Story[];
+    stories: StoryWithContent[];
     category: Category;
     slug: string;
 }
@@ -67,11 +66,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         };
     }
 
-    const stories = await api.getStoriesFromCategory(category);
+    const stories = await api.getStoriesFromCategory(category, { include: ['content'] });
 
     return {
         props: {
-            stories,
+            // TODO: This is temporary until return types from API are figured out
+            stories: stories as StoryWithContent[],
             category,
             categories,
             newsroom,
