@@ -1,4 +1,3 @@
-import { Story } from '@prezly/sdk/dist/types';
-import { ExtraStoryFields } from '@prezly/sdk/dist/types/Story';
+import { Story, ExtraStoryFields } from '@prezly/sdk';
 
 export type StoryWithContent = Story & Pick<ExtraStoryFields, 'content'>;

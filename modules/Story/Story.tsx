@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
-import type { ExtendedStory } from '@prezly/sdk/dist/types';
-import { FormatVersion } from '@prezly/sdk/dist/types/Story';
+import type { ExtendedStory } from '@prezly/sdk';
+import type { FormatVersion } from '@prezly/sdk/dist/types/Story';
 
 import { useCompanyInformation } from '@/hooks/useCompanyInformation';
 import SlateRenderer from '@/components/SlateRenderer';

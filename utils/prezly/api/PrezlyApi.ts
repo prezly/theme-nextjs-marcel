@@ -2,9 +2,10 @@ import PrezlySDK, {
     NewsroomCompanyInformation,
     NewsroomLanguageSettings,
     StoriesSearchRequest,
+    ExtraStoryFields,
 } from '@prezly/sdk';
 import { Category, Newsroom } from '@prezly/sdk/dist/types';
-import { ExtraStoryFields } from '@prezly/sdk/dist/types/Story';
+
 import { getSlugQuery, getSortByPublishedDate, getStoriesQuery } from './queries';
 
 const DEFAULT_STORIES_COUNT = 6;

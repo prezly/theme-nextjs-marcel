@@ -1,5 +1,5 @@
-import { Story } from '@prezly/sdk/dist/types';
-import { ExtraStoryFields, FormatVersion } from '@prezly/sdk/dist/types/Story';
+import { Story, ExtraStoryFields } from '@prezly/sdk';
+import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 import { Node } from '@prezly/slate-renderer';
 import { ElementNode, isParagraphNode, isTextNode } from '@prezly/slate-types';
 import SlateRenderer from '@/components/SlateRenderer';

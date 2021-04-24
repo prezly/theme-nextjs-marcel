@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from 'next';
-import type { ExtendedStory } from '@prezly/sdk/dist/types';
+import type { ExtendedStory } from '@prezly/sdk';
 
 import { BasePageProps } from 'types';
 import { getPrezlyApi } from '@/utils/prezly';

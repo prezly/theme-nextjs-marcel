@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { format } from 'date-fns';
 import classNames from 'classnames';
 
-import { Story } from '@prezly/sdk/dist/types';
+import { Story } from '@prezly/sdk';
 import Icon from '../Icon';
 
 interface Props {

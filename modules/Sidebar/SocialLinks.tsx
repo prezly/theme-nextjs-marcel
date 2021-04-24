@@ -1,4 +1,4 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk';
 
 import hasSocialLinks from './lib/hasSocialLinks';
 import SocialLink from './SocialLink';

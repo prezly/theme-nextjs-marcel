@@ -1,4 +1,5 @@
-import { Category, Newsroom, NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk';
+import { Category, Newsroom } from '@prezly/sdk/dist/types';
 import { createContext, FunctionComponent, useContext } from 'react';
 
 interface Context {

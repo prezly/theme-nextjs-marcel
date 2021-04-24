@@ -1,4 +1,4 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk';
 
 import Icon from '@/components/Icon';
 import { SocialNetwork } from './lib/types';

@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 
-import { Story } from '@prezly/sdk/dist/types';
+import { Story } from '@prezly/sdk';
 import SocialLink from './SocialLink';
 
 interface Props {

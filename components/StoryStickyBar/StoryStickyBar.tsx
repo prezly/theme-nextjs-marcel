@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import { ExtendedStory } from '@prezly/sdk/dist/types';
+import { ExtendedStory } from '@prezly/sdk';
 
 import Icon from '../Icon';
 import StoryShare from './StoryShare';

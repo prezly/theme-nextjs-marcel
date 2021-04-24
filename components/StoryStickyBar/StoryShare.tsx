@@ -1,6 +1,6 @@
 import { FunctionComponent, useRef, useState } from 'react';
 import classNames from 'classnames';
-import { ExtendedStory } from '@prezly/sdk/dist/types';
+import { ExtendedStory } from '@prezly/sdk';
 
 import Icon from '../Icon';
 

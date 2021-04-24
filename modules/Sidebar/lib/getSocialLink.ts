@@ -1,4 +1,4 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
+import { NewsroomCompanyInformation } from '@prezly/sdk';
 import { SocialNetwork } from './types';
 
 export default function getSocialLink(

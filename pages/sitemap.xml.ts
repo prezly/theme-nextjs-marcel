@@ -1,6 +1,7 @@
 /* eslint-disable max-len */
 import { NextPage, NextPageContext } from 'next';
-import { Category, Story } from '@prezly/sdk/dist/types';
+import { Story } from '@prezly/sdk';
+import { Category } from '@prezly/sdk/dist/types';
 
 import { getPrezlyApi } from '@/utils/prezly';
 

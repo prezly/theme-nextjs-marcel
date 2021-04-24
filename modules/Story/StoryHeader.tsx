@@ -1,5 +1,5 @@
 import type { FunctionComponent } from 'react';
-import type { ExtendedStory } from '@prezly/sdk/dist/types';
+import type { ExtendedStory } from '@prezly/sdk';
 import Image from 'next/image';
 
 import getAssetsUrl from '@/utils/prezly/getAssetsUrl';

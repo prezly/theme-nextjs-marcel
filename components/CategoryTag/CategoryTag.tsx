@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-
 import { Category } from '@prezly/sdk/dist/types';
+
 import getCategoryUrl from '@/utils/prezly/getCategoryUrl';
 
 interface Props {
