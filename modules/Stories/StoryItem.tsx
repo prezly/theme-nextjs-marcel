@@ -35,9 +35,13 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-400" />
             </div>
 
-            <h2 className="text-gray-50 text-xl font-bold mb-3 leading-9">
+            <h2 className="text-gray-50 text-xl font-bold mb-2 leading-9">
                 <Link href={`/${slug}`} passHref>
-                    <a className="hover:underline hover:text-blue-300 active:text-blue-400">
+                    <a className={classNames(
+                        'hover:underline hover:text-blue-300 active:text-blue-400',
+                        'focus:outline-none focus:underline focus:text-blue-300',
+                    )}
+                    >
                         {title}
                     </a>
                 </Link>
@@ -52,7 +56,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 <a
                     className={classNames(
                         'default-link inline-flex items-center border-b-2 border-transparent',
-                        'hover:border-blue-500',
+                        'focus:border-blue-500 hover:border-blue-500',
                     )}
                 >
                     Read more

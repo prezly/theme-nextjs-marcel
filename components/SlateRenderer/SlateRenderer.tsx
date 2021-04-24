@@ -18,6 +18,7 @@ import '@prezly/slate-renderer/build/styles.css';
 
 import Icon from '@/components/Icon';
 import ContactCard from '@/components/ContactCard';
+import classNames from 'classnames';
 import Attachment from '../Attachment';
 
 interface Props {
@@ -49,7 +50,15 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
         return <h2>{children}</h2>;
     },
     [LINK_NODE_TYPE]: ({ children, node }) => (
-        <a href={node.href} className="text-gray-200 underline hover:text-blue-400 active:text-blue-500">{children}</a>
+        <a
+            href={node.href}
+            className={classNames(
+                'text-gray-200 underline hover:text-blue-400 active:text-blue-500',
+                'focus:text-blue-400 focus:outline-none',
+            )}
+        >
+            {children}
+        </a>
     ),
     [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3">{children}</p>,
     [QUOTE_NODE_TYPE]: ({ children }) => (
