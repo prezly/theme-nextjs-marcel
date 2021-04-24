@@ -1,8 +1,16 @@
 import { Story } from '@prezly/sdk/dist/types';
 import { ExtraStoryFields, FormatVersion } from '@prezly/sdk/dist/types/Story';
 import { Node } from '@prezly/slate-renderer';
-import { isParagraphNode, isTextNode } from '@prezly/slate-types';
+import { ElementNode, isParagraphNode, isTextNode } from '@prezly/slate-types';
 import SlateRenderer from '@/components/SlateRenderer';
+
+function isNodeEmpty(node: Node | ElementNode<string>) {
+    if (isTextNode(node)) {
+        return !node.text.length;
+    }
+
+    return !node.children.length || node.children.every(isNodeEmpty);
+}
 
 export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'content'>) {
     const { format_version, content } = story;
@@ -29,7 +37,7 @@ export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'c
     const parsedContent = (JSON.parse(content)).children as Node[];
     const firstTextNode = parsedContent.find((node) => isParagraphNode(node) || isTextNode(node));
 
-    if (!firstTextNode) {
+    if (!firstTextNode || isNodeEmpty(firstTextNode)) {
         return null;
     }
 

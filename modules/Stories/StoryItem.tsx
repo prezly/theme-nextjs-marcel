@@ -43,9 +43,11 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 </Link>
             </h2>
             {subtitle && (
-                <h3 className="text-gray-300 font-semibold text-lg leading-7">{subtitle}</h3>
+                <h3 className="text-gray-300 font-semibold text-lg leading-7 mb-4">{subtitle}</h3>
             )}
-            <div className="mt-6 mb-4 text-gray-400 line-clamp-3">{excerpt}</div>
+            {excerpt && (
+                <div className="mb-4 text-gray-400 line-clamp-3">{excerpt}</div>
+            )}
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
