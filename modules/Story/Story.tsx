@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 import type { ExtendedStory } from '@prezly/sdk';
-import type { FormatVersion } from '@prezly/sdk/dist/types/Story';
+import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 
 import { useCompanyInformation } from '@/hooks/useCompanyInformation';
 import SlateRenderer from '@/components/SlateRenderer';
@@ -39,7 +39,6 @@ const Story: FunctionComponent<Props> = ({ story }) => {
             {companyInformation && (
                 <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
                     <SubscriptionForm
-                        companyInformation={companyInformation}
                         className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
                     />
                     <div>
