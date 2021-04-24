@@ -80,9 +80,9 @@ List of routes we automatically generate:
 
 To ease with development we have created a few sample newsrooms in different categories:
 
-* **The Good Newsroom** [(preview on vercel)](https://theme-nextjs-starter-the-good-newsroom.vercel.app/): A newsroom filled with good news
-* **Cookbook** [(preview on vercel)](https://theme-nextjs-starter-cookbook.vercel.app/): Recipes shared by the Prezly team
-* **Anonymous Photographer** [(preview on vercel)](https://theme-nextjs-starter-photography.vercel.app/):  Pictures from a photographer. Combination of albums and imagery
+* **The Good Newsroom** [(preview on vercel)](https://theme-nextjs-marcel-the-good-newsroom.vercel.app/): A newsroom filled with good news
+* **Cookbook** [(preview on vercel)](https://theme-nextjs-marcel-cookbook.vercel.app/): Recipes shared by the Prezly team
+* **Anonymous Photographer** [(preview on vercel)](https://theme-nextjs-marcel-photography.vercel.app/):  Pictures from a photographer. Combination of albums and imagery
 
 A list of tokens/newsroom uuids that can be used to kickstart the theme.
 
@@ -103,6 +103,7 @@ Under [`hooks/`](./tree/master/hooks):
 * `useNewsroom()`: Get Newsroom object.
 * `useCategories()`: Get all categories from newsroom.
 * `useSelectedCategory()`: On a category page, gets the current category.
+* `useCompanyInformation()`: Get company information, such as "About" text and social links.
 
 ## Other
 
