@@ -2,12 +2,11 @@ import type { FunctionComponent } from 'react';
 import { GetServerSideProps } from 'next';
 
 import { BasePageProps } from 'types';
-import { getPrezlyApi } from '@/utils/prezly';
-import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
+import { getPrezlyApi, getAssetsUrl } from '@/utils/prezly';
 import { NewsroomContextProvider } from '@/contexts/newsroom';
-import Layout from '@/components/Layout';
 import Stories, { StoryWithContent } from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
+import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
 
 interface Props extends BasePageProps {

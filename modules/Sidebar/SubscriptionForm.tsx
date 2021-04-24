@@ -6,6 +6,7 @@ type Props = {
     className?: string;
 };
 
+// TODO: get the information to populate this form
 const SubscriptionForm = ({ companyInformation, className }: Props) => (
     <form className={classNames('bg-gray-700 bg-opacity-40 rounded-xl p-6 mb-12', className)}>
         <h3 className="text-lg leading-6 font-bold mb-2 text-gray-200">Subscribe to our newsletter</h3>

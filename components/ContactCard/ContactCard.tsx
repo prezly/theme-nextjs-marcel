@@ -1,9 +1,9 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-
 import { PressContact } from '@prezly/slate-types';
+
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
-import Icon from '../Icon';
+import Icon from '@/components/Icon';
 
 interface Props {
     contact: PressContact;

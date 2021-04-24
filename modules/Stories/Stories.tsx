@@ -1,7 +1,7 @@
 import type { FunctionComponent } from 'react';
 
 import StoryItem from './StoryItem';
-import { StoryWithContent } from './types';
+import { StoryWithContent } from './lib/types';
 
 type Props = {
     stories: StoryWithContent[];

@@ -15,11 +15,11 @@ import {
     ATTACHMENT_NODE_TYPE,
 } from '@prezly/slate-types';
 import '@prezly/slate-renderer/build/styles.css';
+import classNames from 'classnames';
 
 import Icon from '@/components/Icon';
 import ContactCard from '@/components/ContactCard';
-import classNames from 'classnames';
-import Attachment from '../Attachment';
+import Attachment from '@/components/Attachment';
 
 interface Props {
     nodes: Node | Node[];

@@ -1,8 +1,8 @@
 import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
-
 import { UploadcareFile, UploadcareStoragePayload } from '@prezly/slate-types';
-import { FileTypeIcon } from '../Icon';
+
+import { FileTypeIcon } from '@/components/Icon';
 import formatBytes from './lib/formatBytes';
 
 interface Props {

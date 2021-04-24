@@ -6,7 +6,7 @@ import Icon from '@/components/Icon';
 import CategoryTag from '@/components/CategoryTag';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
 import getStoryExcerpt from './lib/getStoryExcerpt';
-import { StoryWithContent } from './types';
+import { StoryWithContent } from './lib/types';
 
 type Props = {
     story: StoryWithContent;

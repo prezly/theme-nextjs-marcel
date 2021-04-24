@@ -1,2 +1,2 @@
 export { default } from './Stories';
-export type { StoryWithContent } from './types';
+export type { StoryWithContent } from './lib/types';

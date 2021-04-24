@@ -1,14 +1,15 @@
 import type { FunctionComponent } from 'react';
 import { GetServerSideProps } from 'next';
-import { getPrezlyApi } from '@/utils/prezly';
-import Layout from '@/components/Layout';
+import { Category } from '@prezly/sdk/dist/types';
+
+import { BasePageProps } from 'types';
+
+import { getPrezlyApi, getAssetsUrl } from '@/utils/prezly';
+import { NewsroomContextProvider } from '@/contexts/newsroom';
 import Stories, { StoryWithContent } from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
-import { Category } from '@prezly/sdk/dist/types';
+import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
-import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
-import { NewsroomContextProvider } from '@/contexts/newsroom';
-import { BasePageProps } from 'types';
 
 interface Props extends BasePageProps {
     stories: StoryWithContent[];
