@@ -1,25 +1,27 @@
 import { NewsroomCompanyInformation } from '@prezly/sdk/dist/types';
-import Icon from '@/components/Icon';
+
+import hasSocialLinks from './lib/hasSocialLinks';
+import SocialLink from './SocialLink';
 
 type Props = {
     companyInformation: NewsroomCompanyInformation;
 };
 
-const SocialLinks = ({ companyInformation }: Props) => (
-    <div className="flex items-center">
-        <a className="mr-6 text-gray-400 hover:text-blue-400 active:text-blue-500" href="https://discord.com/">
-            <Icon name="social-discord" />
-        </a>
-        <a className="mr-6 text-gray-400 hover:text-blue-400 active:text-blue-500" href="https://discord.com/">
-            <Icon name="social-instagram" />
-        </a>
-        <a className="mr-6 text-gray-400 hover:text-blue-400 active:text-blue-500" href="https://discord.com/">
-            <Icon name="social-twitch" />
-        </a>
-        <a className="mr-6 text-gray-400 hover:text-blue-400 active:text-blue-500" href="https://discord.com/">
-            <Icon name="social-twitter" />
-        </a>
-    </div>
-);
+const SocialLinks = ({ companyInformation }: Props) => {
+    if (!hasSocialLinks(companyInformation)) {
+        return null;
+    }
+
+    return (
+        <div className="flex items-center">
+            <SocialLink socialNetwork="twitter" companyInformation={companyInformation} />
+            <SocialLink socialNetwork="facebook" companyInformation={companyInformation} />
+            <SocialLink socialNetwork="linkedin" companyInformation={companyInformation} />
+            <SocialLink socialNetwork="pinterest" companyInformation={companyInformation} />
+            <SocialLink socialNetwork="youtube" companyInformation={companyInformation} />
+            <SocialLink socialNetwork="instagram" companyInformation={companyInformation} />
+        </div>
+    );
+};
 
 export default SocialLinks;
