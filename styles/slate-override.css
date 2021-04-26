@@ -7,12 +7,6 @@
     @apply my-16;
 }
 
-// Temp fix for slate-renderer styles
-// See: https://linear.app/prezly/issue/DEV-2661/prezlyslate-renderer-horizontal-centering-is-missing-on-gifs
-.prezly-slate-media--video {
-    @apply mx-auto;
-}
-
 .prezly-slate-document .prezly-slate-image__caption {
     @apply pt-4 text-base leading-7 text-gray-400 not-italic;
 }
