@@ -41,7 +41,7 @@ const Story: FunctionComponent<Props> = ({ story }) => {
                     <SubscriptionForm
                         className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
                     />
-                    <div>
+                    <div className="flex-grow">
                         <Boilerplate companyInformation={companyInformation} />
                         <SocialLinks companyInformation={companyInformation} />
                     </div>
