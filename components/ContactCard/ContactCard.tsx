@@ -4,6 +4,7 @@ import { PressContact } from '@prezly/slate-types';
 
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import Icon from '@/components/Icon';
+import getSocialHandles from './lib/getSocialHandles';
 
 interface Props {
     contact: PressContact;
@@ -18,8 +19,10 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
         email,
         phone,
         mobile,
-        twitter,
+        website,
     } = contact;
+
+    const { twitter, facebook } = getSocialHandles(contact);
 
     const subtitle = description && company
         ? `${description}, ${company}`
@@ -52,6 +55,12 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
                             {email}
                         </a>
                     )}
+                    {website && (
+                        <a href={`${website}`} className="default-link lg:mr-6 flex items-center">
+                            <Icon name="web" className="w-4 h-4 mr-2" />
+                            {website}
+                        </a>
+                    )}
                     {mobile && (
                         <a href={`tel:${mobile}`} className="default-link lg:mr-6 flex items-center">
                             <Icon name="phone" className="w-4 h-4 mr-2" />
@@ -68,6 +77,12 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
                         <a href={`https://twitter.com/${twitter}`} className="default-link lg:mr-6 flex items-center">
                             <Icon name="social-twitter" className="w-4 h-4 mr-2" />
                             {`@${twitter}`}
+                        </a>
+                    )}
+                    {facebook && (
+                        <a href={`https://facebook.com/${twitter}`} className="default-link lg:mr-6 flex items-center">
+                            <Icon name="social-facebook" className="w-4 h-4 mr-2" />
+                            {`${facebook}`}
                         </a>
                     )}
                 </div>
