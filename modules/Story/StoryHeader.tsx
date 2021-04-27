@@ -34,7 +34,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                     </div>
                 )}
                 <div className="flex flex-col p-6 py-10 md:px-10 lg:px-16 lg:flex-grow lg:justify-center">
-                    <div className={headerImage ? '' : 'lg:max-w-[920px] lg:mx-auto'}>
+                    <div className={headerImage ? '' : 'w-full lg:max-w-[920px] lg:mx-auto'}>
                         {!!categories.length && (
                             <div className="flex mb-3">
                                 {categories.map((category) => (
