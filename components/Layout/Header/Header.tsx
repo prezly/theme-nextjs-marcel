@@ -33,7 +33,7 @@ const Header: FunctionComponent = () => {
                             <img
                                 src={getAssetsUrl(newsroom_logo.uuid)}
                                 alt={display_name}
-                                className="max-h-8"
+                                className="max-w-48 max-h-11"
                             />
                         ) : display_name }
                     </a>

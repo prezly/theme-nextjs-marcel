@@ -14,7 +14,7 @@ const StoryStickyBar: FunctionComponent<Props> = ({ story }) => (
         <div
             className={classNames(
                 'lg:max-w-[1280px] lg:mx-auto lg:px-12 mb-10 lg:mb-0',
-                'lg:py-7 lg:flex lg:items-center lg:justify-between',
+                'lg:py-4 lg:flex lg:items-center lg:justify-between',
             )}
         >
             <p className="flex items-center">

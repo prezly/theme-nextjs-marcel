@@ -11,6 +11,7 @@
     @apply pt-4 text-base leading-7 text-gray-400 not-italic;
 }
 
+.prezly-slate-document > h1,
 .prezly-slate-document > h2,
 .prezly-slate-document > h3,
 .prezly-slate-document > h4,
@@ -19,20 +20,24 @@
     @apply mt-10 mb-3 font-bold;
 }
 
-.prezly-slate-document > h2 {
-    @apply text-3xl lg:text-4xl;
+.prezly-slate-document > h1 {
+    @apply text-4xl;
 }
 
-.prezly-slate-document > h3 {
+.prezly-slate-document > h2 {
     @apply text-2xl;
 }
 
-.prezly-slate-document > h4 {
+.prezly-slate-document > h3 {
     @apply text-xl;
 }
 
-.prezly-slate-document > h5 {
+.prezly-slate-document > h4 {
     @apply text-lg;
+}
+
+.prezly-slate-document > h5 {
+    @apply text-base;
 }
 
 .prezly-slate-document > h6 {

@@ -39,7 +39,7 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
             return <h3>{children}</h3>;
         }
         return (
-            <h2>{children}</h2>
+            <h1>{children}</h1>
         );
     },
     [HEADING_2_NODE_TYPE]: ({ children }) => {

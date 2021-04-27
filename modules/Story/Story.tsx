@@ -41,7 +41,7 @@ const Story: FunctionComponent<Props> = ({ story }) => {
             </article>
 
             {companyInformation && (
-                <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
+                <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-24">
                     <SubscriptionForm
                         className={classNames(
                             hasBoilerplate

@@ -32,7 +32,9 @@ const IndexPage: FunctionComponent<Props> = ({
         />
         <Layout>
             <div className="pt-10 lg:flex lg:flex-nowrap">
-                <Stories stories={stories} />
+                <div className="flex-grow">
+                    <Stories stories={stories} />
+                </div>
                 <Sidebar />
             </div>
         </Layout>
