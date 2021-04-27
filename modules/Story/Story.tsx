@@ -1,4 +1,5 @@
 import type { FunctionComponent } from 'react';
+import classNames from 'classnames';
 import type { ExtendedStory } from '@prezly/sdk';
 import { FormatVersion } from '@prezly/sdk/dist/types/Story';
 
@@ -18,6 +19,9 @@ const Story: FunctionComponent<Props> = ({ story }) => {
     const companyInformation = useCompanyInformation();
 
     const { format_version, content } = story;
+
+    const { about, address } = companyInformation || {};
+    const hasBoilerplate = !!about || !!address;
 
     return (
         <>
@@ -39,12 +43,19 @@ const Story: FunctionComponent<Props> = ({ story }) => {
             {companyInformation && (
                 <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-64">
                     <SubscriptionForm
-                        className="lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0"
+                        className={classNames(
+                            hasBoilerplate
+                                ? 'lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0'
+                                : 'lg:flex-grow p-8',
+                        )}
+                        inlineForm={!hasBoilerplate}
                     />
-                    <div className="flex-grow">
-                        <Boilerplate companyInformation={companyInformation} />
-                        <SocialLinks companyInformation={companyInformation} />
-                    </div>
+                    {hasBoilerplate && (
+                        <div className="flex-grow">
+                            <Boilerplate companyInformation={companyInformation} />
+                            <SocialLinks companyInformation={companyInformation} />
+                        </div>
+                    )}
                 </div>
             )}
 
