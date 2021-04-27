@@ -35,7 +35,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-400" />
             </div>
 
-            <h2 className="text-gray-50 text-xl font-bold mb-2 leading-9">
+            <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9">
                 <Link href={`/${slug}`} passHref>
                     <a className={classNames(
                         'hover:underline hover:text-blue-300 active:text-blue-400',

@@ -12,8 +12,8 @@ const Boilerplate = ({ companyInformation }: Props) => {
     }
 
     return (
-        <div className="mb-12">
-            <h2 className="text-lg leading-6 mb-4 font-bold text-gray-300">
+        <div className="mb-12 text-gray-400">
+            <h2 className="text-lg leading-6 mb-4 font-bold">
                 About
                 {name && ' '}
                 {name}
@@ -21,14 +21,14 @@ const Boilerplate = ({ companyInformation }: Props) => {
 
             {about && (
                 <div
-                    className="text-gray-400 leading-7 mb-4"
+                    className="leading-7 mb-4"
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{ __html: about }}
                 />
             )}
 
             {address && (
-                <address className="text-gray-400 leading-7 not-italic">
+                <address className="leading-7 not-italic">
                     {companyInformation.address}
                 </address>
             )}

@@ -24,7 +24,7 @@ const Categories: FunctionComponent<Props> = ({ categories, forcePopup, onCloseP
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <li
                     key={c.id}
-                    className={classNames(!forcePopup && 'mx-2')}
+                    className={classNames(!forcePopup && 'mx-2 last:mr-0')}
                     role="menuitem"
                     onClick={onClosePopup}
                 >
