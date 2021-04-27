@@ -21,10 +21,8 @@ const SubscriptionForm = ({ className, inlineForm }: Props) => (
                     autoComplete="email"
                     placeholder="elvis@presley.com"
                     className={classNames(
-                        'block w-full py-2.5 px-3 rounded-md',
-                        'bg-gray-700 border border-gray-600',
-                        'leading-7',
-                        'focus:outline-none focus:ring focus:ring-blue-300',
+                        'default-input',
+                        'w-full bg-white bg-opacity-5',
                     )}
                 />
             </div>

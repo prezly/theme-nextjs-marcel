@@ -63,10 +63,8 @@ const StoryShare: FunctionComponent<Props> = ({ story }) => {
                     autoComplete="off"
                     value={shareLink}
                     className={classNames(
-                        'block w-64 py-1.5 px-3 pr-10 rounded-md',
-                        'bg-gray-700 border border-gray-600',
-                        'leading-7 overflow-ellipsis',
-                        'focus:outline-none focus:ring focus:ring-blue-300',
+                        'default-input',
+                        'w-64 py-1.5 pr-10 bg-gray-700 overflow-ellipsis',
                     )}
                     // Selects full input value on click
                     onClick={handleInputClick}

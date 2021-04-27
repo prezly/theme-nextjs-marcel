@@ -25,6 +25,11 @@
         @apply text-blue-400 hover:text-blue-500 focus:text-blue-500 focus:outline-none;
     }
 
+    .default-input {
+        @apply block py-2.5 px-3 rounded-md border border-gray-600 leading-7;
+        @apply shadow-inner focus:outline-none focus:ring focus:ring-blue-300;
+    }
+
     .svg-icon {
         @apply w-6 h-6;
     }
