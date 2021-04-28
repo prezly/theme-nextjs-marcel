@@ -5,16 +5,16 @@ import PrezlySDK, {
     ExtraStoryFields,
 } from '@prezly/sdk';
 import { Category, Newsroom } from '@prezly/sdk/dist/types';
-
+import { DEFAULT_PAGE_SIZE } from '../constants';
 import { getSlugQuery, getSortByPublishedDate, getStoriesQuery } from './queries';
 
-const DEFAULT_STORIES_COUNT = 6;
 const DEFAULT_SORT_ORDER: SortOrder = 'desc';
 
 type SortOrder = 'desc' | 'asc';
 
 interface GetStoriesOptions {
-    limit?: number;
+    page?: number;
+    pageSize?: number;
     order?: SortOrder;
     include?: (keyof ExtraStoryFields)[];
 }
@@ -76,33 +76,30 @@ export default class PrezlyApi {
     }
 
     async getStories({
-        limit = DEFAULT_STORIES_COUNT,
+        page = undefined,
+        pageSize = DEFAULT_PAGE_SIZE,
         order = DEFAULT_SORT_ORDER,
         include,
     }: GetStoriesOptions = {}) {
         const sortOrder = getSortByPublishedDate(order);
         const jsonQuery = JSON.stringify(getStoriesQuery(this.newsroomUuid));
 
-        const { stories } = await this.searchStories({
-            limit, sortOrder, include, jsonQuery,
+        const { stories, pagination } = await this.searchStories({
+            limit: pageSize,
+            offset: typeof page === 'undefined' ? undefined : (page - 1) * pageSize,
+            sortOrder,
+            jsonQuery,
+            include,
         });
-        return stories;
+
+        const storiesTotal = pagination.matched_records_number;
+
+        return { stories, storiesTotal };
     }
 
-    async getStoriesExtended(limit = DEFAULT_STORIES_COUNT, order: SortOrder = DEFAULT_SORT_ORDER) {
-        const stories = await this.getStories({ limit, order });
+    async getStoriesExtended(options?: GetStoriesOptions) {
+        const { stories } = await this.getStories(options);
         const extendedStoriesPromises = stories.map((story) => this.getStory(story.id));
-
-        return Promise.all(extendedStoriesPromises);
-    }
-
-    async getStoriesExtendedFromCategory(
-        category: Category,
-        limit = DEFAULT_STORIES_COUNT,
-        order: SortOrder = DEFAULT_SORT_ORDER,
-    ) {
-        const stories = await this.getStoriesFromCategory(category, { limit, order });
-        const extendedStoriesPromises = stories?.map((story) => this.getStory(story.id)) || [];
 
         return Promise.all(extendedStoriesPromises);
     }
@@ -110,7 +107,8 @@ export default class PrezlyApi {
     async getStoriesFromCategory(
         category: Category,
         {
-            limit = DEFAULT_STORIES_COUNT,
+            page = undefined,
+            pageSize = DEFAULT_PAGE_SIZE,
             order = DEFAULT_SORT_ORDER,
             include,
         }: GetStoriesOptions = {},
@@ -118,11 +116,27 @@ export default class PrezlyApi {
         const sortOrder = getSortByPublishedDate(order);
         const jsonQuery = JSON.stringify(getStoriesQuery(this.newsroomUuid, category.id));
 
-        const { stories } = await this.searchStories({
-            limit, sortOrder, include, jsonQuery,
+        const { stories, pagination } = await this.searchStories({
+            limit: pageSize,
+            offset: typeof page === 'undefined' ? undefined : (page - 1) * pageSize,
+            sortOrder,
+            jsonQuery,
+            include,
         });
 
-        return stories;
+        const storiesTotal = pagination.matched_records_number;
+
+        return { stories, storiesTotal };
+    }
+
+    async getStoriesExtendedFromCategory(
+        category: Category,
+        options?: GetStoriesOptions,
+    ) {
+        const { stories } = await this.getStoriesFromCategory(category, options);
+        const extendedStoriesPromises = stories.map((story) => this.getStory(story.id)) || [];
+
+        return Promise.all(extendedStoriesPromises);
     }
 
     async getStoryBySlug(slug: string) {
@@ -132,8 +146,8 @@ export default class PrezlyApi {
             jsonQuery,
         });
 
-        if (stories?.[0]) {
-            return this.getStory(stories?.[0].id);
+        if (stories[0]) {
+            return this.getStory(stories[0].id);
         }
 
         return null;
