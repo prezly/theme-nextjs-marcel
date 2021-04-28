@@ -15,7 +15,7 @@ const CategoryTag: FunctionComponent<Props> = ({ category, className }) => (
         <a
             className={
                 classNames(
-                    'uppercase text-sm font-bold tracking-wider leading-5',
+                    'uppercase text-sm font-semibold tracking-wider leading-5',
                     'py-1 px-2 bg-gray-700 bg-opacity-80 rounded mr-3 mb-3 md:mb-0 last:mr-0',
                     'hover:bg-gray-600 active:bg-gray-500 active:text-gray-100',
                     'focus-visible:ring focus-visible:ring-inset focus-visible:ring-4',

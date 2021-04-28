@@ -35,7 +35,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-400" />
             </div>
 
-            <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9">
+            <h2 className="text-gray-50 text-2xl font-semibold mb-2 leading-9">
                 <Link href={`/${slug}`} passHref>
                     <a className={classNames(
                         'hover:underline hover:text-blue-300 active:text-blue-400',
@@ -47,7 +47,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                 </Link>
             </h2>
             {subtitle && (
-                <h3 className="text-gray-300 font-semibold text-lg leading-7 mb-4">{subtitle}</h3>
+                <h3 className="text-gray-300 font-medium text-lg leading-7 mb-4">{subtitle}</h3>
             )}
             {excerpt && (
                 <div className="mb-4 text-gray-400 line-clamp-3">{excerpt}</div>

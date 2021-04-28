@@ -43,7 +43,7 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
                 />
             )}
             <div>
-                <h4 className="text-lg text-gray-200 font-bold mb-1">{name}</h4>
+                <h4 className="text-lg text-gray-200 font-semibold mb-1">{name}</h4>
                 {subtitle && (
                     <h5 className="text-gray-400">{capitalizeFirstLetter(subtitle)}</h5>
                 )}

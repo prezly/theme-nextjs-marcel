@@ -46,7 +46,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                                 ))}
                             </div>
                         )}
-                        <h1 className="text-gray-100 font-extrabold text-3xl mb-6 lg:text-4xl">
+                        <h1 className="text-gray-100 font-bold text-3xl mb-6 lg:text-4xl">
                             {title}
                         </h1>
 
