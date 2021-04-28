@@ -36,22 +36,26 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                 <div className="flex flex-col p-6 py-10 md:px-10 lg:px-16 lg:flex-grow lg:justify-center">
                     <div className={headerImage ? '' : 'w-full lg:max-w-[920px] lg:mx-auto'}>
                         {!!categories.length && (
-                            <div className="flex mb-3">
+                            <div className="flex mb-6">
                                 {categories.map((category) => (
-                                    <CategoryTag key={category.id} category={category} />
+                                    <CategoryTag
+                                        key={category.id}
+                                        category={category}
+                                        className="text-base bg-gray-600 bg-opacity-60 mr-4"
+                                    />
                                 ))}
                             </div>
                         )}
-                        <h1 className="text-gray-50 font-extrabold text-3xl mb-6 lg:text-4xl">
+                        <h1 className="text-gray-100 font-extrabold text-3xl mb-6 lg:text-4xl">
                             {title}
                         </h1>
 
-                        <h3 className="mb-6 text-gray-400 text-lg">{subtitle}</h3>
+                        <h3 className="mb-6 text-gray-300 text-lg leading-8">{subtitle}</h3>
 
                         <div className="lg:flex lg:items-center">
                             <StoryPublicationDate
                                 story={story}
-                                className="mb-8 lg:mb-0 lg:mr-6"
+                                className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
                             />
                             <SocialShare />
                         </div>

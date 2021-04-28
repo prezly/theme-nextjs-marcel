@@ -32,7 +32,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
                         ))}
                     </div>
                 )}
-                <StoryPublicationDate story={story} className="mb-6 md:mb-0" />
+                <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-400" />
             </div>
 
             <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9">
