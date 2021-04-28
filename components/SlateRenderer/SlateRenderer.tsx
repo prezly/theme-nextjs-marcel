@@ -25,7 +25,7 @@ interface Props {
     nodes: Node | Node[];
 }
 
-const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
+export const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
     [BULLETED_LIST_NODE_TYPE]: ({ children }) => (
         <ul className="list-disc pl-6 my-4">{children}</ul>
     ),
