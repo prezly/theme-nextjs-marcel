@@ -62,7 +62,7 @@ const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
     ),
     [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3">{children}</p>,
     [QUOTE_NODE_TYPE]: ({ children }) => (
-        <blockquote className="story-blockquote">
+        <blockquote className="default-well story-blockquote">
             <Icon name="quote" className="story-blockquote-icon" />
             <span className="my-4 md:my-0 md:mx-4">{children}</span>
             <Icon name="quote" className="story-blockquote-icon story-blockquote-icon--inverted" />

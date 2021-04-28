@@ -22,7 +22,7 @@ const Attachment: FunctionComponent<Props> = ({ description, file }) => {
     return (
         <a
             className={classNames(
-                'bg-gray-700 bg-opacity-40 text-gray-300 rounded-xl p-6',
+                'default-well text-gray-300 rounded-xl p-6',
                 'hover:bg-opacity-100',
                 'flex flex-col lg:flex-row items-center my-10',
             )}

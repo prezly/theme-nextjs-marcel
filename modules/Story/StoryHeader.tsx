@@ -22,7 +22,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
     const headerImage = header_image ? JSON.parse(header_image) : undefined;
 
     return (
-        <div className="full-width bg-gray-700 bg-opacity-30">
+        <div className="full-width default-well">
             <div className="lg:flex lg:max-w-[1600px] lg:mx-auto">
                 {headerImage && (
                     <div className="lg:w-1/2 lg:flex-shrink-0 relative min-h-[20rem]">

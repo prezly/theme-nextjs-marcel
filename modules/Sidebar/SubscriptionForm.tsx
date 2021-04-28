@@ -7,7 +7,7 @@ type Props = {
 
 // TODO: get the information to populate this form
 const SubscriptionForm = ({ className, inlineForm }: Props) => (
-    <form className={classNames('bg-gray-700 rounded-xl p-6 mb-12', className)}>
+    <form className={classNames('default-well rounded-xl p-6 mb-12', className)}>
         <h3 className="text-lg leading-6 font-bold mb-2 text-gray-200">Subscribe to our newsletter</h3>
         <p className="leading-7 text-gray-400 mb-6">Good news in your inbox weekly. No spam, unsubscribe at anytime.</p>
 

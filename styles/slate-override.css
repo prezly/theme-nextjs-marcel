@@ -46,7 +46,7 @@
 
 .story-blockquote {
     @apply flex flex-col md:flex-row flex-nowrap p-6 rounded-xl my-10;
-    @apply bg-gray-700 text-gray-200 text-lg leading-8 font-semibold;
+    @apply text-gray-200 text-lg leading-8 font-semibold;
 }
 
 .story-blockquote-icon {

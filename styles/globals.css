@@ -30,6 +30,10 @@
         @apply shadow-inner focus:outline-none focus:ring focus:ring-blue-300;
     }
 
+    .default-well {
+        @apply bg-gray-700 bg-opacity-60;
+    }
+
     .svg-icon {
         @apply w-6 h-6;
     }
