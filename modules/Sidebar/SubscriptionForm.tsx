@@ -32,7 +32,7 @@ const SubscriptionForm = ({ className, inlineForm }: Props) => (
                 className={classNames(
                     'block w-full py-3 px-4 text-center',
                     'border border-transparent shadow-sm rounded-md',
-                    'bg-blue-500 hover:bg-blue-600 active:bg-blue-400',
+                    'bg-blue-600 hover:bg-blue-500 active:bg-blue-400',
                     'font-semibold leading-6 text-white',
                     'focus:outline-none',
                     inlineForm && 'lg:w-32 lg:ml-4',
