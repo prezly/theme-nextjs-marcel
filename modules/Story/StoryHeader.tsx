@@ -51,7 +51,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                         <div className="lg:flex lg:items-center">
                             <StoryPublicationDate
                                 story={story}
-                                className="text-gray-400 mb-8 lg:mb-0 lg:mr-6"
+                                className="mb-8 lg:mb-0 lg:mr-6"
                             />
                             <SocialShare />
                         </div>

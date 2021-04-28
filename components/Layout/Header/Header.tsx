@@ -26,7 +26,7 @@ const Header: FunctionComponent = () => {
 
     return (
         <header>
-            <nav className="py-6 flex justify-between items-center">
+            <nav className="h-20 py-4 flex justify-between items-center">
                 <Link href="/" passHref>
                     <a>
                         {newsroom_logo ? (

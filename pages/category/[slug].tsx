@@ -40,7 +40,7 @@ const IndexPage: FunctionComponent<Props> = ({
         <Layout>
             <div className="pt-10 lg:flex lg:flex-nowrap">
                 <div className="lg:flex-grow">
-                    <h3 className="uppercase text-gray-400 text-lg mb-6 tracking-wide">Browsing Category</h3>
+                    <h3 className="uppercase text-gray-400 text-lg leading-6 mb-6 tracking-wider">Browsing Category</h3>
                     <h1 className="text-gray-50 font-extrabold mb-12 text-4xl">{category.display_name}</h1>
                     <Stories stories={stories} />
                 </div>
