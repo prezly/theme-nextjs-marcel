@@ -77,7 +77,7 @@ const StoryShare: FunctionComponent<Props> = ({ story }) => {
                     className={classNames(
                         'absolute right-1.5',
                         'w-7 h-7 p-1 bg-gray-800 border border-gray-600 rounded-md',
-                        'text-center cursor-pointer default-link hover:border-blue-500',
+                        'text-center cursor-pointer text-white hover:border-blue-500 hover:text-blue-500',
                     )}
                     onClick={handleCopyButtonClick}
                     title="Copy share URL"
