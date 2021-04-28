@@ -1,7 +1,6 @@
 import PrezlySDK, {
     NewsroomCompanyInformation,
     NewsroomLanguageSettings,
-    StoriesSearchRequest,
     ExtraStoryFields,
 } from '@prezly/sdk';
 import { Category, Newsroom } from '@prezly/sdk/dist/types';
@@ -165,7 +164,5 @@ export default class PrezlyApi {
         return categories.find((category) => Object.values(category.i18n).some((t) => t.slug === slug));
     }
 
-    searchStories<Include extends readonly (keyof ExtraStoryFields)[]>(options: StoriesSearchRequest<Include>) {
-        return this.sdk.stories.search(options);
-    }
+    searchStories: typeof PrezlySDK.prototype.stories.search = (options) => this.sdk.stories.search(options);
 }
