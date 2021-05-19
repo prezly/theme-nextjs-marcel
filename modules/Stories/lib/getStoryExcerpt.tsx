@@ -22,7 +22,17 @@ const getExcerptOptions = (): Options => ({
     [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
 });
 
+function getNodeTextLength(node: Node | ElementNode<string>): number {
+    if (isTextNode(node)) {
+        return node.text.length;
+    }
+
+    return (node.children as (Node | ElementNode<string>)[])
+        .reduce((total: number, child) => total + getNodeTextLength(child), 0);
+}
+
 const MAX_NODE_INDEX_FOR_TEXT_NODES = 5;
+const MAX_TOTAL_TEXT_LENGTH = 300;
 
 export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'content'>) {
     const { format_version, content } = story;
@@ -58,13 +68,16 @@ export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'c
     }
 
     let checkedNode = parsedContent[textNodeIndex];
+    let totalTextLength = 0;
     while (
         textNodeIndex < parsedContent.length
+        && totalTextLength < MAX_TOTAL_TEXT_LENGTH
         && checkedNode
         && !isNodeEmpty(checkedNode)
         && (isParagraphNode(checkedNode) || isTextNode(checkedNode))
     ) {
         firstTextNodes.push(checkedNode);
+        totalTextLength += getNodeTextLength(checkedNode);
         textNodeIndex += 1;
         checkedNode = parsedContent[textNodeIndex];
     }
