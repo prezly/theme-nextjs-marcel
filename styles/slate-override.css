@@ -56,3 +56,44 @@
 .story-blockquote-icon--inverted {
     @apply transform rotate-180 self-end;
 }
+
+.prezly-slate-document .prezly-slate-image-rollover__dim {
+    @apply bg-gray-700;
+}
+
+.prezly-slate-document .prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__dim, 
+.prezly-slate-document .prezly-slate-image-rollover:hover .prezly-slate-image-rollover__dim {
+    opacity: 0.7;
+}
+
+.prezly-slate-document .prezly-slate-image-rollover__caption-icon-container {
+    @apply bg-gray-800 p-2.5;
+}
+
+.prezly-slate-lightbox {
+    @apply bg-gray-800 !important;
+}
+
+.prezly-slate-lightbox__image-container {
+    @apply mt-16 mb-8 !important;
+}
+
+.prezly-slate-lightbox__caption {
+    @apply text-gray-400 not-italic text-base leading-7 mb-12 !important;
+}
+
+.prezly-slate-lightbox__download {
+    @apply bg-blue-600 hover:bg-blue-500 active:bg-blue-400 py-2 px-3 text-base rounded-md !important;
+}
+
+.prezly-slate-lightbox__nav-button {
+    @apply text-gray-400 hover:text-gray-100 !important;
+}
+
+.prezly-slate-lightbox__close {
+    @apply text-gray-400 hover:text-gray-100 p-3 !important;
+}
+
+.prezly-slate-lightbox__close-icon {
+    @apply w-8 h-8 !important;
+}
