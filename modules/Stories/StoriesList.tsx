@@ -7,7 +7,7 @@ type Props = {
     stories: StoryWithContent[];
 };
 
-const Stories: FunctionComponent<Props> = ({ stories }) => (
+const StoriesList: FunctionComponent<Props> = ({ stories }) => (
     <>
         {!stories.length && (
             <p className="text-2xl text-center py-10">No stories here yet.</p>
@@ -18,4 +18,4 @@ const Stories: FunctionComponent<Props> = ({ stories }) => (
     </>
 );
 
-export default Stories;
+export default StoriesList;

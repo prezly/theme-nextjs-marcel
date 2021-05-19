@@ -2,11 +2,12 @@ import type { FunctionComponent } from 'react';
 import { GetServerSideProps } from 'next';
 import { Category } from '@prezly/sdk/dist/types';
 
-import { BasePageProps } from 'types';
+import { BasePageProps, PaginationProps } from 'types';
+import { DEFAULT_PAGE_SIZE } from '@/utils/prezly/constants';
 
 import { getPrezlyApi, getAssetsUrl } from '@/utils/prezly';
 import { NewsroomContextProvider } from '@/contexts/newsroom';
-import Stories, { StoryWithContent } from '@/modules/Stories';
+import { InfiniteStories, StoryWithContent } from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
 import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
@@ -15,6 +16,7 @@ interface Props extends BasePageProps {
     stories: StoryWithContent[];
     category: Category;
     slug: string;
+    pagination: PaginationProps;
 }
 
 const IndexPage: FunctionComponent<Props> = ({
@@ -24,6 +26,7 @@ const IndexPage: FunctionComponent<Props> = ({
     slug,
     newsroom,
     companyInformation,
+    pagination,
 }) => (
     <NewsroomContextProvider
         categories={categories}
@@ -42,7 +45,7 @@ const IndexPage: FunctionComponent<Props> = ({
                 <div className="lg:flex-grow">
                     <h3 className="uppercase text-gray-400 text-lg leading-6 mb-6 tracking-wider">Browsing Category</h3>
                     <h1 className="text-gray-50 font-bold mb-12 text-4xl">{category.display_name}</h1>
-                    <Stories stories={stories} />
+                    <InfiniteStories initialStories={stories} pagination={pagination} category={category} />
                 </div>
                 <Sidebar />
             </div>
@@ -67,7 +70,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         };
     }
 
-    const stories = await api.getStoriesFromCategory(category, { include: ['content'] });
+    const page = context.query.page && typeof context.query.page === 'string'
+        ? Number(context.query.page)
+        : undefined;
+
+    const { stories, storiesTotal } = await api.getStoriesFromCategory(category, { page, include: ['content'] });
 
     return {
         props: {
@@ -78,6 +85,11 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
             newsroom,
             slug,
             companyInformation,
+            pagination: {
+                itemsTotal: storiesTotal,
+                currentPage: page ?? 1,
+                pageSize: DEFAULT_PAGE_SIZE,
+            },
         },
     };
 };
