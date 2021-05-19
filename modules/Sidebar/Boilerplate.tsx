@@ -1,4 +1,7 @@
 import { NewsroomCompanyInformation } from '@prezly/sdk';
+import classNames from 'classnames';
+
+import styles from './Boilerplate.module.css';
 
 type Props = {
     companyInformation: NewsroomCompanyInformation;
@@ -21,7 +24,7 @@ const Boilerplate = ({ companyInformation }: Props) => {
 
             {about && (
                 <div
-                    className="leading-7 mb-4"
+                    className={classNames('leading-7 mb-4', styles.boilerplate)}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{ __html: about }}
                 />

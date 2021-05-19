@@ -1,0 +1,7 @@
+.boilerplate hr {
+    @apply my-3;
+}
+
+.boilerplate p {
+    @apply mb-2;
+}
