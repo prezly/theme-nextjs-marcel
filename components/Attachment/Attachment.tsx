@@ -33,7 +33,7 @@ const Attachment: FunctionComponent<Props> = ({ description, file }) => {
                 className="text-gray-400 w-10 h-10 mr-6"
             />
             <div>
-                <h4 className="text-lg text-gray-200 font-bold mb-1">{displayedName}</h4>
+                <h4 className="text-lg text-gray-200 font-semibold mb-1">{displayedName}</h4>
                 <h5 className="text-gray-400">
                     {fileType}
                     {fileType && ' - '}

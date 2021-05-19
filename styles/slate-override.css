@@ -17,7 +17,7 @@
 .prezly-slate-document > h4,
 .prezly-slate-document > h5,
 .prezly-slate-document > h6 {
-    @apply mt-10 mb-3 font-bold;
+    @apply mt-10 mb-3 font-semibold;
 }
 
 .prezly-slate-document > h1 {
@@ -46,7 +46,7 @@
 
 .story-blockquote {
     @apply flex flex-col md:flex-row flex-nowrap p-6 rounded-xl my-10;
-    @apply text-gray-200 text-lg leading-8 font-semibold;
+    @apply text-gray-200 text-lg leading-8 font-medium;
 }
 
 .story-blockquote-icon {

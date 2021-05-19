@@ -8,7 +8,7 @@ type Props = {
 // TODO: get the information to populate this form
 const SubscriptionForm = ({ className, inlineForm }: Props) => (
     <form className={classNames('default-well rounded-xl p-6 mb-12', className)}>
-        <h3 className="text-lg leading-6 font-bold mb-2 text-gray-200">Subscribe to our newsletter</h3>
+        <h3 className="text-lg leading-6 font-semibold mb-2 text-gray-200">Subscribe to our newsletter</h3>
         <p className="leading-7 text-gray-400 mb-6">Good news in your inbox weekly. No spam, unsubscribe at anytime.</p>
 
         <div className={classNames(inlineForm && 'lg:flex')}>
@@ -33,7 +33,7 @@ const SubscriptionForm = ({ className, inlineForm }: Props) => (
                     'block w-full py-3 px-4 text-center',
                     'border border-transparent shadow-sm rounded-md',
                     'bg-blue-600 hover:bg-blue-500 active:bg-blue-400',
-                    'font-semibold leading-6 text-white',
+                    'font-medium leading-6 text-white',
                     'focus:outline-none',
                     inlineForm && 'lg:w-32 lg:ml-4',
                 )}

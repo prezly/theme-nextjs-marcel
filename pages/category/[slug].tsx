@@ -44,7 +44,7 @@ const IndexPage: FunctionComponent<Props> = ({
             <div className="pt-10 lg:flex lg:flex-nowrap">
                 <div className="lg:flex-grow">
                     <h3 className="uppercase text-gray-400 text-lg leading-6 mb-6 tracking-wider">Browsing Category</h3>
-                    <h1 className="text-gray-50 font-extrabold mb-12 text-4xl">{category.display_name}</h1>
+                    <h1 className="text-gray-50 font-bold mb-12 text-4xl">{category.display_name}</h1>
                     <InfiniteStories initialStories={stories} pagination={pagination} category={category} />
                 </div>
                 <Sidebar />
