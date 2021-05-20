@@ -2,6 +2,7 @@ import 'intersection-observer';
 
 import { AppProps } from 'next/app';
 
+import '@prezly/uploadcare-image/build/styles.css';
 import '../styles/globals.css';
 import '../styles/slate-override.css';
 

@@ -1,8 +1,7 @@
 import type { FunctionComponent } from 'react';
 import type { ExtendedStory } from '@prezly/sdk';
-import Image from 'next/image';
+import Image from '@prezly/uploadcare-image';
 
-import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
 import CategoryTag from '@/components/CategoryTag';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
 import SocialShare from '@/components/SocialShare';
@@ -27,7 +26,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                 {headerImage && (
                     <div className="lg:w-1/2 lg:flex-shrink-0 relative min-h-[20rem]">
                         <Image
-                            src={getAssetsUrl(headerImage.uuid)}
+                            imageDetails={headerImage}
                             layout="fill"
                             objectFit="cover"
                         />

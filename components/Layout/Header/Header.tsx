@@ -1,8 +1,8 @@
 import { FunctionComponent, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
+import Image from '@prezly/uploadcare-image';
 
-import getAssetsUrl from '@/utils/prezly/getAssetsUrl';
 import { useCategories } from '@/hooks/useCategories';
 import { useNewsroom } from '@/hooks/useNewsroom';
 import Categories from '@/modules/Categories';
@@ -30,10 +30,12 @@ const Header: FunctionComponent = () => {
                 <Link href="/" passHref>
                     <a>
                         {newsroom_logo ? (
-                            <img
-                                src={getAssetsUrl(newsroom_logo.uuid)}
+                            <Image
+                                layout="fill"
+                                objectFit="contain"
+                                imageDetails={newsroom_logo}
                                 alt={display_name}
-                                className="max-w-48 max-h-11"
+                                className="w-auto max-w-xs max-h-11"
                             />
                         ) : display_name }
                     </a>
@@ -56,7 +58,7 @@ const Header: FunctionComponent = () => {
                             className={classNames(
                                 'p-2 md:py-1 flex items-center rounded-md leading-6 tracking-wide',
                                 'hover:bg-gray-700 active:bg-gray-600 active:text-gray-100',
-                                'focus-visible:ring focus-visible:ring-inset focus-visible:ring-4',
+                                'focus-visible:ring-inset focus-visible:ring-4',
                                 'focus-visible:ring-blue-300 focus:outline-none',
                                 { 'bg-gray-600 text-gray-100': isMenuOpen },
                                 { 'lg:hidden': canShowCategories },
