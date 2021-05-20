@@ -56,7 +56,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                                 story={story}
                                 className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
                             />
-                            <SocialShare />
+                            <SocialShare story={story} />
                         </div>
                     </div>
                 </div>
