@@ -20,7 +20,7 @@ const InfiniteStories: FunctionComponent<Props> = ({ initialStories, pagination,
     } = useInfiniteStoriesLoading(initialStories, pagination, category);
 
     return (
-        <div>
+        <div className="mb-16">
             <StoriesList stories={displayedStories} />
 
             <LoadMore canLoadMore={canLoadMore} onLoadMore={loadMoreStories} />
