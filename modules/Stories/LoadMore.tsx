@@ -16,7 +16,6 @@ const LoadMore: FunctionComponent<Props> = ({ canLoadMore, isLoading, onLoadMore
 
     useEffect(() => {
         if (isIntersecting && canLoadMore) {
-            console.log('try to load more');
             onLoadMore();
         }
     }, [isIntersecting, canLoadMore, onLoadMore]);
