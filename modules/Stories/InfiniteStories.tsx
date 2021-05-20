@@ -24,10 +24,7 @@ const InfiniteStories: FunctionComponent<Props> = ({ initialStories, pagination,
         <div>
             <StoriesList stories={displayedStories} />
 
-            {/* Infinite loading with a button */}
-            {canLoadMore && (
-                <LoadMore isLoading={isLoading} onLoadMore={loadMoreStories} />
-            )}
+            <LoadMore canLoadMore={canLoadMore} isLoading={isLoading} onLoadMore={loadMoreStories} />
         </div>
     );
 };
