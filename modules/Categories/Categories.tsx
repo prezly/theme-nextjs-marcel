@@ -11,7 +11,8 @@ type Props = {
 };
 
 const Categories: FunctionComponent<Props> = ({ categories, forcePopup, onClosePopup }) => {
-    const isExtendedDisplay = categories.some(({ display_description }) => !!display_description);
+    const filteredCategories = categories.filter(({ stories_number }) => stories_number > 0);
+    const isExtendedDisplay = filteredCategories.some(({ display_description }) => !!display_description);
 
     return (
         <ul
@@ -20,7 +21,7 @@ const Categories: FunctionComponent<Props> = ({ categories, forcePopup, onCloseP
                 isExtendedDisplay && 'min-w-[300px]',
             )}
         >
-            {categories.map((c) => (
+            {filteredCategories.map((c) => (
                 // eslint-disable-next-line jsx-a11y/click-events-have-key-events
                 <li
                     key={c.id}
