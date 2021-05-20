@@ -37,4 +37,8 @@
     .svg-icon {
         @apply w-6 h-6;
     }
+
+    .image-full-height {
+        @apply h-full;
+    }
 }

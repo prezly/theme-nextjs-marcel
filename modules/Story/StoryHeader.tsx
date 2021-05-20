@@ -29,6 +29,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                             imageDetails={headerImage}
                             layout="fill"
                             objectFit="cover"
+                            containerClassName="image-full-height"
                         />
                     </div>
                 )}
