@@ -16,7 +16,6 @@ const InfiniteStories: FunctionComponent<Props> = ({ initialStories, pagination,
     const {
         canLoadMore,
         displayedStories,
-        isLoading,
         loadMoreStories,
     } = useInfiniteStoriesLoading(initialStories, pagination, category);
 
@@ -24,7 +23,7 @@ const InfiniteStories: FunctionComponent<Props> = ({ initialStories, pagination,
         <div>
             <StoriesList stories={displayedStories} />
 
-            <LoadMore canLoadMore={canLoadMore} isLoading={isLoading} onLoadMore={loadMoreStories} />
+            <LoadMore canLoadMore={canLoadMore} onLoadMore={loadMoreStories} />
         </div>
     );
 };

@@ -1,0 +1,68 @@
+.dot {
+    @apply py-4 mx-2 relative;
+}
+
+.dot::before,
+.dot::after {
+    content: "";
+    display: block;
+    @apply bg-blue-400 w-2.5 h-2.5 rounded-full;
+
+    animation-duration: .4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+}
+
+.dot::after {
+    animation-name: bounce;
+    --top-point: -.75rem;
+}
+
+.dot::before {
+    position: absolute;
+
+    bottom: -1px;
+    left: 0;
+    right: 0;
+
+    transform: scaleY(0.2);
+    transform-origin: bottom;
+    opacity: 0;
+
+    animation-name: shadow;
+}
+
+.dot:nth-child(2)::before,
+.dot:nth-child(2)::after {
+    animation-delay: .2s;
+    --top-point: -1rem;
+}
+
+.dot:nth-child(3)::before,
+.dot:nth-child(3)::after {
+    animation-delay: .4s;
+    --top-point: -.5rem;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translateY(var(--top-point));
+    }
+    100% {
+        transform: translateY(1rem);
+    }
+}
+
+@keyframes shadow {
+    0% {
+        opacity: 0;
+        transform: scaleY(0.2) scaleX(0.5);
+    }
+
+    100% {
+        opacity: 0.16;
+        transform: scaleY(0.2) scaleX(1);
+    }
+}
