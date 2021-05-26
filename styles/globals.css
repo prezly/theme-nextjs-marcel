@@ -41,4 +41,8 @@
     .image-full-height {
         @apply h-full;
     }
+
+    .image-full-height img {
+        @apply w-auto sm:w-full;
+    }
 }
