@@ -18,7 +18,7 @@ const SocialLink = ({ socialNetwork, companyInformation }: Props) => {
 
     return (
         <a
-            className="mr-6 text-gray-400 hover:text-blue-400 active:text-blue-500"
+            className="mr-6 text-gray-300 hover:text-blue-400 active:text-blue-500"
             href={socialLink}
             target="_blank"
             rel="noreferrer"

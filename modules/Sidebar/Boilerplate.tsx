@@ -15,7 +15,7 @@ const Boilerplate = ({ companyInformation }: Props) => {
     }
 
     return (
-        <div className="mb-12 text-gray-400">
+        <div className="mb-12 text-gray-300">
             <h2 className="text-lg leading-6 mb-4 font-semibold">
                 About
                 {name && ' '}
