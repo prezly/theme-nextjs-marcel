@@ -15,8 +15,8 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-    "lint-styles": "npx stylelint **.scss",
-    "lint-styles:fix": "npx stylelint **.scss --fix",
+    "lint-styles": "npx stylelint **.{css,scss}",
+    "lint-styles:fix": "npx stylelint **.{css,scss} --fix",
     "prettier": "prettier --check './**/*.(js|ts|tsx|css)'",
     "prettier:fix": "npm run prettier -- --write --no-list-different",
     "typecheck": "tsc --noEmit --incremental",
@@ -68,6 +68,7 @@
     "prettier": "^2.5.1",
     "sass": "^1.42.1",
     "stylelint": "^14.2.0",
+    "stylelint-config-tailwindcss": "^0.0.3",
     "tailwindcss": "^3.0.23",
     "typescript": "^4.5.5"
   },
