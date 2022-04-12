@@ -2,8 +2,7 @@
 import { NextPage, NextPageContext } from 'next';
 import { Story } from '@prezly/sdk';
 import { Category } from '@prezly/sdk/dist/types';
-
-import { getPrezlyApi } from '@/utils/prezly';
+import { getPrezlyApi } from '@prezly/theme-kit-nextjs';
 
 type Url = {
     loc: string;
