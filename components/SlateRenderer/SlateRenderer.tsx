@@ -1,5 +1,7 @@
-import type { FunctionComponent } from 'react';
-import { Node, Options, Renderer } from '@prezly/slate-renderer';
+import type { FC } from 'react';
+import type { ComponentRenderers } from '@prezly/content-renderer-react-js';
+import { Renderer } from '@prezly/content-renderer-react-js';
+import type { Node } from '@prezly/slate-types';
 import {
     BULLETED_LIST_NODE_TYPE,
     NUMBERED_LIST_NODE_TYPE,
@@ -14,7 +16,7 @@ import {
     CONTACT_NODE_TYPE,
     ATTACHMENT_NODE_TYPE,
 } from '@prezly/slate-types';
-import '@prezly/slate-renderer/build/styles.css';
+import '@prezly/content-renderer-react-js/styles.css';
 import classNames from 'classnames';
 
 import Icon from '@/components/Icon';
@@ -25,7 +27,7 @@ interface Props {
     nodes: Node | Node[];
 }
 
-export const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
+export const getDefaultComponents = (downgradeHeadings?: boolean): ComponentRenderers => ({
     [BULLETED_LIST_NODE_TYPE]: ({ children }) => (
         <ul className="list-disc pl-6 my-4">{children}</ul>
     ),
@@ -38,9 +40,7 @@ export const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
         if (downgradeHeadings) {
             return <h3>{children}</h3>;
         }
-        return (
-            <h1>{children}</h1>
-        );
+        return <h1>{children}</h1>;
     },
     [HEADING_2_NODE_TYPE]: ({ children }) => {
         if (downgradeHeadings) {
@@ -70,9 +70,13 @@ export const getDefaultOptions = (downgradeHeadings?: boolean): Options => ({
     ),
     [DIVIDER_NODE_TYPE]: () => <hr className="my-10 border-gray-500" />,
     [CONTACT_NODE_TYPE]: ({ node }) => <ContactCard contact={node.contact} />,
-    [ATTACHMENT_NODE_TYPE]: ({ node }) => <Attachment file={node.file} description={node.description} />,
+    [ATTACHMENT_NODE_TYPE]: ({ node }) => (
+        <Attachment file={node.file} description={node.description} />
+    ),
 });
 
-const SlateRenderer: FunctionComponent<Props> = ({ nodes }) => <Renderer nodes={nodes} options={getDefaultOptions()} />;
+const SlateRenderer: FC<Props> = ({ nodes }) => (
+    <Renderer nodes={nodes} components={getDefaultComponents()} />
+);
 
 export default SlateRenderer;

@@ -1,34 +1,36 @@
-import { getDefaultOptions } from '@/components/SlateRenderer/SlateRenderer';
-import { Story, ExtraStoryFields } from '@prezly/sdk';
-import { FormatVersion } from '@prezly/sdk/dist/types/Story';
-import { Node, Options, Renderer } from '@prezly/slate-renderer';
+import { getDefaultComponents } from '@/components/SlateRenderer/SlateRenderer';
+import { Story, ExtraStoryFields, StoryFormatVersion } from '@prezly/sdk';
+import { ComponentRenderers, Renderer } from '@prezly/content-renderer-react-js';
 import {
     ElementNode,
     isParagraphNode,
     isTextNode,
     PARAGRAPH_NODE_TYPE,
+    Node,
 } from '@prezly/slate-types';
 
-function isNodeEmpty(node: Node | ElementNode<string>) {
+function isNodeEmpty(node: Node | ElementNode): boolean {
     if (isTextNode(node)) {
         return !node.text.length;
     }
 
-    return !node.children.length || node.children.every(isNodeEmpty);
+    return !node.children.length || node.children.every(isNodeEmpty as any);
 }
 
-const getExcerptOptions = (): Options => ({
-    ...getDefaultOptions(),
+const getExcerptComponents = (): ComponentRenderers => ({
+    ...getDefaultComponents(),
     [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
 });
 
-function getNodeTextLength(node: Node | ElementNode<string>): number {
+function getNodeTextLength(node: Node | ElementNode): number {
     if (isTextNode(node)) {
         return node.text.length;
     }
 
-    return (node.children as (Node | ElementNode<string>)[])
-        .reduce((total: number, child) => total + getNodeTextLength(child), 0);
+    return (node.children as (Node | ElementNode)[]).reduce(
+        (total: number, child) => total + getNodeTextLength(child),
+        0,
+    );
 }
 
 const MAX_NODE_INDEX_FOR_TEXT_NODES = 5;
@@ -38,13 +40,11 @@ export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'c
     const { format_version, content } = story;
 
     // TODO: This needs testing
-    if (format_version === FormatVersion.HTML) {
+    if (format_version === StoryFormatVersion.HTML) {
         const dummy = document.createElement('div');
         dummy.innerHTML = content;
 
-        const firstTextNode = Array.from(dummy.children).find((child) => (
-            !!child.textContent
-        ));
+        const firstTextNode = Array.from(dummy.children).find((child) => !!child.textContent);
 
         if (!firstTextNode) {
             return null;
@@ -56,13 +56,13 @@ export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'c
         );
     }
 
-    const parsedContent = (JSON.parse(content)).children as Node[];
+    const parsedContent = JSON.parse(content).children as Node[];
     const firstTextNodes: Node[] = [];
 
     // Find the earliest consecutive paragraph or text nodes to make excerpt from
-    let textNodeIndex = parsedContent.findIndex((node) => (
-        isParagraphNode(node) || isTextNode(node)
-    ));
+    let textNodeIndex = parsedContent.findIndex(
+        (node) => isParagraphNode(node) || isTextNode(node),
+    );
     if (textNodeIndex === -1 || textNodeIndex > MAX_NODE_INDEX_FOR_TEXT_NODES) {
         return null;
     }
@@ -70,11 +70,11 @@ export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'c
     let checkedNode = parsedContent[textNodeIndex];
     let totalTextLength = 0;
     while (
-        textNodeIndex < parsedContent.length
-        && totalTextLength < MAX_TOTAL_TEXT_LENGTH
-        && checkedNode
-        && !isNodeEmpty(checkedNode)
-        && (isParagraphNode(checkedNode) || isTextNode(checkedNode))
+        textNodeIndex < parsedContent.length &&
+        totalTextLength < MAX_TOTAL_TEXT_LENGTH &&
+        checkedNode &&
+        !isNodeEmpty(checkedNode) &&
+        (isParagraphNode(checkedNode) || isTextNode(checkedNode))
     ) {
         firstTextNodes.push(checkedNode);
         totalTextLength += getNodeTextLength(checkedNode);
@@ -86,5 +86,5 @@ export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'c
         return null;
     }
 
-    return <Renderer nodes={firstTextNodes} options={getExcerptOptions()} />;
+    return <Renderer nodes={firstTextNodes} components={getExcerptComponents()} />;
 }

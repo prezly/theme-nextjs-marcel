@@ -3,8 +3,7 @@ import { useLatest } from 'react-use';
 import throttle from 'lodash.throttle';
 import { Category } from '@prezly/sdk/dist/types';
 
-import { PaginationProps } from 'types';
-import { StoryWithContent } from '@/modules/Stories';
+import { PaginationProps, StoryWithContent } from 'types';
 
 const LOAD_MORE_THROTTLE_MS = 1000;
 
@@ -53,7 +52,11 @@ export const useInfiniteStoriesLoading = (
         try {
             setIsLoading(true);
 
-            const { stories: newStories } = await fetchStories(currentPageLatest.current + 1, pageSize, category);
+            const { stories: newStories } = await fetchStories(
+                currentPageLatest.current + 1,
+                pageSize,
+                category,
+            );
             setDisplayedStories((stories) => stories.concat(newStories));
             setCurrentPage((page) => page + 1);
         } catch (error) {
@@ -64,9 +67,10 @@ export const useInfiniteStoriesLoading = (
         }
     }, [category]);
 
-    const loadMoreStoriesThrottled = useMemo(() => (
-        throttle(loadMoreStories, LOAD_MORE_THROTTLE_MS, { leading: false })
-    ), [loadMoreStories]);
+    const loadMoreStoriesThrottled = useMemo(
+        () => throttle(loadMoreStories, LOAD_MORE_THROTTLE_MS, { leading: false }),
+        [loadMoreStories],
+    );
 
     return {
         canLoadMore,

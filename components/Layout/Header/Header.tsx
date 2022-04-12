@@ -2,11 +2,9 @@ import { FunctionComponent, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import Image from '@prezly/uploadcare-image';
-
-import { useCategories } from '@/hooks/useCategories';
-import { useNewsroom } from '@/hooks/useNewsroom';
 import Categories from '@/modules/Categories';
 import Icon from '@/components/Icon';
+import { useCategories, useNewsroom } from '@prezly/theme-kit-nextjs';
 
 const MAX_DISPLAYED_CATEGORIES = 5;
 
@@ -37,7 +35,9 @@ const Header: FunctionComponent = () => {
                                 alt={display_name}
                                 className="w-auto max-w-xs max-h-11"
                             />
-                        ) : display_name }
+                        ) : (
+                            display_name
+                        )}
                     </a>
                 </Link>
 
@@ -73,7 +73,8 @@ const Header: FunctionComponent = () => {
                             className={classNames(
                                 { 'lg:block': canShowCategories },
                                 isMenuOpen ? 'block absolute top-full right-0 z-50 mt-3' : 'hidden',
-                                isMenuOpen && 'bg-gray-700 border border-gray-600 rounded-xl py-1 overflow-hidden min-w-[200px]',
+                                isMenuOpen &&
+                                    'bg-gray-700 border border-gray-600 rounded-xl py-1 overflow-hidden min-w-[200px]',
                             )}
                         >
                             <Categories

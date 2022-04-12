@@ -1,10 +1,9 @@
 import type { FunctionComponent } from 'react';
 import { Category } from '@prezly/sdk/dist/types';
-import { PaginationProps } from 'types';
+import { PaginationProps, StoryWithContent } from 'types';
 import { useInfiniteStoriesLoading } from '@/hooks/useInfiniteStoriesLoading';
 import LoadMore from './LoadMore';
 import StoriesList from './StoriesList';
-import { StoryWithContent } from './lib/types';
 
 type Props = {
     initialStories: StoryWithContent[];
@@ -13,11 +12,11 @@ type Props = {
 };
 
 const InfiniteStories: FunctionComponent<Props> = ({ initialStories, pagination, category }) => {
-    const {
-        canLoadMore,
-        displayedStories,
-        loadMoreStories,
-    } = useInfiniteStoriesLoading(initialStories, pagination, category);
+    const { canLoadMore, displayedStories, loadMoreStories } = useInfiniteStoriesLoading(
+        initialStories,
+        pagination,
+        category,
+    );
 
     return (
         <div className="mb-16">
