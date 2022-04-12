@@ -1,10 +1,11 @@
+import type { Category } from '@prezly/sdk/dist/types';
+import type { LocaleObject } from '@prezly/theme-kit-nextjs';
+import { useCurrentLocale } from '@prezly/theme-kit-nextjs';
+import throttle from 'lodash.throttle';
 import { useCallback, useMemo, useState } from 'react';
 import { useLatest } from 'react-use';
-import throttle from 'lodash.throttle';
-import { Category } from '@prezly/sdk/dist/types';
-import { LocaleObject, useCurrentLocale } from '@prezly/theme-kit-nextjs';
 
-import { PaginationProps, StoryWithContent } from 'types';
+import type { PaginationProps, StoryWithContent } from 'types';
 
 const LOAD_MORE_THROTTLE_MS = 1000;
 
@@ -38,11 +39,11 @@ async function fetchStories(
     return result.json();
 }
 
-export const useInfiniteStoriesLoading = (
+export function useInfiniteStoriesLoading(
     initialStories: StoryWithContent[],
     pagination: PaginationProps,
     category?: Category,
-) => {
+) {
     const currentLocale = useCurrentLocale();
     const [displayedStories, setDisplayedStories] = useState<StoryWithContent[]>(initialStories);
     const [currentPage, setCurrentPage] = useState(1);
@@ -72,6 +73,7 @@ export const useInfiniteStoriesLoading = (
         } finally {
             setIsLoading(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category]);
 
     const loadMoreStoriesThrottled = useMemo(
@@ -85,4 +87,4 @@ export const useInfiniteStoriesLoading = (
         isLoading,
         loadMoreStories: loadMoreStoriesThrottled,
     };
-};
+}

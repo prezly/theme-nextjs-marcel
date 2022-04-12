@@ -1,9 +1,11 @@
-import type { FunctionComponent } from 'react';
-import { PaginationProps } from 'types';
+import type { PropsWithChildren } from 'react';
+
+import type { PaginationProps } from 'types';
+
 import getVisiblePages from './lib/getVisiblePages';
 import PaginationItem from './PaginationItem';
 
-const Pagination: FunctionComponent<PaginationProps> = ({ itemsTotal, currentPage, pageSize }) => {
+function Pagination({ itemsTotal, currentPage, pageSize }: PropsWithChildren<PaginationProps>) {
     const totalPages = Math.ceil(itemsTotal / pageSize);
 
     if (totalPages <= 1) {
@@ -22,15 +24,9 @@ const Pagination: FunctionComponent<PaginationProps> = ({ itemsTotal, currentPag
                 Previous
             </PaginationItem>
 
-            {shouldRenderFirstPage && (
-                <PaginationItem page={1}>
-                    1
-                </PaginationItem>
-            )}
+            {shouldRenderFirstPage && <PaginationItem page={1}>1</PaginationItem>}
 
-            {shouldRenderLeftGap && (
-                <span style={{ opacity: '50%' }}>...</span>
-            )}
+            {shouldRenderLeftGap && <span style={{ opacity: '50%' }}>...</span>}
 
             {visiblePages.map((page) => (
                 <PaginationItem key={`page-${page}`} page={page} isCurrent={currentPage === page}>
@@ -38,14 +34,10 @@ const Pagination: FunctionComponent<PaginationProps> = ({ itemsTotal, currentPag
                 </PaginationItem>
             ))}
 
-            {shouldRenderRightGap && (
-                <span style={{ opacity: '50%' }}>...</span>
-            )}
+            {shouldRenderRightGap && <span style={{ opacity: '50%' }}>...</span>}
 
             {shouldRenderLastPage && (
-                <PaginationItem page={totalPages}>
-                    {totalPages}
-                </PaginationItem>
+                <PaginationItem page={totalPages}>{totalPages}</PaginationItem>
             )}
 
             <PaginationItem page={currentPage + 1} isDisabled={currentPage === totalPages}>
@@ -53,6 +45,6 @@ const Pagination: FunctionComponent<PaginationProps> = ({ itemsTotal, currentPag
             </PaginationItem>
         </div>
     );
-};
+}
 
 export default Pagination;

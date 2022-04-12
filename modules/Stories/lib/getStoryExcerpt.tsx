@@ -1,13 +1,11 @@
+import type { ComponentRenderers } from '@prezly/content-renderer-react-js';
+import { Renderer } from '@prezly/content-renderer-react-js';
+import type { ExtraStoryFields, Story } from '@prezly/sdk';
+import { StoryFormatVersion } from '@prezly/sdk';
+import type { ElementNode, Node } from '@prezly/slate-types';
+import { isParagraphNode, isTextNode, PARAGRAPH_NODE_TYPE } from '@prezly/slate-types';
+
 import { getDefaultComponents } from '@/components/SlateRenderer/SlateRenderer';
-import { Story, ExtraStoryFields, StoryFormatVersion } from '@prezly/sdk';
-import { ComponentRenderers, Renderer } from '@prezly/content-renderer-react-js';
-import {
-    ElementNode,
-    isParagraphNode,
-    isTextNode,
-    PARAGRAPH_NODE_TYPE,
-    Node,
-} from '@prezly/slate-types';
 
 function isNodeEmpty(node: Node | ElementNode): boolean {
     if (isTextNode(node)) {
@@ -17,10 +15,12 @@ function isNodeEmpty(node: Node | ElementNode): boolean {
     return !node.children.length || node.children.every(isNodeEmpty as any);
 }
 
-const getExcerptComponents = (): ComponentRenderers => ({
-    ...getDefaultComponents(),
-    [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
-});
+function getExcerptComponents(): ComponentRenderers {
+    return {
+        ...getDefaultComponents(),
+        [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
+    };
+}
 
 function getNodeTextLength(node: Node | ElementNode): number {
     if (isTextNode(node)) {

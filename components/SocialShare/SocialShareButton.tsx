@@ -1,9 +1,5 @@
-import React, { FunctionComponent } from 'react';
-import {
-    FacebookShareButton,
-    LinkedinShareButton,
-    TwitterShareButton,
-} from 'react-share';
+import React from 'react';
+import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 import Icon from '../Icon';
 
@@ -25,7 +21,7 @@ interface Props {
     link: string;
 }
 
-const SocialShareButton: FunctionComponent<Props> = ({ socialNetwork, link }) => {
+function SocialShareButton({ socialNetwork, link }: Props) {
     const ShareButtonComponent = COMPONENT_MAP[socialNetwork];
     const iconName = `social-${socialNetwork}`;
 
@@ -42,6 +38,6 @@ const SocialShareButton: FunctionComponent<Props> = ({ socialNetwork, link }) =>
             <Icon name={iconName} className="w-7 h-7 lg:w-4 lg:h-4" />
         </ShareButtonComponent>
     );
-};
+}
 
 export default SocialShareButton;

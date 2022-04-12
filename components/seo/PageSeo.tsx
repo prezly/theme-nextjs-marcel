@@ -1,5 +1,4 @@
 import { NextSeo } from 'next-seo';
-import { FunctionComponent } from 'react';
 
 type Props = {
     title: string;
@@ -8,26 +7,26 @@ type Props = {
     imageUrl: string;
 };
 
-const PageSeo: FunctionComponent<Props> = ({
-    title, description, url, imageUrl,
-}) => (
-    <NextSeo
-        title={title}
-        description={description}
-        canonical={url}
-        openGraph={{
-            url,
-            title,
-            description,
-            images: [
-                {
-                    url: imageUrl,
-                    alt: title,
-                },
-            ],
-            site_name: title,
-        }}
-    />
-);
+function PageSeo({ title, description, url, imageUrl }: Props) {
+    return (
+        <NextSeo
+            title={title}
+            description={description}
+            canonical={url}
+            openGraph={{
+                url,
+                title,
+                description,
+                images: [
+                    {
+                        url: imageUrl,
+                        alt: title,
+                    },
+                ],
+                site_name: title,
+            }}
+        />
+    );
+}
 
 export default PageSeo;

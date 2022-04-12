@@ -1,15 +1,17 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk';
+import type { NewsroomCompanyInformation } from '@prezly/sdk';
+import type { PropsWithChildren } from 'react';
 
 import Icon from '@/components/Icon';
-import { SocialNetwork } from './lib/types';
+
 import getSocialLink from './lib/getSocialLink';
+import type { SocialNetwork } from './lib/types';
 
 type Props = {
     socialNetwork: SocialNetwork;
     companyInformation: NewsroomCompanyInformation;
 };
 
-const SocialLink = ({ socialNetwork, companyInformation }: Props) => {
+function SocialLink({ socialNetwork, companyInformation }: PropsWithChildren<Props>) {
     const socialLink = getSocialLink(socialNetwork, companyInformation);
 
     if (!socialLink) {
@@ -26,6 +28,6 @@ const SocialLink = ({ socialNetwork, companyInformation }: Props) => {
             <Icon name={`social-${socialNetwork}`} />
         </a>
     );
-};
+}
 
 export default SocialLink;

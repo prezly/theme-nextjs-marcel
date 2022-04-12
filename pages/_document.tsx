@@ -6,6 +6,7 @@ class MyDocument extends Document {
     render() {
         const {
             newsroomContextProps: { localeCode = DEFAULT_LOCALE },
+            // eslint-disable-next-line no-underscore-dangle
         } = this.props.__NEXT_DATA__.props.pageProps as PageProps;
 
         const locale = LocaleObject.fromAnyCode(localeCode);

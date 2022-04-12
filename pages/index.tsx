@@ -1,19 +1,19 @@
-import type { FunctionComponent } from 'react';
-import { GetServerSideProps } from 'next';
 import {
+    DEFAULT_PAGE_SIZE,
+    getAssetsUrl,
     getNewsroomServerSideProps,
     processRequest,
     useNewsroom,
-    DEFAULT_PAGE_SIZE,
-    getAssetsUrl,
 } from '@prezly/theme-kit-nextjs';
+import type { GetServerSideProps } from 'next';
+import type { FunctionComponent } from 'react';
 
-import { BasePageProps, PaginationProps, StoryWithContent } from 'types';
-import { InfiniteStories } from '@/modules/Stories';
-import Sidebar from '@/modules/Sidebar';
 import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
-import { isTrackingEnabled, importMessages } from '@/utils';
+import Sidebar from '@/modules/Sidebar';
+import { InfiniteStories } from '@/modules/Stories';
+import { importMessages, isTrackingEnabled } from '@/utils';
+import type { BasePageProps, PaginationProps, StoryWithContent } from 'types';
 
 interface Props extends BasePageProps {
     stories: StoryWithContent[];

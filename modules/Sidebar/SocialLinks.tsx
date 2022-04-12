@@ -1,4 +1,4 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk';
+import type { NewsroomCompanyInformation } from '@prezly/sdk';
 
 import hasSocialLinks from './lib/hasSocialLinks';
 import SocialLink from './SocialLink';
@@ -7,7 +7,7 @@ type Props = {
     companyInformation: NewsroomCompanyInformation;
 };
 
-const SocialLinks = ({ companyInformation }: Props) => {
+function SocialLinks({ companyInformation }: Props) {
     if (!hasSocialLinks(companyInformation)) {
         return null;
     }
@@ -22,6 +22,6 @@ const SocialLinks = ({ companyInformation }: Props) => {
             <SocialLink socialNetwork="instagram" companyInformation={companyInformation} />
         </div>
     );
-};
+}
 
 export default SocialLinks;

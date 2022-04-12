@@ -1,12 +1,12 @@
-import type { FunctionComponent } from 'react';
-import classNames from 'classnames';
-import { ExtendedStory, StoryFormatVersion } from '@prezly/sdk';
+import type { ExtendedStory } from '@prezly/sdk';
+import { StoryFormatVersion } from '@prezly/sdk';
 import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
+import classNames from 'classnames';
 
-import SlateRenderer from '@/components/SlateRenderer';
 import { StorySeo } from '@/components/seo';
+import SlateRenderer from '@/components/SlateRenderer';
 import StoryStickyBar from '@/components/StoryStickyBar';
-import { SubscriptionForm, Boilerplate, SocialLinks } from '@/modules/Sidebar';
+import { Boilerplate, SocialLinks, SubscriptionForm } from '@/modules/Sidebar';
 
 import StoryHeader from './StoryHeader';
 
@@ -14,7 +14,7 @@ type Props = {
     story: ExtendedStory;
 };
 
-const Story: FunctionComponent<Props> = ({ story }) => {
+function Story({ story }: Props) {
     const companyInformation = useCompanyInformation();
 
     const { format_version, content } = story;
@@ -61,6 +61,6 @@ const Story: FunctionComponent<Props> = ({ story }) => {
             <StoryStickyBar story={story} />
         </>
     );
-};
+}
 
 export default Story;

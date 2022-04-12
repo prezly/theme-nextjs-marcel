@@ -1,15 +1,14 @@
-import React, { FunctionComponent } from 'react';
+import type { Category } from '@prezly/sdk/dist/types';
 import { getCategoryUrl, useCurrentLocale } from '@prezly/theme-kit-nextjs';
-import Link from 'next/link';
 import classNames from 'classnames';
-import { Category } from '@prezly/sdk/dist/types';
+import Link from 'next/link';
 
 interface Props {
     category: Category;
     className?: string;
 }
 
-const CategoryTag: FunctionComponent<Props> = ({ category, className }) => {
+function CategoryTag({ category, className }: Props) {
     const locale = useCurrentLocale();
 
     return (
@@ -28,6 +27,6 @@ const CategoryTag: FunctionComponent<Props> = ({ category, className }) => {
             </a>
         </Link>
     );
-};
+}
 
 export default CategoryTag;

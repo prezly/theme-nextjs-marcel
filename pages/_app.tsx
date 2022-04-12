@@ -18,6 +18,7 @@ function App({ Component, pageProps }: AppProps) {
     const { localeCode, newsroom, currentStory } = newsroomContextProps;
     const locale = useMemo(() => LocaleObject.fromAnyCode(localeCode), [localeCode]);
 
+    /* eslint-disable react/jsx-props-no-spreading */
     return (
         <NewsroomContextProvider {...newsroomContextProps}>
             <IntlProvider
@@ -30,11 +31,13 @@ function App({ Component, pageProps }: AppProps) {
                     newsroom={newsroom}
                     story={currentStory}
                 >
+                    {/* eslint-disable-next-line react/jsx-props-no-spreading */}
                     <Component {...customPageProps} />
                 </AnalyticsContextProvider>
             </IntlProvider>
         </NewsroomContextProvider>
     );
+    /* eslint-enable react/jsx-props-no-spreading */
 }
 
 export default App;

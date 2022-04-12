@@ -1,5 +1,5 @@
 import { getPrezlyApi } from '@prezly/theme-kit-nextjs';
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function fetchStories(req: NextApiRequest, res: NextApiResponse) {
     if (req.method !== 'POST') {
@@ -17,9 +17,9 @@ export default async function fetchStories(req: NextApiRequest, res: NextApiResp
             : api.getStories({ page, pageSize, include }));
 
         res.status(200).json({ stories });
-    } catch (err: any) {
+    } catch (error: any) {
         res.status(500).send({
-            message: err.message,
+            message: error.message,
         });
     }
 }

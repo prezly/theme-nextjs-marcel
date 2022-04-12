@@ -1,22 +1,22 @@
-import type { FunctionComponent } from 'react';
-import { GetServerSideProps } from 'next';
-import { useRouter } from 'next/router';
-import { Category, Newsroom } from '@prezly/sdk/dist/types';
+import type { Category, Newsroom } from '@prezly/sdk/dist/types';
 import {
+    DEFAULT_PAGE_SIZE,
+    getAssetsUrl,
     getNewsroomServerSideProps,
     processRequest,
     useCurrentCategory,
     useNewsroom,
-    DEFAULT_PAGE_SIZE,
-    getAssetsUrl,
 } from '@prezly/theme-kit-nextjs';
+import type { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
+import type { FunctionComponent } from 'react';
 
-import { BasePageProps, PaginationProps, StoryWithContent } from 'types';
-import { InfiniteStories } from '@/modules/Stories';
-import Sidebar from '@/modules/Sidebar';
 import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
+import Sidebar from '@/modules/Sidebar';
+import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';
+import type { BasePageProps, PaginationProps, StoryWithContent } from 'types';
 
 interface Props extends BasePageProps {
     stories: StoryWithContent[];
@@ -27,7 +27,7 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
     const router = useRouter();
     const category = useCurrentCategory() as Category;
     const newsroom = useNewsroom() as Newsroom;
-    const slug = router.query.slug;
+    const { slug } = router.query;
 
     return (
         <>

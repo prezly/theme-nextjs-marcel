@@ -1,24 +1,19 @@
-import type { FunctionComponent } from 'react';
-import Link from 'next/link';
 import classNames from 'classnames';
+import Link from 'next/link';
 
-import Icon from '@/components/Icon';
 import CategoryTag from '@/components/CategoryTag';
+import Icon from '@/components/Icon';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
+import type { StoryWithContent } from 'types';
+
 import getStoryExcerpt from './lib/getStoryExcerpt';
-import { StoryWithContent } from './lib/types';
 
 type Props = {
     story: StoryWithContent;
 };
 
-const StoryItem: FunctionComponent<Props> = ({ story }) => {
-    const {
-        categories,
-        title,
-        subtitle,
-        slug,
-    } = story;
+function StoryItem({ story }: Props) {
+    const { categories, title, subtitle, slug } = story;
 
     const excerpt = getStoryExcerpt(story);
 
@@ -37,10 +32,11 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
 
             <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9">
                 <Link href={`/${slug}`} passHref>
-                    <a className={classNames(
-                        'hover:underline hover:text-blue-300 active:text-blue-400',
-                        'focus:outline-none focus:underline focus:text-blue-300',
-                    )}
+                    <a
+                        className={classNames(
+                            'hover:underline hover:text-blue-300 active:text-blue-400',
+                            'focus:outline-none focus:underline focus:text-blue-300',
+                        )}
                     >
                         {title}
                     </a>
@@ -49,9 +45,7 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
             {subtitle && (
                 <h3 className="text-gray-300 font-medium text-lg leading-7 mb-4">{subtitle}</h3>
             )}
-            {excerpt && (
-                <div className="mb-4 text-gray-400 leading-7 line-clamp-3">{excerpt}</div>
-            )}
+            {excerpt && <div className="mb-4 text-gray-400 leading-7 line-clamp-3">{excerpt}</div>}
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
@@ -65,6 +59,6 @@ const StoryItem: FunctionComponent<Props> = ({ story }) => {
             </Link>
         </div>
     );
-};
+}
 
 export default StoryItem;

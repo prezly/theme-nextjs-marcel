@@ -1,6 +1,6 @@
-import { FunctionComponent, useRef, useState } from 'react';
+import type { ExtendedStory } from '@prezly/sdk';
 import classNames from 'classnames';
-import { ExtendedStory } from '@prezly/sdk';
+import { useRef, useState } from 'react';
 
 import Icon from '../Icon';
 
@@ -18,7 +18,7 @@ function resetInputSelection(input: HTMLInputElement) {
 
 const TOOLTIP_HIDE_DELAY = 3000; // 3 seconds
 
-const StoryShare: FunctionComponent<Props> = ({ story }) => {
+function StoryShare({ story }: Props) {
     const inputRef = useRef<HTMLInputElement>(null);
     const [isTooltipShown, setIsTooltipShown] = useState(false);
 
@@ -26,14 +26,15 @@ const StoryShare: FunctionComponent<Props> = ({ story }) => {
 
     const shareLink = short || newsroom_view;
 
-    const handleInputClick = () => {
+    function handleInputClick() {
         selectInputText(inputRef.current!);
-    };
+    }
 
-    const handleCopyButtonClick = () => {
+    function handleCopyButtonClick() {
         const input = inputRef.current!;
         input.focus();
         selectInputText(input);
+        // eslint-disable-next-line deprecation/deprecation
         document.execCommand('copy');
         resetInputSelection(input);
         input.blur();
@@ -42,7 +43,7 @@ const StoryShare: FunctionComponent<Props> = ({ story }) => {
         setTimeout(() => {
             setIsTooltipShown(false);
         }, TOOLTIP_HIDE_DELAY);
-    };
+    }
 
     if (!shareLink) {
         return null;
@@ -53,7 +54,10 @@ const StoryShare: FunctionComponent<Props> = ({ story }) => {
             <p>Share this story</p>
 
             <div className="ml-6 relative flex items-center">
-                <label htmlFor="share-link" className="sr-only">Story sharing link</label>
+                <label htmlFor="share-link" className="sr-only">
+                    Story sharing link
+                </label>
+                {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                 <input
                     ref={inputRef}
                     type="text"
@@ -99,6 +103,6 @@ const StoryShare: FunctionComponent<Props> = ({ story }) => {
             </div>
         </div>
     );
-};
+}
 
 export default StoryShare;

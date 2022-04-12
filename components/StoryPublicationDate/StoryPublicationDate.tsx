@@ -1,8 +1,8 @@
-import React, { FunctionComponent } from 'react';
-import { format } from 'date-fns';
+import type { Story } from '@prezly/sdk';
 import classNames from 'classnames';
+import { format } from 'date-fns';
+import type { PropsWithChildren } from 'react';
 
-import { Story } from '@prezly/sdk';
 import Icon from '../Icon';
 
 interface Props {
@@ -10,13 +10,10 @@ interface Props {
     className?: string;
 }
 
-const StoryPublicationDate: FunctionComponent<Props> = ({ story, className }) => {
+function StoryPublicationDate({ story, className }: PropsWithChildren<Props>) {
     const { published_at } = story;
 
-    const publishedDate = format(
-        new Date(published_at as string),
-        'dd/MM/yyyy',
-    );
+    const publishedDate = format(new Date(published_at as string), 'dd/MM/yyyy');
 
     return (
         <div className={classNames('flex items-center leading-5', className)}>
@@ -24,6 +21,6 @@ const StoryPublicationDate: FunctionComponent<Props> = ({ story, className }) =>
             {publishedDate}
         </div>
     );
-};
+}
 
 export default StoryPublicationDate;

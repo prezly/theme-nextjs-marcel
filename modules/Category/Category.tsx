@@ -1,7 +1,8 @@
-import { Category } from '@prezly/sdk/dist/types';
+import type { Category } from '@prezly/sdk/dist/types';
 import { getCategoryUrl, useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import Link from 'next/link';
+import type { PropsWithChildren } from 'react';
 
 type Props = {
     category: Category;
@@ -9,7 +10,7 @@ type Props = {
     isExtendedDisplay?: boolean;
 };
 
-const CategoryComponent = ({ category, forcePopup, isExtendedDisplay }: Props) => {
+function CategoryComponent({ category, forcePopup, isExtendedDisplay }: PropsWithChildren<Props>) {
     const locale = useCurrentLocale();
 
     return (
@@ -43,6 +44,6 @@ const CategoryComponent = ({ category, forcePopup, isExtendedDisplay }: Props) =
             </a>
         </Link>
     );
-};
+}
 
 export default CategoryComponent;

@@ -1,4 +1,5 @@
-import { FunctionComponent, useEffect, useRef } from 'react';
+import type { PropsWithChildren } from 'react';
+import { useEffect, useRef } from 'react';
 import { useIntersection } from 'react-use';
 
 import styles from './LoadMore.module.css';
@@ -8,7 +9,7 @@ type Props = {
     onLoadMore: () => void;
 };
 
-const LoadMore: FunctionComponent<Props> = ({ canLoadMore, onLoadMore }) => {
+function LoadMore({ canLoadMore, onLoadMore }: PropsWithChildren<Props>) {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
     const intersection = useIntersection(wrapperRef, { threshold: 1 });
@@ -32,6 +33,6 @@ const LoadMore: FunctionComponent<Props> = ({ canLoadMore, onLoadMore }) => {
             <div className={styles.dot} />
         </div>
     );
-};
+}
 
 export default LoadMore;
