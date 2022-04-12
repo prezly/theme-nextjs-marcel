@@ -1,8 +1,8 @@
 import type { FunctionComponent } from 'react';
 import classNames from 'classnames';
 import { ExtendedStory, StoryFormatVersion } from '@prezly/sdk';
+import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
 
-import { useCompanyInformation } from '@/hooks/useCompanyInformation';
 import SlateRenderer from '@/components/SlateRenderer';
 import { StorySeo } from '@/components/seo';
 import StoryStickyBar from '@/components/StoryStickyBar';
