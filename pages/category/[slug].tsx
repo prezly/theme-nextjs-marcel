@@ -1,68 +1,69 @@
 import type { FunctionComponent } from 'react';
 import { GetServerSideProps } from 'next';
-import { Category } from '@prezly/sdk/dist/types';
+import { useRouter } from 'next/router';
+import { Category, Newsroom } from '@prezly/sdk/dist/types';
+import {
+    getNewsroomServerSideProps,
+    processRequest,
+    useCurrentCategory,
+    useNewsroom,
+    DEFAULT_PAGE_SIZE,
+    getAssetsUrl,
+} from '@prezly/theme-kit-nextjs';
 
-import { BasePageProps, PaginationProps } from 'types';
-import { DEFAULT_PAGE_SIZE } from '@/utils/prezly/constants';
-
-import { getPrezlyApi, getAssetsUrl } from '@/utils/prezly';
-import { NewsroomContextProvider } from '@/contexts/newsroom';
-import { InfiniteStories, StoryWithContent } from '@/modules/Stories';
+import { BasePageProps, PaginationProps, StoryWithContent } from 'types';
+import { InfiniteStories } from '@/modules/Stories';
 import Sidebar from '@/modules/Sidebar';
 import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
+import { importMessages, isTrackingEnabled } from '@/utils';
 
 interface Props extends BasePageProps {
     stories: StoryWithContent[];
-    category: Category;
-    slug: string;
     pagination: PaginationProps;
 }
 
-const IndexPage: FunctionComponent<Props> = ({
-    category,
-    stories,
-    categories,
-    slug,
-    newsroom,
-    companyInformation,
-    pagination,
-}) => (
-    <NewsroomContextProvider
-        categories={categories}
-        newsroom={newsroom}
-        companyInformation={companyInformation}
-        selectedCategory={category}
-    >
-        <PageSeo
-            title={category.display_name}
-            description={category.display_description as string}
-            url={`${newsroom.url}/category/${slug}`}
-            imageUrl={getAssetsUrl(newsroom.newsroom_logo?.uuid as string)}
-        />
-        <Layout>
-            <div className="pt-10 lg:flex lg:flex-nowrap">
-                <div className="lg:flex-grow">
-                    <h3 className="uppercase text-gray-400 text-lg leading-6 mb-6 tracking-wider">Browsing Category</h3>
-                    <h1 className="text-gray-50 font-bold mb-12 text-4xl">{category.display_name}</h1>
-                    <InfiniteStories initialStories={stories} pagination={pagination} category={category} />
+const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
+    const router = useRouter();
+    const category = useCurrentCategory() as Category;
+    const newsroom = useNewsroom() as Newsroom;
+    const slug = router.query.slug;
+
+    return (
+        <>
+            <PageSeo
+                title={category.display_name}
+                description={category.display_description as string}
+                url={`${newsroom.url}/category/${slug}`}
+                imageUrl={getAssetsUrl(newsroom.newsroom_logo?.uuid as string)}
+            />
+            <Layout>
+                <div className="pt-10 lg:flex lg:flex-nowrap">
+                    <div className="lg:flex-grow">
+                        <h3 className="uppercase text-gray-400 text-lg leading-6 mb-6 tracking-wider">
+                            Browsing Category
+                        </h3>
+                        <h1 className="text-gray-50 font-bold mb-12 text-4xl">
+                            {category.display_name}
+                        </h1>
+                        <InfiniteStories
+                            initialStories={stories}
+                            pagination={pagination}
+                            category={category}
+                        />
+                    </div>
+                    <Sidebar />
                 </div>
-                <Sidebar />
-            </div>
-        </Layout>
-    </NewsroomContextProvider>
-);
+            </Layout>
+        </>
+    );
+};
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-    const api = getPrezlyApi(context.req);
-    const { slug } = context.params as { slug: string };
+    const { api, serverSideProps } = await getNewsroomServerSideProps(context);
 
-    const [categories, category, newsroom, companyInformation] = await Promise.all([
-        api.getCategories(),
-        api.getCategoryBySlug(slug),
-        api.getNewsroom(),
-        api.getCompanyInformation(),
-    ]);
+    const { slug } = context.params as { slug: string };
+    const category = await api.getCategoryBySlug(slug);
 
     if (!category) {
         return {
@@ -70,28 +71,36 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         };
     }
 
-    const page = context.query.page && typeof context.query.page === 'string'
-        ? Number(context.query.page)
-        : undefined;
+    const { query } = context;
+    const page = query.page && typeof query.page === 'string' ? Number(query.page) : undefined;
 
-    const { stories, storiesTotal } = await api.getStoriesFromCategory(category, { page, include: ['content'] });
+    const { localeCode } = serverSideProps.newsroomContextProps;
 
-    return {
-        props: {
-            // TODO: This is temporary until return types from API are figured out
+    const { stories, storiesTotal } = await api.getStoriesFromCategory(category, {
+        page,
+        include: ['content'],
+        localeCode,
+    });
+
+    return processRequest(
+        context,
+        {
+            ...serverSideProps,
+            newsroomContextProps: {
+                ...serverSideProps.newsroomContextProps,
+                currentCategory: category,
+            },
             stories: stories as StoryWithContent[],
-            category,
-            categories,
-            newsroom,
-            slug,
-            companyInformation,
             pagination: {
                 itemsTotal: storiesTotal,
                 currentPage: page ?? 1,
                 pageSize: DEFAULT_PAGE_SIZE,
             },
+            isTrackingEnabled: isTrackingEnabled(context),
+            translations: await importMessages(localeCode),
         },
-    };
+        `/category/${slug}`,
+    );
 };
 
 export default IndexPage;

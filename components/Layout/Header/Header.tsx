@@ -1,10 +1,11 @@
+import { useCategories, useNewsroom } from '@prezly/theme-kit-nextjs';
 import { FunctionComponent, useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
 import Image from '@prezly/uploadcare-image';
+
 import Categories from '@/modules/Categories';
 import Icon from '@/components/Icon';
-import { useCategories, useNewsroom } from '@prezly/theme-kit-nextjs';
 
 const MAX_DISPLAYED_CATEGORIES = 5;
 

@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useLatest } from 'react-use';
 import throttle from 'lodash.throttle';
 import { Category } from '@prezly/sdk/dist/types';
+import { LocaleObject, useCurrentLocale } from '@prezly/theme-kit-nextjs';
 
 import { PaginationProps, StoryWithContent } from 'types';
 
@@ -11,6 +12,7 @@ async function fetchStories(
     page: number,
     pageSize: number,
     category?: Category,
+    locale?: LocaleObject,
 ): Promise<{ stories: StoryWithContent[] }> {
     const result = await fetch('/api/fetch-stories', {
         method: 'POST',
@@ -22,6 +24,9 @@ async function fetchStories(
             pageSize,
             category,
             include: ['content'],
+            ...(locale && {
+                localeCode: locale.toUnderscoreCode(),
+            }),
         }),
     });
 
@@ -38,6 +43,7 @@ export const useInfiniteStoriesLoading = (
     pagination: PaginationProps,
     category?: Category,
 ) => {
+    const currentLocale = useCurrentLocale();
     const [displayedStories, setDisplayedStories] = useState<StoryWithContent[]>(initialStories);
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
@@ -56,6 +62,7 @@ export const useInfiniteStoriesLoading = (
                 currentPageLatest.current + 1,
                 pageSize,
                 category,
+                currentLocale,
             );
             setDisplayedStories((stories) => stories.concat(newStories));
             setCurrentPage((page) => page + 1);

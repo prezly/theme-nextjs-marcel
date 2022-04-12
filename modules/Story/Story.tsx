@@ -1,7 +1,6 @@
 import type { FunctionComponent } from 'react';
 import classNames from 'classnames';
-import type { ExtendedStory } from '@prezly/sdk';
-import { FormatVersion } from '@prezly/sdk/dist/types/Story';
+import { ExtendedStory, StoryFormatVersion } from '@prezly/sdk';
 
 import { useCompanyInformation } from '@/hooks/useCompanyInformation';
 import SlateRenderer from '@/components/SlateRenderer';
@@ -30,11 +29,11 @@ const Story: FunctionComponent<Props> = ({ story }) => {
                 <StoryHeader story={story} />
 
                 <div className="pt-16 py-6 lg:max-w-[920px] lg:mx-auto">
-                    {format_version === FormatVersion.HTML && (
+                    {format_version === StoryFormatVersion.HTML && (
                         // eslint-disable-next-line react/no-danger
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                     )}
-                    {format_version === FormatVersion.SLATEJS && (
+                    {format_version === StoryFormatVersion.SLATEJS && (
                         <SlateRenderer nodes={JSON.parse(content)} />
                     )}
                 </div>

@@ -1,4 +1,5 @@
 import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
+
 import Boilerplate from './Boilerplate';
 import SocialLinks from './SocialLinks';
 import SubscriptionForm from './SubscriptionForm';
