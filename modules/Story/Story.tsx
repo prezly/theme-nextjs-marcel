@@ -2,13 +2,15 @@ import type { ExtendedStory } from '@prezly/sdk';
 import { StoryFormatVersion } from '@prezly/sdk';
 import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
+import dynamic from 'next/dynamic';
 
 import { StorySeo } from '@/components/seo';
-import SlateRenderer from '@/components/SlateRenderer';
 import StoryStickyBar from '@/components/StoryStickyBar';
 import { Boilerplate, SocialLinks, SubscriptionForm } from '@/modules/Sidebar';
 
 import StoryHeader from './StoryHeader';
+
+const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 
 type Props = {
     story: ExtendedStory;

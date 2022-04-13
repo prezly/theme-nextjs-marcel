@@ -6,11 +6,13 @@ import {
     useCurrentStory,
 } from '@prezly/theme-kit-nextjs';
 import type { GetServerSideProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 
 import Layout from '@/components/Layout';
-import Story from '@/modules/Story';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps } from 'types';
+
+const Story = dynamic(() => import('@/modules/Story/Story'), { ssr: true });
 
 const StoryPage: NextPage<BasePageProps> = () => {
     const story = useCurrentStory();
