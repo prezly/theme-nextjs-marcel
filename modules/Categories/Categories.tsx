@@ -1,6 +1,5 @@
 import type { Category } from '@prezly/sdk/dist/types';
 import classNames from 'classnames';
-import React from 'react';
 
 import CategoryComponent from '../Category';
 

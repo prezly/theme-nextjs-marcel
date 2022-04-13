@@ -3,11 +3,6 @@ const locales = require('@prezly/theme-kit-nextjs/build/intl/localeConfig');
 const { withSentryConfig } = require('@sentry/nextjs');
 const path = require('path');
 
-const globalSassImports = `\
-    @import "styles/variables";
-    @import "styles/mixins";
-`;
-
 const moduleExports = {
     async headers() {
         return [
@@ -48,10 +43,9 @@ const moduleExports = {
     },
     sassOptions: {
         includePaths: [path.join(__dirname, 'styles')],
-        prependData: globalSassImports,
     },
     eslint: {
-        dirs: ['@types', 'components', 'contexts', 'hooks', 'modules', 'pages', 'utils'],
+        dirs: ['@types', 'components', 'hooks', 'modules', 'pages', 'utils'],
     },
     webpack(config) {
         config.module.rules.push({

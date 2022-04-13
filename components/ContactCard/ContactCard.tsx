@@ -1,6 +1,6 @@
 import type { PressContact } from '@prezly/slate-types';
+import Image from '@prezly/uploadcare-image';
 import classNames from 'classnames';
-import React from 'react';
 
 import Icon from '@/components/Icon';
 import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
@@ -26,11 +26,11 @@ function ContactCard({ contact }: Props) {
             )}
         >
             {avatar_url && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
+                <Image
                     className="block w-20 h-20 rounded-full mb-6 lg:mb-0 lg:mr-8"
                     src={avatar_url}
                     alt={name}
+                    layout="fixed"
                 />
             )}
             <div>

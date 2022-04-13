@@ -1,6 +1,5 @@
 import type { ExtendedStory } from '@prezly/sdk';
 import type { PropsWithChildren } from 'react';
-import React from 'react';
 
 import Icon from '../Icon';
 

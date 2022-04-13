@@ -1,6 +1,5 @@
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
-import React from 'react';
 
 const iconsContext = (require as any).context(
     '!@svgr/webpack!../../public/images/icons',

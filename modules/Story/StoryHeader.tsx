@@ -19,10 +19,10 @@ function StoryHeader({ story }: Props) {
             <div className="lg:flex lg:max-w-[1600px] lg:mx-auto">
                 {headerImage && (
                     <div className="lg:w-1/2 lg:flex-shrink-0 relative h-[20rem] sm:h-auto min-h-[20rem]">
-                        {/* eslint-disable-next-line jsx-a11y/alt-text */}
                         <Image
                             imageDetails={headerImage}
                             layout="fill"
+                            alt={story.title}
                             objectFit="cover"
                             containerClassName="image-full-height"
                         />

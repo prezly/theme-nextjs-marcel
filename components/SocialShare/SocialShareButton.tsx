@@ -1,4 +1,3 @@
-import React from 'react';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 import Icon from '../Icon';
