@@ -1,7 +1,6 @@
 const { DUMMY_DEFAULT_LOCALE } = require('@prezly/theme-kit-nextjs');
 const locales = require('@prezly/theme-kit-nextjs/build/intl/localeConfig');
 const { withSentryConfig } = require('@sentry/nextjs');
-const path = require('path');
 
 const moduleExports = {
     async headers() {
@@ -40,9 +39,6 @@ const moduleExports = {
     },
     images: {
         domains: ['cdn.uc.assets.prezly.com'],
-    },
-    sassOptions: {
-        includePaths: [path.join(__dirname, 'styles')],
     },
     eslint: {
         dirs: ['@types', 'components', 'hooks', 'modules', 'pages', 'utils'],

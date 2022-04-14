@@ -12,7 +12,7 @@ import Layout from '@/components/Layout';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps } from 'types';
 
-const Story = dynamic(() => import('@/modules/Story/Story'), { ssr: true });
+const Story = dynamic(() => import('@/modules/Story'), { ssr: true });
 
 const StoryPage: NextPage<BasePageProps> = () => {
     const story = useCurrentStory();
