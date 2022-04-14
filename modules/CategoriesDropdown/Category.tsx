@@ -6,11 +6,10 @@ import type { PropsWithChildren } from 'react';
 
 type Props = {
     category: Category;
-    forcePopup?: boolean;
     isExtendedDisplay?: boolean;
 };
 
-function CategoryComponent({ category, forcePopup, isExtendedDisplay }: PropsWithChildren<Props>) {
+function CategoryComponent({ category, isExtendedDisplay }: PropsWithChildren<Props>) {
     const locale = useCurrentLocale();
 
     return (
@@ -22,14 +21,10 @@ function CategoryComponent({ category, forcePopup, isExtendedDisplay }: PropsWit
                     'active:bg-gray-500',
                     'focus-visible:ring-inset focus-visible:ring-4',
                     'focus-visible:ring-blue-300 focus:outline-none',
-                    !forcePopup && 'lg:focus-visible:ring focus-visible:bg-transparent',
-                    !forcePopup && 'lg:px-2 lg:py-1 lg:leading-6 lg:tracking-wide',
-                    !forcePopup &&
-                        'lg:rounded-md lg:hover:bg-gray-700 lg:active:bg-gray-600 lg:active:text-gray-100',
-                    isExtendedDisplay ? 'py-3' : 'py-1.5',
+                    'py-3',
                 )}
             >
-                {forcePopup && isExtendedDisplay ? (
+                {isExtendedDisplay ? (
                     <>
                         <span className="block uppercase">{category.display_name}</span>
                         {category.display_description && (

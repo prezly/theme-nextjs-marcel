@@ -1,0 +1,21 @@
+.btn {
+    @apply p-2 md:py-1 flex items-center rounded-md leading-6 tracking-wide;
+    @apply focus-visible:ring-inset focus-visible:ring-4;
+    @apply focus-visible:ring-blue-300 focus:outline-none;
+}
+
+.primary {
+    @apply bg-primary hover:bg-primaryShade;
+}
+
+.secondary {
+    @apply text-primary hover:text-primaryShade;
+}
+
+.tertiary {
+    @apply hover:bg-gray-700 active:bg-gray-600 active:text-gray-100;
+}
+
+.active {
+    @apply bg-gray-600 text-gray-100;
+}
