@@ -1,14 +1,15 @@
-import React, { FunctionComponent } from 'react';
-import { ExtendedStory } from '@prezly/sdk';
+import type { ExtendedStory } from '@prezly/sdk';
+import type { PropsWithChildren } from 'react';
 
 import Icon from '../Icon';
+
 import SocialShareButton, { SocialNetworks } from './SocialShareButton';
 
 interface Props {
     story: ExtendedStory;
 }
 
-const SocialShare: FunctionComponent<Props> = ({ story }) => {
+function SocialShare({ story }: PropsWithChildren<Props>) {
     const { newsroom_view, short } = story.links;
 
     const shareLink = short || newsroom_view || window.location.href;
@@ -24,6 +25,6 @@ const SocialShare: FunctionComponent<Props> = ({ story }) => {
             <SocialShareButton socialNetwork={SocialNetworks.TWITTER} link={shareLink} />
         </div>
     );
-};
+}
 
 export default SocialShare;

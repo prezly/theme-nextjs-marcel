@@ -1,4 +1,4 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk';
+import type { NewsroomCompanyInformation } from '@prezly/sdk';
 import classNames from 'classnames';
 
 import styles from './Boilerplate.module.css';
@@ -7,7 +7,7 @@ type Props = {
     companyInformation: NewsroomCompanyInformation;
 };
 
-const Boilerplate = ({ companyInformation }: Props) => {
+function Boilerplate({ companyInformation }: Props) {
     const { name, about, address } = companyInformation;
 
     if (!about && !address) {
@@ -31,12 +31,10 @@ const Boilerplate = ({ companyInformation }: Props) => {
             )}
 
             {address && (
-                <address className="leading-7 not-italic">
-                    {companyInformation.address}
-                </address>
+                <address className="leading-7 not-italic">{companyInformation.address}</address>
             )}
         </div>
     );
-};
+}
 
 export default Boilerplate;

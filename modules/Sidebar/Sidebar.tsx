@@ -1,9 +1,10 @@
-import { useCompanyInformation } from '@/hooks/useCompanyInformation';
+import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
+
 import Boilerplate from './Boilerplate';
 import SocialLinks from './SocialLinks';
 import SubscriptionForm from './SubscriptionForm';
 
-const Sidebar = () => {
+function Sidebar() {
     const companyInformation = useCompanyInformation();
 
     return (
@@ -17,6 +18,6 @@ const Sidebar = () => {
             )}
         </div>
     );
-};
+}
 
 export default Sidebar;

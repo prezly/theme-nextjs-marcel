@@ -1,5 +1,5 @@
-import React, { FunctionComponent } from 'react';
 import classNames from 'classnames';
+import type { PropsWithChildren } from 'react';
 
 const iconsContext = (require as any).context(
     '!@svgr/webpack!../../public/images/icons/file-types',
@@ -73,11 +73,13 @@ function getIconNameFromExtension(extension?: string) {
     }
 }
 
-const FileTypeIcon: FunctionComponent<Props> = ({ extension, className, ...restProps }) => {
+function FileTypeIcon({ extension, className, ...restProps }: PropsWithChildren<Props>) {
     const iconFilename = `${getIconNameFromExtension(extension)}.svg`;
     const IconComponent = icons[iconFilename] || null;
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    return IconComponent ? <IconComponent {...restProps} className={classNames('svg-icon', className)} /> : null;
-};
+    return IconComponent ? (
+        // eslint-disable-next-line react/jsx-props-no-spreading
+        <IconComponent {...restProps} className={classNames('svg-icon', className)} />
+    ) : null;
+}
 
 export default FileTypeIcon;

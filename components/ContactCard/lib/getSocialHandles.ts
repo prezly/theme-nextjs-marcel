@@ -1,4 +1,4 @@
-import { PressContact } from '@prezly/slate-types';
+import type { PressContact } from '@prezly/slate-types';
 
 function extractHandle(url: string) {
     if (url.indexOf('//') > -1) {

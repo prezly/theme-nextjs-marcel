@@ -16,40 +16,41 @@
 }
 
 .dot::after {
-    animation-name: bounce;
     --top-point: -.75rem;
+
+    animation-name: bounce;
 }
 
 .dot::before {
     position: absolute;
-
     bottom: -1px;
     left: 0;
     right: 0;
-
     transform: scaleY(0.2);
     transform-origin: bottom;
     opacity: 0;
-
     animation-name: shadow;
 }
 
 .dot:nth-child(2)::before,
 .dot:nth-child(2)::after {
-    animation-delay: .2s;
     --top-point: -1rem;
+
+    animation-delay: .2s;
 }
 
 .dot:nth-child(3)::before,
 .dot:nth-child(3)::after {
-    animation-delay: .4s;
     --top-point: -.5rem;
+
+    animation-delay: .4s;
 }
 
 @keyframes bounce {
     0% {
         transform: translateY(var(--top-point));
     }
+
     100% {
         transform: translateY(1rem);
     }

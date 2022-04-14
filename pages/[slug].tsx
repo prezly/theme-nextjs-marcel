@@ -1,53 +1,59 @@
-import { GetServerSideProps, NextPage } from 'next';
-import type { ExtendedStory } from '@prezly/sdk';
+import {
+    DUMMY_DEFAULT_LOCALE,
+    getNewsroomServerSideProps,
+    getPrezlyApi,
+    processRequest,
+    useCurrentStory,
+} from '@prezly/theme-kit-nextjs';
+import type { GetServerSideProps, NextPage } from 'next';
+import dynamic from 'next/dynamic';
 
-import { BasePageProps } from 'types';
-import { getPrezlyApi } from '@/utils/prezly';
-import { NewsroomContextProvider } from '@/contexts/newsroom';
-import Story from '@/modules/Story';
 import Layout from '@/components/Layout';
+import { importMessages, isTrackingEnabled } from '@/utils';
+import type { BasePageProps } from 'types';
 
-interface Props extends BasePageProps {
-    story: ExtendedStory;
-}
+const Story = dynamic(() => import('@/modules/Story'), { ssr: true });
 
-const StoryPage: NextPage<Props> = ({
-    story, categories, newsroom, companyInformation,
-}) => (
-    <NewsroomContextProvider
-        categories={categories}
-        newsroom={newsroom}
-        companyInformation={companyInformation}
-    >
+const StoryPage: NextPage<BasePageProps> = () => {
+    const story = useCurrentStory();
+
+    return (
         <Layout>
-            <Story story={story} />
+            <Story story={story!} />
         </Layout>
-    </NewsroomContextProvider>
-);
+    );
+};
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     const api = getPrezlyApi(context.req);
+
     const { slug } = context.params as { slug?: string };
     const story = slug ? await api.getStoryBySlug(slug) : null;
-
     if (!story) {
         return { notFound: true };
     }
 
-    const [categories, newsroom, companyInformation] = await Promise.all([
-        api.getCategories(),
-        api.getNewsroom(),
-        api.getCompanyInformation(),
-    ]);
+    const { serverSideProps } = await getNewsroomServerSideProps(context, { story });
 
-    return {
-        props: {
-            story,
-            categories,
-            newsroom,
-            companyInformation,
+    const { locale } = context;
+    if (locale && locale !== DUMMY_DEFAULT_LOCALE) {
+        return {
+            redirect: {
+                destination: `/${slug}`,
+                permanent: true,
+            },
+        };
+    }
+
+    return processRequest(context, {
+        ...serverSideProps,
+        newsroomContextProps: {
+            ...serverSideProps.newsroomContextProps,
+            currentStory: story,
         },
-    };
+        isTrackingEnabled: isTrackingEnabled(context),
+        translations: await importMessages(serverSideProps.newsroomContextProps.localeCode),
+    });
 };
 
 export default StoryPage;

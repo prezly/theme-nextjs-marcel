@@ -1,22 +1,16 @@
-import type { FunctionComponent } from 'react';
 import type { ExtendedStory } from '@prezly/sdk';
 import Image from '@prezly/uploadcare-image';
 
 import CategoryTag from '@/components/CategoryTag';
-import StoryPublicationDate from '@/components/StoryPublicationDate';
 import SocialShare from '@/components/SocialShare';
+import StoryPublicationDate from '@/components/StoryPublicationDate';
 
 type Props = {
     story: ExtendedStory;
 };
 
-const StoryHeader: FunctionComponent<Props> = ({ story }) => {
-    const {
-        title,
-        subtitle,
-        categories,
-        header_image,
-    } = story;
+function StoryHeader({ story }: Props) {
+    const { title, subtitle, categories, header_image } = story;
 
     const headerImage = header_image ? JSON.parse(header_image) : undefined;
 
@@ -28,6 +22,7 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
                         <Image
                             imageDetails={headerImage}
                             layout="fill"
+                            alt={story.title}
                             objectFit="cover"
                             containerClassName="image-full-height"
                         />
@@ -64,6 +59,6 @@ const StoryHeader: FunctionComponent<Props> = ({ story }) => {
             </div>
         </div>
     );
-};
+}
 
 export default StoryHeader;

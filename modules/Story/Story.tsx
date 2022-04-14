@@ -1,21 +1,22 @@
-import type { FunctionComponent } from 'react';
-import classNames from 'classnames';
 import type { ExtendedStory } from '@prezly/sdk';
-import { FormatVersion } from '@prezly/sdk/dist/types/Story';
+import { StoryFormatVersion } from '@prezly/sdk';
+import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
+import classNames from 'classnames';
+import dynamic from 'next/dynamic';
 
-import { useCompanyInformation } from '@/hooks/useCompanyInformation';
-import SlateRenderer from '@/components/SlateRenderer';
 import { StorySeo } from '@/components/seo';
 import StoryStickyBar from '@/components/StoryStickyBar';
-import { SubscriptionForm, Boilerplate, SocialLinks } from '@/modules/Sidebar';
+import { Boilerplate, SocialLinks, SubscriptionForm } from '@/modules/Sidebar';
 
 import StoryHeader from './StoryHeader';
+
+const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 
 type Props = {
     story: ExtendedStory;
 };
 
-const Story: FunctionComponent<Props> = ({ story }) => {
+function Story({ story }: Props) {
     const companyInformation = useCompanyInformation();
 
     const { format_version, content } = story;
@@ -30,11 +31,11 @@ const Story: FunctionComponent<Props> = ({ story }) => {
                 <StoryHeader story={story} />
 
                 <div className="pt-16 py-6 lg:max-w-[920px] lg:mx-auto">
-                    {format_version === FormatVersion.HTML && (
+                    {format_version === StoryFormatVersion.HTML && (
                         // eslint-disable-next-line react/no-danger
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                     )}
-                    {format_version === FormatVersion.SLATEJS && (
+                    {format_version === StoryFormatVersion.SLATEJS && (
                         <SlateRenderer nodes={JSON.parse(content)} />
                     )}
                 </div>
@@ -62,6 +63,6 @@ const Story: FunctionComponent<Props> = ({ story }) => {
             <StoryStickyBar story={story} />
         </>
     );
-};
+}
 
 export default Story;

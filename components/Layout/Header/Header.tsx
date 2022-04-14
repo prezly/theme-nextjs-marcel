@@ -1,16 +1,15 @@
-import { FunctionComponent, useState } from 'react';
-import Link from 'next/link';
-import classNames from 'classnames';
+import { useCategories, useNewsroom } from '@prezly/theme-kit-nextjs';
 import Image from '@prezly/uploadcare-image';
+import classNames from 'classnames';
+import Link from 'next/link';
+import { useState } from 'react';
 
-import { useCategories } from '@/hooks/useCategories';
-import { useNewsroom } from '@/hooks/useNewsroom';
-import Categories from '@/modules/Categories';
 import Icon from '@/components/Icon';
+import Categories from '@/modules/Categories';
 
 const MAX_DISPLAYED_CATEGORIES = 5;
 
-const Header: FunctionComponent = () => {
+function Header() {
     const newsroom = useNewsroom();
     const categories = useCategories();
 
@@ -19,8 +18,12 @@ const Header: FunctionComponent = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-    const toggleMenu = () => setIsMenuOpen((o) => !o);
-    const closeMenu = () => setIsMenuOpen(false);
+    function toggleMenu() {
+        setIsMenuOpen((o) => !o);
+    }
+    function closeMenu() {
+        setIsMenuOpen(false);
+    }
 
     const canShowCategories = categories && categories.length <= MAX_DISPLAYED_CATEGORIES;
 
@@ -37,7 +40,9 @@ const Header: FunctionComponent = () => {
                                 alt={display_name}
                                 className="w-auto max-w-xs max-h-11"
                             />
-                        ) : display_name }
+                        ) : (
+                            display_name
+                        )}
                     </a>
                 </Link>
 
@@ -73,7 +78,8 @@ const Header: FunctionComponent = () => {
                             className={classNames(
                                 { 'lg:block': canShowCategories },
                                 isMenuOpen ? 'block absolute top-full right-0 z-50 mt-3' : 'hidden',
-                                isMenuOpen && 'bg-gray-700 border border-gray-600 rounded-xl py-1 overflow-hidden min-w-[200px]',
+                                isMenuOpen &&
+                                    'bg-gray-700 border border-gray-600 rounded-xl py-1 overflow-hidden min-w-[200px]',
                             )}
                         >
                             <Categories
@@ -87,6 +93,6 @@ const Header: FunctionComponent = () => {
             </nav>
         </header>
     );
-};
+}
 
 export default Header;

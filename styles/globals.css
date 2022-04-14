@@ -1,13 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
     body {
         @apply bg-gray-800 text-gray-300 font-normal;
-        font-family: 'Inter', sans-serif;
+
+        font-family: Inter, sans-serif;
     }
 
     /* Use this class inside a container to create a block that breaks outside of fixed width 

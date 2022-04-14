@@ -1,17 +1,14 @@
-import { ExtendedStory } from '@prezly/sdk';
+import type { ExtendedStory } from '@prezly/sdk';
 import { ArticleJsonLd, NextSeo } from 'next-seo';
-import { FunctionComponent } from 'react';
 
 type Props = {
     story: ExtendedStory;
 };
 
-const StorySeo: FunctionComponent<Props> = ({ story }) => {
-    const {
-        title, subtitle, published_at, updated_at, author, oembed, newsroom,
-    } = story;
+function StorySeo({ story }: Props) {
+    const { title, subtitle, published_at, updated_at, author, oembed, newsroom } = story;
 
-    const authorName = author?.display_name || author?.username || 'Unknown';
+    const authorName = author?.display_name || author?.email || 'Unknown';
 
     return (
         <>
@@ -34,8 +31,8 @@ const StorySeo: FunctionComponent<Props> = ({ story }) => {
                         {
                             url: oembed.thumbnail_url as string,
                             alt: oembed.title,
-                            width: parseInt(oembed.thumbnail_width as string),
-                            height: parseInt(oembed.thumbnail_height as string),
+                            width: oembed.thumbnail_width,
+                            height: oembed.thumbnail_height,
                         },
                     ],
                 }}
@@ -53,6 +50,6 @@ const StorySeo: FunctionComponent<Props> = ({ story }) => {
             />
         </>
     );
-};
+}
 
 export default StorySeo;

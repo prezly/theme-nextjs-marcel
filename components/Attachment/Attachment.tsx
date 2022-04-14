@@ -1,8 +1,9 @@
-import React, { FunctionComponent } from 'react';
+import type { UploadcareStoragePayload } from '@prezly/slate-types';
+import { UploadcareFile } from '@prezly/slate-types';
 import classNames from 'classnames';
-import { UploadcareFile, UploadcareStoragePayload } from '@prezly/slate-types';
 
 import { FileTypeIcon } from '@/components/Icon';
+
 import formatBytes from './lib/formatBytes';
 
 interface Props {
@@ -10,7 +11,7 @@ interface Props {
     file: UploadcareStoragePayload;
 }
 
-const Attachment: FunctionComponent<Props> = ({ description, file }) => {
+function Attachment({ description, file }: Props) {
     const { downloadUrl } = UploadcareFile.createFromPrezlyStoragePayload(file);
 
     const displayedName = description || file.filename;
@@ -28,10 +29,7 @@ const Attachment: FunctionComponent<Props> = ({ description, file }) => {
             )}
             href={downloadUrl}
         >
-            <FileTypeIcon
-                extension={fileExtension}
-                className="text-gray-400 w-10 h-10 mr-6"
-            />
+            <FileTypeIcon extension={fileExtension} className="text-gray-400 w-10 h-10 mr-6" />
             <div>
                 <h4 className="text-lg text-gray-200 font-semibold mb-1">{displayedName}</h4>
                 <h5 className="text-gray-400">
@@ -42,6 +40,6 @@ const Attachment: FunctionComponent<Props> = ({ description, file }) => {
             </div>
         </a>
     );
-};
+}
 
 export default Attachment;

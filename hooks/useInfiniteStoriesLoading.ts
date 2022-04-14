@@ -1,10 +1,11 @@
+import type { Category } from '@prezly/sdk/dist/types';
+import type { LocaleObject } from '@prezly/theme-kit-nextjs';
+import { useCurrentLocale } from '@prezly/theme-kit-nextjs';
+import throttle from 'lodash.throttle';
 import { useCallback, useMemo, useState } from 'react';
 import { useLatest } from 'react-use';
-import throttle from 'lodash.throttle';
-import { Category } from '@prezly/sdk/dist/types';
 
-import { PaginationProps } from 'types';
-import { StoryWithContent } from '@/modules/Stories';
+import type { PaginationProps, StoryWithContent } from 'types';
 
 const LOAD_MORE_THROTTLE_MS = 1000;
 
@@ -12,6 +13,7 @@ async function fetchStories(
     page: number,
     pageSize: number,
     category?: Category,
+    locale?: LocaleObject,
 ): Promise<{ stories: StoryWithContent[] }> {
     const result = await fetch('/api/fetch-stories', {
         method: 'POST',
@@ -23,6 +25,9 @@ async function fetchStories(
             pageSize,
             category,
             include: ['content'],
+            ...(locale && {
+                localeCode: locale.toUnderscoreCode(),
+            }),
         }),
     });
 
@@ -34,11 +39,12 @@ async function fetchStories(
     return result.json();
 }
 
-export const useInfiniteStoriesLoading = (
+export function useInfiniteStoriesLoading(
     initialStories: StoryWithContent[],
     pagination: PaginationProps,
     category?: Category,
-) => {
+) {
+    const currentLocale = useCurrentLocale();
     const [displayedStories, setDisplayedStories] = useState<StoryWithContent[]>(initialStories);
     const [currentPage, setCurrentPage] = useState(1);
     const [isLoading, setIsLoading] = useState(false);
@@ -53,7 +59,12 @@ export const useInfiniteStoriesLoading = (
         try {
             setIsLoading(true);
 
-            const { stories: newStories } = await fetchStories(currentPageLatest.current + 1, pageSize, category);
+            const { stories: newStories } = await fetchStories(
+                currentPageLatest.current + 1,
+                pageSize,
+                category,
+                currentLocale,
+            );
             setDisplayedStories((stories) => stories.concat(newStories));
             setCurrentPage((page) => page + 1);
         } catch (error) {
@@ -62,11 +73,13 @@ export const useInfiniteStoriesLoading = (
         } finally {
             setIsLoading(false);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [category]);
 
-    const loadMoreStoriesThrottled = useMemo(() => (
-        throttle(loadMoreStories, LOAD_MORE_THROTTLE_MS, { leading: false })
-    ), [loadMoreStories]);
+    const loadMoreStoriesThrottled = useMemo(
+        () => throttle(loadMoreStories, LOAD_MORE_THROTTLE_MS, { leading: false }),
+        [loadMoreStories],
+    );
 
     return {
         canLoadMore,
@@ -74,4 +87,4 @@ export const useInfiniteStoriesLoading = (
         isLoading,
         loadMoreStories: loadMoreStoriesThrottled,
     };
-};
+}

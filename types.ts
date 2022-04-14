@@ -1,5 +1,4 @@
-import { NewsroomCompanyInformation } from '@prezly/sdk';
-import { Category, Newsroom } from '@prezly/sdk/dist/types';
+import type { ExtraStoryFields, Story } from '@prezly/sdk';
 
 export interface Env {
     NODE_ENV: 'production' | 'development' | 'test';
@@ -7,14 +6,20 @@ export interface Env {
     PREZLY_NEWSROOM_UUID: string;
 }
 
-export interface BasePageProps {
-    newsroom: Newsroom;
-    companyInformation: NewsroomCompanyInformation;
-    categories: Category[];
-}
-
 export interface PaginationProps {
     itemsTotal: number;
     currentPage: number;
     pageSize: number;
+}
+
+export type StoryWithContent = Story & Pick<ExtraStoryFields, 'content'>;
+
+export type AlternateLanguageLink = {
+    href: string;
+    hrefLang: string;
+};
+
+export interface BasePageProps {
+    translations: Record<string, any>;
+    isTrackingEnabled?: boolean;
 }

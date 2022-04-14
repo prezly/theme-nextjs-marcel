@@ -1,1 +1,7 @@
-export type SocialNetwork = 'twitter' | 'facebook' | 'linkedin' | 'pinterest' | 'youtube' | 'instagram';
+export type SocialNetwork =
+    | 'twitter'
+    | 'facebook'
+    | 'linkedin'
+    | 'pinterest'
+    | 'youtube'
+    | 'instagram';

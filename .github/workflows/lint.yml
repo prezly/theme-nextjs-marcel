@@ -19,3 +19,5 @@ jobs:
         with:
           eslint: true
           eslint_extensions: "ts,tsx"
+          stylelint: true
+          stylelint_extensions: "css,scss"

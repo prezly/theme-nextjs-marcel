@@ -1,15 +1,11 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const defaultTheme = require('tailwindcss/defaultTheme');
 const lineClampPlugin = require('@tailwindcss/line-clamp');
+const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
     // Read more about JIT functionality @ https://tailwindcss.com/docs/just-in-time-mode
     mode: 'jit',
-    purge: [
-        './components/**/*.{ts,tsx}',
-        './modules/**/*.{ts,tsx}',
-        './pages/**/*.{ts,tsx}',
-    ],
+    content: ['./components/**/*.{ts,tsx}', './modules/**/*.{ts,tsx}', './pages/**/*.{ts,tsx}'],
     darkMode: false, // or 'media' or 'class'
     theme: {
         fontSize: {
@@ -22,7 +18,5 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [
-        lineClampPlugin,
-    ],
+    plugins: [lineClampPlugin],
 };

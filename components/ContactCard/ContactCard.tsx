@@ -1,32 +1,22 @@
-import React, { FunctionComponent } from 'react';
+import type { PressContact } from '@prezly/slate-types';
+import Image from '@prezly/uploadcare-image';
 import classNames from 'classnames';
-import { PressContact } from '@prezly/slate-types';
 
-import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import Icon from '@/components/Icon';
+import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
+
 import getSocialHandles from './lib/getSocialHandles';
 
 interface Props {
     contact: PressContact;
 }
 
-const ContactCard: FunctionComponent<Props> = ({ contact }) => {
-    const {
-        avatar_url,
-        name,
-        description,
-        company,
-        email,
-        phone,
-        mobile,
-        website,
-    } = contact;
+function ContactCard({ contact }: Props) {
+    const { avatar_url, name, description, company, email, phone, mobile, website } = contact;
 
     const { twitter, facebook } = getSocialHandles(contact);
 
-    const subtitle = description && company
-        ? `${description}, ${company}`
-        : description;
+    const subtitle = description && company ? `${description}, ${company}` : description;
 
     return (
         <div
@@ -36,21 +26,23 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
             )}
         >
             {avatar_url && (
-                <img
+                <Image
                     className="block w-20 h-20 rounded-full mb-6 lg:mb-0 lg:mr-8"
                     src={avatar_url}
                     alt={name}
+                    layout="fixed"
                 />
             )}
             <div>
                 <h4 className="text-lg text-gray-200 font-semibold mb-1">{name}</h4>
-                {subtitle && (
-                    <h5 className="text-gray-400">{capitalizeFirstLetter(subtitle)}</h5>
-                )}
+                {subtitle && <h5 className="text-gray-400">{capitalizeFirstLetter(subtitle)}</h5>}
 
                 <div className="mt-6 lg:mt-4 flex flex-col lg:flex-row items-center">
                     {email && (
-                        <a href={`mailto:${email}`} className="default-link lg:mr-6 flex items-center">
+                        <a
+                            href={`mailto:${email}`}
+                            className="default-link lg:mr-6 flex items-center"
+                        >
                             <Icon name="email" className="w-4 h-4 mr-2" />
                             {email}
                         </a>
@@ -62,7 +54,10 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
                         </a>
                     )}
                     {mobile && (
-                        <a href={`tel:${mobile}`} className="default-link lg:mr-6 flex items-center">
+                        <a
+                            href={`tel:${mobile}`}
+                            className="default-link lg:mr-6 flex items-center"
+                        >
                             <Icon name="phone" className="w-4 h-4 mr-2" />
                             {mobile}
                         </a>
@@ -74,13 +69,19 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
                         </a>
                     )}
                     {twitter && (
-                        <a href={`https://twitter.com/${twitter}`} className="default-link lg:mr-6 flex items-center">
+                        <a
+                            href={`https://twitter.com/${twitter}`}
+                            className="default-link lg:mr-6 flex items-center"
+                        >
                             <Icon name="social-twitter" className="w-4 h-4 mr-2" />
                             {`@${twitter}`}
                         </a>
                     )}
                     {facebook && (
-                        <a href={`https://facebook.com/${twitter}`} className="default-link lg:mr-6 flex items-center">
+                        <a
+                            href={`https://facebook.com/${twitter}`}
+                            className="default-link lg:mr-6 flex items-center"
+                        >
                             <Icon name="social-facebook" className="w-4 h-4 mr-2" />
                             {`${facebook}`}
                         </a>
@@ -89,6 +90,6 @@ const ContactCard: FunctionComponent<Props> = ({ contact }) => {
             </div>
         </div>
     );
-};
+}
 
 export default ContactCard;
