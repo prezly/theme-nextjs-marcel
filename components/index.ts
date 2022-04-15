@@ -11,3 +11,6 @@ export { default as SlateRenderer } from './SlateRenderer';
 export { default as SocialShare } from './SocialShare';
 export { default as StoryPublicationDate } from './StoryPublicationDate';
 export { default as StoryStickyBar } from './StoryStickyBar';
+export { default as FormInput } from './FormInput';
+export { default as StoryImage } from './StoryImage';
+export { default as CategoryLink } from './CategoryLink';

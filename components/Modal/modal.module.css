@@ -3,7 +3,7 @@
 }
 
 .dialogWrapper {
-    @apply container min-w-[none] min-h-full text-center;
+    @apply container ml-auto mr-auto min-w-[none] min-h-full text-center;
 }
 
 .backdrop {
@@ -16,7 +16,7 @@
 }
 
 .modal {
-    @apply shadow-xl border-r-2 inline-block relative w-full max-w-[640px] overflow-hidden text-left bg-white p-6 mt-[25vh];
+    @apply shadow-xl rounded inline-block relative w-full max-w-[530px] overflow-hidden text-left bg-gray-700 mt-[25vh];
 }
 
 .backdropTransition {

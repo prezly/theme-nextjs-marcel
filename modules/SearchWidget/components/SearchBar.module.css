@@ -1,0 +1,11 @@
+.container {
+    @apply border-b-2 border-b-gray-600 flex justify-between items-start;
+}
+
+.inputWrapper {
+    @apply flex-grow relative;
+}
+
+.inputHint {
+    @apply text-base absolute top-0 left-1 right-0 border-t-2 border-t-transparent border-b-2 border-b-transparent px-4 py-2 text-gray-400 pointer-events-none;
+}

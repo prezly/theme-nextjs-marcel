@@ -1,0 +1,16 @@
+.imageContainer,
+.image {
+    @apply h-full;
+}
+
+.imageContainer {
+    @apply block;
+}
+
+.placeholder {
+    @apply text-sm h-full flex items-center justify-center p-6 text-center uppercase font-bold border-l-gray-400 text-inherit bg-transparent;
+}
+
+.placeholderLogo {
+    @apply max-w-[16rem] max-h-16;
+}

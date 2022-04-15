@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 import CategoriesDropdown from '@/modules/CategoriesDropdown';
 import LanguagesDropdown from '@/modules/LanguagesDropdown';
+import SearchWidget from '@/modules/SearchWidget';
 
 import Button from '../../Button';
 
@@ -57,6 +58,9 @@ function Header() {
                         />
                     )}
                 </div>
+                {IS_SEARCH_ENABLED && (
+                    <SearchWidget isOpen={isSearchWidgetShown} onClose={closeSearchWidget} />
+                )}
             </nav>
         </header>
     );
