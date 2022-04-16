@@ -8,8 +8,8 @@ import {
 import type { GetServerSideProps } from 'next';
 import type { FunctionComponent } from 'react';
 
-import Layout from '@/components/Layout';
 import { PageSeo } from '@/components/seo';
+import Layout from '@/modules/Layout';
 import Sidebar from '@/modules/Sidebar';
 import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';

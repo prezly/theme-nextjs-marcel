@@ -15,7 +15,7 @@
 }
 
 .title {
-    @apply text-base text-gray-500 mt-0 mb-4 font-normal;
+    @apply text-sm text-gray-500 mt-0 mb-4 font-normal;
 }
 
 .title.empty {
@@ -23,7 +23,7 @@
 }
 
 .link {
-    @apply text-base border-0 flex items-center py-1 px-0 no-underline cursor-pointer hover:underline focus:underline;
+    @apply text-sm border-0 flex items-center py-1 px-0 no-underline cursor-pointer hover:underline focus:underline;
 }
 
 .viewMoreCategoriesLink {

@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import Layout from '@/components/Layout';
+import Layout from '@/modules/Layout';
 
 interface Props {
     title: string;

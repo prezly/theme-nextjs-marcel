@@ -8,7 +8,7 @@ import {
 import type { GetServerSideProps, NextPage } from 'next';
 import dynamic from 'next/dynamic';
 
-import Layout from '@/components/Layout';
+import Layout from '@/modules/Layout';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps } from 'types';
 

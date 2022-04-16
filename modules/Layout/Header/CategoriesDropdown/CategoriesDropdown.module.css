@@ -1,0 +1,11 @@
+@media screen and (min-width: 415px) {
+    .mobileCategory {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .desktopCategories {
+        display: none !important;
+    }
+}

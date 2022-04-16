@@ -1,63 +1,66 @@
 import classNames from 'classnames';
-import type { PropsWithChildren, ReactChild } from 'react';
+import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { forwardRef } from 'react';
 
-import Icon from '../Icon';
+import { makeComposableComponent } from '@/utils';
 
-import styles from './button.module.css';
+import Icon from './Icon';
+import Link from './Link';
+import type { BaseProps } from './types';
 
-interface Props {
-    content: ReactChild;
+import styles from './Button.module.css';
+
+interface Props extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;
     isDisabled?: boolean;
-    icon?: string;
-    iconPlacement?: 'left' | 'right';
-    className?: string;
-    variation?: 'primary' | 'secondary' | 'tertiary';
-    onClick?: () => void;
-    type?: 'button' | 'submit' | 'reset';
     isActive?: boolean;
+    onClick?: () => void;
 }
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
     (
         {
-            content,
-            isDisabled,
-            isLoading,
-            isActive,
+            variation,
+            className,
+            type = 'button',
             icon,
             iconPlacement = 'left',
-            className,
-            variation,
-            type = 'button',
+            isLoading,
+            isDisabled,
+            isActive,
             onClick,
+            children,
+            ...buttonProps
         },
         ref,
     ) => (
         <button
             ref={ref}
+            // eslint-disable-next-line react/button-has-type
             type={type}
+            className={classNames(styles.button, className, {
+                [styles.primary]: variation === 'primary',
+                [styles.secondary]: variation === 'secondary',
+                [styles.navigation]: variation === 'navigation',
+                [styles.loading]: isLoading,
+                [styles.active]: isActive,
+                [styles.iconOnly]: Boolean(icon) && !children,
+            })}
             onClick={onClick}
-            className={classNames(
-                styles.btn,
-                {
-                    [styles.primary]: variation === 'primary',
-                    [styles.secondary]: variation === 'secondary',
-                    [styles.tertiary]: variation === 'tertiary',
-                    [styles.active]: isActive,
-                },
-                className,
-            )}
             disabled={isDisabled || isLoading}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...buttonProps}
         >
-            {icon && iconPlacement === 'left' && <Icon name={icon} className="w-3.5 h-3.5 mr-1" />}
-            {content}
-            {icon && iconPlacement === 'right' && <Icon name={icon} className="w-3.5 h-3.5 ml-1" />}
+            {iconPlacement === 'left' && (
+                <Icon icon={icon} isLoading={isLoading} placement="left" />
+            )}
+            {children && <span className={styles.label}>{children}</span>}
+            {iconPlacement === 'right' && (
+                <Icon icon={icon} isLoading={isLoading} placement="right" />
+            )}
         </button>
     ),
 );
+Button.displayName = 'Button';
 
-Button.displayName = 'button';
-
-export default Button;
+export default makeComposableComponent(Button, { Link });

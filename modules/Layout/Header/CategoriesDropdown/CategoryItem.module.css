@@ -1,0 +1,13 @@
+.title {
+    @apply block;
+}
+
+.description {
+    @apply text-sm line-clamp-2 block mt-2 text-gray-300 font-normal;
+}
+
+@media screen and (max-width: 414px) {
+    .description {
+        @apply hidden;
+    }
+}

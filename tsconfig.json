@@ -27,7 +27,8 @@
       "@/modules/*": ["modules/*"],
       "@/public/*": ["public/*"],
       "@/utils": ["utils/"],
-      "@/utils/*": ["utils/*"]
+      "@/utils/*": ["utils/*"],
+      "@/hooks": ["hooks/"]
     },
     "incremental": true
   },

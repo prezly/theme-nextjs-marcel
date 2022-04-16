@@ -1,21 +1,87 @@
-.btn {
-    @apply p-2 md:py-1 flex items-center rounded-md leading-6 tracking-wide;
-    @apply focus-visible:ring-inset focus-visible:ring-4;
-    @apply focus-visible:ring-blue-300 focus:outline-none;
+.button {
+    @apply text-base rounded-sm inline-flex justify-center items-center px-6 py-4 bg-none font-bold no-underline appearance-none shadow-none;
+    @apply cursor-pointer border-2 border-transparent disabled:cursor-not-allowed disabled:opacity-40;
+}
+
+.label {
+    @apply flex items-center;
+}
+
+.button.loading {
+    @apply cursor-wait;
 }
 
 .primary {
-    @apply bg-primary hover:bg-primaryShade;
+    @apply bg-primary border-primary text-inherit;
+}
+
+.primary:not(:disabled) {
+    @apply hover:focus:bg-primaryShade border-primaryShade;
+    @apply active:bg-primaryShade border-primaryShade;
 }
 
 .secondary {
-    @apply text-primary hover:text-primaryShade;
+    @apply border-gray-500 text-gray-700;
 }
 
-.tertiary {
-    @apply hover:bg-gray-700 active:bg-gray-600 active:text-gray-100;
+.secondary:not(:disabled) {
+    @apply hover:focus:active:border-gray-500 active:bg-gray-50;
 }
 
-.active {
-    @apply bg-gray-600 text-gray-100;
+.secondary:not(:disabled) {
+    @apply hover:focus:active:border-gray-400 active:bg-gray-50;
+}
+
+.navigation {
+    @apply text-gray-300 py-1 px-2;
+}
+
+.icon {
+    @apply w-[1em] h-[1em];
+}
+
+.icon.loading {
+    @apply mr-1;
+    transform-origin: center;
+    animation: spin 1s infinite linear;
+}
+
+.icon.left {
+    @apply mr-1;
+}
+
+.icon.right {
+    @apply ml-1;
+}
+
+.iconOnly .icon {
+    @apply m-0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@include mobile-only {
+    border-radius: 0;
+}
+@media screen and (min-width: 415px) {
+    .navigation:not(:disabled) {
+        @apply hover:opacity-80 focus:opacity-80 active:opacity-100;
+    }
+    .navigation.active {
+        @apply opacity-100  rounded-md bg-gray-600;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .navigation {
+        @apply rounded-none;
+    }
 }

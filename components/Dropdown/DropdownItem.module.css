@@ -1,0 +1,20 @@
+.item {
+    @apply w-full min-h-full max-w-full uppercase hover:bg-gray-400;
+}
+
+.item .link {
+    @apply block p-4 no-underline text-gray-100 font-medium hover:bg-gray-400;
+}
+
+.link.active {
+    @apply bg-gray-500;
+}
+
+@media screen and (max-width: 414px) {
+    .item.withMobileDisplay {
+        @apply border-0;
+    }
+    .link .withMobileDisplay {
+        @apply text-base py-2 px-4;
+    }
+}

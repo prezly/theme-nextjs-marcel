@@ -44,3 +44,10 @@
     opacity: 1;
     transform: translateY(0);
 }
+
+@media screen and (max-width: 414px) {
+    .modal {
+        @apply mx-2 mt-0;
+        width: calc(100% - 1rem);
+    }
+}
