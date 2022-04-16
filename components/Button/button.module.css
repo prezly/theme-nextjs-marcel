@@ -25,10 +25,6 @@
 }
 
 .secondary:not(:disabled) {
-    @apply hover:focus:active:border-gray-500 active:bg-gray-50;
-}
-
-.secondary:not(:disabled) {
     @apply hover:focus:active:border-gray-400 active:bg-gray-50;
 }
 
@@ -42,6 +38,7 @@
 
 .icon.loading {
     @apply mr-1;
+
     transform-origin: center;
     animation: spin 1s infinite linear;
 }
@@ -68,13 +65,11 @@
     }
 }
 
-@include mobile-only {
-    border-radius: 0;
-}
 @media screen and (min-width: 415px) {
     .navigation:not(:disabled) {
         @apply hover:opacity-80 focus:opacity-80 active:opacity-100;
     }
+
     .navigation.active {
         @apply opacity-100  rounded-md bg-gray-600;
     }

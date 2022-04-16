@@ -17,6 +17,7 @@ module.exports = {
             colors: {
                 primary: '#3B82F6',
                 primaryShade: '#0950C3',
+                modalBg: 'rgba(31, 41, 55, 0.92)',
             },
         },
     },

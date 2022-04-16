@@ -53,6 +53,7 @@
 
 .backdrop {
     @apply absolute left-0 right-0 bottom-0 top-0 bg-gray-700 opacity-0;
+
     transition: opacity 0.3s ease;
 }
 
@@ -92,6 +93,7 @@
 
     .navigationInner {
         @apply relative bg-gray-600 max-h-full overflow-y-auto;
+
         transform: translateY(-50%);
         opacity: 0;
         transition: transform 0.3s ease, opacity 0.3s ease;

@@ -16,6 +16,7 @@
 
 .container:last-child .menu {
     @apply left-auto right-0;
+
     transform-origin: top right;
 }
 
@@ -56,11 +57,13 @@
 
     .transitionOpenFinish.withMobileDisplay {
         @apply max-h-[500px];
+
         transform: none;
     }
 
     .transitionOpenFinish .withMobileDisplay {
         @apply max-h-0;
+
         transform: none;
     }
 

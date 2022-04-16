@@ -7,8 +7,7 @@
 }
 
 .backdrop {
-    @apply fixed top-0 right-0 bottom-0 left-0;
-    background: rgba(31, 41, 55, 0.92);
+    @apply fixed top-0 right-0 bottom-0 left-0 bg-modalBg;
 }
 
 .spacer {
@@ -48,6 +47,7 @@
 @media screen and (max-width: 414px) {
     .modal {
         @apply mx-2 mt-0;
+
         width: calc(100% - 1rem);
     }
 }
