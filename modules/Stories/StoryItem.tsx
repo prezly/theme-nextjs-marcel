@@ -40,7 +40,9 @@ function StoryItem({ story }: Props) {
                         {additionalCategories && !showAdditionalCategories && (
                             <CategoryTag
                                 additionalCategories={additionalCategories}
-                                onClick={() => setShowAdditionalCategories(true)}
+                                onClick={() =>
+                                    isMobile ? null : setShowAdditionalCategories(true)
+                                }
                             />
                         )}
                     </div>
