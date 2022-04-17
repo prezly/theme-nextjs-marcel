@@ -1,6 +1,7 @@
 import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
 
 import Boilerplate from './Boilerplate';
+import Footer from './Footer';
 import SocialLinks from './SocialLinks';
 import SubscriptionForm from './SubscriptionForm';
 
@@ -14,6 +15,7 @@ function Sidebar() {
                     <SubscriptionForm />
                     <Boilerplate companyInformation={companyInformation} />
                     <SocialLinks companyInformation={companyInformation} />
+                    <Footer />
                 </>
             )}
         </div>
