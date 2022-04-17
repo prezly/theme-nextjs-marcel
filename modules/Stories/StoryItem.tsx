@@ -1,36 +1,60 @@
 import classNames from 'classnames';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import { useState } from 'react';
 
 import CategoryTag from '@/components/CategoryTag';
 import Icon from '@/components/Icon';
-import StoryPublicationDate from '@/components/StoryPublicationDate';
+import { useDevice } from '@/hooks/useDevice';
 import type { StoryWithContent } from 'types';
 
 import getStoryExcerpt from './lib/getStoryExcerpt';
+
+const StoryPublicationDate = dynamic(() => import('@/components/StoryPublicationDate'));
 
 type Props = {
     story: StoryWithContent;
 };
 
 function StoryItem({ story }: Props) {
+    const [showAdditionalCategories, setShowAdditionalCategories] = useState(false);
+    const { isMobile } = useDevice();
+    const NUM_OF_INITIAL_CATEGORIES = isMobile ? 2 : 3;
+
     const { categories, title, subtitle, slug } = story;
+    const additionalCategories =
+        categories.length > NUM_OF_INITIAL_CATEGORIES &&
+        categories.length - NUM_OF_INITIAL_CATEGORIES;
 
     const excerpt = getStoryExcerpt(story);
 
     return (
         <div className="mb-16">
             <div className="md:flex md:items-center md:mb-4">
+                <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-100" />
                 {!!categories.length && (
-                    <div className="flex mb-3 md:mr-6 md:mb-0">
-                        {categories.map((category) => (
+                    <div className="flex mb-3 md:ml-6 md:mb-0">
+                        {categories.slice(0, NUM_OF_INITIAL_CATEGORIES).map((category) => (
                             <CategoryTag key={category.id} category={category} />
                         ))}
+                        {additionalCategories && !showAdditionalCategories && (
+                            <CategoryTag
+                                additionalCategories={additionalCategories}
+                                onClick={() => setShowAdditionalCategories(true)}
+                            />
+                        )}
                     </div>
                 )}
-                <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-400" />
             </div>
+            {showAdditionalCategories && (
+                <div className="flex items-center flex-wrap">
+                    {categories.slice(NUM_OF_INITIAL_CATEGORIES).map((category) => (
+                        <CategoryTag key={category.id} category={category} className="w-max" />
+                    ))}
+                </div>
+            )}
 
-            <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9">
+            <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9 md:mt-4">
                 <Link href={`/${slug}`} passHref>
                     <a
                         className={classNames(

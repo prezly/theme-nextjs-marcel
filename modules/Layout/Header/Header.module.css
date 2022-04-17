@@ -35,7 +35,7 @@
 }
 
 .navigationWrapper {
-    @apply flex items-center ml-auto;
+    @apply flex items-center ml-auto z-50;
 }
 
 .navigationInner {

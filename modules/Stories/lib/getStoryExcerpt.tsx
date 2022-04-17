@@ -18,7 +18,9 @@ function isNodeEmpty(node: Node | ElementNode): boolean {
 function getExcerptComponents(): ComponentRenderers {
     return {
         ...getDefaultComponents(),
-        [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
+        [PARAGRAPH_NODE_TYPE]: ({ children }) => (
+            <p className="mb-16 md:mb-3 last:mb-0">{children}</p>
+        ),
     };
 }
 

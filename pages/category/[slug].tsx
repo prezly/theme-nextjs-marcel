@@ -40,12 +40,17 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
             <Layout>
                 <div className="pt-10 lg:flex lg:flex-nowrap">
                     <div className="lg:flex-grow">
-                        <h3 className="uppercase text-gray-400 text-lg leading-6 mb-6 tracking-wider">
-                            Browsing Category
-                        </h3>
-                        <h1 className="text-gray-50 font-bold mb-12 text-4xl">
-                            {category.display_name}
-                        </h1>
+                        <div className="mb-12">
+                            <h1 className="text-gray-100 font-bold text-4xl mb-2">
+                                {category.display_name}
+                            </h1>
+                            {category.display_description && (
+                                <p className="font-normal text-lg text-gray-200">
+                                    {category.display_description}
+                                </p>
+                            )}
+                            <hr className="w-[100px] mt-10 border-0 border-t-2 border-gray-600" />
+                        </div>
                         <InfiniteStories
                             initialStories={stories}
                             pagination={pagination}
