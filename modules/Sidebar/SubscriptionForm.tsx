@@ -1,52 +1,159 @@
+import HCaptcha from '@hcaptcha/react-hcaptcha';
+import { getPrivacyPortalUrl, useCurrentLocale, useNewsroom } from '@prezly/theme-kit-nextjs';
+import translations from '@prezly/themes-intl-messages';
 import classNames from 'classnames';
-import type { PropsWithChildren } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { FormEvent, PropsWithChildren } from 'react';
+import { FormattedMessage, useIntl } from 'react-intl';
+
+import { Button, FormInput } from '@/components';
+
+import { getLocaleCodeForCaptcha, validateEmail } from './utils';
+
+import styles from './SubscriptionForm.module.css';
 
 type Props = {
     className?: string;
     inlineForm?: boolean;
 };
 
+// eslint-disable-next-line prefer-destructuring
+const NEXT_PUBLIC_HCAPTCHA_SITEKEY = process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY;
+
 // TODO: get the information to populate this form
 function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
+    const newsroom = useNewsroom();
+    const currentLocale = useCurrentLocale();
+    const { formatMessage } = useIntl();
+
+    const [email, setEmail] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [emailError, setEmailError] = useState<string>();
+    const [captchaToken, setCaptchaToken] = useState<string>();
+
+    const captchaRef = useRef<HCaptcha>(null);
+
+    function handleSubmit(event?: FormEvent<HTMLFormElement>) {
+        try {
+            setEmailError(undefined);
+            setIsSubmitting(true);
+            if (event) {
+                event.preventDefault();
+            }
+
+            if (!captchaRef.current) {
+                throw new Error(formatMessage(translations.errors.unknown));
+            }
+
+            const errorMessageDescriptor = validateEmail(email);
+            if (errorMessageDescriptor) {
+                throw new Error(formatMessage(errorMessageDescriptor));
+            }
+
+            if (!captchaToken) {
+                captchaRef.current.execute();
+                setIsSubmitting(false);
+                return;
+            }
+
+            window.location.href = getPrivacyPortalUrl(newsroom, currentLocale, { email });
+        } catch (error) {
+            if (error instanceof Error) {
+                setEmailError(error.message);
+            }
+            setIsSubmitting(false);
+        }
+    }
+
+    function handleCaptchaVerify(token: string) {
+        setCaptchaToken(token);
+        handleSubmit();
+    }
+
+    // Clear the error when user types in a correct value
+    useEffect(() => {
+        setEmailError((error) => {
+            if (error) {
+                const errorMessageDescriptor = validateEmail(email);
+                return errorMessageDescriptor ? formatMessage(errorMessageDescriptor) : undefined;
+            }
+
+            return error;
+        });
+    }, [email, formatMessage]);
+
+    if (!newsroom.is_subscription_form_enabled) {
+        return null;
+    }
+
     return (
-        <form className={classNames('default-well rounded-xl p-6 mb-12', className)}>
-            <h3 className="text-lg leading-6 font-semibold mb-2 text-gray-200">
-                Subscribe to our newsletter
+        <form
+            className={classNames('default-well rounded-xl p-6 mb-12', className)}
+            onSubmit={handleSubmit}
+            noValidate
+        >
+            <h3 className="text-lg leading-6 font-semibold mb-2 text-gray-100">
+                <FormattedMessage {...translations.subscription.formTitle} />
             </h3>
-            <p className="leading-7 text-gray-400 mb-6">
-                Good news in your inbox weekly. No spam, unsubscribe at anytime.
-            </p>
 
             <div className={classNames(inlineForm && 'lg:flex')}>
                 <div className={inlineForm ? 'flex-grow' : 'mb-4'}>
-                    <label htmlFor="email" className="sr-only">
-                        Your Email
-                    </label>
-                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                    <input
-                        type="email"
+                    <FormInput
                         name="email"
-                        id="email"
-                        autoComplete="email"
-                        placeholder="elvis@presley.com"
-                        className={classNames('default-input', 'w-full bg-white bg-opacity-5')}
+                        type="email"
+                        label={formatMessage(translations.subscription.labelEmail)}
+                        placeholder={formatMessage(translations.subscription.labelEmail)}
+                        className="w-full bg-white bg-opacity-5 rounded-lg"
+                        value={email}
+                        onChange={(event) => setEmail(event.target.value)}
+                        error={emailError}
                     />
                 </div>
 
-                <button
+                <Button
                     type="submit"
-                    className={classNames(
-                        'block w-full py-3 px-4 text-center',
-                        'border border-transparent shadow-sm rounded-md',
-                        'bg-blue-600 hover:bg-blue-500 active:bg-blue-400',
-                        'font-medium leading-6 text-white',
-                        'focus:outline-none',
-                        inlineForm && 'lg:w-32 lg:ml-4',
-                    )}
+                    variation="primary"
+                    className={styles.button}
+                    isLoading={isSubmitting}
                 >
-                    Subscribe
-                </button>
+                    <FormattedMessage {...translations.actions.subscribe} />
+                </Button>
+
+                <p className={styles.disclaimer}>
+                    <FormattedMessage
+                        {...translations.subscription.disclaimer}
+                        values={{
+                            subscribe: <FormattedMessage {...translations.actions.subscribe} />,
+                            privacyPolicyLink: (
+                                <a
+                                    href={
+                                        newsroom.custom_privacy_policy_link ??
+                                        'https://www.prezly.com/privacy-policy'
+                                    }
+                                    target="_blank"
+                                    rel="noreferrer"
+                                    className={styles.disclaimerLink}
+                                >
+                                    <FormattedMessage
+                                        {...translations.subscription.privacyPolicy}
+                                    />
+                                </a>
+                            ),
+                        }}
+                    />
+                </p>
             </div>
+
+            {NEXT_PUBLIC_HCAPTCHA_SITEKEY && (
+                <HCaptcha
+                    sitekey={NEXT_PUBLIC_HCAPTCHA_SITEKEY}
+                    size="invisible"
+                    ref={captchaRef}
+                    onVerify={handleCaptchaVerify}
+                    onExpire={() => setCaptchaToken(undefined)}
+                    languageOverride={getLocaleCodeForCaptcha(currentLocale)}
+                />
+            )}
         </form>
     );
 }

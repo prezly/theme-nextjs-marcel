@@ -1,0 +1,11 @@
+.disclaimer {
+    @apply text-xs mt-5 mb-0 text-gray-300;
+}
+
+.disclaimerLink {
+    @apply font-medium text-primary hover:text-primaryShade focus:text-primaryShade underline;
+}
+
+.button {
+    @apply w-full bg-primary border-0 rounded-lg px-6 py-3 font-medium hover:bg-primaryShade;
+}

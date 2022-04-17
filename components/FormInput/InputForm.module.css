@@ -11,3 +11,8 @@
 
     clip: rect(0, 0, 0, 0);
 }
+
+.description,
+.error {
+    @apply text-xs mt-1 mb-0 text-gray-500 p-2;
+}
