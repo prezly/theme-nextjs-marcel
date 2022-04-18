@@ -22,7 +22,7 @@ function Story({ story }: Props) {
             <StoryMeta story={story} />
             <article>
                 <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
-                <h3 className="text-gray-300 text-sm mt-6">{subtitle}</h3>
+                <h3 className="text-gray-300 mt-6">{subtitle}</h3>
 
                 {headerImage && (
                     <Image

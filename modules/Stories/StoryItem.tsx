@@ -34,9 +34,7 @@ function StoryItem({ story }: Props) {
             {subtitle && (
                 <h3 className="text-gray-300 font-medium text-base leading-7 mb-4">{subtitle}</h3>
             )}
-            {excerpt && (
-                <div className="mb-4 text-gray-400 leading-7 line-clamp-3 text-sm">{excerpt}</div>
-            )}
+            {excerpt && <div className="mb-4 text-gray-400 leading-7 line-clamp-3">{excerpt}</div>}
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
