@@ -61,7 +61,7 @@ export function getDefaultComponents(downgradeHeadings?: boolean): ComponentRend
                 {children}
             </a>
         ),
-        [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3">{children}</p>,
+        [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 text-sm">{children}</p>,
         [QUOTE_NODE_TYPE]: ({ children }) => (
             <blockquote className="default-well story-blockquote">
                 <Icon name="quote" className="story-blockquote-icon" />

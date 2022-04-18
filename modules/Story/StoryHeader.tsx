@@ -15,8 +15,8 @@ function StoryHeader({ story }: Props) {
     const headerImage = header_image ? JSON.parse(header_image) : undefined;
 
     return (
-        <div className="full-width default-well">
-            <div className="lg:flex lg:max-w-[1600px] lg:mx-auto">
+        <div className="">
+            <div className="lg:flex lg:mx-auto">
                 {headerImage && (
                     <div className="lg:w-1/2 lg:flex-shrink-0 relative h-[20rem] sm:h-auto min-h-[20rem]">
                         <Image

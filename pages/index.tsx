@@ -10,7 +10,6 @@ import type { FunctionComponent } from 'react';
 
 import { PageSeo } from '@/components/seo';
 import Layout from '@/modules/Layout';
-import Sidebar from '@/modules/Sidebar';
 import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps, PaginationProps, StoryWithContent } from 'types';
@@ -32,12 +31,7 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
                 imageUrl={getAssetsUrl(newsroom.newsroom_logo?.uuid as string)}
             />
             <Layout>
-                <div className="pt-10 lg:flex lg:flex-nowrap">
-                    <div className="flex-grow">
-                        <InfiniteStories initialStories={stories} pagination={pagination} />
-                    </div>
-                    <Sidebar />
-                </div>
+                <InfiniteStories initialStories={stories} pagination={pagination} />
             </Layout>
         </>
     );

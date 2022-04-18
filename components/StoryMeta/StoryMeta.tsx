@@ -1,0 +1,55 @@
+import { useState } from 'react';
+
+import { useDevice } from '@/hooks/useDevice';
+import type { StoryWithContent } from 'types';
+
+import CategoryTag from '../CategoryTag';
+import StoryPublicationDate from '../StoryPublicationDate';
+
+interface Props {
+    story: StoryWithContent;
+}
+
+function StoryMeta({ story }: Props) {
+    const [showAdditionalCategories, setShowAdditionalCategories] = useState(false);
+    const { isMobile } = useDevice();
+
+    const { categories } = story;
+    const NUM_OF_INITIAL_CATEGORIES = isMobile ? 2 : 3;
+
+    const additionalCategories =
+        categories.length > NUM_OF_INITIAL_CATEGORIES &&
+        categories.length - NUM_OF_INITIAL_CATEGORIES;
+
+    return (
+        <>
+            <div className="md:flex md:items-center md:mb-4">
+                <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-100" />
+                {!!categories.length && (
+                    <div className="flex mb-3 md:ml-6 md:mb-0">
+                        {categories.slice(0, NUM_OF_INITIAL_CATEGORIES).map((category) => (
+                            <CategoryTag key={category.id} category={category} />
+                        ))}
+                        {additionalCategories && !showAdditionalCategories && (
+                            <CategoryTag
+                                additionalCategories={additionalCategories}
+                                onClick={() =>
+                                    isMobile ? null : setShowAdditionalCategories(true)
+                                }
+                            />
+                        )}
+                    </div>
+                )}
+            </div>
+            {showAdditionalCategories && (
+                <div className="flex items-center flex-wrap">
+                    {categories.slice(NUM_OF_INITIAL_CATEGORIES).map((category) => (
+                        <CategoryTag key={category.id} category={category} className="w-max" />
+                    ))}
+                </div>
+            )}
+        </>
+    );
+}
+
+export default StoryMeta;

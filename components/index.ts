@@ -14,3 +14,4 @@ export { default as StoryStickyBar } from './StoryStickyBar';
 export { default as FormInput } from './FormInput';
 export { default as StoryImage } from './StoryImage';
 export { default as CategoryLink } from './CategoryLink';
+export { default as StoryMeta } from './StoryMeta';

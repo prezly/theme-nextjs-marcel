@@ -1,14 +1,10 @@
 import type { ExtendedStory } from '@prezly/sdk';
 import { StoryFormatVersion } from '@prezly/sdk';
-import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
-import classNames from 'classnames';
+import Image from '@prezly/uploadcare-image';
 import dynamic from 'next/dynamic';
 
 import { StorySeo } from '@/components/seo';
-import StoryStickyBar from '@/components/StoryStickyBar';
-import { Boilerplate, SocialLinks, SubscriptionForm } from '@/modules/Sidebar';
-
-import StoryHeader from './StoryHeader';
+import StoryMeta from '@/components/StoryMeta';
 
 const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 
@@ -17,18 +13,26 @@ type Props = {
 };
 
 function Story({ story }: Props) {
-    const companyInformation = useCompanyInformation();
-
-    const { format_version, content } = story;
-
-    const { about, address } = companyInformation || {};
-    const hasBoilerplate = !!about || !!address;
+    const { format_version, content, title, subtitle } = story;
+    const headerImage = story.header_image ? JSON.parse(story.header_image) : null;
 
     return (
         <>
             <StorySeo story={story} />
+            <StoryMeta story={story} />
             <article>
-                <StoryHeader story={story} />
+                <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
+                <h3 className="text-gray-300 text-sm mt-6">{subtitle}</h3>
+
+                {headerImage && (
+                    <Image
+                        imageDetails={headerImage}
+                        alt={title}
+                        layout="fill"
+                        objectFit="cover"
+                        className="mt-12"
+                    />
+                )}
 
                 <div className="pt-16 py-6 lg:max-w-[920px] lg:mx-auto">
                     {format_version === StoryFormatVersion.HTML && (
@@ -40,27 +44,6 @@ function Story({ story }: Props) {
                     )}
                 </div>
             </article>
-
-            {companyInformation && (
-                <div className="lg:max-w-[920px] lg:mx-auto border-t border-gray-600 py-14 lg:pt-16 lg:flex lg:mb-24">
-                    <SubscriptionForm
-                        className={classNames(
-                            hasBoilerplate
-                                ? 'lg:w-80 lg:order-2 lg:ml-12 lg:flex-shrink-0 lg:mb-0'
-                                : 'lg:flex-grow p-8',
-                        )}
-                        inlineForm={!hasBoilerplate}
-                    />
-                    {hasBoilerplate && (
-                        <div className="flex-grow">
-                            <Boilerplate companyInformation={companyInformation} />
-                            <SocialLinks companyInformation={companyInformation} />
-                        </div>
-                    )}
-                </div>
-            )}
-
-            <StoryStickyBar story={story} />
         </>
     );
 }
