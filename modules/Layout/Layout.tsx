@@ -3,6 +3,8 @@ import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
 
 import { LoadingBar } from '@/components';
+import ScrollToTopButton from '@/components/ScrollToTopButton';
+import { useDevice } from '@/hooks/useDevice';
 
 import Sidebar from '../Sidebar';
 
@@ -10,6 +12,8 @@ import Header from './Header';
 
 function Layout({ children }: PropsWithChildren<{}>) {
     const [isLoadingPage, setIsLoadingPage] = useState(false);
+    const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
+    const { isMobile } = useDevice();
 
     useEffect(() => {
         function onRouteChangeStart() {
@@ -27,6 +31,32 @@ function Layout({ children }: PropsWithChildren<{}>) {
         };
     }, []);
 
+    useEffect(() => {
+        function scrollListener() {
+            if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+                setIsScrollToTopVisible(true);
+            } else {
+                setIsScrollToTopVisible(false);
+            }
+        }
+        if (typeof window !== 'undefined') {
+            window.onscroll = scrollListener;
+        }
+
+        return () => {
+            if (window !== null) {
+                window.onscroll = null;
+            }
+        };
+    }, []);
+
+    function scrollToTop() {
+        window.scrollTo({
+            top: 1,
+            behavior: 'smooth',
+        });
+    }
+
     return (
         <div className="lg:max-w-[1040px] lg:mx-auto">
             <Header />
@@ -37,6 +67,10 @@ function Layout({ children }: PropsWithChildren<{}>) {
                 </div>
             </div>
             <LoadingBar isLoading={isLoadingPage} />
+            <ScrollToTopButton
+                isVisible={isScrollToTopVisible && !isMobile}
+                onClick={scrollToTop}
+            />
         </div>
     );
 }
