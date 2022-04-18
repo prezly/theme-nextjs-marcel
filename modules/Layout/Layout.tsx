@@ -1,3 +1,4 @@
+import { useNewsroom } from '@prezly/theme-kit-nextjs';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
@@ -8,11 +9,15 @@ import { useDevice } from '@/hooks/useDevice';
 
 import Sidebar from '../Sidebar';
 
+import Branding from './Branding';
 import Header from './Header';
 
 function Layout({ children }: PropsWithChildren<{}>) {
+    const newsroom = useNewsroom();
+
     const [isLoadingPage, setIsLoadingPage] = useState(false);
     const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
+
     const { isMobile } = useDevice();
 
     useEffect(() => {
@@ -58,20 +63,23 @@ function Layout({ children }: PropsWithChildren<{}>) {
     }
 
     return (
-        <div className="lg:max-w-[1040px] lg:mx-auto">
-            <Header />
-            <div className="px-6">
-                <div className="pt-10 lg:flex lg:flex-nowrap">
-                    <div className="flex-grow">{children}</div>
-                    <Sidebar />
+        <>
+            <Branding newsroom={newsroom} />
+            <div className="lg:max-w-[1040px] lg:mx-auto">
+                <Header />
+                <div className="px-6">
+                    <div className="pt-10 lg:flex lg:flex-nowrap">
+                        <div className="flex-grow">{children}</div>
+                        <Sidebar />
+                    </div>
                 </div>
+                <LoadingBar isLoading={isLoadingPage} />
+                <ScrollToTopButton
+                    isVisible={isScrollToTopVisible && !isMobile}
+                    onClick={scrollToTop}
+                />
             </div>
-            <LoadingBar isLoading={isLoadingPage} />
-            <ScrollToTopButton
-                isVisible={isScrollToTopVisible && !isMobile}
-                onClick={scrollToTop}
-            />
-        </div>
+        </>
     );
 }
 
