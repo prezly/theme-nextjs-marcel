@@ -52,7 +52,7 @@ function Layout({ children }: PropsWithChildren<{}>) {
 
     function scrollToTop() {
         window.scrollTo({
-            top: 1,
+            top: 0,
             behavior: 'smooth',
         });
     }

@@ -1,6 +1,6 @@
 .button {
     @apply fixed bottom-12 right-12 hidden;
-    @apply uppercase text-sm font-semibold tracking-wider leading-5;
+    @apply text-sm;
     @apply py-4 pl-3 pr-4 bg-gray-700 bg-opacity-80 rounded;
     @apply hover:bg-gray-600 active:bg-gray-500 active:text-gray-100;
     @apply focus-visible:ring focus-visible:ring-inset;
