@@ -45,11 +45,6 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
                     pagination={pagination}
                     category={category}
                 />
-                <InfiniteStories
-                    initialStories={stories}
-                    pagination={pagination}
-                    category={category}
-                />
             </Layout>
         </>
     );
