@@ -1,14 +1,13 @@
 import {
     DEFAULT_PAGE_SIZE,
-    getAssetsUrl,
     getNewsroomServerSideProps,
+    PageSeo,
     processRequest,
     useNewsroom,
 } from '@prezly/theme-kit-nextjs';
 import type { GetServerSideProps } from 'next';
 import type { FunctionComponent } from 'react';
 
-import { PageSeo } from '@/components/seo';
 import Layout from '@/modules/Layout';
 import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';
@@ -24,12 +23,7 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
 
     return (
         <>
-            <PageSeo
-                title={newsroom.display_name}
-                description=""
-                url={newsroom.url}
-                imageUrl={getAssetsUrl(newsroom.newsroom_logo?.uuid as string)}
-            />
+            <PageSeo title={newsroom.display_name} />
             <Layout>
                 <InfiniteStories initialStories={stories} pagination={pagination} />
             </Layout>

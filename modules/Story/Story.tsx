@@ -1,9 +1,9 @@
 import type { ExtendedStory } from '@prezly/sdk';
 import { StoryFormatVersion } from '@prezly/sdk';
+import { StorySeo } from '@prezly/theme-kit-nextjs';
 import Image from '@prezly/uploadcare-image';
 import dynamic from 'next/dynamic';
 
-import { StorySeo } from '@/components/seo';
 import StoryMeta from '@/components/StoryMeta';
 
 const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));

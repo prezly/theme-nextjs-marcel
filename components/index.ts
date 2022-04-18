@@ -6,7 +6,6 @@ export { default as Dropdown } from './Dropdown';
 export { default as Error } from './Error';
 export { default as Icon } from './Icon';
 export { default as Modal } from './Modal';
-export * from './seo';
 export { default as SlateRenderer } from './SlateRenderer';
 export { default as SocialShare } from './SocialShare';
 export { default as StoryPublicationDate } from './StoryPublicationDate';
