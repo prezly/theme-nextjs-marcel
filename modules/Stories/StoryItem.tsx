@@ -20,7 +20,7 @@ function StoryItem({ story }: Props) {
         <div className="mb-16">
             <StoryMeta story={story} />
             <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9 md:mt-4">
-                <Link href={`/${slug}`} passHref>
+                <Link href={`/${slug}`} locale={false} passHref>
                     <a
                         className={classNames(
                             'hover:underline hover:text-blue-300 active:text-blue-400',
@@ -35,7 +35,7 @@ function StoryItem({ story }: Props) {
                 <h3 className="text-gray-300 font-medium text-base leading-7 mb-4">{subtitle}</h3>
             )}
             {excerpt && <div className="mb-4 text-gray-400 leading-7 line-clamp-3">{excerpt}</div>}
-            <Link href={`/${slug}`} locale={false} passHref>
+            <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
                         'default-link inline-flex items-center border-b-2 border-transparent',
