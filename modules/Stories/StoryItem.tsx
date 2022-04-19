@@ -35,7 +35,7 @@ function StoryItem({ story }: Props) {
                 <h3 className="text-gray-300 font-medium text-base leading-7 mb-4">{subtitle}</h3>
             )}
             {excerpt && <div className="mb-4 text-gray-400 leading-7 line-clamp-3">{excerpt}</div>}
-            <Link href={`/${slug}`} passHref>
+            <Link href={`/${slug}`} locale={false} passHref>
                 <a
                     className={classNames(
                         'default-link inline-flex items-center border-b-2 border-transparent',
