@@ -50,7 +50,7 @@
 }
 
 .story-blockquote-icon {
-    @apply w-6 h-6 text-blue-400 flex-shrink-0;
+    @apply w-6 h-6 text-gray-200 flex-shrink-0;
 }
 
 .story-blockquote-icon--inverted {
@@ -61,7 +61,7 @@
     @apply bg-gray-700;
 }
 
-.prezly-slate-document .prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__dim, 
+.prezly-slate-document .prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__dim,
 .prezly-slate-document .prezly-slate-image-rollover:hover .prezly-slate-image-rollover__dim {
     opacity: 0.7;
 }
