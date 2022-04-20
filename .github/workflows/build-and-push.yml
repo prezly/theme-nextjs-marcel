@@ -1,4 +1,4 @@
-name: Build image and push marcel image to ECR
+name: Build image and push Marcel image to ECR
 
 on:
   push:
@@ -33,13 +33,29 @@ jobs:
           branch=${GITHUB_REF##*/}
           sha=${GITHUB_SHA::8}
           ts=$(date +%s)
-          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"  
+          echo "::set-output name=BUILD_ID::${branch}-${sha}-${ts}"
+
+    - uses: docker/setup-buildx-action@v1
+      id: buildx
+      with:
+        install: true
 
     - name: Build, tag, and push image to Amazon ECR
       id: build-image
-      env:
-        ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: theme-nextjs-marcel
+      uses: docker/build-push-action@v2
+      with:
+        push: true
+        tags: ${{ steps.login-ecr.outputs.registry }}/theme-nextjs-marcel:${{ steps.prep.outputs.BUILD_ID }}
+        secrets: |
+          "NEXT_PUBLIC_HCAPTCHA_SITEKEY=${{ secrets.NEXT_PUBLIC_HCAPTCHA_SITEKEY }}"
+          "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}"
+          "NEXT_PUBLIC_SENTRY_DSN=${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}"
+
+    - name: Clear cache
+      id: clear-cache
       run: |
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.prep.outputs.BUILD_ID }} .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:${{ steps.prep.outputs.BUILD_ID }}
+        sleep 90
+        curl --request POST \
+            --url https://admin-api.prezly.com/v1/themes/7fbe6c11-191b-4122-848c-82c69cd44d3a/clear-cache \
+            --header 'Authorization: Bearer ${{ secrets.PREZLY_API_TOKEN }}' \
+            --header 'Content-Type: application/json'
