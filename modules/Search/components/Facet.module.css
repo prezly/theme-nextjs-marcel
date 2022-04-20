@@ -1,0 +1,57 @@
+.container {
+    @apply p-6;
+}
+
+.header {
+    @apply text-base w-full flex justify-between items-center no-underline bg-none border-0 p-0 shadow-none font-bold overflow-hidden cursor-pointer text-gray-200;
+}
+
+.title {
+    @apply whitespace-nowrap overflow-hidden text-ellipsis uppercase font-normal;
+}
+
+.input {
+    @apply appearance-none h-4 w-4 border border-gray-500 rounded-sm bg-gray-700 checked:text-gray-100 mr-2 relative;
+}
+
+.input:checked::after {
+    content: url("/images/icons/icon-check.svg");
+
+    @apply absolute text-gray-200 inline-block top-0 -mt-2 !important;
+}
+
+.caret {
+    @apply ml-2 flex-shrink-0 w-4 h-4;
+}
+
+.caretOpen {
+    @apply rotate-180;
+}
+
+.panel {
+    @apply mt-4;
+}
+
+.list {
+    @apply list-none m-0 p-0;
+}
+
+.listItem:not(:last-child) {
+    @apply mb-3;
+}
+
+.listItemInner {
+    @apply text-base;
+}
+
+.label {
+    @apply ml-2;
+}
+
+.count {
+    @apply ml-2 opacity-75;
+}
+
+.button {
+    @apply text-base border-0 p-2 mt-2 -ml-2 -mb-2 text-primary font-normal capitalize no-underline cursor-pointer hover:no-underline focus:no-underline;
+}

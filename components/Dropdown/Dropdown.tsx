@@ -17,6 +17,7 @@ type Props = {
     menuClassName?: string;
     buttonClassName?: string;
     withMobileDisplay?: boolean;
+    hideCaret?: boolean;
 };
 
 function Dropdown({
@@ -27,6 +28,7 @@ function Dropdown({
     buttonClassName,
     withMobileDisplay,
     children,
+    hideCaret,
 }: PropsWithChildren<Props>) {
     return (
         <Menu as="div" className={classNames(styles.container, className)}>
@@ -42,10 +44,14 @@ function Dropdown({
                             })}
                         >
                             {label}
-                            <Icon
-                                name="caret"
-                                className={classNames(styles.caret, { [styles.caretOpen]: open })}
-                            />
+                            {!hideCaret && (
+                                <Icon
+                                    name="caret"
+                                    className={classNames(styles.caret, {
+                                        [styles.caretOpen]: open,
+                                    })}
+                                />
+                            )}
                         </Button>
                     </Menu.Button>
                     <Transition
