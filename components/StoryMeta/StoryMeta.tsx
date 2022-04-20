@@ -1,20 +1,21 @@
+import type { Category } from '@prezly/sdk';
+import type { AlgoliaCategoryRef } from '@prezly/theme-kit-nextjs';
 import { useState } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
-import type { StoryWithContent } from 'types';
 
 import CategoryTag from '../CategoryTag';
 import StoryPublicationDate from '../StoryPublicationDate';
 
 interface Props {
-    story: StoryWithContent;
+    published_at: string | number | null;
+    categories: (Category | AlgoliaCategoryRef)[];
 }
 
-function StoryMeta({ story }: Props) {
+function StoryMeta({ categories, published_at }: Props) {
     const [showAdditionalCategories, setShowAdditionalCategories] = useState(false);
     const { isMobile } = useDevice();
 
-    const { categories } = story;
     const NUM_OF_INITIAL_CATEGORIES = isMobile ? 2 : 3;
 
     const additionalCategories =
@@ -24,7 +25,10 @@ function StoryMeta({ story }: Props) {
     return (
         <>
             <div className="md:flex md:items-center md:mb-4">
-                <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-100" />
+                <StoryPublicationDate
+                    published_at={published_at}
+                    className="mb-6 md:mb-0 text-gray-100"
+                />
                 {!!categories.length && (
                     <div className="flex mb-3 md:ml-6 md:mb-0">
                         {categories.slice(0, NUM_OF_INITIAL_CATEGORIES).map((category) => (

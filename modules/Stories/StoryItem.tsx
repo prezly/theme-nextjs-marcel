@@ -12,13 +12,13 @@ type Props = {
 };
 
 function StoryItem({ story }: Props) {
-    const { title, subtitle, slug } = story;
+    const { title, subtitle, slug, published_at, categories } = story;
 
     const excerpt = getStoryExcerpt(story);
 
     return (
         <div className="mb-16">
-            <StoryMeta story={story} />
+            <StoryMeta published_at={published_at} categories={categories} />
             <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9 md:mt-4">
                 <Link href={`/${slug}`} locale={false} passHref>
                     <a

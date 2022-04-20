@@ -1,4 +1,5 @@
 import type { Category } from '@prezly/sdk/dist/types';
+import type { AlgoliaCategoryRef } from '@prezly/theme-kit-nextjs';
 import { getCategoryUrl, useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import Link from 'next/link';
@@ -7,7 +8,7 @@ import styles from './CategoryTag.module.css';
 
 interface Props {
     additionalCategories?: number;
-    category?: Category;
+    category?: Category | AlgoliaCategoryRef;
     className?: string;
     onClick?: () => void;
 }
@@ -26,7 +27,9 @@ function CategoryTag({ additionalCategories, category, className, onClick }: Pro
     if (category) {
         return (
             <Link key={category.id} href={getCategoryUrl(category, locale)} passHref>
-                <a className={classNames(styles.categoryTag, className)}>{category.display_name}</a>
+                <a className={classNames(styles.categoryTag, className)}>
+                    {(category as Category).display_name || (category as AlgoliaCategoryRef).name}
+                </a>
             </Link>
         );
     }

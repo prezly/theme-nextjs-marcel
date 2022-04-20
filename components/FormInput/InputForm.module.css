@@ -3,7 +3,7 @@
 }
 
 .wrapper {
-    @apply block mb-2;
+    @apply block;
 }
 
 .label {

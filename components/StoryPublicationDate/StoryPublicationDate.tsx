@@ -1,4 +1,3 @@
-import type { Story } from '@prezly/sdk';
 import { useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import { format } from 'date-fns';
@@ -8,19 +7,26 @@ import type { PropsWithChildren } from 'react';
 import Icon from '../Icon';
 
 interface Props {
-    story: Story;
+    published_at: string | number | null;
     className?: string;
 }
 
-function StoryPublicationDate({ story, className }: PropsWithChildren<Props>) {
+function StoryPublicationDate({ published_at, className }: PropsWithChildren<Props>) {
     const currentLocale = useCurrentLocale().toHyphenCode().replace('-', '');
-    const { published_at } = story;
 
     const selectedLocale: Locale = (locales as any)[currentLocale];
 
-    const publishedDate = format(new Date(published_at as string), 'LLL d, yyyy', {
-        locale: selectedLocale,
-    });
+    let publishedDate: string;
+
+    if (typeof published_at === 'number') {
+        publishedDate = format(new Date(published_at * 1000), 'LLL d, yyyy', {
+            locale: selectedLocale,
+        });
+    } else {
+        publishedDate = format(new Date(published_at as string), 'LLL d, yyyy', {
+            locale: selectedLocale,
+        });
+    }
 
     return (
         <div className={classNames('flex items-center leading-5', className)}>
