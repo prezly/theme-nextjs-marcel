@@ -2,7 +2,6 @@ import type { ExtendedStory } from '@prezly/sdk';
 import Image from '@prezly/uploadcare-image';
 
 import CategoryTag from '@/components/CategoryTag';
-import SocialShare from '@/components/SocialShare';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
 
 type Props = {
@@ -52,7 +51,6 @@ function StoryHeader({ story }: Props) {
                                 published_at={published_at}
                                 className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
                             />
-                            <SocialShare story={story} />
                         </div>
                     </div>
                 </div>

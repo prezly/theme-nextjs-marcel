@@ -18,9 +18,7 @@ function isNodeEmpty(node: Node | ElementNode): boolean {
 function getExcerptComponents(): ComponentRenderers {
     return {
         ...getDefaultComponents(),
-        [PARAGRAPH_NODE_TYPE]: ({ children }) => (
-            <p className="mb-16 md:mb-3 last:mb-0">{children}</p>
-        ),
+        [PARAGRAPH_NODE_TYPE]: ({ children }) => <p className="mb-3 last:mb-0">{children}</p>,
     };
 }
 
@@ -35,8 +33,8 @@ function getNodeTextLength(node: Node | ElementNode): number {
     );
 }
 
-const MAX_NODE_INDEX_FOR_TEXT_NODES = 5;
-const MAX_TOTAL_TEXT_LENGTH = 300;
+const MAX_NODE_INDEX_FOR_TEXT_NODES = 3;
+const MAX_TOTAL_TEXT_LENGTH = 100;
 
 export default function getStoryExcerpt(story: Story & Pick<ExtraStoryFields, 'content'>) {
     const { format_version, content } = story;
