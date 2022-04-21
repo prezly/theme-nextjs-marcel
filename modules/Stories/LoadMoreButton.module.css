@@ -1,0 +1,7 @@
+.button {
+    @apply border-none rounded-lg px-[16px] py-[12px] w-full sm:w-max font-normal text-gray-200;
+}
+
+.container {
+    @apply flex items-center justify-center;
+}
