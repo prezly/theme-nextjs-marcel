@@ -15,3 +15,4 @@ export { default as StoryImage } from './StoryImage';
 export { default as CategoryLink } from './CategoryLink';
 export { default as StoryMeta } from './StoryMeta';
 export { default as LoadingBar } from './LoadingBar';
+export { default as StoryShareSocial } from './StoryShareSocial';

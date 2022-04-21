@@ -4,7 +4,7 @@ import { StorySeo } from '@prezly/theme-kit-nextjs';
 import Image from '@prezly/uploadcare-image';
 import dynamic from 'next/dynamic';
 
-import StoryMeta from '@/components/StoryMeta';
+import { StoryMeta, StoryShareSocial } from '@/components';
 
 const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 
@@ -23,6 +23,8 @@ function Story({ story }: Props) {
             <article>
                 <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
                 <h3 className="text-gray-300 mt-6">{subtitle}</h3>
+
+                <StoryShareSocial story={story} />
 
                 {headerImage && (
                     <Image
