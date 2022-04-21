@@ -97,3 +97,7 @@
 .prezly-slate-lightbox__close-icon {
     @apply w-8 h-8 !important;
 }
+
+.prezly-slate-pinterest-button__icon {
+    @apply hidden !important;
+}
