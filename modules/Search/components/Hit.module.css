@@ -7,8 +7,8 @@
 }
 
 .title a {
-    @apply hover:underline hover:text-blue-300 active:text-blue-400;
-    @apply focus:outline-none focus:underline focus:text-blue-300;
+    @apply hover:underline;
+    @apply focus:outline-none focus:underline;
 }
 
 .title a mark {

@@ -20,8 +20,8 @@ function StoryItem({ story }: Props) {
                 <Link href={`/${slug}`} locale={false} passHref>
                     <a
                         className={classNames(
-                            'hover:underline hover:text-blue-300 active:text-blue-400',
-                            'focus:outline-none focus:underline focus:text-blue-300',
+                            'hover:underline',
+                            'focus:outline-none focus:underline ',
                         )}
                     >
                         {title}

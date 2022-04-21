@@ -1,4 +1,4 @@
-import { useAlgoliaSettings, useCurrentLocale } from '@prezly/theme-kit-nextjs';
+import { PageSeo, useAlgoliaSettings, useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import algoliasearch from 'algoliasearch';
 import { useRouter } from 'next/router';
 import { useMemo, useRef, useState } from 'react';
@@ -47,6 +47,7 @@ function SearchPage() {
 
     return (
         <Layout>
+            <PageSeo />
             <InstantSearch
                 searchClient={searchClient}
                 indexName={ALGOLIA_INDEX}
