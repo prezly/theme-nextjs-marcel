@@ -15,7 +15,7 @@
 }
 
 .header .navigationButton {
-    @apply text-gray-100 uppercase font-normal;
+    @apply text-gray-100 uppercase font-normal text-sm mr-2;
 }
 
 .header .searchToggle {

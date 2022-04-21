@@ -12,11 +12,9 @@ interface Props {
     hit: Hit<{ attributes: AlgoliaStory }>;
 }
 
-const MAX_TOTAL_TEXT_LENGTH = 300;
-
 function HitComponent({ hit }: Props) {
     const { attributes: story } = hit;
-    const { content_text, slug, subtitle, published_at, categories } = story;
+    const { slug, subtitle, published_at, categories } = story;
 
     return (
         <div className="mb-16">
@@ -29,11 +27,7 @@ function HitComponent({ hit }: Props) {
                 </Link>
             </h2>
             {subtitle && <h3 className={styles.subtitle}>{subtitle}</h3>}
-            {content_text && (
-                <div className={styles.content}>
-                    {content_text.slice(0, MAX_TOTAL_TEXT_LENGTH)}...
-                </div>
-            )}
+
             <Link href={`/${slug}`} passHref>
                 <a className={styles.link}>
                     Read more

@@ -18,7 +18,7 @@
 }
 
 .subtitle {
-    @apply text-gray-300 font-medium text-base leading-7 mb-4;
+    @apply text-gray-400 font-normal text-base leading-7 mb-4;
 }
 
 .content {

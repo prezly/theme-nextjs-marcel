@@ -38,7 +38,7 @@ function Layout({ children }: PropsWithChildren<{}>) {
 
     useEffect(() => {
         function scrollListener() {
-            if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
                 setIsScrollToTopVisible(true);
             } else {
                 setIsScrollToTopVisible(false);
