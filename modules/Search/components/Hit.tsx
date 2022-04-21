@@ -14,11 +14,11 @@ interface Props {
 
 function HitComponent({ hit }: Props) {
     const { attributes: story } = hit;
-    const { slug, subtitle, published_at, categories } = story;
+    const { slug, subtitle } = story;
 
     return (
         <div className="mb-16">
-            <StoryMeta published_at={published_at} categories={categories} />
+            <StoryMeta story={story} />
             <h2 className={styles.title}>
                 <Link href={`/${slug}`} locale={false} passHref>
                     <a>

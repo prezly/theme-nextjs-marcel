@@ -1,4 +1,5 @@
 import type { Story } from '@prezly/sdk';
+import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import Link from 'next/link';
 
@@ -6,15 +7,15 @@ import Icon from '@/components/Icon';
 import StoryMeta from '@/components/StoryMeta';
 
 type Props = {
-    story: Story;
+    story: Story | AlgoliaStory;
 };
 
 function StoryItem({ story }: Props) {
-    const { title, subtitle, slug, published_at, categories } = story;
+    const { title, subtitle, slug } = story;
 
     return (
         <div className="mb-16">
-            <StoryMeta published_at={published_at} categories={categories} />
+            <StoryMeta story={story} />
             <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9 md:mt-4">
                 <Link href={`/${slug}`} locale={false} passHref>
                     <a

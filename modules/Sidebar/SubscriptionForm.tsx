@@ -20,7 +20,6 @@ type Props = {
 // eslint-disable-next-line prefer-destructuring
 const NEXT_PUBLIC_HCAPTCHA_SITEKEY = process.env.NEXT_PUBLIC_HCAPTCHA_SITEKEY;
 
-// TODO: get the information to populate this form
 function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
     const currentLocale = useCurrentLocale();

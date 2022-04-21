@@ -13,13 +13,13 @@ type Props = {
 };
 
 function Story({ story }: Props) {
-    const { format_version, content, title, subtitle, categories, published_at } = story;
+    const { format_version, content, title, subtitle } = story;
     const headerImage = story.header_image ? JSON.parse(story.header_image) : null;
 
     return (
         <>
             <StorySeo story={story} />
-            <StoryMeta categories={categories} published_at={published_at} />
+            <StoryMeta story={story} />
             <article>
                 <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
                 <h3 className="text-gray-300 mt-6">{subtitle}</h3>

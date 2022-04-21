@@ -9,7 +9,7 @@ type Props = {
 };
 
 function StoryHeader({ story }: Props) {
-    const { title, subtitle, categories, header_image, published_at } = story;
+    const { title, subtitle, categories, header_image } = story;
 
     const headerImage = header_image ? JSON.parse(header_image) : undefined;
 
@@ -48,7 +48,7 @@ function StoryHeader({ story }: Props) {
 
                         <div className="lg:flex lg:items-center">
                             <StoryPublicationDate
-                                published_at={published_at}
+                                story={story}
                                 className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
                             />
                         </div>
