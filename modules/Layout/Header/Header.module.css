@@ -23,7 +23,7 @@
 }
 
 .newsroom {
-    @apply no-underline text-gray-100 uppercase text-3xl;
+    @apply no-underline text-gray-100 uppercase text-3xl z-50;
 }
 
 .newsroom.withoutLogo {
