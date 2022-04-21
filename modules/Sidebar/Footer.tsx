@@ -12,7 +12,7 @@ function Footer() {
                 <CookieConsentLink className="underline font-normal" />
             </div>
             <p className="mt-2 flex items-center">
-                <span className="underline mr-2">Powered by</span>{' '}
+                <span className="mr-2">Powered by</span>{' '}
                 <a href="https://prezly.com" target="_blank" rel="noopener noreferrer">
                     <Icon name="prezly-logo" className="text-primary w-16 h-16" />
                 </a>
