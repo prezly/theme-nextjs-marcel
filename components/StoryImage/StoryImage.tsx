@@ -3,14 +3,14 @@ import { useNewsroom } from '@prezly/theme-kit-nextjs';
 import Image from '@prezly/uploadcare-image';
 import classNames from 'classnames';
 
-import type { StoryWithContent } from 'types';
+import type { StoryWithImage } from 'types';
 
 import { getStoryThumbnail } from './lib';
 
 import styles from './StoryImage.module.css';
 
 type Props = {
-    story: StoryWithContent | AlgoliaStory;
+    story: StoryWithImage | AlgoliaStory;
     className?: string;
     placeholderClassName?: string;
 };

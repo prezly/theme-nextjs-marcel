@@ -27,10 +27,8 @@ function CategoryButton({ category, navigationButtonClassName }: Props) {
             localeCode={getLinkLocaleSlug()}
             className={navigationButtonClassName}
         >
-            <div>
-                <span className={styles.title}>{name}</span>
-                {description && <span className={styles.description}>{description}</span>}
-            </div>
+            <span className={styles.title}>{name}</span>
+            {description && <span className={styles.description}>{description}</span>}
         </Button.Link>
     );
 }

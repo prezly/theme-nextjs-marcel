@@ -1,10 +1,10 @@
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import type { UploadcareImageDetails } from '@prezly/uploadcare-image/build/types';
 
-import type { StoryWithContent } from 'types';
+import type { StoryWithImage } from 'types';
 
 export function getStoryThumbnail(
-    story: StoryWithContent | AlgoliaStory,
+    story: StoryWithImage | AlgoliaStory,
 ): UploadcareImageDetails | null {
     const { thumbnail_image } = story;
 

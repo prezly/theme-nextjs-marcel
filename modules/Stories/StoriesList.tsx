@@ -1,9 +1,9 @@
-import type { StoryWithContent } from 'types';
+import type { Story } from '@prezly/sdk';
 
 import StoryItem from './StoryItem';
 
 type Props = {
-    stories: StoryWithContent[];
+    stories: Story[];
 };
 
 function StoriesList({ stories }: Props) {

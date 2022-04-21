@@ -1,20 +1,21 @@
-import type { Category } from '@prezly/sdk/dist/types';
+import type { Category, Story } from '@prezly/sdk';
+import { useInfiniteStoriesLoading } from '@prezly/theme-kit-nextjs';
 
-import { useDevice, useInfiniteStoriesLoading } from '@/hooks';
-import type { PaginationProps, StoryWithContent } from 'types';
+import { useDevice } from '@/hooks';
+import type { PaginationProps } from 'types';
 
 import LoadMore from './LoadMore';
 import LoadMoreButton from './LoadMoreButton';
 import StoriesList from './StoriesList';
 
 type Props = {
-    initialStories: StoryWithContent[];
+    initialStories: Story[];
     pagination: PaginationProps;
     category?: Category;
 };
 
 function InfiniteStories({ initialStories, pagination, category }: Props) {
-    const { canLoadMore, displayedStories, loadMoreStories, isLoading } = useInfiniteStoriesLoading(
+    const { canLoadMore, stories, loadMoreStories, isLoading } = useInfiniteStoriesLoading(
         initialStories,
         pagination,
         category,
@@ -24,7 +25,7 @@ function InfiniteStories({ initialStories, pagination, category }: Props) {
 
     return (
         <div className="mb-16">
-            <StoriesList stories={displayedStories} />
+            <StoriesList stories={stories} />
 
             {isTablet ? (
                 <LoadMoreButton

@@ -1,12 +1,12 @@
+import type { Story } from '@prezly/sdk';
 import classNames from 'classnames';
 import Link from 'next/link';
 
 import Icon from '@/components/Icon';
 import StoryMeta from '@/components/StoryMeta';
-import type { StoryWithContent } from 'types';
 
 type Props = {
-    story: StoryWithContent;
+    story: Story;
 };
 
 function StoryItem({ story }: Props) {

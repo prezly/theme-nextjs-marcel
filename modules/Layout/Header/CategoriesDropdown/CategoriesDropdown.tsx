@@ -48,11 +48,7 @@ function CategoriesDropdown({
                     />
                 </li>
             ))}
-            <li
-                className={classNames(navigationItemClassName, {
-                    [styles.desktopCategories]: true,
-                })}
-            >
+            <li className={classNames(navigationItemClassName, styles.desktopCategories)}>
                 <Dropdown
                     label={<FormattedMessage {...translations.categories.title} />}
                     buttonClassName={buttonClassName}

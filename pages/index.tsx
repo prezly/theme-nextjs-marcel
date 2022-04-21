@@ -1,3 +1,4 @@
+import type { Story } from '@prezly/sdk';
 import {
     DEFAULT_PAGE_SIZE,
     getNewsroomServerSideProps,
@@ -11,10 +12,10 @@ import type { FunctionComponent } from 'react';
 import Layout from '@/modules/Layout';
 import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';
-import type { BasePageProps, PaginationProps, StoryWithContent } from 'types';
+import type { BasePageProps, PaginationProps } from 'types';
 
 interface Props extends BasePageProps {
-    stories: StoryWithContent[];
+    stories: Story[];
     pagination: PaginationProps;
 }
 
@@ -53,7 +54,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
         {
             ...serverSideProps,
             // TODO: This is temporary until return types from API are figured out
-            stories: stories as StoryWithContent[],
+            stories,
             pagination: {
                 itemsTotal: storiesTotal,
                 currentPage: page ?? 1,
