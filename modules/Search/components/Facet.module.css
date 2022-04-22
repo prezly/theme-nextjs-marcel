@@ -17,7 +17,7 @@
 .input:checked::after {
     content: url("/images/icons/icon-check.svg");
 
-    @apply absolute text-gray-200 inline-block top-0 -mt-2 !important;
+    @apply absolute text-gray-200 inline-block top-0 -mt-2 w-3 h-3 !important;
 }
 
 .caret {
