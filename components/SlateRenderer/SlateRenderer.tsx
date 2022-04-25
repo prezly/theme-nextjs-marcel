@@ -19,9 +19,10 @@ import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import '@prezly/content-renderer-react-js/styles.css';
 
-import Attachment from '@/components/Attachment';
 import ContactCard from '@/components/ContactCard';
 import Icon from '@/components/Icon';
+
+import Attachment from './components/Attachment';
 
 interface Props {
     nodes: Node | Node[];
