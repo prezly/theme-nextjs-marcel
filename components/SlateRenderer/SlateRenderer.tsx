@@ -6,8 +6,10 @@ import {
     BULLETED_LIST_NODE_TYPE,
     CONTACT_NODE_TYPE,
     DIVIDER_NODE_TYPE,
+    GALLERY_NODE_TYPE,
     HEADING_1_NODE_TYPE,
     HEADING_2_NODE_TYPE,
+    IMAGE_NODE_TYPE,
     LINK_NODE_TYPE,
     LIST_ITEM_NODE_TYPE,
     LIST_ITEM_TEXT_NODE_TYPE,
@@ -19,9 +21,12 @@ import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import '@prezly/content-renderer-react-js/styles.css';
 
-import Attachment from '@/components/Attachment';
 import ContactCard from '@/components/ContactCard';
 import Icon from '@/components/Icon';
+
+import Attachment from './components/Attachment';
+import Gallery from './components/Gallery';
+import Image from './components/Image';
 
 interface Props {
     nodes: Node | Node[];
@@ -77,6 +82,8 @@ export function getDefaultComponents(downgradeHeadings?: boolean): ComponentRend
         [ATTACHMENT_NODE_TYPE]: ({ node }) => (
             <Attachment file={node.file} description={node.description} />
         ),
+        [IMAGE_NODE_TYPE]: Image,
+        [GALLERY_NODE_TYPE]: Gallery,
     };
 }
 
