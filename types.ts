@@ -12,7 +12,7 @@ export interface PaginationProps {
     pageSize: number;
 }
 
-export type StoryWithContent = Story & Pick<ExtraStoryFields, 'content'>;
+export type StoryWithImage = Story & Pick<ExtraStoryFields, 'thumbnail_image'>;
 
 export type AlternateLanguageLink = {
     href: string;

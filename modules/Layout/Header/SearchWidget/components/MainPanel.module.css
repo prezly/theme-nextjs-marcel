@@ -1,0 +1,43 @@
+.container :global(.ais-Hits-list) {
+    @apply list-none m-0 p-0;
+}
+
+.container :global(.ais-Hits-item) {
+    @apply mb-4 last:mb-0;
+}
+
+.list {
+    @apply list-none m-0 p-0;
+}
+
+.listItem {
+    @apply mb-4;
+}
+
+.title {
+    @apply text-sm text-gray-500 mt-0 mb-4 font-normal;
+}
+
+.title.empty {
+    @apply mb-1;
+}
+
+.link {
+    @apply text-sm border-0 flex items-center py-1 px-0 no-underline cursor-pointer hover:underline focus:underline;
+}
+
+.viewMoreCategoriesLink {
+    @apply no-underline;
+}
+
+.categoryLink {
+    @apply text-primary hover:text-primaryShade font-medium;
+}
+
+.caret {
+    @apply ml-1;
+}
+
+.caretOpen {
+    @apply rotate-180;
+}

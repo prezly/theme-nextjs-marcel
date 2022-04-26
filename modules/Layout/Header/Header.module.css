@@ -1,0 +1,135 @@
+.container {
+    @apply flex z-[2] h-[88px] px-6;
+}
+
+.container.open {
+    @apply bg-gray-600;
+}
+
+.header {
+    @apply flex items-center justify-between py-6 px-0 h-full;
+}
+
+.header .navigationToggle {
+    @apply text-gray-100 text-base p-4 -mr-4;
+}
+
+.header .navigationButton {
+    @apply text-gray-100 uppercase font-normal text-sm mr-2;
+}
+
+.header .searchToggle {
+    @apply text-gray-100 uppercase font-normal text-sm;
+}
+
+.newsroom {
+    @apply no-underline text-gray-100 uppercase text-3xl z-50;
+}
+
+.newsroom.withoutLogo {
+    @apply text-primary hover:text-gray-100 hover:opacity-80;
+}
+
+.logo {
+    @apply w-auto max-w-[20rem] max-h-[3.5rem];
+}
+
+.navigationWrapper {
+    @apply flex items-center ml-auto z-50;
+}
+
+.navigationInner {
+    @apply list-none m-0 p-0;
+}
+
+.navigationItem {
+    @apply block m-0 p-0;
+}
+
+/* This class is added to the document body to prevent scrolling */
+.body {
+    @apply overflow-hidden;
+}
+
+.backdrop {
+    @apply absolute left-0 right-0 bottom-0 top-0 bg-gray-700 opacity-0;
+
+    transition: opacity 0.3s ease;
+}
+
+@media screen and (max-width: 414px) {
+    .container {
+        @apply w-screen;
+    }
+
+    .header .navigationButton {
+        @apply flex text-left justify-start py-6 px-5 text-gray-100;
+    }
+
+    .header .searchToggle {
+        @apply text-base p-2;
+    }
+
+    .header .searchToggle.close {
+        @apply -mr-4;
+    }
+
+    .header .navigationToggle.hidden,
+    .header .searchToggle.hidden {
+        display: none;
+    }
+
+    /* Since search widget is in a portal, there is no better way of increasing the specificity other than adding global selectors */
+    /* stylelint-disable selector-no-qualifying-type */
+    .navigation,
+    div.mobileSearchWrapper {
+        @apply fixed top-[88px] bottom-0 left-0 right-0 overflow-hidden;
+    }
+    /* stylelint-enable selector-no-qualifying-type */
+
+    .navigation:not(.open) {
+        @apply pointer-events-none;
+    }
+
+    .navigationInner {
+        @apply relative bg-gray-600 max-h-full overflow-y-auto;
+
+        transform: translateY(-50%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .open .navigationInner {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    .open .backdrop {
+        @apply opacity-50;
+    }
+}
+
+@media screen and (min-width: 415px) {
+    .header .navigationToggle {
+        display: none;
+    }
+
+    .header .searchToggle {
+        @apply order-10 leading-tight;
+    }
+
+    .navigation,
+    .navigationInner {
+        @apply flex items-center;
+    }
+
+    .backdrop {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .newsroom {
+        @apply text-xl;
+    }
+}

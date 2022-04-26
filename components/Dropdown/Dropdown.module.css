@@ -1,0 +1,79 @@
+.container {
+    @apply relative;
+}
+
+.absolute-menu-position {
+    @apply rounded-md shadow-md absolute left-0 min-w-[200px] max-w-[330px] mt-1 mx-0 mb-0 p-0 bg-gray-600;
+}
+
+.menu {
+    @apply list-none overflow-hidden;
+}
+
+.menu .withMobileDisplay:not(.withMobileDisplay) {
+    @apply absolute-menu-position;
+}
+
+.container:last-child .menu {
+    @apply left-auto right-0;
+
+    transform-origin: top right;
+}
+
+.caret {
+    @apply ml-1 w-3.5 h-3.5;
+}
+
+.caretOpen {
+    @apply rotate-180;
+}
+
+.transition {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.transitionOpenStart {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.transitionOpenFinish {
+    opacity: 1;
+    transform: scale(1);
+}
+
+@media screen and (max-width: 414px) {
+    .menu.withMobileDisplay {
+        @apply p-0 pb-4 m-0;
+    }
+
+    .menu:not(.withMobileDisplay) {
+        @apply absolute-menu-position;
+    }
+
+    .buttonWithMobileDisplay {
+        @apply w-full;
+    }
+
+    .transitionOpenFinish.withMobileDisplay {
+        @apply max-h-[500px];
+
+        transform: none;
+    }
+
+    .transitionOpenFinish .withMobileDisplay {
+        @apply max-h-0;
+
+        transform: none;
+    }
+
+    .transition .withMobileDisplay {
+        transition: opacity 0.2s ease, max-height 0.2s ease;
+    }
+}
+
+@media screen and (min-width: 415px) {
+    .menu {
+        @apply absolute-menu-position;
+    }
+}

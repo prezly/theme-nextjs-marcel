@@ -1,0 +1,53 @@
+.dialog {
+    @apply fixed top-0 right-0 bottom-0 left-0 z-10 overflow-y-auto;
+}
+
+.dialogWrapper {
+    @apply container ml-auto mr-auto min-w-[none] min-h-full text-center;
+}
+
+.backdrop {
+    @apply fixed top-0 right-0 bottom-0 left-0 bg-modalBg;
+}
+
+.spacer {
+    @apply inline-block h-screen align-middle;
+}
+
+.modal {
+    @apply shadow-xl rounded inline-block relative w-full max-w-[530px] overflow-hidden text-left bg-gray-700 mt-[25vh];
+}
+
+.backdropTransition {
+    transition: opacity 0.2s ease;
+}
+
+.backdropTransitionOpenStart {
+    opacity: 0;
+}
+
+.backdropTransitionOpenFinish {
+    opacity: 1;
+}
+
+.modalTransition {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modalTransitionOpenStart {
+    opacity: 0;
+    transform: translateY(-1 * 2rem);
+}
+
+.modalTransitionOpenFinish {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media screen and (max-width: 414px) {
+    .modal {
+        @apply mx-2 mt-0;
+
+        width: calc(100% - 1rem);
+    }
+}

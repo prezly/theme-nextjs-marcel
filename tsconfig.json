@@ -6,10 +6,7 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2019"
-    ],
+    "lib": ["dom", "es2019"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -22,33 +19,20 @@
     "target": "esnext",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "components/*"
-      ],
-      "@/contexts/*": [
-        "contexts/*"
-      ],
-      "@/hooks/*": [
-        "hooks/*"
-      ],
-      "@/modules/*": [
-        "modules/*"
-      ],
-      "@/public/*": [
-        "public/*"
-      ],
-      "@/utils": [
-        "utils/"
-      ],
-      "@/utils/*": [
-        "utils/*"
-      ]
+      "@/components": ["components/"],
+      "@/components/*": ["components/*"],
+      "@/contexts/*": ["contexts/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/modules": ["modules/"],
+      "@/modules/*": ["modules/*"],
+      "@/public/*": ["public/*"],
+      "@/utils": ["utils/"],
+      "@/utils/*": ["utils/*"],
+      "@/hooks": ["hooks/"]
     },
     "incremental": true
   },
-  "exclude": [
-    "node_modules"
-  ],
+  "exclude": ["node_modules"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",

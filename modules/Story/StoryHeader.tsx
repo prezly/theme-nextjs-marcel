@@ -2,7 +2,6 @@ import type { ExtendedStory } from '@prezly/sdk';
 import Image from '@prezly/uploadcare-image';
 
 import CategoryTag from '@/components/CategoryTag';
-import SocialShare from '@/components/SocialShare';
 import StoryPublicationDate from '@/components/StoryPublicationDate';
 
 type Props = {
@@ -15,8 +14,8 @@ function StoryHeader({ story }: Props) {
     const headerImage = header_image ? JSON.parse(header_image) : undefined;
 
     return (
-        <div className="full-width default-well">
-            <div className="lg:flex lg:max-w-[1600px] lg:mx-auto">
+        <div className="">
+            <div className="lg:flex lg:mx-auto">
                 {headerImage && (
                     <div className="lg:w-1/2 lg:flex-shrink-0 relative h-[20rem] sm:h-auto min-h-[20rem]">
                         <Image
@@ -52,7 +51,6 @@ function StoryHeader({ story }: Props) {
                                 story={story}
                                 className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
                             />
-                            <SocialShare story={story} />
                         </div>
                     </div>
                 </div>

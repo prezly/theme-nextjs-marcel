@@ -1,0 +1,7 @@
+.categoryTag {
+    @apply uppercase text-sm font-semibold tracking-wider leading-5;
+    @apply py-1 px-2 bg-gray-700 bg-opacity-80 rounded-lg mr-3 mb-3 md:mb-0 last:mr-0;
+    @apply hover:bg-gray-600 active:bg-gray-500 active:text-gray-100;
+    @apply focus-visible:ring focus-visible:ring-inset;
+    @apply focus-visible:ring-blue-300 focus:outline-none;
+}
