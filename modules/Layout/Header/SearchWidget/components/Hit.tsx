@@ -5,8 +5,6 @@ import { Highlight } from 'react-instantsearch-dom';
 
 import { StoryImage } from '@/components';
 
-import styles from './Hit.module.css';
-
 interface Props {
     hit: Hit<{ attributes: AlgoliaStory }>;
 }
@@ -16,15 +14,15 @@ function HitComponent({ hit }: Props) {
 
     return (
         <Link href={`/${story.slug}`} locale={false} passHref>
-            <a className={styles.container}>
-                <div className={styles.imageWrapper}>
+            <a className="flex items-center text-inherit no-underline hover:text-primary;">
+                <div className="rounded-sm block overflow-hidden w-14 h-14 mr-4 shrink-0">
                     <StoryImage
                         story={story}
-                        className={styles.image}
-                        placeholderClassName={styles.placeholder}
+                        className="rounded-sm"
+                        placeholderClassName="rounded-sm"
                     />
                 </div>
-                <p className={styles.title}>
+                <p className="text-base line-clamp-2 font-medium pl-2 ml-2 text-gray-100 highlight">
                     <Highlight hit={hit} attribute="attributes.title" tagName="mark" />
                 </p>
             </a>

@@ -19,6 +19,16 @@ module.exports = {
                 primaryShade: '#0950C3',
                 modalBg: 'rgba(31, 41, 55, 0.92)',
             },
+            keyframes: {
+                grow: {
+                    '0%': { width: '0%' },
+                    '20%': { width: '80%' },
+                    '100%': { width: '100%' },
+                },
+            },
+            animation: {
+                grow: 'grow ease-out 15s',
+            },
         },
     },
     variants: {

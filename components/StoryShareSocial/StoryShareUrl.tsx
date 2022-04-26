@@ -6,8 +6,6 @@ import { FormattedMessage, useIntl } from 'react-intl';
 
 import Icon from '../Icon';
 
-import styles from './StoryShareUrl.module.css';
-
 interface Props {
     url: string;
 }
@@ -28,25 +26,30 @@ function StoryShareUrl({ url }: Props) {
     }
 
     return (
-        <div className={styles.container}>
+        <div className="flex items-center">
             <button
                 type="button"
-                className={styles.paste}
+                className="text-[0] cursor-pointer appearance-none bg-none border-0 p-0 text-gray-200 hover:text-gray-500 focus:text-gray-500"
                 onClick={handleCopyButtonClick}
                 title={formatMessage(translations.actions.copyShareUrl)}
             >
-                <Icon name="link" className={styles.icon} />
+                <Icon name="link" className="w-6 h-6" />
             </button>
             <Transition
                 show={isTooltipShown}
                 as={Fragment}
-                enterFrom={styles.transitionStart}
-                enterTo={styles.transitionStart}
-                leaveFrom={styles.transitionFinish}
-                leaveTo={styles.transitionStart}
+                enterFrom="opacity-0"
+                enterTo="opacity-0"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
             >
-                <div className={styles.message}>
-                    <Icon name="link" className={classNames(styles.icon, 'mr-2')} />
+                <div
+                    className={classNames(
+                        'absolute will-change-[opacity] left-0 right-0 top-0 bottom-0 flex items-center bg-gray-800 text-gray-200',
+                        'transition-[opacity_0.4s_ease]',
+                    )}
+                >
+                    <Icon name="link" className="mr-2 text-gray-300" />
                     <FormattedMessage {...translations.misc.shareUrlCopied} />
                 </div>
             </Transition>

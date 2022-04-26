@@ -3,8 +3,6 @@ import { useIntl } from 'react-intl';
 
 import Button from '@/components/Button';
 
-import styles from './LoadMoreButton.module.css';
-
 interface Props {
     canLoadMore: boolean;
     isLoading: boolean;
@@ -17,8 +15,12 @@ function LoadMoreButton({ canLoadMore, onLoadMore, isLoading }: Props) {
     if (!canLoadMore) return null;
 
     return (
-        <div className={styles.container}>
-            <Button variation="primary" onClick={onLoadMore} className={styles.button}>
+        <div className="flex items-center justify-center">
+            <Button
+                variation="primary"
+                onClick={onLoadMore}
+                className="border-none rounded-lg px-[16px] py-[12px] w-full sm:w-max font-normal text-gray-200"
+            >
                 {formatMessage(
                     isLoading ? translations.misc.stateLoading : translations.actions.loadMore,
                 )}

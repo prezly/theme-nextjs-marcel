@@ -1,7 +1,0 @@
-.facets {
-    @apply rounded-md p-0 bg-gray-700 absolute top-[120%] right-0 hidden empty:hidden w-full md:w-80;
-}
-
-.facets.facetsOpen {
-    @apply block z-10;
-}

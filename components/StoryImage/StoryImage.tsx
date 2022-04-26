@@ -7,8 +7,6 @@ import type { StoryWithImage } from 'types';
 
 import { getStoryThumbnail } from './lib';
 
-import styles from './StoryImage.module.css';
-
 type Props = {
     story: StoryWithImage | AlgoliaStory;
     className?: string;
@@ -26,21 +24,26 @@ function StoryImage({ story, className, placeholderClassName }: Props) {
                 alt={story.title}
                 layout="fill"
                 objectFit="cover"
-                containerClassName={classNames(styles.imageContainer, className)}
-                className={styles.image}
+                containerClassName={classNames('h-full block', className)}
+                className="h-full"
             />
         );
     }
 
     return (
-        <span className={classNames(styles.placeholder, placeholderClassName)}>
+        <span
+            className={classNames(
+                'text-sm h-full flex items-center justify-center p-6 text-center uppercase font-bold border-l-gray-400 text-inherit bg-transparent',
+                placeholderClassName,
+            )}
+        >
             {logo && (
                 <Image
                     imageDetails={logo}
                     layout="fill"
                     objectFit="contain"
                     alt="No image"
-                    className={classNames(styles.imageContainer, styles.placeholderLogo, className)}
+                    className={classNames('h-full block', 'max-w-[16rem] max-h-16', className)}
                 />
             )}
             {!logo && name}

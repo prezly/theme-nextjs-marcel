@@ -8,8 +8,6 @@ import {
 
 import { Button } from '@/components';
 
-import styles from './CategoryItem.module.css';
-
 type Props = {
     category: Category;
     navigationButtonClassName?: string;
@@ -27,8 +25,12 @@ function CategoryButton({ category, navigationButtonClassName }: Props) {
             localeCode={getLinkLocaleSlug()}
             className={navigationButtonClassName}
         >
-            <span className={styles.title}>{name}</span>
-            {description && <span className={styles.description}>{description}</span>}
+            <span className="block">{name}</span>
+            {description && (
+                <span className="text-base line-clamp-2 block mt-2 text-gray-300 font-normal capitalize">
+                    {description}
+                </span>
+            )}
         </Button.Link>
     );
 }

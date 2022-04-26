@@ -43,7 +43,7 @@
 }
 
 .navigationItem {
-    @apply block m-0 p-0;
+    @apply m-0 p-0;
 }
 
 /* This class is added to the document body to prevent scrolling */

@@ -1,5 +1,0 @@
-.link {
-    @apply text-base uppercase font-medium text-primary no-underline hover:focus:underline hover:focus:text-primaryShade active:text-primaryShade;
-    @apply cursor-pointer;
-    @apply after:mr-2 last:after:mr-0;
-}

@@ -8,12 +8,9 @@ import {
     useGetTranslationUrl,
     useLanguages,
 } from '@prezly/theme-kit-nextjs';
-import classNames from 'classnames';
 import { useMemo } from 'react';
 
 import { Dropdown } from '@/components';
-
-import styles from './LanguagesDropdown.module.css';
 
 type Props = {
     buttonClassName?: string;
@@ -53,9 +50,9 @@ function LanguagesDropdown({ buttonClassName, navigationItemClassName, hasError 
             <Dropdown
                 icon="globe"
                 label={getLanguageDisplayName(currentLanguage, languages)}
-                className={styles.container}
-                menuClassName={styles.menu}
-                buttonClassName={classNames(buttonClassName, styles.button)}
+                className="bg-gray-500 sm:bg-transparent"
+                menuClassName="max-h-[50vh] overflow-auto"
+                buttonClassName={buttonClassName}
                 withMobileDisplay
             >
                 {displayedLanguages.map((language) => {

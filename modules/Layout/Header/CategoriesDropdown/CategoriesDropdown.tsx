@@ -9,8 +9,6 @@ import { Dropdown } from '@/components';
 import CategoryButton from './CategoryButton';
 import CategoryItem from './CategoryItem';
 
-import styles from './CategoriesDropdown.module.css';
-
 type Props = {
     categories: Category[];
     buttonClassName?: string;
@@ -40,7 +38,7 @@ function CategoriesDropdown({
             {filteredCategories.map((category) => (
                 <li
                     key={category.id}
-                    className={classNames(navigationItemClassName, styles.mobileCategory)}
+                    className={classNames(navigationItemClassName, 'block sm:hidden')}
                 >
                     <CategoryButton
                         category={category}
@@ -48,7 +46,7 @@ function CategoriesDropdown({
                     />
                 </li>
             ))}
-            <li className={classNames(navigationItemClassName, styles.desktopCategories)}>
+            <li className={classNames(navigationItemClassName, 'hidden sm:block')}>
                 <Dropdown
                     label={<FormattedMessage {...translations.categories.title} />}
                     buttonClassName={buttonClassName}

@@ -1,9 +1,0 @@
-@media screen and (max-width: 414px) {
-    .container {
-        @apply bg-gray-500;
-    }
-
-    .menu {
-        @apply max-h-[50vh] overflow-auto;
-    }
-}

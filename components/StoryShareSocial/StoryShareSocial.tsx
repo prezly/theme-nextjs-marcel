@@ -5,8 +5,6 @@ import Icon from '../Icon';
 
 import StoryShareUrl from './StoryShareUrl';
 
-import styles from './StoryShareSocial.module.css';
-
 interface Props {
     story: Story;
 }
@@ -19,15 +17,15 @@ function StoryShareSocial({ story }: Props) {
     }
 
     return (
-        <div className={styles.container}>
-            <TwitterShareButton className={styles.button} url={url}>
-                <Icon name="twitter" className={styles.icon} />
+        <div className="flex items-center text-gray-200 my-12 relative">
+            <TwitterShareButton className="text-[0] mr-4" url={url}>
+                <Icon name="twitter" className="w-6 h-6 text-gray-200 hover:text-gray-500" />
             </TwitterShareButton>
-            <FacebookShareButton className={styles.button} url={url}>
-                <Icon name="facebook" className={styles.icon} />
+            <FacebookShareButton className="text-[0] mr-4" url={url}>
+                <Icon name="facebook" className="w-6 h-6 text-gray-200 hover:text-gray-500" />
             </FacebookShareButton>
-            <LinkedinShareButton className={styles.button} url={url}>
-                <Icon name="linkedin" className={styles.icon} />
+            <LinkedinShareButton className="text-[0] mr-4" url={url}>
+                <Icon name="linkedin" className="w-6 h-6 text-gray-200 hover:text-gray-500" />
             </LinkedinShareButton>
             <StoryShareUrl url={url} />
         </div>

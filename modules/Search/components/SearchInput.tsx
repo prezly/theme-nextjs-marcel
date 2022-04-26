@@ -11,8 +11,6 @@ import { AVAILABLE_FACET_ATTRIBUTES } from '../utils';
 
 import Facet from './Facet';
 
-import styles from './SearchInput.module.css';
-
 function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBoxExposed) {
     const { formatMessage } = useIntl();
     const [isShown, setIsShown] = useState(false);
@@ -46,7 +44,12 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
             >
                 <span className="font-normal">FILTERS</span>
             </Button>
-            <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
+            <div
+                className={classNames(
+                    'rounded-md p-0 bg-gray-700 absolute top-[120%] right-0 empty:hidden w-full md:w-80',
+                    isShown ? 'block z-10' : 'hidden',
+                )}
+            >
                 {AVAILABLE_FACET_ATTRIBUTES.map((attribute) => (
                     <Facet key={attribute} attribute={attribute} />
                 ))}
