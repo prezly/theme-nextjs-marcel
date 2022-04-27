@@ -1,5 +1,5 @@
 .container {
-    @apply p-6;
+    @apply px-6 py-4;
 }
 
 .header {
@@ -11,13 +11,13 @@
 }
 
 .input {
-    @apply appearance-none h-4 w-4 border border-gray-500 rounded-sm bg-gray-700 checked:text-gray-100 mr-2 relative;
+    @apply appearance-none h-4 w-4 border border-gray-500 rounded-sm bg-gray-700 checked:text-gray-100 relative;
 }
 
 .input:checked::after {
     content: url("/images/icons/icon-check.svg");
 
-    @apply absolute text-gray-200 inline-block top-0 -mt-2 w-3 h-3 !important;
+    @apply absolute text-gray-200 inline-block top-0 -mt-1 w-3 h-3 !important;
 }
 
 .caret {
@@ -29,7 +29,7 @@
 }
 
 .panel {
-    @apply mt-4;
+    @apply mt-2;
 }
 
 .list {
@@ -37,11 +37,11 @@
 }
 
 .listItem:not(:last-child) {
-    @apply mb-3;
+    @apply mb-2;
 }
 
 .listItemInner {
-    @apply text-base;
+    @apply text-sm flex items-center;
 }
 
 .label {
@@ -53,5 +53,5 @@
 }
 
 .button {
-    @apply text-base border-0 p-2 mt-2 -ml-2 -mb-2 text-primary font-normal capitalize no-underline cursor-pointer hover:no-underline focus:no-underline;
+    @apply text-sm border-0 p-2 mt-2 -ml-2 -mb-2 text-primary font-normal capitalize no-underline cursor-pointer hover:no-underline focus:no-underline;
 }
