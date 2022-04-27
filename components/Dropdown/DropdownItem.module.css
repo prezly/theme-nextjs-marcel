@@ -3,7 +3,7 @@
 }
 
 .item .link {
-    @apply block p-4 no-underline text-gray-100 font-medium hover:bg-gray-400;
+    @apply block p-4 no-underline text-gray-100 font-medium hover:bg-gray-400 text-sm;
 }
 
 .link.active {

@@ -7,11 +7,11 @@
 }
 
 .list {
-    @apply list-none m-0 p-0;
+    @apply list-none m-0 p-0 mt-2;
 }
 
 .listItem {
-    @apply mb-4;
+    @apply mb-3;
 }
 
 .title {
@@ -31,7 +31,7 @@
 }
 
 .categoryLink {
-    @apply text-primary hover:text-primaryShade font-medium;
+    @apply text-primary hover:text-primaryShade font-normal text-sm;
 }
 
 .caret {

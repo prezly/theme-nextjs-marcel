@@ -19,7 +19,7 @@ function SearchResults({ searchResults, query }: Props) {
     const { nbHits: totalResults } = searchResults;
 
     return (
-        <div className="px-4 py-2">
+        <div className="px-6 py-2">
             {!totalResults && (
                 <p className={styles.empty}>
                     <FormattedMessage {...translations.search.noResults} />

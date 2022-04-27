@@ -1,5 +1,5 @@
 .container {
-    @apply border-b-2 border-b-gray-600 flex justify-between items-start;
+    @apply border-b-2 border-b-gray-600 flex justify-between items-start px-2;
 }
 
 .inputWrapper {

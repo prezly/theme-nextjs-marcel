@@ -22,7 +22,7 @@ function Story({ story }: Props) {
             <StoryMeta story={story} />
             <article>
                 <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
-                <h3 className="text-gray-300 mt-6">{subtitle}</h3>
+                <h3 className="text-gray-300 mt-3">{subtitle}</h3>
 
                 <StoryShareSocial story={story} />
 
@@ -32,11 +32,11 @@ function Story({ story }: Props) {
                         alt={title}
                         layout="fill"
                         objectFit="cover"
-                        className="mt-12"
+                        className="mt-6"
                     />
                 )}
 
-                <div className="pt-16 py-6 lg:max-w-[920px] lg:mx-auto">
+                <div className="pt-12 py-6 lg:max-w-[920px] lg:mx-auto">
                     {format_version === StoryFormatVersion.HTML && (
                         // eslint-disable-next-line react/no-danger
                         <div dangerouslySetInnerHTML={{ __html: content }} />
