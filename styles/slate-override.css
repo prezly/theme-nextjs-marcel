@@ -102,9 +102,11 @@
     @apply hidden !important;
 }
 
+/* stylelint-disable selector-no-qualifying-type */
 figure.prezly-slate-image--full-width,
 figure.prezly-slate-image--expanded,
 figure.prezly-slate-gallery--expanded,
 figure.prezly-slate-gallery--full-width {
     @apply left-0 right-0 w-full ml-0 mr-0 !important;
 }
+/* stylelint-enable selector-no-qualifying-type */
