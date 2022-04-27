@@ -14,6 +14,7 @@ interface Props extends BaseProps, HTMLProps<HTMLAnchorElement> {
     href: string;
     localeCode?: LinkProps['locale'];
     forceRefresh?: boolean;
+    labelClassName?: string;
 }
 
 const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
@@ -27,6 +28,7 @@ const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
             variation,
             localeCode,
             forceRefresh,
+            labelClassName,
             ...props
         },
         ref,
@@ -51,7 +53,9 @@ const Link = forwardRef<HTMLAnchorElement, PropsWithChildren<Props>>(
                     {...props}
                 >
                     {iconPlacement === 'left' && <Icon icon={icon} placement="left" />}
-                    {children && <span className={styles.label}>{children}</span>}
+                    {children && (
+                        <span className={classNames(styles.label, labelClassName)}>{children}</span>
+                    )}
                     {iconPlacement === 'right' && <Icon icon={icon} placement="right" />}
                 </a>
             );

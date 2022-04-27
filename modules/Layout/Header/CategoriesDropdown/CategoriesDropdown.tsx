@@ -43,6 +43,7 @@ function CategoriesDropdown({
                     <CategoryButton
                         category={category}
                         navigationButtonClassName={navigationButtonClassName}
+                        labelClassName="flex-col items-start justify-start"
                     />
                 </li>
             ))}

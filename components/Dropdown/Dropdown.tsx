@@ -42,6 +42,7 @@ function Dropdown({
                             className={classNames(buttonClassName, {
                                 [styles.buttonWithMobileDisplay]: withMobileDisplay,
                             })}
+                            labelClassName="items-center"
                         >
                             {label}
                             {!hideCaret && (

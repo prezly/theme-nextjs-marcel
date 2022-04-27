@@ -15,6 +15,7 @@ interface Props extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
     isDisabled?: boolean;
     isActive?: boolean;
     onClick?: () => void;
+    labelClassName?: string;
 }
 
 const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
@@ -30,6 +31,7 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
             isActive,
             onClick,
             children,
+            labelClassName,
             ...buttonProps
         },
         ref,
@@ -54,7 +56,9 @@ const Button = forwardRef<HTMLButtonElement, PropsWithChildren<Props>>(
             {iconPlacement === 'left' && (
                 <Icon icon={icon} isLoading={isLoading} placement="left" />
             )}
-            {children && <span className={styles.label}>{children}</span>}
+            {children && (
+                <span className={classNames(styles.label, labelClassName)}>{children}</span>
+            )}
             {iconPlacement === 'right' && (
                 <Icon icon={icon} isLoading={isLoading} placement="right" />
             )}

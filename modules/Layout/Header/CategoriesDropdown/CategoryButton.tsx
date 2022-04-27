@@ -11,9 +11,10 @@ import { Button } from '@/components';
 type Props = {
     category: Category;
     navigationButtonClassName?: string;
+    labelClassName?: string;
 };
 
-function CategoryButton({ category, navigationButtonClassName }: Props) {
+function CategoryButton({ category, navigationButtonClassName, labelClassName }: Props) {
     const currentLocale = useCurrentLocale();
     const { name, description } = getLocalizedCategoryData(category, currentLocale);
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
@@ -24,6 +25,7 @@ function CategoryButton({ category, navigationButtonClassName }: Props) {
             href={getCategoryUrl(category, currentLocale)}
             localeCode={getLinkLocaleSlug()}
             className={navigationButtonClassName}
+            labelClassName={labelClassName}
         >
             <span className="block">{name}</span>
             {description && (
