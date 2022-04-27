@@ -7,7 +7,7 @@
 }
 
 .title {
-    @apply whitespace-nowrap overflow-hidden text-ellipsis uppercase font-normal;
+    @apply whitespace-nowrap overflow-hidden text-ellipsis uppercase font-normal text-sm;
 }
 
 .input {

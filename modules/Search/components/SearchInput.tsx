@@ -44,7 +44,7 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 iconPlacement="left"
                 onClick={toggleFacets}
             >
-                <span className="font-normal">FILTERS</span>
+                <span className="font-normal text-sm">FILTERS</span>
             </Button>
             <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
                 {AVAILABLE_FACET_ATTRIBUTES.map((attribute) => (
