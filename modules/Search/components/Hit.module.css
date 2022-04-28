@@ -20,8 +20,7 @@
 }
 
 .link {
-    @apply inline-flex items-center border-b-2 border-transparent;
-    @apply focus:border-blue-500 hover:border-blue-500;
+    @apply inline-flex text-primary font-medium items-center border-transparent uppercase text-sm;
 }
 
 .icon {

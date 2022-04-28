@@ -23,7 +23,7 @@
 }
 
 .link {
-    @apply text-sm border-0 flex items-center py-1 px-0 no-underline cursor-pointer hover:underline focus:underline;
+    @apply text-sm border-0 flex items-center py-1 px-0 no-underline cursor-pointer;
 }
 
 .viewMoreCategoriesLink {
@@ -31,7 +31,7 @@
 }
 
 .categoryLink {
-    @apply text-primary hover:text-primaryShade font-normal text-sm;
+    @apply text-primary hover:text-primaryShade font-semibold text-sm;
 }
 
 .caret {
