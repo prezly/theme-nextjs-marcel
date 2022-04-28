@@ -41,3 +41,7 @@
 .caretOpen {
     @apply rotate-180;
 }
+
+.empty {
+    @apply py-4 font-normal text-sm;
+}

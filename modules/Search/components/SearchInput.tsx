@@ -25,7 +25,7 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
         <form
             method="GET"
             action="/search"
-            className="flex items-center bg-gray-700 justify-between px-4 py-0 rounded-lg my-12 relative"
+            className="flex items-center bg-gray-700 justify-between px-4 py-0 rounded-lg my-6 relative"
         >
             <Icon name="search" className="w-5 h-5 text-gray-200" />
             <FormInput
@@ -33,7 +33,7 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 type="search"
                 name="query"
                 value={currentRefinement}
-                className="w-full mt-0 mb-0"
+                className={styles.input}
                 onChange={(event) => refine(event.currentTarget.value)}
                 placeholder={formatMessage(translations.search.inputHint, { inputHintExtra: '' })}
                 autoComplete="off"
