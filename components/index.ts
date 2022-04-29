@@ -14,3 +14,4 @@ export { default as CategoryLink } from './CategoryLink';
 export { default as StoryMeta } from './StoryMeta';
 export { default as LoadingBar } from './LoadingBar';
 export { default as StoryShareSocial } from './StoryShareSocial';
+export { default as LoadMore } from './LoadMore';

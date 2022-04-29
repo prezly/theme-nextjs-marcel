@@ -1,0 +1,15 @@
+.container {
+    @apply cursor-pointer mb-10;
+}
+
+.container:hover .title {
+    @apply underline;
+}
+
+.image {
+    @apply w-full sm:w-[320px] md:w-[192px] h-[180px] rounded-md;
+}
+
+.title {
+    @apply inline-block mt-3 text-lg text-gray-200 font-bold leading-[160%] tracking-wide;
+}

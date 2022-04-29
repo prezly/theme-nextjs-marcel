@@ -4,7 +4,7 @@ import type { Hit as HitType, InfiniteHitsProvided } from 'react-instantsearch-c
 import { connectInfiniteHits } from 'react-instantsearch-dom';
 import { useIntl } from 'react-intl';
 
-import LoadMore from '@/modules/Stories/LoadMore';
+import { LoadMore } from '@/components';
 
 import { useAlgoliaState } from './AlgoliaStateContext';
 import Hit from './Hit';

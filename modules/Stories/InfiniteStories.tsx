@@ -1,10 +1,10 @@
 import type { Category, Story } from '@prezly/sdk';
 import { useInfiniteStoriesLoading } from '@prezly/theme-kit-nextjs';
 
+import { LoadMore } from '@/components';
 import { useDevice } from '@/hooks';
 import type { PaginationProps } from 'types';
 
-import LoadMore from './LoadMore';
 import LoadMoreButton from './LoadMoreButton';
 import StoriesList from './StoriesList';
 

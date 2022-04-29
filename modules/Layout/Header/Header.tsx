@@ -29,7 +29,7 @@ interface Props {
 }
 
 function Header({ hasError }: Props) {
-    const { newsroom_logo, display_name } = useNewsroom();
+    const { newsroom_logo, display_name, public_galleries_number } = useNewsroom();
     const categories = useCategories();
     const { name } = useCompanyInformation();
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
@@ -157,6 +157,20 @@ function Header({ hasError }: Props) {
                         >
                             <div role="none" className={styles.backdrop} onClick={closeMenu} />
                             <ul id="menu" className={styles.navigationInner}>
+                                {public_galleries_number > 0 && (
+                                    <li className={styles.navigationItem}>
+                                        <Button.Link
+                                            href="/media"
+                                            localeCode={getLinkLocaleSlug()}
+                                            variation="navigation"
+                                            className={styles.navigationButton}
+                                        >
+                                            <FormattedMessage
+                                                {...translations.mediaGallery.title}
+                                            />
+                                        </Button.Link>
+                                    </li>
+                                )}
                                 <CategoriesDropdown
                                     categories={categories}
                                     buttonClassName={styles.navigationButton}
