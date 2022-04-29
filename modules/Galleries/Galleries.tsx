@@ -18,7 +18,7 @@ type Props = {
 function Galleries({ initialGalleries, pagination }: Props) {
     const { formatMessage } = useIntl();
 
-    const { canLoadMore, galleries, isLoading, loadMoreGalleries } = useInfiniteGalleriesLoading(
+    const { canLoadMore, galleries, loadMoreGalleries } = useInfiniteGalleriesLoading(
         initialGalleries,
         pagination,
     );
@@ -36,7 +36,7 @@ function Galleries({ initialGalleries, pagination }: Props) {
 
                 <GalleriesList galleries={galleries} />
 
-                {canLoadMore && <LoadMore onLoadMore={loadMoreGalleries} canLoadMore={isLoading} />}
+                <LoadMore onLoadMore={loadMoreGalleries} canLoadMore={canLoadMore} />
             </Layout>
         </>
     );
