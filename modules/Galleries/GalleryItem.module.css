@@ -2,6 +2,7 @@
     @apply cursor-pointer mb-10;
 }
 
+/* stylelint-disable no-descending-specificity */
 .container:hover .title {
     @apply underline;
 }
