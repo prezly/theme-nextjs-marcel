@@ -6,10 +6,14 @@
     @apply text-gray-100 font-bold text-4xl mb-2;
 }
 
-.gallery {
+.actions {
     @apply flex items-center justify-between;
 }
 
 .button {
     @apply border-0 py-3 px-4 rounded-lg font-semibold text-sm;
+}
+
+.social {
+    @apply only:ml-auto;
 }

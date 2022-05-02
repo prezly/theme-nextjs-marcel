@@ -2,11 +2,6 @@
     @apply cursor-pointer mb-10;
 }
 
-/* stylelint-disable no-descending-specificity */
-.container:hover .title {
-    @apply underline;
-}
-
 .image {
     @apply w-full sm:w-[320px] md:w-[192px] h-[180px] rounded-md;
 }

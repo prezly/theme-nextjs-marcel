@@ -13,8 +13,10 @@ type Props = {
 };
 
 function Story({ story }: Props) {
-    const { format_version, content, title, subtitle } = story;
+    const { format_version, content, title, subtitle, links } = story;
     const headerImage = story.header_image ? JSON.parse(story.header_image) : null;
+
+    const url = links.short || links.newsroom_view;
 
     return (
         <>
@@ -24,7 +26,7 @@ function Story({ story }: Props) {
                 <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
                 <h3 className="text-gray-300 mt-3">{subtitle}</h3>
 
-                <StoryShareSocial story={story} />
+                {url && <StoryShareSocial url={url} />}
 
                 {headerImage && (
                     <Image

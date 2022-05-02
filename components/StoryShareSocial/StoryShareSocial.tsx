@@ -1,5 +1,4 @@
-import type { NewsroomGallery, Story } from '@prezly/sdk';
-import { getUploadcareGroupUrl } from '@prezly/theme-kit-nextjs';
+import classNames from 'classnames';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 import Icon from '../Icon';
@@ -9,23 +8,13 @@ import StoryShareUrl from './StoryShareUrl';
 import styles from './StoryShareSocial.module.css';
 
 interface Props {
-    story?: Story;
-    gallery?: NewsroomGallery;
+    url: string;
+    className?: string;
 }
 
-function StoryShareSocial({ story, gallery }: Props) {
-    let url = story?.links.short || story?.links.newsroom_view;
-
-    if (gallery?.uploadcare_group_uuid) {
-        url = getUploadcareGroupUrl(gallery.uploadcare_group_uuid, gallery.title);
-    }
-
-    if (!url) {
-        return null;
-    }
-
+function StoryShareSocial({ url, className }: Props) {
     return (
-        <div className={styles.container}>
+        <div className={classNames(styles.container, className)}>
             <TwitterShareButton className={styles.button} url={url}>
                 <Icon name="twitter" className={styles.icon} />
             </TwitterShareButton>
