@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { useState } from 'react';
 import type { SearchBoxExposed, SearchBoxProvided } from 'react-instantsearch-core';
 import { connectSearchBox } from 'react-instantsearch-dom';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 
 import { Button, FormInput, Icon } from '@/components';
 
@@ -44,7 +44,9 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 iconPlacement="left"
                 onClick={toggleFacets}
             >
-                <span className="font-semibold tracking-wide text-sm">FILTERS</span>
+                <span className="font-semibold tracking-wide text-sm uppercase">
+                    <FormattedMessage {...translations.search.filters} />
+                </span>
             </Button>
             <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
                 {AVAILABLE_FACET_ATTRIBUTES.map((attribute) => (
