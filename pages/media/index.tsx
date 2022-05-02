@@ -1,9 +1,12 @@
 import type { NewsroomGallery } from '@prezly/sdk';
 import { getNewsroomServerSideProps, processRequest } from '@prezly/theme-kit-nextjs';
+import translations from '@prezly/themes-intl-messages';
 import type { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import type { FunctionComponent } from 'react';
+import { useIntl } from 'react-intl';
 
+import Layout from '@/modules/Layout';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps, PaginationProps } from 'types';
 
@@ -16,9 +19,15 @@ interface Props extends BasePageProps {
     pagination: PaginationProps;
 }
 
-const GalleriesPage: FunctionComponent<Props> = ({ galleries, pagination }) => (
-    <Galleries initialGalleries={galleries} pagination={pagination} />
-);
+const GalleriesPage: FunctionComponent<Props> = ({ galleries, pagination }) => {
+    const { formatMessage } = useIntl();
+
+    return (
+        <Layout title={formatMessage(translations.mediaGallery.title)}>
+            <Galleries initialGalleries={galleries} pagination={pagination} />
+        </Layout>
+    );
+};
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
     const { api, serverSideProps } = await getNewsroomServerSideProps(context);

@@ -4,6 +4,7 @@ import type { GetServerSideProps } from 'next';
 import dynamic from 'next/dynamic';
 import type { FunctionComponent } from 'react';
 
+import Layout from '@/modules/Layout';
 import { importMessages, isTrackingEnabled } from '@/utils';
 import type { BasePageProps } from 'types';
 
@@ -13,7 +14,15 @@ interface Props extends BasePageProps {
     gallery: NewsroomGallery;
 }
 
-const GalleryPage: FunctionComponent<Props> = ({ gallery }) => <Gallery gallery={gallery} />;
+const GalleryPage: FunctionComponent<Props> = ({ gallery }) => {
+    const { title, images } = gallery;
+
+    return (
+        <Layout title={title} imageUrl={images[0].uploadcare_image.uuid}>
+            <Gallery gallery={gallery} />
+        </Layout>
+    );
+};
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
     const { api, serverSideProps } = await getNewsroomServerSideProps(context);

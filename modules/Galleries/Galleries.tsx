@@ -6,8 +6,6 @@ import { useIntl } from 'react-intl';
 import { LoadMore } from '@/components';
 import type { PaginationProps } from 'types';
 
-import Layout from '../Layout';
-
 import GalleriesList from './GalleriesList';
 
 type Props = {
@@ -24,7 +22,7 @@ function Galleries({ initialGalleries, pagination }: Props) {
     );
 
     return (
-        <Layout title={formatMessage(translations.mediaGallery.title)}>
+        <div>
             <div className="mb-12">
                 <h1 className="text-gray-100 font-bold text-4xl mb-2">
                     {formatMessage(translations.mediaGallery.title)}
@@ -35,7 +33,7 @@ function Galleries({ initialGalleries, pagination }: Props) {
             <GalleriesList galleries={galleries} />
 
             <LoadMore onLoadMore={loadMoreGalleries} canLoadMore={canLoadMore} />
-        </Layout>
+        </div>
     );
 }
 
