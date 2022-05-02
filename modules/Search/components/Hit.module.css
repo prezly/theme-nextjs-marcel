@@ -11,12 +11,6 @@
     @apply focus:outline-none focus:underline;
 }
 
-.title a mark {
-    @apply relative bg-transparent z-0 before:content-[''] text-primary;
-    @apply before:inline-block before:absolute before:top-0 before:bottom-0 before:-left-1 before:right-0 rounded-sm -z-[1px] opacity-50;
-    @apply first:before:-left-1;
-}
-
 .subtitle {
     @apply text-gray-400 font-normal text-base leading-7 mb-4;
 }
@@ -26,8 +20,7 @@
 }
 
 .link {
-    @apply inline-flex items-center border-b-2 border-transparent;
-    @apply focus:border-blue-500 hover:border-blue-500;
+    @apply inline-flex text-primary font-medium items-center border-transparent uppercase text-sm;
 }
 
 .icon {

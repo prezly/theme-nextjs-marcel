@@ -12,16 +12,18 @@ interface Props extends InputHTMLAttributes<HTMLInputElement> {
 
 function FormInput({ className, label, error, description, ...inputProps }: Props) {
     return (
-        <label className={classNames(styles.wrapper, className)}>
-            <span className={styles.label}>{label}</span>
-            <input
-                // eslint-disable-next-line react/jsx-props-no-spreading
-                {...inputProps}
-                className={styles.input}
-            />
+        <>
+            <label className={classNames(styles.wrapper, className)}>
+                <span className={styles.label}>{label}</span>
+                <input
+                    // eslint-disable-next-line react/jsx-props-no-spreading
+                    {...inputProps}
+                    className={styles.input}
+                />
+            </label>
             {description && !error && <p className={styles.description}>{description}</p>}
             {error && <p className={styles.error}>{error}</p>}
-        </label>
+        </>
     );
 }
 

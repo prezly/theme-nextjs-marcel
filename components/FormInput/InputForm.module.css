@@ -14,5 +14,9 @@
 
 .description,
 .error {
-    @apply text-xs mt-1 mb-0 text-gray-500 p-2;
+    @apply text-xs mt-1 mb-0 text-gray-400 p-2;
+}
+
+.error {
+    @apply text-red-400;
 }

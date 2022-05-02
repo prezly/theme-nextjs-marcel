@@ -22,7 +22,7 @@ function HitComponent({ hit }: Props) {
             <h2 className={styles.title}>
                 <Link href={`/${slug}`} locale={false} passHref>
                     <a>
-                        <Highlight hit={hit} attribute="attributes.title" tagName="mark" />
+                        <Highlight hit={hit} attribute="attributes.title" tagName="span" />
                     </a>
                 </Link>
             </h2>

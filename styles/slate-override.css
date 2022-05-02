@@ -4,7 +4,7 @@
 
 .prezly-slate-document .prezly-slate-image,
 .prezly-slate-document .prezly-slate-embed {
-    @apply my-16;
+    @apply my-8;
 }
 
 .prezly-slate-document .prezly-slate-image__caption {
@@ -45,8 +45,8 @@
 }
 
 .story-blockquote {
-    @apply flex flex-col md:flex-row flex-nowrap p-6 rounded-xl my-10;
-    @apply text-gray-200 text-lg leading-8 font-medium;
+    @apply flex flex-col md:flex-row flex-nowrap py-6 rounded-xl my-10;
+    @apply text-gray-200 text-base leading-8 font-normal;
 }
 
 .story-blockquote-icon {
@@ -101,3 +101,12 @@
 .prezly-slate-pinterest-button__icon {
     @apply hidden !important;
 }
+
+/* stylelint-disable selector-no-qualifying-type */
+figure.prezly-slate-image--full-width,
+figure.prezly-slate-image--expanded,
+figure.prezly-slate-gallery--expanded,
+figure.prezly-slate-gallery--full-width {
+    @apply left-0 right-0 w-full ml-0 mr-0 !important;
+}
+/* stylelint-enable selector-no-qualifying-type */

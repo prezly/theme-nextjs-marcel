@@ -65,7 +65,7 @@ function Layout({ children }: PropsWithChildren<{}>) {
     return (
         <>
             <Branding newsroom={newsroom} />
-            <div className="lg:max-w-[1040px] lg:mx-auto">
+            <div className="lg:max-w-[1088px] lg:mx-auto">
                 <Header />
                 <div className="px-6">
                     <div className="pt-10 lg:flex lg:flex-nowrap">

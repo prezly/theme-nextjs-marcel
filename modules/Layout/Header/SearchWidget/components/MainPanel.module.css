@@ -7,11 +7,11 @@
 }
 
 .list {
-    @apply list-none m-0 p-0;
+    @apply list-none m-0 p-0 mt-2;
 }
 
 .listItem {
-    @apply mb-4;
+    @apply mb-3;
 }
 
 .title {
@@ -23,7 +23,7 @@
 }
 
 .link {
-    @apply text-sm border-0 flex items-center py-1 px-0 no-underline cursor-pointer hover:underline focus:underline;
+    @apply text-sm border-0 flex items-center py-1 px-0 no-underline cursor-pointer;
 }
 
 .viewMoreCategoriesLink {
@@ -31,7 +31,7 @@
 }
 
 .categoryLink {
-    @apply text-primary hover:text-primaryShade font-medium;
+    @apply text-primary hover:text-primaryShade font-semibold text-sm;
 }
 
 .caret {
@@ -40,4 +40,8 @@
 
 .caretOpen {
     @apply rotate-180;
+}
+
+.empty {
+    @apply py-4 font-normal text-sm;
 }

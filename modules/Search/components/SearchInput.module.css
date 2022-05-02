@@ -5,3 +5,21 @@
 .facets.facetsOpen {
     @apply block z-10;
 }
+
+.input {
+    @apply w-full mt-0 mb-0;
+}
+
+/* clears the 'X' from Internet Explorer */
+.input input::-ms-clear,
+.input input::-ms-reveal {
+    @apply hidden w-0 h-0;
+}
+
+/* clears the 'X' from Chrome */
+.input input::-webkit-search-decoration,
+.input input::-webkit-search-cancel-button,
+.input input::-webkit-search-results-button,
+.input input::-webkit-search-results-decoration {
+    @apply hidden;
+}

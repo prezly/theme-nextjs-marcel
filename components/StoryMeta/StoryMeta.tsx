@@ -16,7 +16,7 @@ function StoryMeta({ story }: Props) {
     const [showAdditionalCategories, setShowAdditionalCategories] = useState(false);
     const { isMobile } = useDevice();
 
-    const NUM_OF_INITIAL_CATEGORIES = isMobile ? 2 : 3;
+    const NUM_OF_INITIAL_CATEGORIES = isMobile ? 3 : 4;
 
     const additionalCategories =
         categories.length > NUM_OF_INITIAL_CATEGORIES &&
