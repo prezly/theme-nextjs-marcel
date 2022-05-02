@@ -24,7 +24,7 @@ function CategoriesList() {
     );
 
     return (
-        <div className="px-4 py-2">
+        <div className="px-6 py-2">
             <ul className={styles.list}>
                 {filteredCategories.map((category) => (
                     <li key={category.id} className={styles.listItem}>

@@ -25,7 +25,7 @@ function HitComponent({ hit }: Props) {
                     />
                 </div>
                 <p className={styles.title}>
-                    <Highlight hit={hit} attribute="attributes.title" tagName="mark" />
+                    <Highlight hit={hit} attribute="attributes.title" tagName="span" />
                 </p>
             </a>
         </Link>
