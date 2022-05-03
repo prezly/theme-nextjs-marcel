@@ -24,28 +24,26 @@ function Gallery({ gallery }: Props) {
 
     return (
         <div>
-            <div>
-                <div className={styles.header}>
-                    <h1 className={styles.title}>{title}</h1>
-                </div>
-
-                <div className={styles.actions}>
-                    {uploadcare_group_uuid && (
-                        <Button.Link
-                            variation="primary"
-                            href={getUploadcareGroupUrl(uploadcare_group_uuid, title)}
-                            className={styles.button}
-                            icon="download"
-                            iconPlacement="right"
-                        >
-                            <FormattedMessage {...translations.actions.download} />
-                        </Button.Link>
-                    )}
-                    {url && <StoryShareSocial url={url} className={styles.social} />}
-                </div>
-
-                <SlateRenderer nodes={JSON.parse(content)} />
+            <div className={styles.header}>
+                <h1 className={styles.title}>{title}</h1>
             </div>
+
+            <div className={styles.actions}>
+                {uploadcare_group_uuid && (
+                    <Button.Link
+                        variation="primary"
+                        href={getUploadcareGroupUrl(uploadcare_group_uuid, title)}
+                        className={styles.button}
+                        icon="download"
+                        iconPlacement="right"
+                    >
+                        <FormattedMessage {...translations.actions.download} />
+                    </Button.Link>
+                )}
+                {url && <StoryShareSocial url={url} className={styles.social} />}
+            </div>
+
+            <SlateRenderer nodes={JSON.parse(content)} />
         </div>
     );
 }
