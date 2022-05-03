@@ -102,6 +102,10 @@
     @apply hidden !important;
 }
 
+.ReactModal__Overlay.ReactModal__Overlay--after-open {
+    @apply z-30;
+}
+
 /* stylelint-disable selector-no-qualifying-type */
 figure.prezly-slate-image--full-width,
 figure.prezly-slate-image--expanded,

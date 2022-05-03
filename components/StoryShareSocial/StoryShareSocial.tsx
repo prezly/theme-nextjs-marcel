@@ -1,4 +1,4 @@
-import type { Story } from '@prezly/sdk';
+import classNames from 'classnames';
 import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 import Icon from '../Icon';
@@ -8,18 +8,13 @@ import StoryShareUrl from './StoryShareUrl';
 import styles from './StoryShareSocial.module.css';
 
 interface Props {
-    story: Story;
+    url: string;
+    className?: string;
 }
 
-function StoryShareSocial({ story }: Props) {
-    const url = story.links.short || story.links.newsroom_view;
-
-    if (!url) {
-        return null;
-    }
-
+function StoryShareSocial({ url, className }: Props) {
     return (
-        <div className={styles.container}>
+        <div className={classNames(styles.container, className)}>
             <TwitterShareButton className={styles.button} url={url}>
                 <Icon name="twitter" className={styles.icon} />
             </TwitterShareButton>

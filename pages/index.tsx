@@ -2,7 +2,6 @@ import type { Story } from '@prezly/sdk';
 import {
     DEFAULT_PAGE_SIZE,
     getNewsroomServerSideProps,
-    PageSeo,
     processRequest,
     useNewsroom,
 } from '@prezly/theme-kit-nextjs';
@@ -23,12 +22,9 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
     const newsroom = useNewsroom();
 
     return (
-        <>
-            <PageSeo title={newsroom.display_name} />
-            <Layout>
-                <InfiniteStories initialStories={stories} pagination={pagination} />
-            </Layout>
-        </>
+        <Layout title={newsroom.display_name}>
+            <InfiniteStories initialStories={stories} pagination={pagination} />
+        </Layout>
     );
 };
 

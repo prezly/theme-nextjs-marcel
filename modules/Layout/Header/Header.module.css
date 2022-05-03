@@ -23,7 +23,7 @@
 }
 
 .newsroom {
-    @apply no-underline text-gray-100 uppercase text-3xl z-50;
+    @apply no-underline text-gray-100 uppercase text-3xl z-20;
 }
 
 .newsroom.withoutLogo {
@@ -35,7 +35,7 @@
 }
 
 .navigationWrapper {
-    @apply flex items-center ml-auto z-50;
+    @apply flex items-center ml-auto z-20;
 }
 
 .navigationInner {

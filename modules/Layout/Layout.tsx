@@ -1,4 +1,4 @@
-import { useNewsroom } from '@prezly/theme-kit-nextjs';
+import { PageSeo, useNewsroom } from '@prezly/theme-kit-nextjs';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
@@ -12,7 +12,13 @@ import Sidebar from '../Sidebar';
 import Branding from './Branding';
 import Header from './Header';
 
-function Layout({ children }: PropsWithChildren<{}>) {
+interface Props {
+    title?: string;
+    description?: string;
+    imageUrl?: string;
+}
+
+function Layout({ title, description, imageUrl, children }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
 
     const [isLoadingPage, setIsLoadingPage] = useState(false);
@@ -64,6 +70,7 @@ function Layout({ children }: PropsWithChildren<{}>) {
 
     return (
         <>
+            <PageSeo title={title} description={description} imageUrl={imageUrl} />
             <Branding newsroom={newsroom} />
             <div className="lg:max-w-[1088px] lg:mx-auto">
                 <Header />
