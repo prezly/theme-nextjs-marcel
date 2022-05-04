@@ -16,9 +16,10 @@ interface Props {
     title?: string;
     description?: string;
     imageUrl?: string;
+    hasError?: boolean;
 }
 
-function Layout({ title, description, imageUrl, children }: PropsWithChildren<Props>) {
+function Layout({ title, description, imageUrl, hasError, children }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
 
     const [isLoadingPage, setIsLoadingPage] = useState(false);
@@ -74,12 +75,16 @@ function Layout({ title, description, imageUrl, children }: PropsWithChildren<Pr
             <Branding newsroom={newsroom} />
             <div className="lg:max-w-[1088px] lg:mx-auto">
                 <Header />
-                <div className="px-6">
-                    <div className="pt-10 lg:flex lg:flex-nowrap">
-                        <div className="flex-grow">{children}</div>
-                        <Sidebar />
+                {hasError ? (
+                    children
+                ) : (
+                    <div className="px-6">
+                        <div className="pt-10 lg:flex lg:flex-nowrap">
+                            <div className="flex-grow">{children}</div>
+                            <Sidebar />
+                        </div>
                     </div>
-                </div>
+                )}
                 <LoadingBar isLoading={isLoadingPage} />
                 <ScrollToTopButton
                     isVisible={isScrollToTopVisible && !isMobile}
