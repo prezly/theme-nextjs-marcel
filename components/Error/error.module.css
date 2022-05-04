@@ -4,6 +4,7 @@
 
 .statusCode {
     @apply text-9xl lg:text-[184px] text-gray-700 font-black leading-[100%];
+
     text-shadow: 1px 1px #6a717f, -1px -1px #6a717f;
 }
 
