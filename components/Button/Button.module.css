@@ -4,7 +4,7 @@
 }
 
 .label {
-    @apply flex items-center font-semibold tracking-wide;
+    @apply flex items-center font-semibold tracking-wide text-white;
 }
 
 .button.loading {
