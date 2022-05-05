@@ -1,11 +1,11 @@
 .container {
-    @apply flex items-center justify-center w-full flex-col h-[calc(100vh-88px)];
+    @apply flex items-center justify-center w-full flex-col h-[calc(100vh-128px)];
 }
 
 .statusCode {
     @apply text-9xl lg:text-[184px] text-gray-700 font-black leading-[100%];
 
-    text-shadow: 1px 1px #6a717f, -1px -1px #6a717f;
+    text-shadow: -1px -1px #6a717f, 1px -1px #6a717f, -1px 1px #6a717f, 1px 1px #6a717f;
 }
 
 .title {
