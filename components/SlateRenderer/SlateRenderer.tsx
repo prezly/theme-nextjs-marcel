@@ -3,6 +3,7 @@ import type { Node } from '@prezly/slate-types';
 import {
     isAttachmentNode,
     isContactNode,
+    isDividerNode,
     isGalleryNode,
     isHeadingNode,
     isImageNode,
@@ -19,6 +20,7 @@ import '@prezly/content-renderer-react-js/styles.css';
 
 import ContactCard from '@/components/ContactCard';
 import {
+    Divider,
     Heading,
     Link,
     List,
@@ -52,6 +54,7 @@ function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
             <Component match={isQuoteNode} component={Quote} />
             <Component match={isLinkNode} component={Link} />
             <Component match={isPlaceholderNode} component={Placeholder} />
+            <Component match={isDividerNode} component={Divider} />
         </Renderer>
     );
 }
