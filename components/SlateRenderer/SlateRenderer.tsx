@@ -18,8 +18,15 @@ import type { PropsWithChildren } from 'react';
 import '@prezly/content-renderer-react-js/styles.css';
 
 import ContactCard from '@/components/ContactCard';
-
-import { Heading, Link, List, ListItem, ListItemText, Paragraph, Quote } from '../RichText';
+import {
+    Heading,
+    Link,
+    List,
+    ListItem,
+    ListItemText,
+    Paragraph,
+    Quote,
+} from '@/components/RichText';
 
 import Attachment from './components/Attachment';
 import Gallery from './components/Gallery';
