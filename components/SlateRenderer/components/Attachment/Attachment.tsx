@@ -1,5 +1,5 @@
 import { STORY_FILE, useAnalytics } from '@prezly/analytics-nextjs';
-import type { UploadcareStoragePayload } from '@prezly/slate-types';
+import type { AttachmentNode } from '@prezly/slate-types';
 import { UploadcareFile } from '@prezly/slate-types';
 import translations from '@prezly/themes-intl-messages';
 import classNames from 'classnames';
@@ -10,11 +10,11 @@ import Icon, { FileTypeIcon } from '@/components/Icon';
 import formatBytes from './lib/formatBytes';
 
 interface Props {
-    description: string;
-    file: UploadcareStoragePayload;
+    node: AttachmentNode;
 }
 
-function Attachment({ description, file }: Props) {
+function Attachment({ node }: Props) {
+    const { file, description } = node;
     const { track } = useAnalytics();
     const { downloadUrl } = UploadcareFile.createFromPrezlyStoragePayload(file);
 

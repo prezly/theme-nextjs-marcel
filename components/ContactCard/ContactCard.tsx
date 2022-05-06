@@ -1,4 +1,4 @@
-import type { PressContact } from '@prezly/slate-types';
+import type { ContactNode } from '@prezly/slate-types';
 import classNames from 'classnames';
 
 import Icon from '@/components/Icon';
@@ -7,10 +7,11 @@ import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 import getSocialHandles from './lib/getSocialHandles';
 
 interface Props {
-    contact: PressContact;
+    node: ContactNode;
 }
 
-function ContactCard({ contact }: Props) {
+function ContactCard({ node }: Props) {
+    const { contact } = node;
     const { avatar_url, name, description, company, email, phone, mobile, website } = contact;
 
     const { twitter, facebook } = getSocialHandles(contact);
