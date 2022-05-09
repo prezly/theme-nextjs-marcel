@@ -19,9 +19,9 @@ function Quote({ node, children }: PropsWithChildren<Props>) {
             })}
         >
             {(alignment === Alignment.LEFT || alignment === Alignment.CENTER) && (
-                <div className="w-[2px] bg-gray-300 mr-4" />
+                <div className="w-[2px] bg-gray-300 mr-4" aria-hidden="true" />
             )}
-            <span
+            <div
                 className={classNames('my-4 md:my-0 text-gray-300', {
                     'text-left': alignment === Alignment.LEFT,
                     'text-center': alignment === Alignment.CENTER,
@@ -29,8 +29,10 @@ function Quote({ node, children }: PropsWithChildren<Props>) {
                 })}
             >
                 {children}
-            </span>
-            {alignment === Alignment.RIGHT && <div className="w-[2px] bg-gray-300 ml-4" />}
+            </div>
+            {alignment === Alignment.RIGHT && (
+                <div className="w-[2px] bg-gray-300 ml-4" aria-hidden="true" />
+            )}
         </blockquote>
     );
 }
