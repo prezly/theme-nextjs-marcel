@@ -1,13 +1,36 @@
+import { Alignment } from '@prezly/slate-types';
+import type { QuoteNode } from '@prezly/slate-types';
+import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 
-import Icon from '../Icon';
+interface Props {
+    node: QuoteNode;
+}
 
-function Quote({ children }: PropsWithChildren<{}>) {
+function Quote({ node, children }: PropsWithChildren<Props>) {
+    const alignment = node.align ?? Alignment.LEFT; // default to left alignment if alignment is not present
+
     return (
-        <blockquote className="story-blockquote">
-            <Icon name="quote" className="story-blockquote-icon" />
-            <span className="my-4 md:my-0 md:mx-4 text-gray-300">{children}</span>
-            <Icon name="quote" className="story-blockquote-icon story-blockquote-icon--inverted" />
+        <blockquote
+            className={classNames('story-blockquote', {
+                'justify-start': alignment === Alignment.LEFT,
+                'justify-center': alignment === Alignment.CENTER,
+                'justify-end': alignment === Alignment.RIGHT,
+            })}
+        >
+            {(alignment === Alignment.LEFT || alignment === Alignment.CENTER) && (
+                <div className="w-[2px] bg-gray-300 mr-4" />
+            )}
+            <span
+                className={classNames('my-4 md:my-0 text-gray-300', {
+                    'text-left': alignment === Alignment.LEFT,
+                    'text-center': alignment === Alignment.CENTER,
+                    'text-right': alignment === Alignment.RIGHT,
+                })}
+            >
+                {children}
+            </span>
+            {alignment === Alignment.RIGHT && <div className="w-[2px] bg-gray-300 ml-4" />}
         </blockquote>
     );
 }
