@@ -1,13 +1,24 @@
+import { Alignment } from '@prezly/slate-types';
+import type { QuoteNode } from '@prezly/slate-types';
+import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 
-import Icon from '../Icon';
+interface Props {
+    node: QuoteNode;
+}
 
-function Quote({ children }: PropsWithChildren<{}>) {
+function Quote({ node, children }: PropsWithChildren<Props>) {
+    const alignment = node.align ?? Alignment.LEFT; // default to left alignment if alignment is not present
+
     return (
-        <blockquote className="story-blockquote">
-            <Icon name="quote" className="story-blockquote-icon" />
-            <span className="my-4 md:my-0 md:mx-4 text-gray-300">{children}</span>
-            <Icon name="quote" className="story-blockquote-icon story-blockquote-icon--inverted" />
+        <blockquote
+            className={classNames('story-blockquote', {
+                'text-left border-l-[2px] border-gray-300 pl-4': alignment === Alignment.LEFT,
+                'text-center border-l-[2px] border-gray-300 pl-4': alignment === Alignment.CENTER,
+                'text-right border-r-[2px] border-gray-300 pr-4': alignment === Alignment.RIGHT,
+            })}
+        >
+            {children}
         </blockquote>
     );
 }
