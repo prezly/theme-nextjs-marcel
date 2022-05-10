@@ -13,26 +13,12 @@ function Quote({ node, children }: PropsWithChildren<Props>) {
     return (
         <blockquote
             className={classNames('story-blockquote', {
-                'justify-start': alignment === Alignment.LEFT,
-                'justify-center': alignment === Alignment.CENTER,
-                'justify-end': alignment === Alignment.RIGHT,
+                'text-left border-l-[2px] border-gray-300 pl-4': alignment === Alignment.LEFT,
+                'text-center border-l-[2px] border-gray-300 pl-4': alignment === Alignment.CENTER,
+                'text-right border-r-[2px] border-gray-300 pr-4': alignment === Alignment.RIGHT,
             })}
         >
-            {(alignment === Alignment.LEFT || alignment === Alignment.CENTER) && (
-                <div className="w-[2px] bg-gray-300 mr-4" aria-hidden="true" />
-            )}
-            <div
-                className={classNames('my-4 md:my-0 text-gray-300', {
-                    'text-left': alignment === Alignment.LEFT,
-                    'text-center': alignment === Alignment.CENTER,
-                    'text-right': alignment === Alignment.RIGHT,
-                })}
-            >
-                {children}
-            </div>
-            {alignment === Alignment.RIGHT && (
-                <div className="w-[2px] bg-gray-300 ml-4" aria-hidden="true" />
-            )}
+            {children}
         </blockquote>
     );
 }
