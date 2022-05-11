@@ -115,7 +115,7 @@ figure.prezly-slate-gallery--full-width {
 }
 /* stylelint-enable selector-no-qualifying-type */
 
-.prezly-slate-bookmark.prezly-slate-bookmark-card-component__container {
+.prezly-slate-bookmark-card-component__container {
     @apply border-[1px] border-gray-600 rounded-xl !important;
 }
 
