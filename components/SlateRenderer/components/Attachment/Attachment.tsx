@@ -1,7 +1,7 @@
 import { STORY_FILE, useAnalytics } from '@prezly/analytics-nextjs';
-import type { AttachmentNode } from '@prezly/slate-types';
-import { UploadcareFile } from '@prezly/slate-types';
+import type { AttachmentNode } from '@prezly/story-content-format';
 import translations from '@prezly/themes-intl-messages';
+import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 

@@ -1,5 +1,4 @@
-import { HEADING_1_NODE_TYPE } from '@prezly/slate-types';
-import type { HeadingNode } from '@prezly/slate-types';
+import { HeadingNode } from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
 }
 
 function Heading({ node, children }: PropsWithChildren<Props>) {
-    if (node.type === HEADING_1_NODE_TYPE) {
+    if (node.type === HeadingNode.Type.HEADING_ONE) {
         return <h2>{children}</h2>;
     }
 
