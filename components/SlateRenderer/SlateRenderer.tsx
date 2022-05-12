@@ -14,6 +14,7 @@ import {
     isParagraphNode,
     isPlaceholderNode,
     isQuoteNode,
+    isStoryBookmarkNode,
 } from '@prezly/slate-types';
 import type { PropsWithChildren } from 'react';
 import '@prezly/content-renderer-react-js/styles.css';
@@ -34,6 +35,7 @@ import Attachment from './components/Attachment';
 import Gallery from './components/Gallery';
 import Image from './components/Image';
 import Placeholder from './components/Placeholder';
+import { StoryBookmark } from './components/StoryBookmark';
 
 interface Props {
     nodes: Node | Node[];
@@ -55,6 +57,7 @@ function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
             <Component match={isLinkNode} component={Link} />
             <Component match={isPlaceholderNode} component={Placeholder} />
             <Component match={isDividerNode} component={Divider} />
+            <Component match={isStoryBookmarkNode} component={StoryBookmark} />
         </Renderer>
     );
 }
