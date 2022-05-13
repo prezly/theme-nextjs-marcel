@@ -1,5 +1,5 @@
 import { STORY_LINK, useAnalytics } from '@prezly/analytics-nextjs';
-import type { LinkNode } from '@prezly/slate-types';
+import type { LinkNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 

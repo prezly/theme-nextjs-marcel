@@ -1,5 +1,4 @@
-import { NUMBERED_LIST_NODE_TYPE } from '@prezly/slate-types';
-import type { ListNode } from '@prezly/slate-types';
+import { ListNode } from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
 
 interface Props {
@@ -7,7 +6,7 @@ interface Props {
 }
 
 export function List({ node, children }: PropsWithChildren<Props>) {
-    if (node.type === NUMBERED_LIST_NODE_TYPE) {
+    if (node.type === ListNode.Type.BULLETED) {
         return <ol className="list-decimal pl-6 my-4">{children}</ol>;
     }
 

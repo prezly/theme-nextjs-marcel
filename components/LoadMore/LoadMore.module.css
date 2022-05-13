@@ -8,7 +8,7 @@
     display: block;
     @apply bg-blue-400 w-2.5 h-2.5 rounded-full;
 
-    animation-duration: .4s;
+    animation-duration: 0.4s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
     animation-timing-function: ease-in;
@@ -16,7 +16,7 @@
 }
 
 .dot::after {
-    --top-point: -.75rem;
+    --top-point: -0.75rem;
 
     animation-name: bounce;
 }
@@ -36,14 +36,14 @@
 .dot:nth-child(2)::after {
     --top-point: -1rem;
 
-    animation-delay: .2s;
+    animation-delay: 0.2s;
 }
 
 .dot:nth-child(3)::before,
 .dot:nth-child(3)::after {
-    --top-point: -.5rem;
+    --top-point: -0.5rem;
 
-    animation-delay: .4s;
+    animation-delay: 0.4s;
 }
 
 @keyframes bounce {

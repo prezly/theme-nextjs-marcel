@@ -1,21 +1,21 @@
 import { Component, Renderer } from '@prezly/content-renderer-react-js';
-import type { Node } from '@prezly/slate-types';
+import type { Node } from '@prezly/story-content-format';
 import {
-    isAttachmentNode,
-    isContactNode,
-    isDividerNode,
-    isGalleryNode,
-    isHeadingNode,
-    isImageNode,
-    isLinkNode,
-    isListItemNode,
-    isListItemTextNode,
-    isListNode,
-    isParagraphNode,
-    isPlaceholderNode,
-    isQuoteNode,
-    isStoryBookmarkNode,
-} from '@prezly/slate-types';
+    AttachmentNode,
+    ContactNode,
+    DividerNode,
+    GalleryNode,
+    HeadingNode,
+    ImageNode,
+    LinkNode,
+    ListItemNode,
+    ListItemTextNode,
+    ListNode,
+    ParagraphNode,
+    PlaceholderNode,
+    QuoteNode,
+    StoryBookmarkNode,
+} from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
 import '@prezly/content-renderer-react-js/styles.css';
 
@@ -44,20 +44,20 @@ interface Props {
 function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
     return (
         <Renderer nodes={nodes} defaultComponents>
-            <Component match={isListNode} component={List} />
-            <Component match={isListItemNode} component={ListItem} />
-            <Component match={isListItemTextNode} component={ListItemText} />
-            <Component match={isHeadingNode} component={Heading} />
-            <Component match={isParagraphNode} component={Paragraph} />
-            <Component match={isImageNode} component={Image} />
-            <Component match={isGalleryNode} component={Gallery} />
-            <Component match={isContactNode} component={ContactCard} />
-            <Component match={isAttachmentNode} component={Attachment} />
-            <Component match={isQuoteNode} component={Quote} />
-            <Component match={isLinkNode} component={Link} />
-            <Component match={isPlaceholderNode} component={Placeholder} />
-            <Component match={isDividerNode} component={Divider} />
-            <Component match={isStoryBookmarkNode} component={StoryBookmark} />
+            <Component match={ListNode.isListNode} component={List} />
+            <Component match={ListItemNode.isListItemNode} component={ListItem} />
+            <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} />
+            <Component match={HeadingNode.isHeadingNode} component={Heading} />
+            <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
+            <Component match={ImageNode.isImageNode} component={Image} />
+            <Component match={GalleryNode.isGalleryNode} component={Gallery} />
+            <Component match={ContactNode.isContactNode} component={ContactCard} />
+            <Component match={AttachmentNode.isAttachmentNode} component={Attachment} />
+            <Component match={QuoteNode.isQuoteNode} component={Quote} />
+            <Component match={LinkNode.isLinkNode} component={Link} />
+            <Component match={PlaceholderNode.isPlaceholderNode} component={Placeholder} />
+            <Component match={DividerNode.isDividerNode} component={Divider} />
+            <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={StoryBookmark} />
         </Renderer>
     );
 }
