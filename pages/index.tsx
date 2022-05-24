@@ -1,22 +1,13 @@
-import type { Story } from '@prezly/sdk';
-import {
-    DEFAULT_PAGE_SIZE,
-    getNewsroomServerSideProps,
-    processRequest,
-    useNewsroom,
-} from '@prezly/theme-kit-nextjs';
-import type { GetServerSideProps } from 'next';
+import type { HomePageProps } from '@prezly/theme-kit-nextjs';
+import { getHomepageServerSideProps, useNewsroom } from '@prezly/theme-kit-nextjs';
 import type { FunctionComponent } from 'react';
 
 import Layout from '@/modules/Layout';
 import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';
-import type { BasePageProps, PaginationProps } from 'types';
+import type { BasePageProps } from 'types';
 
-interface Props extends BasePageProps {
-    stories: Story[];
-    pagination: PaginationProps;
-}
+type Props = BasePageProps & HomePageProps;
 
 const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
     const newsroom = useNewsroom();
@@ -28,39 +19,11 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-    const { api, serverSideProps } = await getNewsroomServerSideProps(context, {
-        loadHomepageContacts: true,
-    });
-
-    const { query } = context;
-    const page = query.page && typeof query.page === 'string' ? Number(query.page) : undefined;
-
-    const { localeCode } = serverSideProps.newsroomContextProps;
-
-    const storiesPaginated = await api.getStories({
-        page,
-        include: ['content'],
-        localeCode,
-    });
-    const { stories, storiesTotal } = storiesPaginated;
-
-    return processRequest(
-        context,
-        {
-            ...serverSideProps,
-            // TODO: This is temporary until return types from API are figured out
-            stories,
-            pagination: {
-                itemsTotal: storiesTotal,
-                currentPage: page ?? 1,
-                pageSize: DEFAULT_PAGE_SIZE,
-            },
-            isTrackingEnabled: isTrackingEnabled(context),
-            translations: await importMessages(localeCode),
-        },
-        '/',
-    );
-};
+export const getServerSideProps = getHomepageServerSideProps<BasePageProps>(
+    async (context, { newsroomContextProps }) => ({
+        isTrackingEnabled: isTrackingEnabled(context),
+        translations: await importMessages(newsroomContextProps.localeCode),
+    }),
+);
 
 export default IndexPage;
