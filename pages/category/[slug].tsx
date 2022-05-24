@@ -1,24 +1,16 @@
-import type { Category, Story } from '@prezly/sdk/dist/types';
-import {
-    DEFAULT_PAGE_SIZE,
-    getNewsroomServerSideProps,
-    processRequest,
-    useCurrentCategory,
-} from '@prezly/theme-kit-nextjs';
-import type { GetServerSideProps } from 'next';
+import type { Category } from '@prezly/sdk/dist/types';
+import type { CategoryPageProps } from '@prezly/theme-kit-nextjs';
+import { getCategoryPageServerSideProps, useCurrentCategory } from '@prezly/theme-kit-nextjs';
 import type { FunctionComponent } from 'react';
 
 import Layout from '@/modules/Layout';
 import { InfiniteStories } from '@/modules/Stories';
 import { importMessages, isTrackingEnabled } from '@/utils';
-import type { BasePageProps, PaginationProps } from 'types';
+import type { BasePageProps } from 'types';
 
-interface Props extends BasePageProps {
-    stories: Story[];
-    pagination: PaginationProps;
-}
+type Props = BasePageProps & CategoryPageProps;
 
-const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
+const CategoryPage: FunctionComponent<Props> = ({ stories, pagination }) => {
     const category = useCurrentCategory() as Category;
 
     return (
@@ -37,48 +29,11 @@ const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
     );
 };
 
-export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
-    const { api, serverSideProps } = await getNewsroomServerSideProps(context);
+export const getServerSideProps = getCategoryPageServerSideProps<BasePageProps>(
+    async (context, { newsroomContextProps }) => ({
+        isTrackingEnabled: isTrackingEnabled(context),
+        translations: await importMessages(newsroomContextProps.localeCode),
+    }),
+);
 
-    const { slug } = context.params as { slug: string };
-    const category = await api.getCategoryBySlug(slug);
-
-    if (!category) {
-        return {
-            notFound: true,
-        };
-    }
-
-    const { query } = context;
-    const page = query.page && typeof query.page === 'string' ? Number(query.page) : undefined;
-
-    const { localeCode } = serverSideProps.newsroomContextProps;
-
-    const { stories, storiesTotal } = await api.getStoriesFromCategory(category, {
-        page,
-        include: ['content'],
-        localeCode,
-    });
-
-    return processRequest(
-        context,
-        {
-            ...serverSideProps,
-            newsroomContextProps: {
-                ...serverSideProps.newsroomContextProps,
-                currentCategory: category,
-            },
-            stories,
-            pagination: {
-                itemsTotal: storiesTotal,
-                currentPage: page ?? 1,
-                pageSize: DEFAULT_PAGE_SIZE,
-            },
-            isTrackingEnabled: isTrackingEnabled(context),
-            translations: await importMessages(localeCode),
-        },
-        `/category/${slug}`,
-    );
-};
-
-export default IndexPage;
+export default CategoryPage;

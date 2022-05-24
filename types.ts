@@ -6,12 +6,6 @@ export interface Env {
     PREZLY_NEWSROOM_UUID: string;
 }
 
-export interface PaginationProps {
-    itemsTotal: number;
-    currentPage: number;
-    pageSize: number;
-}
-
 export type StoryWithImage = Story & Pick<ExtraStoryFields, 'thumbnail_image'>;
 
 export type AlternateLanguageLink = {

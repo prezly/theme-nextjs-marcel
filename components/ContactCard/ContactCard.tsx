@@ -2,7 +2,6 @@ import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 
 import Icon from '@/components/Icon';
-import { capitalizeFirstLetter } from '@/utils/capitaliseFirstLetter';
 
 import getSocialHandles from './lib/getSocialHandles';
 
@@ -36,9 +35,7 @@ function ContactCard({ node }: Props) {
                 )}
                 <div>
                     <h4 className="text-lg text-gray-200 font-semibold mb-1">{name}</h4>
-                    {subtitle && (
-                        <h5 className="text-gray-400">{capitalizeFirstLetter(subtitle)}</h5>
-                    )}
+                    {subtitle && <h5 className="text-gray-400">{subtitle}</h5>}
                 </div>
             </div>
             <div className="mt-2 flex items-center flex-wrap">
