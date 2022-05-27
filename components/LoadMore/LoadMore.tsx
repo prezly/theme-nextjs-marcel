@@ -1,6 +1,6 @@
+import { useIntersectionObserver } from '@react-hookz/web';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useRef } from 'react';
-import { useIntersection } from 'react-use';
 
 import styles from './LoadMore.module.css';
 
@@ -12,7 +12,7 @@ type Props = {
 function LoadMore({ canLoadMore, onLoadMore }: PropsWithChildren<Props>) {
     const wrapperRef = useRef<HTMLDivElement>(null);
 
-    const intersection = useIntersection(wrapperRef, { threshold: 1 });
+    const intersection = useIntersectionObserver(wrapperRef, { threshold: [1.0] });
 
     const { isIntersecting } = intersection || {};
 
