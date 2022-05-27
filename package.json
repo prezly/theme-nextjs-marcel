@@ -35,6 +35,7 @@
     "@prezly/themes-intl-messages": "^1.11.1",
     "@prezly/uploadcare": "^2.3.2",
     "@prezly/uploadcare-image": "^0.3.1",
+    "@react-hookz/web": "^14.2.2",
     "@sentry/nextjs": "^6.18.2",
     "@tailwindcss/line-clamp": "^0.3.1",
     "@types/lodash.throttle": "^4.1.6",
@@ -53,7 +54,6 @@
     "react-instantsearch-dom": "^6.18.0",
     "react-intl": "^5.21.0",
     "react-share": "^4.4.0",
-    "react-use": "^17.3.1",
     "social-links": "^1.4.5",
     "string-strip-html": "^9.1.6",
     "tinycolor2": "^1.4.2"
