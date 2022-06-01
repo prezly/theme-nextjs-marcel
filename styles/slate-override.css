@@ -44,6 +44,20 @@
     @apply text-base leading-7;
 }
 
+.prezly-slate-document > ol ol {
+    list-style-type: lower-latin;
+}
+
+/* stylelint-disable-next-line selector-max-compound-selectors */
+.prezly-slate-document > ol ol ol {
+    list-style-type: lower-roman;
+}
+
+/* stylelint-disable-next-line selector-max-compound-selectors */
+.prezly-slate-document > ol ol ol ol {
+    @apply list-decimal;
+}
+
 .story-blockquote {
     @apply my-6;
     @apply text-gray-300 text-base leading-8 font-normal;
