@@ -6,7 +6,7 @@ interface Props {
 }
 
 export function List({ node, children }: PropsWithChildren<Props>) {
-    if (node.type === ListNode.Type.BULLETED) {
+    if (node.type === ListNode.Type.NUMBERED) {
         return <ol className="list-decimal pl-6 my-4">{children}</ol>;
     }
 
