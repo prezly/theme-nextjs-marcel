@@ -60,7 +60,7 @@
   },
   "devDependencies": {
     "@next/bundle-analyzer": "^12.1.6",
-    "@prezly/eslint-config": "4.0.0",
+    "@prezly/eslint-config": "4.1.0",
     "@svgr/webpack": "^6.2.0",
     "@types/node": "^16.10.2",
     "@types/react": "^17.0.4",
