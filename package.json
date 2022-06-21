@@ -37,7 +37,7 @@
     "@prezly/uploadcare-image": "0.3.1",
     "@react-hookz/web": "14.2.2",
     "@sentry/nextjs": "7.2.0",
-    "@tailwindcss/line-clamp": "0.3.1",
+    "@tailwindcss/line-clamp": "0.4.0",
     "@types/lodash.throttle": "4.1.7",
     "algoliasearch": "4.12.0",
     "classnames": "2.3.1",
