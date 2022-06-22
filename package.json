@@ -54,7 +54,7 @@
     "react-intl": "5.25.1",
     "react-share": "4.4.0",
     "social-links": "1.4.5",
-    "string-strip-html": "9.1.6",
+    "string-strip-html": "9.1.12",
     "tinycolor2": "1.4.2"
   },
   "devDependencies": {
