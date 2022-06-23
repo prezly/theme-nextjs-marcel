@@ -1,10 +1,12 @@
+import { IconDownload } from '@prezly/icons';
 import type { NewsroomGallery } from '@prezly/sdk';
 import { getUploadcareGroupUrl } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
+import { Button } from '@prezly/themes-ui-components';
 import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { Button, SlateRenderer, StoryShareSocial } from '@/components';
+import { SlateRenderer, StoryShareSocial } from '@/components';
 
 import styles from './Gallery.module.css';
 
@@ -34,7 +36,7 @@ function Gallery({ gallery }: Props) {
                         variation="primary"
                         href={getUploadcareGroupUrl(uploadcare_group_uuid, title)}
                         className={styles.button}
-                        icon="download"
+                        icon={IconDownload}
                         iconPlacement="right"
                     >
                         <FormattedMessage {...translations.actions.download} />

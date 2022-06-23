@@ -1,7 +1,6 @@
 import type { PlaceholderNode } from '@prezly/story-content-format';
 import { useCurrentStory } from '@prezly/theme-kit-nextjs';
-
-import StoryPublicationDate from '../../StoryPublicationDate';
+import { StoryPublicationDate } from '@prezly/themes-ui-components';
 
 interface Props {
     node: PlaceholderNode;

@@ -1,8 +1,8 @@
 import type { ExtendedStory } from '@prezly/sdk';
+import { StoryPublicationDate } from '@prezly/themes-ui-components';
 import Image from '@prezly/uploadcare-image';
 
 import CategoryTag from '@/components/CategoryTag';
-import StoryPublicationDate from '@/components/StoryPublicationDate';
 
 type Props = {
     story: ExtendedStory;
@@ -47,10 +47,7 @@ function StoryHeader({ story }: Props) {
                         <h3 className="mb-6 text-gray-300 text-lg leading-8">{subtitle}</h3>
 
                         <div className="lg:flex lg:items-center">
-                            <StoryPublicationDate
-                                story={story}
-                                className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
-                            />
+                            <StoryPublicationDate story={story} />
                         </div>
                     </div>
                 </div>

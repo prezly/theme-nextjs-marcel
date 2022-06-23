@@ -1,9 +1,9 @@
+import { IconArrowRight } from '@prezly/icons';
 import type { Story } from '@prezly/sdk';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import Link from 'next/link';
 
-import Icon from '@/components/Icon';
 import StoryMeta from '@/components/StoryMeta';
 
 type Props = {
@@ -38,7 +38,7 @@ function StoryItem({ story }: Props) {
                     )}
                 >
                     Read more
-                    <Icon name="arrow-right" className="w-3.5 h-3.5 ml-2" />
+                    <IconArrowRight className="w-3.5 h-3.5 ml-2" />
                 </a>
             </Link>
         </div>

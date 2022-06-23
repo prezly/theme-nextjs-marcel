@@ -10,6 +10,10 @@
     @apply w-full mt-0 mb-0;
 }
 
+.input input {
+    @apply appearance-none block w-full bg-transparent py-3 px-4 leading-tight focus:outline-none text-gray-200 border-none;
+}
+
 /* clears the 'X' from Internet Explorer */
 .input input::-ms-clear,
 .input input::-ms-reveal {

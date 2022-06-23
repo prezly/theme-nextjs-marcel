@@ -1,9 +1,9 @@
+import { IconArrowRight } from '@prezly/icons';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import Link from 'next/link';
 import type { Hit } from 'react-instantsearch-core';
 import { Highlight } from 'react-instantsearch-dom';
 
-import Icon from '@/components/Icon';
 import StoryMeta from '@/components/StoryMeta';
 
 import styles from './Hit.module.css';
@@ -31,7 +31,7 @@ function HitComponent({ hit }: Props) {
             <Link href={`/${slug}`} passHref>
                 <a className={styles.link}>
                     Read more
-                    <Icon name="arrow-right" className={styles.icon} />
+                    <IconArrowRight className={styles.icon} />
                 </a>
             </Link>
         </div>

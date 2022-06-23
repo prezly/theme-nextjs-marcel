@@ -1,10 +1,10 @@
+import { IconSearch } from '@prezly/icons';
 import { useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
+import { Button, FormInput } from '@prezly/themes-ui-components';
 import type { SearchBoxExposed, SearchBoxProvided } from 'react-instantsearch-core';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import { FormattedMessage, useIntl } from 'react-intl';
-
-import { Button, FormInput, Icon } from '@/components';
 
 import styles from './SearchBar.module.css';
 
@@ -38,7 +38,7 @@ function SearchBar({ currentRefinement, refine }: Props) {
                 )}
             </div>
             <Button variation="navigation" type="submit">
-                <Icon name="search" className="text-primary w-3.5 h-3.5" />
+                <IconSearch className="text-primary w-3.5 h-3.5" />
             </Button>
         </form>
     );

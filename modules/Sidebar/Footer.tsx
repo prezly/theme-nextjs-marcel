@@ -1,6 +1,5 @@
 import { CookieConsentLink } from '@prezly/analytics-nextjs';
-
-import Icon from '@/components/Icon';
+import { LogoPrezly } from '@prezly/icons';
 
 import { DataRequestLink } from './DataRequestLink';
 
@@ -14,7 +13,7 @@ function Footer() {
             <p className="mt-2 flex items-center">
                 <span className="mr-2">Powered by</span>{' '}
                 <a href="https://prezly.com" target="_blank" rel="noopener noreferrer">
-                    <Icon name="prezly-logo" className="text-primary w-16 h-16" />
+                    <LogoPrezly className="text-primary w-16 h-16" />
                 </a>
             </p>
         </div>
