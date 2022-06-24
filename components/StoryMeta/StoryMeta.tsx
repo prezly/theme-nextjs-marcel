@@ -25,7 +25,7 @@ function StoryMeta({ story }: Props) {
     return (
         <>
             <div className="md:flex md:items-center md:mb-4">
-                <StoryPublicationDate story={story} />
+                <StoryPublicationDate story={story} className="mb-6 md:mb-0 text-gray-100" />
                 {!!categories.length && (
                     <div className="flex mb-3 md:ml-6 md:mb-0">
                         {categories.slice(0, NUM_OF_INITIAL_CATEGORIES).map((category) => (

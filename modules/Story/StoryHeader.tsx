@@ -47,7 +47,10 @@ function StoryHeader({ story }: Props) {
                         <h3 className="mb-6 text-gray-300 text-lg leading-8">{subtitle}</h3>
 
                         <div className="lg:flex lg:items-center">
-                            <StoryPublicationDate story={story} />
+                            <StoryPublicationDate
+                                story={story}
+                                className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
+                            />
                         </div>
                     </div>
                 </div>
