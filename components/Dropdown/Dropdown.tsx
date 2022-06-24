@@ -42,6 +42,7 @@ function Dropdown({
                             icon={icon}
                             className={classNames(styles.dropdownButton, buttonClassName, {
                                 [styles.buttonWithMobileDisplay]: withMobileDisplay,
+                                [styles.dropdownButtonActive]: open,
                             })}
                         >
                             {label}
