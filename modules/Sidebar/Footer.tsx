@@ -10,10 +10,15 @@ function Footer() {
                 <DataRequestLink className="mr-4 underline font-normal" />
                 <CookieConsentLink className="underline font-normal" />
             </div>
-            <p className="mt-2 flex items-center">
+            <p className="mt-8 flex items-center">
                 <span className="mr-2">Powered by</span>{' '}
-                <a href="https://prezly.com" target="_blank" rel="noopener noreferrer">
-                    <LogoPrezly className="text-primary w-16 h-16" />
+                <a
+                    href="https://prezly.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary"
+                >
+                    <LogoPrezly className="text-primary" />
                 </a>
             </p>
         </div>

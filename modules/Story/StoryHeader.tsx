@@ -1,8 +1,8 @@
 import type { ExtendedStory } from '@prezly/sdk';
-import { StoryPublicationDate } from '@prezly/themes-ui-components';
 import Image from '@prezly/uploadcare-image';
 
 import CategoryTag from '@/components/CategoryTag';
+import StoryPublicationDate from '@/components/StoryPublicationDate';
 
 type Props = {
     story: ExtendedStory;

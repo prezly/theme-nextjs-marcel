@@ -1,11 +1,11 @@
 import type { Story } from '@prezly/sdk';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
-import { StoryPublicationDate } from '@prezly/themes-ui-components';
 import { useState } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
 
 import CategoryTag from '../CategoryTag';
+import StoryPublicationDate from '../StoryPublicationDate';
 
 interface Props {
     story: Story | AlgoliaStory;

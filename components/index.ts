@@ -5,6 +5,7 @@ export { default as Error } from './Error';
 export { default as Icon } from './Icon';
 export { default as Modal } from './Modal';
 export { default as SlateRenderer } from './SlateRenderer';
+export { default as StoryPublicationDate } from './StoryPublicationDate';
 export { default as StoryStickyBar } from './StoryStickyBar';
 export { default as StoryImage } from './StoryImage';
 export { default as CategoryLink } from './CategoryLink';
