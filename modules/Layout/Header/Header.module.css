@@ -22,10 +22,6 @@
     @apply text-gray-100 uppercase font-semibold text-sm border-none;
 }
 
-.header .searchToggle:active {
-    @apply border-none;
-}
-
 .newsroom {
     @apply no-underline text-gray-100 uppercase text-3xl z-20;
 }

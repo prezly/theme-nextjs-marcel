@@ -14,7 +14,7 @@ function Sidebar() {
                 <>
                     <SubscriptionForm />
                     <Boilerplate companyInformation={companyInformation} />
-                    <SocialMedia companyInformation={companyInformation} className="" />
+                    <SocialMedia companyInformation={companyInformation} />
                     <Footer />
                 </>
             )}

@@ -101,7 +101,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
                         type="email"
                         label={formatMessage(translations.subscription.labelEmail)}
                         placeholder={formatMessage(translations.subscription.labelEmail)}
-                        className={styles.input}
+                        inputClassName={styles.input}
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         error={emailError}

@@ -7,9 +7,9 @@
 }
 
 .button {
-    @apply w-full bg-primary border-0 rounded-lg px-6 py-3 font-medium hover:bg-primaryShade text-white;
+    @apply w-full bg-primary border-0 rounded-lg px-6 py-3 font-medium hover:bg-primaryShade text-white !important;
 }
 
-.input input {
+.input {
     @apply bg-gray-700 border-none focus:outline-none text-gray-200;
 }
