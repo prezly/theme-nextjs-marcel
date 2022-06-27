@@ -18,7 +18,7 @@ function Footer() {
                     rel="noopener noreferrer"
                     className="text-primary"
                 >
-                    <LogoPrezly className="text-primary" />
+                    <LogoPrezly className="w-16" />
                 </a>
             </p>
         </div>

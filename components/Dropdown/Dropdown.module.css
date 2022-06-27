@@ -42,6 +42,10 @@
     transform: scale(1);
 }
 
+.dropdownButton {
+    @apply border-none;
+}
+
 .dropdownButton span {
     @apply flex items-center;
 }

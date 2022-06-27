@@ -1,8 +1,7 @@
+import { LogoPrezly } from '@prezly/icons';
 import type { ExtendedStory } from '@prezly/sdk';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
-
-import Icon from '../Icon';
 
 import StoryShare from './StoryShare';
 
@@ -25,7 +24,7 @@ function StoryStickyBar({ story }: PropsWithChildren<Props>) {
                         href="https://www.prezly.com/"
                         className="ml-2 text-blue-400 hover:text-blue-500"
                     >
-                        <Icon name="prezly-logo" className="w-auto h-5" />
+                        <LogoPrezly className="w-auto h-5" />
                     </a>
                 </p>
 

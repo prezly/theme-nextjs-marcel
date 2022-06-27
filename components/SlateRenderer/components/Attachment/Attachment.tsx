@@ -1,12 +1,12 @@
 import { STORY_FILE, useAnalytics } from '@prezly/analytics-nextjs';
+import { IconDownload } from '@prezly/icons';
 import type { AttachmentNode } from '@prezly/story-content-format';
 import translations from '@prezly/themes-intl-messages';
 import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
 
-import Icon, { FileTypeIcon } from '@/components/Icon';
-
+import FileTypeIcon from './FileTypeIcon';
 import formatBytes from './lib/formatBytes';
 
 interface Props {
@@ -57,7 +57,7 @@ function Attachment({ node }: Props) {
                 >
                     <FormattedMessage {...translations.actions.download} />
                 </a>
-                <Icon name="download" className="ml-2 w-4 h-4" />
+                <IconDownload className="ml-2 w-4 h-4" />
             </div>
         </div>
     );

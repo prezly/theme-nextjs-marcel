@@ -1,7 +1,6 @@
+import { IconEmail, IconFacebook, IconGlobe, IconPhone, IconTwitter } from '@prezly/icons';
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
-
-import Icon from '@/components/Icon';
 
 import getSocialHandles from './lib/getSocialHandles';
 
@@ -41,25 +40,25 @@ function ContactCard({ node }: Props) {
             <div className="mt-2 flex items-center flex-wrap">
                 {email && (
                     <a href={`mailto:${email}`} className="default-link mr-6 flex items-center">
-                        <Icon name="email" className="w-4 h-4 mr-2" />
+                        <IconEmail className="w-4 h-4 mr-2" />
                         {email}
                     </a>
                 )}
                 {website && (
                     <a href={`${website}`} className="default-link mr-6 flex items-center">
-                        <Icon name="web" className="w-4 h-4 mr-2" />
+                        <IconGlobe className="w-4 h-4 mr-2" />
                         {website}
                     </a>
                 )}
                 {mobile && (
                     <a href={`tel:${mobile}`} className="default-link mr-6 flex items-center">
-                        <Icon name="phone" className="w-4 h-4 mr-2" />
+                        <IconPhone className="w-4 h-4 mr-2" />
                         {mobile}
                     </a>
                 )}
                 {phone && (
                     <a href={`tel:${phone}`} className="default-link mr-6 flex items-center">
-                        <Icon name="phone" className="w-4 h-4 mr-2" />
+                        <IconPhone className="w-4 h-4 mr-2" />
                         {phone}
                     </a>
                 )}
@@ -68,7 +67,7 @@ function ContactCard({ node }: Props) {
                         href={`https://twitter.com/${twitter}`}
                         className="default-link mr-6 flex items-center"
                     >
-                        <Icon name="social-twitter" className="w-4 h-4 mr-2" />
+                        <IconTwitter className="w-4 h-4 mr-2" />
                         {`@${twitter}`}
                     </a>
                 )}
@@ -77,7 +76,7 @@ function ContactCard({ node }: Props) {
                         href={`https://facebook.com/${twitter}`}
                         className="default-link mr-6 flex items-center"
                     >
-                        <Icon name="social-facebook" className="w-4 h-4 mr-2" />
+                        <IconFacebook className="w-4 h-4 mr-2" />
                         {`${facebook}`}
                     </a>
                 )}

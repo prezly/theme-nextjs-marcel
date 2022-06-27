@@ -33,7 +33,8 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 type="search"
                 name="query"
                 value={currentRefinement}
-                className={styles.input}
+                className={styles.searchInput}
+                inputClassName={styles.input}
                 onChange={(event) => refine(event.currentTarget.value)}
                 placeholder={formatMessage(translations.search.inputHint, { inputHintExtra: '' })}
                 autoComplete="off"
@@ -43,10 +44,9 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 icon={IconFilter}
                 iconPlacement="left"
                 onClick={toggleFacets}
+                contentClassName="font-semibold tracking-wide text-sm uppercase text-gray-200"
             >
-                <span className="font-semibold tracking-wide text-sm uppercase text-gray-200">
-                    <FormattedMessage {...translations.search.filters} />
-                </span>
+                <FormattedMessage {...translations.search.filters} />
             </Button>
             <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
                 {AVAILABLE_FACET_ATTRIBUTES.map((attribute) => (
