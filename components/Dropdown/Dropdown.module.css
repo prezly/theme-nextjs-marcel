@@ -21,7 +21,7 @@
 }
 
 .caret {
-    @apply ml-1 w-3.5 h-3.5;
+    @apply ml-2 w-3.5 h-3.5;
 }
 
 .caretOpen {
@@ -40,6 +40,22 @@
 .transitionOpenFinish {
     opacity: 1;
     transform: scale(1);
+}
+
+.dropdownButton {
+    @apply border-none;
+}
+
+.dropdownButton span {
+    @apply flex items-center;
+}
+
+.dropdownButton:active {
+    @apply border-none;
+}
+
+.dropdownButtonActive {
+    @apply border-none bg-gray-600;
 }
 
 @media screen and (max-width: 414px) {

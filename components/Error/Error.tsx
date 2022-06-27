@@ -1,6 +1,6 @@
-import Layout from '@/modules/Layout';
+import { Button } from '@prezly/themes-ui-components';
 
-import Button from '../Button';
+import Layout from '@/modules/Layout';
 
 import styles from './error.module.css';
 

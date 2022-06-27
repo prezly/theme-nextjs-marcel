@@ -1,8 +1,7 @@
+import { IconPaste } from '@prezly/icons';
 import type { ExtendedStory } from '@prezly/sdk';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
-
-import Icon from '../Icon';
 
 interface Props {
     story: ExtendedStory;
@@ -86,7 +85,7 @@ function StoryShare({ story }: Props) {
                     onClick={handleCopyButtonClick}
                     title="Copy share URL"
                 >
-                    <Icon name="paste" className="w-[1.125rem] h-[1.125rem]" />
+                    <IconPaste className="w-[1.125rem] h-[1.125rem]" />
                 </div>
 
                 <div

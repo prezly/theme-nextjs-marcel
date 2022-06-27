@@ -1,3 +1,4 @@
+import { IconClose, IconMenu, IconSearch } from '@prezly/icons';
 import {
     useAlgoliaSettings,
     useCategories,
@@ -6,6 +7,7 @@ import {
     useNewsroom,
 } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
+import { Button } from '@prezly/themes-ui-components';
 import Image from '@prezly/uploadcare-image';
 import classNames from 'classnames';
 import dynamic from 'next/dynamic';
@@ -14,7 +16,6 @@ import type { MouseEvent } from 'react';
 import { useEffect, useRef, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
-import { Button } from '@/components';
 import { useDevice } from '@/hooks';
 
 import CategoriesDropdown from './CategoriesDropdown';
@@ -127,7 +128,7 @@ function Header({ hasError }: Props) {
                                     [styles.hidden]: isMenuOpen,
                                     [styles.close]: isSearchWidgetShown,
                                 })}
-                                icon={isSearchWidgetShown && isMobile ? 'close' : 'search'}
+                                icon={isSearchWidgetShown && isMobile ? IconClose : IconSearch}
                                 iconPlacement="left"
                                 onClick={toggleSearchWidget}
                                 aria-expanded={isSearchWidgetShown}
@@ -141,7 +142,7 @@ function Header({ hasError }: Props) {
 
                         <Button
                             variation="navigation"
-                            icon={isMenuOpen ? 'close' : 'menu'}
+                            icon={isMenuOpen ? IconClose : IconMenu}
                             className={classNames(styles.navigationToggle, {
                                 [styles.hidden]: isSearchWidgetShown,
                             })}

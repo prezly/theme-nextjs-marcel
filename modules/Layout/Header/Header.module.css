@@ -15,11 +15,11 @@
 }
 
 .header .navigationButton {
-    @apply text-gray-100 uppercase font-normal text-sm mr-2;
+    @apply text-gray-100 uppercase font-semibold text-sm mr-1 border-none;
 }
 
 .header .searchToggle {
-    @apply text-gray-100 uppercase font-normal text-sm;
+    @apply text-gray-100 uppercase font-semibold text-sm border-none;
 }
 
 .newsroom {

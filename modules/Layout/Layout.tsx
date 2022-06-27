@@ -1,16 +1,16 @@
+import { IconArrowTop } from '@prezly/icons';
 import { PageSeo, useNewsroom } from '@prezly/theme-kit-nextjs';
+import { LoadingBar, ScrollToTopButton } from '@prezly/themes-ui-components';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
-
-import { LoadingBar } from '@/components';
-import ScrollToTopButton from '@/components/ScrollToTopButton';
-import { useDevice } from '@/hooks/useDevice';
 
 import Sidebar from '../Sidebar';
 
 import Branding from './Branding';
 import Header from './Header';
+
+import styles from './Layout.module.css';
 
 interface Props {
     title?: string;
@@ -23,9 +23,6 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
     const newsroom = useNewsroom();
 
     const [isLoadingPage, setIsLoadingPage] = useState(false);
-    const [isScrollToTopVisible, setIsScrollToTopVisible] = useState(false);
-
-    const { isMobile } = useDevice();
 
     useEffect(() => {
         function onRouteChangeStart() {
@@ -43,32 +40,6 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
         };
     }, []);
 
-    useEffect(() => {
-        function scrollListener() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                setIsScrollToTopVisible(true);
-            } else {
-                setIsScrollToTopVisible(false);
-            }
-        }
-        if (typeof window !== 'undefined') {
-            window.onscroll = scrollListener;
-        }
-
-        return () => {
-            if (window !== null) {
-                window.onscroll = null;
-            }
-        };
-    }, []);
-
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth',
-        });
-    }
-
     return (
         <>
             <PageSeo title={title} description={description} imageUrl={imageUrl} />
@@ -81,10 +52,11 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
                         {!hasError && <Sidebar />}
                     </div>
                 </div>
-                <LoadingBar isLoading={isLoadingPage} />
+                <LoadingBar isLoading={isLoadingPage} className={styles.loadingBar} />
                 <ScrollToTopButton
-                    isVisible={isScrollToTopVisible && !isMobile}
-                    onClick={scrollToTop}
+                    className={styles.scrollToTop}
+                    icon={IconArrowTop}
+                    iconClassName={styles.scrollToTopIcon}
                 />
             </div>
         </>

@@ -1,9 +1,10 @@
 import { Menu, Transition } from '@headlessui/react';
+import { IconCaret, type IconComponentType } from '@prezly/icons';
+import { Button } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import type { PropsWithChildren, ReactChild } from 'react';
 import { Fragment } from 'react';
 
-import { Button, Icon } from '@/components';
 import { makeComposableComponent } from '@/utils';
 
 import Item from './DropdownItem';
@@ -11,7 +12,7 @@ import Item from './DropdownItem';
 import styles from './Dropdown.module.css';
 
 type Props = {
-    icon?: string;
+    icon?: IconComponentType;
     label: ReactChild;
     className?: string;
     menuClassName?: string;
@@ -39,14 +40,14 @@ function Dropdown({
                             variation="navigation"
                             isActive={open}
                             icon={icon}
-                            className={classNames(buttonClassName, {
+                            className={classNames(styles.dropdownButton, buttonClassName, {
                                 [styles.buttonWithMobileDisplay]: withMobileDisplay,
+                                [styles.dropdownButtonActive]: open,
                             })}
                         >
                             {label}
                             {!hideCaret && (
-                                <Icon
-                                    name="caret"
+                                <IconCaret
                                     className={classNames(styles.caret, {
                                         [styles.caretOpen]: open,
                                     })}

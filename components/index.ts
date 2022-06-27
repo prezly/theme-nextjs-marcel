@@ -1,17 +1,12 @@
-export { default as Button } from './Button';
 export { default as CategoryTag } from './CategoryTag';
 export { default as ContactCard } from './ContactCard';
 export { default as Dropdown } from './Dropdown';
 export { default as Error } from './Error';
-export { default as Icon } from './Icon';
-export { default as Modal } from './Modal';
 export { default as SlateRenderer } from './SlateRenderer';
 export { default as StoryPublicationDate } from './StoryPublicationDate';
 export { default as StoryStickyBar } from './StoryStickyBar';
-export { default as FormInput } from './FormInput';
 export { default as StoryImage } from './StoryImage';
 export { default as CategoryLink } from './CategoryLink';
 export { default as StoryMeta } from './StoryMeta';
-export { default as LoadingBar } from './LoadingBar';
 export { default as StoryShareSocial } from './StoryShareSocial';
 export { default as LoadMore } from './LoadMore';

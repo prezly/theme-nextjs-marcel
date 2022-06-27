@@ -1,12 +1,11 @@
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { getPrivacyPortalUrl, useCurrentLocale, useNewsroom } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
+import { Button, FormInput } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent, PropsWithChildren } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
-
-import { Button, FormInput } from '@/components';
 
 import { getLocaleCodeForCaptcha, validateEmail } from './utils';
 
@@ -102,7 +101,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
                         type="email"
                         label={formatMessage(translations.subscription.labelEmail)}
                         placeholder={formatMessage(translations.subscription.labelEmail)}
-                        className="w-full bg-white bg-opacity-5 rounded-lg"
+                        inputClassName={styles.input}
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         error={emailError}

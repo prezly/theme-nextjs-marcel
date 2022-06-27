@@ -1,7 +1,6 @@
 import translations from '@prezly/themes-intl-messages';
+import { Button } from '@prezly/themes-ui-components';
 import { useIntl } from 'react-intl';
-
-import Button from '@/components/Button';
 
 import styles from './LoadMoreButton.module.css';
 

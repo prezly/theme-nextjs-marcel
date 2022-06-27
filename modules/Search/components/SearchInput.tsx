@@ -1,11 +1,11 @@
+import { IconFilter, IconSearch } from '@prezly/icons';
 import translations from '@prezly/themes-intl-messages';
+import { Button, FormInput } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import { useState } from 'react';
 import type { SearchBoxExposed, SearchBoxProvided } from 'react-instantsearch-core';
 import { connectSearchBox } from 'react-instantsearch-dom';
 import { FormattedMessage, useIntl } from 'react-intl';
-
-import { Button, FormInput, Icon } from '@/components';
 
 import { AVAILABLE_FACET_ATTRIBUTES } from '../utils';
 
@@ -27,26 +27,26 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
             action="/search"
             className="flex items-center bg-gray-700 justify-between px-4 py-0 rounded-lg my-6 relative"
         >
-            <Icon name="search" className="w-5 h-5 text-gray-200" />
+            <IconSearch className="w-5 h-5 text-gray-200" />
             <FormInput
                 label={formatMessage(translations.search.inputLabel)}
                 type="search"
                 name="query"
                 value={currentRefinement}
-                className={styles.input}
+                className={styles.searchInput}
+                inputClassName={styles.input}
                 onChange={(event) => refine(event.currentTarget.value)}
                 placeholder={formatMessage(translations.search.inputHint, { inputHintExtra: '' })}
                 autoComplete="off"
             />
             <Button
                 variation="navigation"
-                icon="filter"
+                icon={IconFilter}
                 iconPlacement="left"
                 onClick={toggleFacets}
+                contentClassName="font-semibold tracking-wide text-sm uppercase text-gray-200"
             >
-                <span className="font-semibold tracking-wide text-sm uppercase">
-                    <FormattedMessage {...translations.search.filters} />
-                </span>
+                <FormattedMessage {...translations.search.filters} />
             </Button>
             <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
                 {AVAILABLE_FACET_ATTRIBUTES.map((attribute) => (

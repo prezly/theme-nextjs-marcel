@@ -1,3 +1,4 @@
+import { IconGlobe } from '@prezly/icons';
 import {
     getLanguageDisplayName,
     getUsedLanguages,
@@ -51,7 +52,7 @@ function LanguagesDropdown({ buttonClassName, navigationItemClassName, hasError 
     return (
         <li className={navigationItemClassName}>
             <Dropdown
-                icon="globe"
+                icon={IconGlobe}
                 label={getLanguageDisplayName(currentLanguage, languages)}
                 className={styles.container}
                 menuClassName={styles.menu}
