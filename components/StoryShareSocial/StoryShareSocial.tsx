@@ -1,6 +1,6 @@
 import { IconFacebook, IconLinkedin, IconTwitter } from '@prezly/icons';
+import { SocialShareButton } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
-import { FacebookShareButton, LinkedinShareButton, TwitterShareButton } from 'react-share';
 
 import StoryShareUrl from './StoryShareUrl';
 
@@ -14,15 +14,15 @@ interface Props {
 function StoryShareSocial({ url, className }: Props) {
     return (
         <div className={classNames(styles.container, className)}>
-            <TwitterShareButton className={styles.button} url={url}>
+            <SocialShareButton network="twitter" className={styles.button} url={url}>
                 <IconTwitter className={styles.icon} />
-            </TwitterShareButton>
-            <FacebookShareButton className={styles.button} url={url}>
+            </SocialShareButton>
+            <SocialShareButton network="facebook" className={styles.button} url={url}>
                 <IconFacebook className={styles.icon} />
-            </FacebookShareButton>
-            <LinkedinShareButton className={styles.button} url={url}>
+            </SocialShareButton>
+            <SocialShareButton network="linkedin" className={styles.button} url={url}>
                 <IconLinkedin className={styles.icon} />
-            </LinkedinShareButton>
+            </SocialShareButton>
             <StoryShareUrl url={url} />
         </div>
     );
