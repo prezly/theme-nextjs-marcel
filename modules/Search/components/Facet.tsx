@@ -67,8 +67,8 @@ function Facet({ attribute, items, refine }: RefinementListProvided & Refinement
                     <Disclosure.Button className={styles.header}>
                         <span className={styles.title}>{facetTitle}</span>
                         <IconCaret
-                            width={16}
-                            height={16}
+                            width="14px"
+                            height="14px"
                             className={classNames(styles.caret, { [styles.caretOpen]: open })}
                         />
                     </Disclosure.Button>

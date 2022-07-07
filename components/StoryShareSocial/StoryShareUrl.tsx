@@ -45,7 +45,11 @@ function StoryShareUrl({ url }: Props) {
                 leaveTo={styles.transitionStart}
             >
                 <div className={styles.message}>
-                    <IconLink className={classNames(styles.icon, 'mr-2')} width={24} height={24} />
+                    <IconLink
+                        className={classNames(styles.icon, 'mr-2')}
+                        width="24px"
+                        height="24px"
+                    />
                     <FormattedMessage {...translations.misc.shareUrlCopied} />
                 </div>
             </Transition>

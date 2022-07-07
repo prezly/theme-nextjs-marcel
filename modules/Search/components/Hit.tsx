@@ -31,7 +31,7 @@ function HitComponent({ hit }: Props) {
             <Link href={`/${slug}`} passHref>
                 <a className={styles.link}>
                     Read more
-                    <IconArrowRight className={styles.icon} width={14} height={14} />
+                    <IconArrowRight className={styles.icon} width="14px" height="14px" />
                 </a>
             </Link>
         </div>
