@@ -38,7 +38,7 @@ function StoryItem({ story }: Props) {
                     )}
                 >
                     Read more
-                    <IconArrowRight className="w-3.5 h-3.5 ml-2" />
+                    <IconArrowRight className="w-3.5 h-3.5 ml-2" width={14} height={14} />
                 </a>
             </Link>
         </div>

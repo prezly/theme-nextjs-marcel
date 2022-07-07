@@ -32,14 +32,14 @@ function Boilerplate({ companyInformation }: Props) {
 
             {email && (
                 <a className="flex items-center mt-4 mb-4" href={`mailto:${email}`}>
-                    <IconEmail className="w-3.5 h-3.5 mr-2 text-primary" />
+                    <IconEmail className="w-3.5 h-3.5 mr-2 text-primary" width={14} height={14} />
                     <span className="text-primary underline font-semibold">{email}</span>
                 </a>
             )}
 
             {phone && (
                 <a className="flex items-center mt-4 mb-4" href={`tel:${phone}`}>
-                    <IconPhone className="w-3.5 h-3.5 mr-2 text-primary" />
+                    <IconPhone className="w-3.5 h-3.5 mr-2 text-primary" width={14} height={14} />
                     <span className="text-primary underline font-semibold">{phone}</span>
                 </a>
             )}

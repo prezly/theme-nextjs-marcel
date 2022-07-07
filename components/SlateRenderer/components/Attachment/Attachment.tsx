@@ -57,7 +57,7 @@ function Attachment({ node }: Props) {
                 >
                     <FormattedMessage {...translations.actions.download} />
                 </a>
-                <IconDownload className="ml-2 w-4 h-4" />
+                <IconDownload className="ml-2 w-4 h-4" width={16} height={16} />
             </div>
         </div>
     );
