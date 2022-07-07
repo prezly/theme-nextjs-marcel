@@ -48,6 +48,8 @@ function Dropdown({
                             {label}
                             {!hideCaret && (
                                 <IconCaret
+                                    width="14px"
+                                    height="14px"
                                     className={classNames(styles.caret, {
                                         [styles.caretOpen]: open,
                                     })}

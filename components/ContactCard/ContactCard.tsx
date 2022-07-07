@@ -40,25 +40,25 @@ function ContactCard({ node }: Props) {
             <div className="mt-2 flex items-center flex-wrap">
                 {email && (
                     <a href={`mailto:${email}`} className="default-link mr-6 flex items-center">
-                        <IconEmail className="w-4 h-4 mr-2" />
+                        <IconEmail className="w-4 h-4 mr-2" width="16px" height="16px" />
                         {email}
                     </a>
                 )}
                 {website && (
                     <a href={`${website}`} className="default-link mr-6 flex items-center">
-                        <IconGlobe className="w-4 h-4 mr-2" />
+                        <IconGlobe className="w-4 h-4 mr-2" width="16px" height="16px" />
                         {website}
                     </a>
                 )}
                 {mobile && (
                     <a href={`tel:${mobile}`} className="default-link mr-6 flex items-center">
-                        <IconPhone className="w-4 h-4 mr-2" />
+                        <IconPhone className="w-4 h-4 mr-2" width="16px" height="16px" />
                         {mobile}
                     </a>
                 )}
                 {phone && (
                     <a href={`tel:${phone}`} className="default-link mr-6 flex items-center">
-                        <IconPhone className="w-4 h-4 mr-2" />
+                        <IconPhone className="w-4 h-4 mr-2" width="16px" height="16px" />
                         {phone}
                     </a>
                 )}
@@ -67,7 +67,7 @@ function ContactCard({ node }: Props) {
                         href={`https://twitter.com/${twitter}`}
                         className="default-link mr-6 flex items-center"
                     >
-                        <IconTwitter className="w-4 h-4 mr-2" />
+                        <IconTwitter className="w-4 h-4 mr-2" width="16px" height="16px" />
                         {`@${twitter}`}
                     </a>
                 )}
@@ -76,7 +76,7 @@ function ContactCard({ node }: Props) {
                         href={`https://facebook.com/${twitter}`}
                         className="default-link mr-6 flex items-center"
                     >
-                        <IconFacebook className="w-4 h-4 mr-2" />
+                        <IconFacebook className="w-4 h-4 mr-2" width="16px" height="16px" />
                         {`${facebook}`}
                     </a>
                 )}
