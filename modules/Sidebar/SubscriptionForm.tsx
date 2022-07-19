@@ -90,7 +90,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
             onSubmit={handleSubmit}
             noValidate
         >
-            <h3 className="text-xl leading-8 font-semibold mb-6 text-gray-100">
+            <h3 className="mb-6 text-lg font-semibold leading-8 text-gray-100">
                 <FormattedMessage {...translations.subscription.formTitle} />
             </h3>
 
@@ -101,7 +101,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
                         type="email"
                         label={formatMessage(translations.subscription.labelEmail)}
                         placeholder={formatMessage(translations.subscription.labelEmail)}
-                        inputClassName={styles.input}
+                        inputClassName={classNames('placeholder:font-medium', styles.input)}
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
                         error={emailError}
