@@ -21,7 +21,7 @@
 }
 
 .caret {
-    @apply ml-2 w-3.5 h-3.5;
+    @apply ml-2;
 }
 
 .caretOpen {
