@@ -1,7 +1,6 @@
 import { Transition } from '@headlessui/react';
 import { IconLink } from '@prezly/icons';
 import translations from '@prezly/themes-intl-messages';
-import classNames from 'classnames';
 import { Fragment, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
@@ -34,7 +33,7 @@ function StoryShareUrl({ url }: Props) {
                 onClick={handleCopyButtonClick}
                 title={formatMessage(translations.actions.copyShareUrl)}
             >
-                <IconLink className={styles.icon} width={24} height={24} />
+                <IconLink width={24} height={24} />
             </button>
             <Transition
                 show={isTooltipShown}
@@ -45,7 +44,7 @@ function StoryShareUrl({ url }: Props) {
                 leaveTo={styles.transitionStart}
             >
                 <div className={styles.message}>
-                    <IconLink className={classNames(styles.icon, 'mr-2')} width={24} height={24} />
+                    <IconLink className="mr-2" width={24} height={24} />
                     <FormattedMessage {...translations.misc.shareUrlCopied} />
                 </div>
             </Transition>
