@@ -34,11 +34,16 @@ function StoryItem({ story }: Props) {
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
-                        'inline-flex text-primary font-medium items-center border-transparent uppercase text-sm',
+                        'inline-flex text-primary group font-medium items-center border-transparent text-sm',
                     )}
                 >
+                    {/* TODO: I guess this should come from react-intl translation strings */}
                     Read more
-                    <IconArrowRight className="w-3.5 h-3.5 ml-2" width="14px" height="14px" />
+                    <IconArrowRight
+                        className="w-3.5 h-3.5 ml-1 group-hover:ml-2 transition-all"
+                        width="14px"
+                        height="14px"
+                    />
                 </a>
             </Link>
         </div>
