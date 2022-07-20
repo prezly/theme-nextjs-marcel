@@ -31,7 +31,7 @@ function SearchResults({ searchResults, query }: Props) {
                     className={classNames(styles.link, 'text-primary mt-6 mb-3 uppercase')}
                 >
                     <span>View All</span>
-                    <IconArrowRight className="w-3.5 h-3.5 ml-2" width="14px" height="14px" />
+                    <IconArrowRight className="ml-2" width={14} height={14} />
                 </a>
             )}
         </div>
