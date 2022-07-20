@@ -40,7 +40,7 @@ function StoryItem({ story }: Props) {
                     {/* TODO: I guess this should come from react-intl translation strings */}
                     Read more
                     <IconArrowRight
-                        className="w-3.5 h-3.5 ml-1 transform translate-x-0 group-hover:translate-x-1 transition-transform"
+                        className="ml-1 transform translate-x-0 group-hover:translate-x-1 transition-transform"
                         width={14}
                         height={14}
                     />
