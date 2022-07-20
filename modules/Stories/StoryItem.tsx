@@ -41,8 +41,8 @@ function StoryItem({ story }: Props) {
                     Read more
                     <IconArrowRight
                         className="w-3.5 h-3.5 ml-1 group-hover:ml-2 transition-all"
-                        width="14px"
-                        height="14px"
+                        width={14}
+                        height={14}
                     />
                 </a>
             </Link>
