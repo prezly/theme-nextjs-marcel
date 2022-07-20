@@ -15,13 +15,13 @@ function StoryShareSocial({ url, className }: Props) {
     return (
         <div className={classNames(styles.container, className)}>
             <SocialShareButton network="twitter" className={styles.button} url={url}>
-                <IconTwitter className={styles.icon} width="24px" height="24px" />
+                <IconTwitter className={styles.icon} width={24} height={24} />
             </SocialShareButton>
             <SocialShareButton network="facebook" className={styles.button} url={url}>
-                <IconFacebook className={styles.icon} width="24px" height="24px" />
+                <IconFacebook className={styles.icon} width={24} height={24} />
             </SocialShareButton>
             <SocialShareButton network="linkedin" className={styles.button} url={url}>
-                <IconLinkedin className={styles.icon} width="24px" height="24px" />
+                <IconLinkedin className={styles.icon} width={24} height={24} />
             </SocialShareButton>
             <StoryShareUrl url={url} />
         </div>

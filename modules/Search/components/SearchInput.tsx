@@ -27,7 +27,7 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
             action="/search"
             className="flex items-center bg-gray-700 justify-between px-4 py-0 rounded-lg my-6 relative"
         >
-            <IconSearch className="w-5 h-5 text-gray-200" width="20px" height="20px" />
+            <IconSearch className="text-gray-200" width={20} height={20} />
             <FormInput
                 label={formatMessage(translations.search.inputLabel)}
                 type="search"

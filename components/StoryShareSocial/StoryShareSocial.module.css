@@ -7,7 +7,7 @@
 }
 
 .icon {
-    @apply w-6 h-6 text-gray-200;
+    @apply text-gray-200;
 }
 
 .button:hover .icon,
