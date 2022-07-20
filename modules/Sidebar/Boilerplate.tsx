@@ -37,7 +37,7 @@ function Boilerplate({ companyInformation }: Props) {
                         width="14px"
                         height="14px"
                     />
-                    <span className="text-primary underline font-semibold">{email}</span>
+                    <span className="text-primary font-semibold">{email}</span>
                 </a>
             )}
 
@@ -48,7 +48,7 @@ function Boilerplate({ companyInformation }: Props) {
                         width="14px"
                         height="14px"
                     />
-                    <span className="text-primary underline font-semibold">{phone}</span>
+                    <span className="text-primary font-semibold">{phone}</span>
                 </a>
             )}
 
