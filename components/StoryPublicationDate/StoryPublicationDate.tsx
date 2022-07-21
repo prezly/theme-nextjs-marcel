@@ -21,7 +21,7 @@ function StoryPublicationDate({ story, className }: PropsWithChildren<Props>) {
     return (
         <div className={classNames('flex items-center leading-5', className)}>
             <IconCalendar
-                className="text-gray-100 w-5 h-5 lg:w-4 lg:h-4 mr-2"
+                className="text-neutral-400 w-5 h-5 lg:w-4 lg:h-4 mr-2"
                 width={16}
                 height={16}
             />
