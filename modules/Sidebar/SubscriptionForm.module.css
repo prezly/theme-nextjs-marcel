@@ -3,7 +3,7 @@
 }
 
 .disclaimerLink {
-    @apply font-medium text-primary hover:text-primaryShade focus:text-primaryShade underline;
+    @apply font-medium text-primary hover:text-primaryShade focus:text-primaryShade;
 }
 
 .button {
