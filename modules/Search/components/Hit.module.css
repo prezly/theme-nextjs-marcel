@@ -20,7 +20,7 @@
 }
 
 .link {
-    @apply inline-flex text-primary-main font-medium items-center border-transparent uppercase text-sm;
+    @apply inline-flex text-primary font-medium items-center border-transparent uppercase text-sm;
 }
 
 .icon {

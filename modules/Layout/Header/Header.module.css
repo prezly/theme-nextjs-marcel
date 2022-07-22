@@ -27,7 +27,7 @@
 }
 
 .newsroom.withoutLogo {
-    @apply text-primary-main hover:text-gray-100 hover:opacity-80;
+    @apply text-primary hover:text-gray-100 hover:opacity-80;
 }
 
 .logo {

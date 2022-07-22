@@ -1,5 +1,5 @@
 .container {
-    @apply flex items-center text-inherit no-underline hover:text-primary-main;
+    @apply flex items-center text-inherit no-underline hover:text-primary;
 }
 
 .imageWrapper {

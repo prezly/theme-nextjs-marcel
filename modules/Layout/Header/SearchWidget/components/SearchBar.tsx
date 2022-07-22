@@ -38,7 +38,7 @@ function SearchBar({ currentRefinement, refine }: Props) {
                 )}
             </div>
             <Button variation="navigation" type="submit">
-                <IconSearch className="text-primary-main" width={14} height={14} />
+                <IconSearch className="text-primary" width={14} height={14} />
             </Button>
         </form>
     );
