@@ -8,6 +8,7 @@ import { IntlProvider } from 'react-intl';
 import type { BasePageProps } from 'types';
 
 import '@prezly/uploadcare-image/build/styles.css';
+import '@prezly/themes-ui-components/styles.css';
 import '../styles/globals.css';
 import '../styles/slate-override.css';
 
