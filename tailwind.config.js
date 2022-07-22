@@ -59,7 +59,6 @@ module.exports = {
                     DEFAULT: '#EAB308',
                     shade: '#856605',
                 },
-                primaryShade: '#0950C3',
                 modalBg: 'rgba(31, 41, 55, 0.92)',
             },
         },
