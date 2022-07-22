@@ -2,6 +2,7 @@
 const lineClampPlugin = require('@tailwindcss/line-clamp');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./components/**/*.{ts,tsx}', './modules/**/*.{ts,tsx}', './pages/**/*.{ts,tsx}'],
     darkMode: 'media', // or 'class'
