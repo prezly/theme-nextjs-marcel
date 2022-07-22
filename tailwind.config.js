@@ -12,6 +12,15 @@ module.exports = {
             '3xl': ['1.75rem', '2.5rem'],
             '4xl': ['2rem', '3rem'],
         },
+        screens: {
+            sm: `${370 + 20 * 2}px`, // 370px + (40px padding) = 410px
+            md: `${770 + 32 * 2}px`, // 770px + (64px padding) = 834px
+            lg: `${1040 + 32 * 2}px`, // 1040px + (64px padding) = 1104px
+        },
+        container: (theme) => ({
+            center: true,
+            padding: theme('spacing.4'),
+        }),
         extend: {
             colors: {
                 neutral: {
