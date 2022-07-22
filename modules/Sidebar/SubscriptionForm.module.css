@@ -3,11 +3,11 @@
 }
 
 .disclaimerLink {
-    @apply font-medium text-primary hover:text-primaryShade focus:text-primaryShade;
+    @apply font-medium text-primary-main hover:text-primaryShade focus:text-primaryShade;
 }
 
 .button {
-    @apply w-full bg-primary border-0 rounded-lg px-6 py-3 font-medium hover:!bg-primaryShade text-white;
+    @apply w-full bg-primary-main border-0 rounded-lg px-6 py-3 font-medium hover:!bg-primaryShade text-white;
 }
 
 .input {

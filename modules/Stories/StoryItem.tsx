@@ -34,7 +34,7 @@ function StoryItem({ story }: Props) {
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
-                        'inline-flex text-primary font-medium items-center border-transparent uppercase text-sm',
+                        'inline-flex text-primary-main font-medium items-center border-transparent uppercase text-sm',
                     )}
                 >
                     Read more

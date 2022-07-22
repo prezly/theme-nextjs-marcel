@@ -3,8 +3,6 @@ const lineClampPlugin = require('@tailwindcss/line-clamp');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
-    // Read more about JIT functionality @ https://tailwindcss.com/docs/just-in-time-mode
-    mode: 'jit',
     content: ['./components/**/*.{ts,tsx}', './modules/**/*.{ts,tsx}', './pages/**/*.{ts,tsx}'],
     darkMode: 'media', // or 'class'
     theme: {
@@ -27,7 +25,15 @@ module.exports = {
                     800: '#162A3D',
                     900: '#111827',
                 },
-                primary: '#3B82F6',
+                primary: {
+                    lightest: '#76A4D5',
+                    lighter: '#5F95CE',
+                    light: '#4885C7',
+                    main: '#3977B9',
+                    dark: '#3167A0',
+                    darker: '#2A5888',
+                    darkest: '#234971',
+                },
                 primaryShade: '#0950C3',
                 modalBg: 'rgba(31, 41, 55, 0.92)',
             },

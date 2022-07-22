@@ -47,7 +47,7 @@ function Attachment({ node }: Props) {
                     </h5>
                 </div>
             </div>
-            <div className="flex items-center text-primary">
+            <div className="flex items-center text-primary-main">
                 <a
                     href={downloadUrl}
                     onClick={handleClick}

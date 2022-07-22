@@ -28,7 +28,7 @@ function SearchResults({ searchResults, query }: Props) {
             {totalResults > 3 && (
                 <a
                     href={`/search?query=${query}`}
-                    className={classNames(styles.link, 'text-primary mt-6 mb-3 uppercase')}
+                    className={classNames(styles.link, 'text-primary-main mt-6 mb-3 uppercase')}
                 >
                     <span>View All</span>
                     <IconArrowRight className="ml-2" width={14} height={14} />

@@ -35,7 +35,7 @@
 }
 
 .categoryLink {
-    @apply text-primary hover:text-primaryShade font-semibold text-sm;
+    @apply text-primary-main hover:text-primaryShade font-semibold text-sm;
 }
 
 .caret {
