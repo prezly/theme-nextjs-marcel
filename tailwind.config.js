@@ -34,6 +34,21 @@ module.exports = {
                     darker: '#2A5888',
                     darkest: '#234971',
                 },
+                success: {
+                    tint: '#51E186',
+                    main: '#22C55E',
+                    shade: '#136D34',
+                },
+                error: {
+                    tint: '#F58A8A',
+                    main: '#EF4444',
+                    shade: '#BC1010',
+                },
+                warning: {
+                    tint: '#F9CD44',
+                    main: '#EAB308',
+                    shade: '#856605',
+                },
                 primaryShade: '#0950C3',
                 modalBg: 'rgba(31, 41, 55, 0.92)',
             },
