@@ -1,3 +1,7 @@
+.container {
+    @apply border-t-2 border-gray-600;
+}
+
 .container :global(.ais-Hits-list) {
     @apply list-none m-0 p-0;
 }
@@ -31,7 +35,7 @@
 }
 
 .categoryLink {
-    @apply text-primary hover:text-primaryShade font-semibold text-sm;
+    @apply text-primary hover:text-primary-dark font-semibold text-sm;
 }
 
 .caret {

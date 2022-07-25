@@ -10,7 +10,7 @@
     @apply bg-gray-500;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 410px) {
     .item.withMobileDisplay {
         @apply border-0;
     }
