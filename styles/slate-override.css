@@ -144,3 +144,15 @@ figure.prezly-slate-gallery--full-width {
 .prezly-slate-bookmark-card-component__description {
     @apply text-gray-300 text-base font-normal !important;
 }
+
+.prezly-slate-table-cell {
+    @apply text-gray-300;
+}
+
+.prezly-slate-table-cell--header {
+    @apply text-gray-300 bg-gray-700;
+}
+
+.prezly-slate-table--withBorders .prezly-slate-table-cell {
+    @apply border-gray-600;
+}
