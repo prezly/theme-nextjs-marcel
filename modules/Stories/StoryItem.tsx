@@ -1,8 +1,10 @@
 import { IconArrowRight } from '@prezly/icons';
 import type { Story } from '@prezly/sdk';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import translations from '@prezly/themes-intl-messages';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { FormattedMessage } from 'react-intl';
 
 import StoryMeta from '@/components/StoryMeta';
 
@@ -34,11 +36,15 @@ function StoryItem({ story }: Props) {
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
-                        'inline-flex text-primary font-medium items-center border-transparent uppercase text-sm',
+                        'inline-flex text-primary group font-medium items-center border-transparent text-sm',
                     )}
                 >
-                    Read more
-                    <IconArrowRight className="w-3.5 h-3.5 ml-2" width="14px" height="14px" />
+                    <FormattedMessage {...translations.actions.readMore} />
+                    <IconArrowRight
+                        className="ml-1 transform translate-x-0 group-hover:translate-x-1 transition-transform"
+                        width={14}
+                        height={14}
+                    />
                 </a>
             </Link>
         </div>
