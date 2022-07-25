@@ -94,7 +94,9 @@ function Header({ hasError }: Props) {
     return (
         <header
             ref={headerRef}
-            className={classNames(styles.container, { [styles.open]: isMenuOpen })}
+            className={classNames('flex z-[2] h-[88px] w-full px-5 md:container', {
+                'bg-gray-600': isMenuOpen,
+            })}
         >
             <div className="w-full">
                 <nav role="navigation" className={styles.header}>
