@@ -1,4 +1,4 @@
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 410px) {
     .container {
         @apply bg-gray-500;
     }
