@@ -1,8 +1,10 @@
 import { IconArrowRight } from '@prezly/icons';
 import type { Story } from '@prezly/sdk';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import translations from '@prezly/themes-intl-messages';
 import classNames from 'classnames';
 import Link from 'next/link';
+import { FormattedMessage } from 'react-intl';
 
 import StoryMeta from '@/components/StoryMeta';
 
@@ -37,8 +39,7 @@ function StoryItem({ story }: Props) {
                         'inline-flex text-primary group font-medium items-center border-transparent text-sm',
                     )}
                 >
-                    {/* TODO: I guess this should come from react-intl translation strings */}
-                    Read more
+                    <FormattedMessage {...translations.actions.readMore} />
                     <IconArrowRight
                         className="ml-1 transform translate-x-0 group-hover:translate-x-1 transition-transform"
                         width={14}

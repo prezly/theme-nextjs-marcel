@@ -1,8 +1,10 @@
 import { IconArrowRight } from '@prezly/icons';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import translations from '@prezly/themes-intl-messages';
 import Link from 'next/link';
 import type { Hit } from 'react-instantsearch-core';
 import { Highlight } from 'react-instantsearch-dom';
+import { FormattedMessage } from 'react-intl';
 
 import StoryMeta from '@/components/StoryMeta';
 
@@ -30,7 +32,7 @@ function HitComponent({ hit }: Props) {
 
             <Link href={`/${slug}`} passHref>
                 <a className={styles.link}>
-                    Read more
+                    <FormattedMessage {...translations.actions.readMore} />
                     <IconArrowRight className={styles.icon} width={14} height={14} />
                 </a>
             </Link>
