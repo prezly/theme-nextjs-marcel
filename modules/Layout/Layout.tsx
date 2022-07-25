@@ -44,13 +44,11 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
         <>
             <PageSeo title={title} description={description} imageUrl={imageUrl} />
             <Branding newsroom={newsroom} />
-            <div className="lg:max-w-[1088px] lg:mx-auto">
-                <Header />
-                <div className="px-6">
-                    <div className="pt-10 lg:flex lg:flex-nowrap">
-                        <div className="flex-grow">{children}</div>
-                        {!hasError && <Sidebar />}
-                    </div>
+            <Header />
+            <div className="container">
+                <div className="pt-10 lg:flex lg:flex-nowrap">
+                    <div className="flex-grow">{children}</div>
+                    {!hasError && <Sidebar />}
                 </div>
                 <LoadingBar isLoading={isLoadingPage} className={styles.loadingBar} />
                 <ScrollToTopButton

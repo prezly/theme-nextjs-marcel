@@ -19,7 +19,11 @@ module.exports = {
         },
         container: (theme) => ({
             center: true,
-            padding: theme('spacing.4'),
+            padding: {
+                DEFAULT: theme('spacing.5'),
+                md: theme('spacing.8'),
+                lg: theme('spacing.8'),
+            },
         }),
         extend: {
             colors: {

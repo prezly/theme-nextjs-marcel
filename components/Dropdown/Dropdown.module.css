@@ -58,7 +58,7 @@
     @apply border-none bg-gray-600;
 }
 
-@media screen and (max-width: 414px) {
+@media screen and (max-width: 410px) {
     .menu.withMobileDisplay {
         @apply p-0 pb-4 m-0;
     }
@@ -88,7 +88,7 @@
     }
 }
 
-@media screen and (min-width: 415px) {
+@media screen and (min-width: 411px) {
     .menu {
         @apply absolute-menu-position;
     }
