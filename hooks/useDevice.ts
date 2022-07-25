@@ -1,7 +1,7 @@
 import { useMediaQuery } from '@react-hookz/web';
 
-const BREAKPOINT_TABLET = 414;
-const BREAKPOINT_DESKTOP = 768;
+const BREAKPOINT_TABLET = 410;
+const BREAKPOINT_DESKTOP = 834;
 
 export function useDevice() {
     const isMobile = useMediaQuery(`(max-width: ${BREAKPOINT_TABLET}px)`, true);
