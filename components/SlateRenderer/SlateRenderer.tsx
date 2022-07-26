@@ -17,7 +17,6 @@ import {
     StoryBookmarkNode,
 } from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
-import '@prezly/content-renderer-react-js/styles.css';
 
 import ContactCard from '@/components/ContactCard';
 import {
