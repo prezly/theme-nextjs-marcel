@@ -25,9 +25,9 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
         <form
             method="GET"
             action="/search"
-            className="flex items-center bg-gray-700 justify-between px-4 py-0 rounded-lg my-6 relative"
+            className="flex items-center bg-neutral-700 justify-between px-4 py-0 rounded-lg my-6 relative"
         >
-            <IconSearch className="text-gray-200" width={20} height={20} />
+            <IconSearch className="text-neutral-200" width={20} height={20} />
             <FormInput
                 label={formatMessage(translations.search.inputLabel)}
                 type="search"
@@ -44,7 +44,7 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 icon={IconFilter}
                 iconPlacement="left"
                 onClick={toggleFacets}
-                contentClassName="font-semibold tracking-wide text-sm uppercase text-gray-200"
+                contentClassName="font-semibold tracking-wide text-sm uppercase text-neutral-200"
             >
                 <FormattedMessage {...translations.search.filters} />
             </Button>

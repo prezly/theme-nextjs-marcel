@@ -5,7 +5,7 @@
 
 @layer base {
     body {
-        @apply bg-gray-800 text-gray-300 font-normal;
+        @apply bg-neutral-900 text-neutral-300 font-normal;
         @apply scroll-smooth !important;
 
         font-family: Inter, sans-serif;
@@ -27,12 +27,8 @@
     }
 
     .default-input {
-        @apply block py-2.5 px-3 rounded-md border border-gray-600 leading-7;
+        @apply block py-2.5 px-3 rounded-md border border-neutral-600 leading-7;
         @apply shadow-inner focus:outline-none focus:ring focus:ring-blue-300;
-    }
-
-    .default-well {
-        @apply bg-gray-700 bg-opacity-60;
     }
 
     .svg-icon {

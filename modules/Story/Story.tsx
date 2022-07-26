@@ -23,8 +23,8 @@ function Story({ story }: Props) {
             <StorySeo story={story} />
             <StoryMeta story={story} />
             <article>
-                <h1 className="text-4xl font-bold text-gray-100 mt-6">{title}</h1>
-                <h3 className="text-gray-300 mt-3">{subtitle}</h3>
+                <h1 className="text-4xl font-bold text-neutral-100 mt-6">{title}</h1>
+                <h3 className="text-neutral-300 mt-3">{subtitle}</h3>
 
                 {url && <StoryShareSocial url={url} />}
 

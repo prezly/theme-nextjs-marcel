@@ -4,21 +4,21 @@
 
 .input,
 .message {
-    @apply text-gray-200;
+    @apply text-neutral-200;
 }
 
 .paste {
-    @apply text-[0] cursor-pointer appearance-none bg-none border-0 p-0 text-gray-200 hover:text-gray-500 focus:text-gray-500;
+    @apply text-[0] cursor-pointer appearance-none bg-none border-0 p-0 text-neutral-200 hover:text-neutral-500 focus:text-neutral-500;
 }
 
 .message {
-    @apply absolute will-change-[opacity] left-0 right-0 top-0 bottom-0 flex items-center bg-gray-800 text-gray-200;
+    @apply absolute will-change-[opacity] left-0 right-0 top-0 bottom-0 flex items-center bg-neutral-900 text-neutral-200;
 
     transition: opacity 0.4s ease;
 }
 
 .message.icon {
-    @apply mr-2 text-gray-300;
+    @apply mr-2 text-neutral-300;
 }
 
 .transitionStart {
