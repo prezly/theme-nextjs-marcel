@@ -10,16 +10,21 @@ export function List({ node, children }: PropsWithChildren<Props>) {
     const className = classNames('pl-6 my-4', {
         'list-decimal': node.type === ListNode.Type.NUMBERED,
         'list-disc': node.type === ListNode.Type.BULLETED,
-        'text-left': node.align === Alignment.LEFT,
-        'text-center': node.align === Alignment.CENTER,
-        'text-right': node.align === Alignment.RIGHT,
     });
 
-    if (node.type === ListNode.Type.NUMBERED) {
-        return <ol className={className}>{children}</ol>;
-    }
+    const Tag = node.type === ListNode.Type.NUMBERED ? 'ol' : 'ul';
 
-    return <ul className={className}>{children}</ul>;
+    return (
+        <div
+            className={classNames('flex', {
+                'text-left justify-start': node.align === Alignment.LEFT,
+                'text-center justify-center': node.align === Alignment.CENTER,
+                'text-right justify-end': node.align === Alignment.RIGHT,
+            })}
+        >
+            <Tag className={className}>{children}</Tag>
+        </div>
+    );
 }
 
 export function ListItem({ children }: PropsWithChildren<{}>) {
