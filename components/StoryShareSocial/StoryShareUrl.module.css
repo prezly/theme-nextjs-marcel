@@ -12,7 +12,7 @@
 }
 
 .message {
-    @apply absolute will-change-[opacity] left-0 right-0 top-0 bottom-0 flex items-center bg-neutral-800 text-neutral-200;
+    @apply absolute will-change-[opacity] left-0 right-0 top-0 bottom-0 flex items-center bg-neutral-900 text-neutral-200;
 
     transition: opacity 0.4s ease;
 }
