@@ -1,5 +1,5 @@
 .modal {
-    @apply shadow-xl rounded-lg inline-block relative w-full max-w-[530px] overflow-hidden text-left bg-gray-700 mt-[25vh] p-0;
+    @apply shadow-xl rounded-lg inline-block relative w-full max-w-[530px] overflow-hidden text-left bg-neutral-800 mt-[25vh] p-0;
 }
 
 .dialog {

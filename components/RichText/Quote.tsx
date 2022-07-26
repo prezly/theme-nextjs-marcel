@@ -17,7 +17,7 @@ function Quote({ node, children }: PropsWithChildren<Props>) {
             })}
         >
             <div
-                className={classNames('border-gray-300', {
+                className={classNames('border-neutral-300', {
                     'border-l-[2px] pl-4':
                         alignment === QuoteNode.Alignment.LEFT ||
                         alignment === QuoteNode.Alignment.CENTER,

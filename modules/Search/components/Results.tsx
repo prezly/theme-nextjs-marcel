@@ -20,7 +20,7 @@ function Results({ hits, hasMore, refineNext }: InfiniteHitsProvided<SearchHit>)
 
     return (
         <>
-            <h3 className="text-gray-300 mt-6 mb-12">
+            <h3 className="text-neutral-300 mt-6 mb-12">
                 {searchQuery ? (
                     <FormattedMessage
                         {...translations.search.fullResultsSubTitle}
@@ -31,12 +31,12 @@ function Results({ hits, hasMore, refineNext }: InfiniteHitsProvided<SearchHit>)
                     />
                 ) : null}
             </h3>
-            <hr className="w-[100px] mb-10 border-0 border-t-2 border-gray-600" />
+            <hr className="w-[100px] mb-10 border-0 border-t-2 border-neutral-600" />
             {!hits.length &&
                 (isSearching ? (
                     <LoadMore onLoadMore={() => {}} canLoadMore={isSearching} />
                 ) : (
-                    <p className="text-base text-gray-300 text-left py-4">
+                    <p className="text-base text-neutral-300 text-left py-4">
                         {formatMessage(translations.search.noResults)}
                     </p>
                 ))}

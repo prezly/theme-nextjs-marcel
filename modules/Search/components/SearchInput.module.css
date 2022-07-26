@@ -1,5 +1,5 @@
 .facets {
-    @apply rounded-md p-0 bg-gray-700 absolute top-[120%] right-0 hidden empty:hidden w-full md:w-80;
+    @apply rounded-md p-0 bg-neutral-700 absolute top-[120%] right-0 hidden empty:hidden w-full md:w-80;
 }
 
 .facets.facetsOpen {
@@ -11,7 +11,7 @@
 }
 
 .input {
-    @apply appearance-none block w-full bg-transparent py-3 px-4 leading-tight focus:outline-none text-gray-200 border-none;
+    @apply appearance-none block w-full bg-transparent py-3 px-4 leading-tight focus:outline-none text-neutral-200 border-none;
 }
 
 /* clears the 'X' from Internet Explorer */

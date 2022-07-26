@@ -18,7 +18,7 @@ function StoryItem({ story }: Props) {
     return (
         <div className="mb-16">
             <StoryMeta story={story} />
-            <h2 className="text-gray-50 text-2xl font-bold mb-2 leading-9 md:mt-4">
+            <h2 className="text-neutral-50 text-2xl font-bold mb-2 leading-9 md:mt-4">
                 <Link href={`/${slug}`} locale={false} passHref>
                     <a
                         className={classNames(
@@ -31,7 +31,9 @@ function StoryItem({ story }: Props) {
                 </Link>
             </h2>
             {subtitle && (
-                <h3 className="text-gray-400 font-normal text-base leading-7 mb-4">{subtitle}</h3>
+                <h3 className="text-neutral-400 font-normal text-base leading-7 mb-4">
+                    {subtitle}
+                </h3>
             )}
             <Link href={`/${slug}`} passHref>
                 <a

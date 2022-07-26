@@ -31,16 +31,19 @@ function Attachment({ node }: Props) {
     return (
         <div
             className={classNames(
-                'border-[1px] border-gray-600 text-gray-200 rounded-xl p-6',
+                'border-[1px] border-neutral-600 text-neutral-200 rounded-xl p-6',
                 'hover:bg-opacity-100',
                 'flex lg:flex-row justify-between items-center my-10',
             )}
         >
             <div className="flex justify-between items-center">
-                <FileTypeIcon extension={fileExtension} className="text-gray-400 w-10 h-10 mr-6" />
+                <FileTypeIcon
+                    extension={fileExtension}
+                    className="text-neutral-400 w-10 h-10 mr-6"
+                />
                 <div>
-                    <h4 className="text-lg text-gray-200 font-semibold mb-1">{displayedName}</h4>
-                    <h5 className="text-gray-300 font-normal">
+                    <h4 className="text-lg text-neutral-200 font-semibold mb-1">{displayedName}</h4>
+                    <h5 className="text-neutral-300 font-normal">
                         {fileType}
                         {fileType && ' - '}
                         {formatBytes(file.size)}

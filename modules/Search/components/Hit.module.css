@@ -3,7 +3,7 @@
 }
 
 .title {
-    @apply text-gray-50 text-2xl font-bold mb-2 leading-9 md:mt-4;
+    @apply text-neutral-50 text-2xl font-bold mb-2 leading-9 md:mt-4;
 }
 
 .title a {
@@ -12,11 +12,11 @@
 }
 
 .subtitle {
-    @apply text-gray-400 font-normal text-base leading-7 mb-4;
+    @apply text-neutral-400 font-normal text-base leading-7 mb-4;
 }
 
 .content {
-    @apply mb-4 text-gray-400 leading-7 line-clamp-3;
+    @apply mb-4 text-neutral-400 leading-7 line-clamp-3;
 }
 
 .link {

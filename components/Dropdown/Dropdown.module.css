@@ -3,7 +3,7 @@
 }
 
 .absolute-menu-position {
-    @apply rounded-md shadow-md absolute left-0 min-w-[200px] max-w-[330px] mt-1 mx-0 mb-0 p-0 bg-gray-600;
+    @apply rounded-md shadow-md absolute left-0 min-w-[200px] max-w-[330px] mt-1 mx-0 mb-0 p-0 bg-neutral-700;
 }
 
 .menu {
@@ -55,7 +55,7 @@
 }
 
 .dropdownButtonActive {
-    @apply border-none bg-gray-600;
+    @apply border-none bg-neutral-700;
 }
 
 @media screen and (max-width: 410px) {

@@ -3,7 +3,7 @@
 }
 
 .title {
-    @apply text-gray-100 font-bold text-4xl mb-2;
+    @apply text-neutral-100 font-bold text-4xl mb-2;
 }
 
 .actions {
