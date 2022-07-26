@@ -1,9 +1,9 @@
 .item {
-    @apply w-full min-h-full max-w-full uppercase hover:bg-neutral-400;
+    @apply w-full min-h-full max-w-full uppercase hover:bg-neutral-600;
 }
 
 .item .link {
-    @apply block p-4 no-underline text-neutral-100 font-medium hover:bg-neutral-400 text-sm;
+    @apply block p-4 no-underline text-neutral-100 font-medium hover:bg-neutral-600 text-sm;
 }
 
 .link.active {
