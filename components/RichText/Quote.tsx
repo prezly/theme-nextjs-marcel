@@ -11,16 +11,21 @@ function Quote({ node, children }: PropsWithChildren<Props>) {
 
     return (
         <blockquote
-            className={classNames('story-blockquote', {
-                'text-left border-l-[2px] border-neutral-300 pl-4':
-                    alignment === QuoteNode.Alignment.LEFT,
-                'text-center border-l-[2px] border-neutral-300 pl-4':
-                    alignment === QuoteNode.Alignment.CENTER,
-                'text-right border-r-[2px] border-neutral-300 pr-4':
-                    alignment === QuoteNode.Alignment.RIGHT,
+            className={classNames('story-blockquote flex', {
+                'justify-end text-right': alignment === QuoteNode.Alignment.RIGHT,
+                'justify-center text-center': alignment === QuoteNode.Alignment.CENTER,
             })}
         >
-            {children}
+            <div
+                className={classNames('border-neutral-300', {
+                    'border-l-[2px] pl-4':
+                        alignment === QuoteNode.Alignment.LEFT ||
+                        alignment === QuoteNode.Alignment.CENTER,
+                    'border-r-[2px] pr-4': alignment === QuoteNode.Alignment.RIGHT,
+                })}
+            >
+                {children}
+            </div>
         </blockquote>
     );
 }
