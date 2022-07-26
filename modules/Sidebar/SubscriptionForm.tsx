@@ -86,7 +86,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
 
     return (
         <form
-            className={classNames('default-well rounded-xl p-6 mb-12', className)}
+            className={classNames('bg-neutral-800 rounded-xl p-6 mb-12', className)}
             onSubmit={handleSubmit}
             noValidate
         >
