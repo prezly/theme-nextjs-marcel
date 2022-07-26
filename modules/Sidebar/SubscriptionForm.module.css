@@ -1,5 +1,5 @@
 .disclaimer {
-    @apply text-xs mt-5 mb-0 text-gray-300;
+    @apply text-xs mt-5 mb-0 text-neutral-300;
 }
 
 .disclaimerLink {
@@ -11,5 +11,5 @@
 }
 
 .input {
-    @apply bg-gray-700 border-none focus:outline-none text-gray-200;
+    @apply bg-neutral-700 border-none focus:outline-none text-neutral-200;
 }

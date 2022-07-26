@@ -3,23 +3,23 @@
 }
 
 .header .navigationToggle {
-    @apply text-gray-100 text-base p-4 -mr-4;
+    @apply text-neutral-100 text-base p-4 -mr-4;
 }
 
 .header .navigationButton {
-    @apply text-gray-100 uppercase font-semibold text-sm mr-1 border-none;
+    @apply text-neutral-100 uppercase font-semibold text-sm mr-1 border-none;
 }
 
 .header .searchToggle {
-    @apply text-gray-100 uppercase font-semibold text-sm border-none;
+    @apply text-neutral-100 uppercase font-semibold text-sm border-none;
 }
 
 .newsroom {
-    @apply no-underline text-gray-100 uppercase text-3xl z-20;
+    @apply no-underline text-neutral-100 uppercase text-3xl z-20;
 }
 
 .newsroom.withoutLogo {
-    @apply text-primary hover:text-gray-100 hover:opacity-80;
+    @apply text-primary hover:text-neutral-100 hover:opacity-80;
 }
 
 .logo {
@@ -44,14 +44,14 @@
 }
 
 .backdrop {
-    @apply absolute left-0 right-0 bottom-0 top-0 bg-gray-700 opacity-0;
+    @apply absolute left-0 right-0 bottom-0 top-0 bg-neutral-700 opacity-0;
 
     transition: opacity 0.3s ease;
 }
 
 @media screen and (max-width: 410px) {
     .header .navigationButton {
-        @apply flex text-left justify-start py-6 px-5 text-gray-100;
+        @apply flex text-left justify-start py-6 px-5 text-neutral-100;
     }
 
     .header .searchToggle {
@@ -80,7 +80,7 @@
     }
 
     .navigationInner {
-        @apply relative bg-gray-600 max-h-full overflow-y-auto;
+        @apply relative bg-neutral-600 max-h-full overflow-y-auto;
 
         transform: translateY(-50%);
         opacity: 0;

@@ -95,7 +95,7 @@ function Header({ hasError }: Props) {
         <header
             ref={headerRef}
             className={classNames('flex z-[2] h-[88px] w-full px-5 md:container', {
-                'bg-gray-600': isMenuOpen,
+                'bg-neutral-600': isMenuOpen,
             })}
         >
             <div className="w-full">

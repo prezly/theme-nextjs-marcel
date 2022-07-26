@@ -1,11 +1,11 @@
 .loadingBar {
-    @apply bg-gray-600;
+    @apply bg-neutral-600;
 }
 
 .scrollToTop {
-    @apply bg-gray-600 active:bg-gray-500 border-none !important;
+    @apply bg-neutral-600 active:bg-neutral-500 border-none !important;
 }
 
 .scrollToTopIcon {
-    @apply translate-y-0 m-0 text-gray-200;
+    @apply translate-y-0 m-0 text-neutral-200;
 }

@@ -35,21 +35,21 @@ function StoryHeader({ story }: Props) {
                                     <CategoryTag
                                         key={category.id}
                                         category={category}
-                                        className="text-base bg-gray-600 bg-opacity-60 mr-4"
+                                        className="text-base bg-neutral-600 bg-opacity-60 mr-4"
                                     />
                                 ))}
                             </div>
                         )}
-                        <h1 className="text-gray-100 font-bold text-3xl mb-6 lg:text-4xl">
+                        <h1 className="text-neutral-100 font-bold text-3xl mb-6 lg:text-4xl">
                             {title}
                         </h1>
 
-                        <h3 className="mb-6 text-gray-300 text-lg leading-8">{subtitle}</h3>
+                        <h3 className="mb-6 text-neutral-300 text-lg leading-8">{subtitle}</h3>
 
                         <div className="lg:flex lg:items-center">
                             <StoryPublicationDate
                                 story={story}
-                                className="mb-8 lg:mb-0 lg:mr-6 text-gray-300"
+                                className="mb-8 lg:mb-0 lg:mr-6 text-neutral-300"
                             />
                         </div>
                     </div>

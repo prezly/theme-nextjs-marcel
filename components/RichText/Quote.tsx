@@ -12,11 +12,11 @@ function Quote({ node, children }: PropsWithChildren<Props>) {
     return (
         <blockquote
             className={classNames('story-blockquote', {
-                'text-left border-l-[2px] border-gray-300 pl-4':
+                'text-left border-l-[2px] border-neutral-300 pl-4':
                     alignment === QuoteNode.Alignment.LEFT,
-                'text-center border-l-[2px] border-gray-300 pl-4':
+                'text-center border-l-[2px] border-neutral-300 pl-4':
                     alignment === QuoteNode.Alignment.CENTER,
-                'text-right border-r-[2px] border-gray-300 pr-4':
+                'text-right border-r-[2px] border-neutral-300 pr-4':
                     alignment === QuoteNode.Alignment.RIGHT,
             })}
         >

@@ -24,10 +24,10 @@ function Galleries({ initialGalleries, pagination }: Props) {
     return (
         <div>
             <div className="mb-12">
-                <h1 className="text-gray-100 font-bold text-4xl mb-2">
+                <h1 className="text-neutral-100 font-bold text-4xl mb-2">
                     {formatMessage(translations.mediaGallery.title)}
                 </h1>
-                <hr className="w-[100px] mt-10 border-0 border-t-2 border-gray-600" />
+                <hr className="w-[100px] mt-10 border-0 border-t-2 border-neutral-600" />
             </div>
 
             <GalleriesList galleries={galleries} />

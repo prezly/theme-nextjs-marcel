@@ -7,5 +7,5 @@
 }
 
 .title {
-    @apply inline-block mt-3 text-lg text-gray-200 font-bold leading-[160%] tracking-wide;
+    @apply inline-block mt-3 text-lg text-neutral-200 font-bold leading-[160%] tracking-wide;
 }
