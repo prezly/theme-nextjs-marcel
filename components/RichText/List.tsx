@@ -11,9 +11,9 @@ interface Props {
 export function List({ node, children }: PropsWithChildren<Props>) {
     const alignmentClassNames = useNodeAlignmentClassNames(node);
 
-    const className = classNames(alignmentClassNames, {
-        'list-decimal pl-6 my-4': node.type === ListNode.Type.NUMBERED,
-        'list-disc pl-6 my-4': node.type === ListNode.Type.BULLETED,
+    const className = classNames('pl-6 my-4', alignmentClassNames, {
+        'list-decimal': node.type === ListNode.Type.NUMBERED,
+        'list-disc': node.type === ListNode.Type.BULLETED,
     });
 
     if (node.type === ListNode.Type.NUMBERED) {
