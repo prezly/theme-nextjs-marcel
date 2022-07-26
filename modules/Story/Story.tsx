@@ -5,6 +5,7 @@ import Image from '@prezly/uploadcare-image';
 import dynamic from 'next/dynamic';
 
 import { StoryMeta, StoryShareSocial } from '@/components';
+import { getStoryImageSizes } from '@/utils';
 
 const SlateRenderer = dynamic(() => import('@/components/SlateRenderer'));
 
@@ -35,6 +36,7 @@ function Story({ story }: Props) {
                         layout="fill"
                         objectFit="cover"
                         className="mt-6"
+                        sizes={getStoryImageSizes()}
                     />
                 )}
 
