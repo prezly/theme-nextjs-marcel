@@ -80,7 +80,7 @@
     }
 
     .navigationInner {
-        @apply relative bg-neutral-600 max-h-full overflow-y-auto;
+        @apply relative bg-neutral-700 max-h-full overflow-y-auto;
 
         transform: translateY(-50%);
         opacity: 0;
