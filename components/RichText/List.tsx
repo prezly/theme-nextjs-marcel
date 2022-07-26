@@ -1,19 +1,18 @@
-import { ListNode } from '@prezly/story-content-format';
+import { Alignment, ListNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
-
-import { useNodeAlignmentClassNames } from '@/hooks';
 
 interface Props {
     node: ListNode;
 }
 
 export function List({ node, children }: PropsWithChildren<Props>) {
-    const alignmentClassNames = useNodeAlignmentClassNames(node);
-
-    const className = classNames('pl-6 my-4', alignmentClassNames, {
+    const className = classNames('pl-6 my-4', {
         'list-decimal': node.type === ListNode.Type.NUMBERED,
         'list-disc': node.type === ListNode.Type.BULLETED,
+        'text-left': node.align === Alignment.LEFT,
+        'text-center': node.align === Alignment.CENTER,
+        'text-right': node.align === Alignment.RIGHT,
     });
 
     if (node.type === ListNode.Type.NUMBERED) {

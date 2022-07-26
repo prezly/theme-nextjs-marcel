@@ -1,8 +1,7 @@
+import { Alignment } from '@prezly/story-content-format';
 import type { ParagraphNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { ReactNode } from 'react';
-
-import { useNodeAlignmentClassNames } from '@/hooks';
 
 interface Props {
     node: ParagraphNode;
@@ -10,8 +9,17 @@ interface Props {
 }
 
 function Paragraph({ children, node }: Props) {
-    const alignmentClassNames = useNodeAlignmentClassNames(node);
-    return <p className={classNames('mb-3', alignmentClassNames)}>{children}</p>;
+    return (
+        <p
+            className={classNames('mb-3', {
+                'text-left': node.align === Alignment.LEFT,
+                'text-center': node.align === Alignment.CENTER,
+                'text-right': node.align === Alignment.RIGHT,
+            })}
+        >
+            {children}
+        </p>
+    );
 }
 
 export default Paragraph;
