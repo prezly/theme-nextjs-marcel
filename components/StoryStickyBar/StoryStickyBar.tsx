@@ -11,7 +11,7 @@ interface Props {
 
 function StoryStickyBar({ story }: PropsWithChildren<Props>) {
     return (
-        <div className="lg:full-width lg:fixed lg:bottom-0 lg:bg-gray-800">
+        <div className="lg:full-width lg:fixed lg:bottom-0 lg:bg-neutral-800">
             <div
                 className={classNames(
                     'lg:max-w-[1280px] lg:mx-auto lg:px-12 mb-10 lg:mb-0',

@@ -19,7 +19,7 @@ function ContactCard({ node }: Props) {
     return (
         <div
             className={classNames(
-                'text-gray-300 rounded-xl p-6 border-[1px] border-gray-600',
+                'text-neutral-300 rounded-xl p-6 border-[1px] border-neutral-600',
                 'my-10',
             )}
         >
@@ -33,8 +33,8 @@ function ContactCard({ node }: Props) {
                     />
                 )}
                 <div>
-                    <h4 className="text-lg text-gray-200 font-semibold mb-1">{name}</h4>
-                    {subtitle && <h5 className="text-gray-400">{subtitle}</h5>}
+                    <h4 className="text-lg text-neutral-200 font-semibold mb-1">{name}</h4>
+                    {subtitle && <h5 className="text-neutral-400">{subtitle}</h5>}
                 </div>
             </div>
             <div className="mt-2 flex items-center flex-wrap">

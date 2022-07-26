@@ -86,11 +86,11 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
 
     return (
         <form
-            className={classNames('default-well rounded-xl p-6 mb-12', className)}
+            className={classNames('bg-neutral-800 rounded-xl p-6 mb-12', className)}
             onSubmit={handleSubmit}
             noValidate
         >
-            <h3 className="mb-6 text-lg font-semibold leading-8 text-gray-100">
+            <h3 className="mb-6 text-lg font-semibold leading-8 text-neutral-100">
                 <FormattedMessage {...translations.subscription.formTitle} />
             </h3>
 

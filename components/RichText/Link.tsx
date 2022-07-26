@@ -18,7 +18,7 @@ function Link({ node, children }: PropsWithChildren<Props>) {
         <a
             href={node.href}
             className={classNames(
-                'text-gray-200 underline hover:text-blue-400 active:text-blue-500',
+                'text-neutral-200 underline hover:text-blue-400 active:text-blue-500',
                 'focus:text-blue-400 focus:outline-none',
             )}
             onClick={handleClick}

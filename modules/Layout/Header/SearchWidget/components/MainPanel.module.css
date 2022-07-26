@@ -1,5 +1,5 @@
 .container {
-    @apply border-t-2 border-gray-600;
+    @apply border-t-2 border-neutral-600;
 }
 
 .container :global(.ais-Hits-list) {
@@ -19,7 +19,7 @@
 }
 
 .title {
-    @apply text-sm text-gray-500 mt-0 mb-4 font-normal;
+    @apply text-sm text-neutral-500 mt-0 mb-4 font-normal;
 }
 
 .title.empty {
@@ -35,7 +35,7 @@
 }
 
 .categoryLink {
-    @apply text-primary hover:text-primary-dark font-semibold text-sm;
+    @apply text-primary-lighter hover:text-primary-lightest font-semibold text-sm;
 }
 
 .caret {

@@ -67,7 +67,7 @@ function StoryShare({ story }: Props) {
                     value={shareLink}
                     className={classNames(
                         'default-input',
-                        'w-64 py-1.5 pr-10 bg-gray-700 overflow-ellipsis',
+                        'w-64 py-1.5 pr-10 bg-neutral-700 overflow-ellipsis',
                     )}
                     // Selects full input value on click
                     onClick={handleInputClick}
@@ -79,7 +79,7 @@ function StoryShare({ story }: Props) {
                     tabIndex={0}
                     className={classNames(
                         'absolute right-1.5',
-                        'w-7 h-7 p-1 bg-gray-800 border border-gray-600 rounded-md',
+                        'w-7 h-7 p-1 bg-neutral-800 border border-neutral-600 rounded-md',
                         'text-center cursor-pointer text-white hover:border-blue-500 hover:text-blue-500',
                     )}
                     onClick={handleCopyButtonClick}
@@ -92,7 +92,7 @@ function StoryShare({ story }: Props) {
                     className={classNames(
                         'absolute left-0 right-0 top-0 bottom-0',
                         'flex items-center justify-center rounded-md',
-                        'bg-gray-700 text-white border border-gray-600',
+                        'bg-neutral-700 text-white border border-neutral-600',
                         'transition-opacity duration-500',
                         isTooltipShown ? 'opacity-100' : 'opacity-0 pointer-events-none',
                     )}

@@ -1,5 +1,5 @@
 .container {
-    @apply flex items-center text-gray-200 my-12 relative;
+    @apply flex items-center text-neutral-200 my-12 relative;
 }
 
 .button {
@@ -7,10 +7,10 @@
 }
 
 .icon {
-    @apply text-gray-200;
+    @apply text-neutral-200;
 }
 
 .button:hover .icon,
 .button:focus .icon {
-    @apply text-gray-500;
+    @apply text-neutral-500;
 }

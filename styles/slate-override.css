@@ -1,5 +1,5 @@
 .prezly-slate-document {
-    @apply text-gray-300 text-base leading-7 !important;
+    @apply text-neutral-300 text-base leading-7 !important;
 }
 
 .prezly-slate-document .prezly-slate-image,
@@ -8,7 +8,7 @@
 }
 
 .prezly-slate-document .prezly-slate-image__caption {
-    @apply pt-4 text-base leading-7 text-gray-400 not-italic;
+    @apply pt-4 text-base leading-7 text-neutral-400 not-italic;
 }
 
 .prezly-slate-document > h1,
@@ -60,11 +60,11 @@
 
 .story-blockquote {
     @apply my-6;
-    @apply text-gray-300 text-base leading-8 font-normal;
+    @apply text-neutral-300 text-base leading-8 font-normal;
 }
 
 .story-blockquote-icon {
-    @apply w-6 h-6 text-gray-200 flex-shrink-0;
+    @apply w-6 h-6 text-neutral-200 flex-shrink-0;
 }
 
 .story-blockquote-icon--inverted {
@@ -72,7 +72,7 @@
 }
 
 .prezly-slate-document .prezly-slate-image-rollover__dim {
-    @apply bg-gray-700;
+    @apply bg-neutral-700;
 }
 
 .prezly-slate-document .prezly-slate-image-rollover:focus-within .prezly-slate-image-rollover__dim,
@@ -81,11 +81,11 @@
 }
 
 .prezly-slate-document .prezly-slate-image-rollover__caption-icon-container {
-    @apply bg-gray-800 p-2.5;
+    @apply bg-neutral-800 p-2.5;
 }
 
 .prezly-slate-lightbox {
-    @apply bg-gray-800 !important;
+    @apply bg-neutral-800 !important;
 }
 
 .prezly-slate-lightbox__image-container {
@@ -93,7 +93,7 @@
 }
 
 .prezly-slate-lightbox__caption {
-    @apply text-gray-400 not-italic text-base leading-7 mb-12 !important;
+    @apply text-neutral-400 not-italic text-base leading-7 mb-12 !important;
 }
 
 .prezly-slate-lightbox__download {
@@ -101,11 +101,11 @@
 }
 
 .prezly-slate-lightbox__nav-button {
-    @apply text-gray-400 hover:text-gray-100 !important;
+    @apply text-neutral-400 hover:text-neutral-100 !important;
 }
 
 .prezly-slate-lightbox__close {
-    @apply text-gray-400 hover:text-gray-100 p-3 !important;
+    @apply text-neutral-400 hover:text-neutral-100 p-3 !important;
 }
 
 .prezly-slate-lightbox__close-icon {
@@ -130,17 +130,17 @@ figure.prezly-slate-gallery--full-width {
 /* stylelint-enable selector-no-qualifying-type */
 
 .prezly-slate-bookmark-card-component__container {
-    @apply border-[1px] border-gray-600 rounded-xl !important;
+    @apply border-[1px] border-neutral-600 rounded-xl !important;
 }
 
 .prezly-slate-bookmark-card-component__title {
-    @apply text-gray-200 text-xl hover:text-gray-300 leading-[140%] font-bold !important;
+    @apply text-neutral-200 text-xl hover:text-neutral-300 leading-[140%] font-bold !important;
 }
 
 .prezly-slate-bookmark-card-component__provider {
-    @apply text-gray-300 text-base font-normal leading-[160%] !important;
+    @apply text-neutral-300 text-base font-normal leading-[160%] !important;
 }
 
 .prezly-slate-bookmark-card-component__description {
-    @apply text-gray-300 text-base font-normal !important;
+    @apply text-neutral-300 text-base font-normal !important;
 }

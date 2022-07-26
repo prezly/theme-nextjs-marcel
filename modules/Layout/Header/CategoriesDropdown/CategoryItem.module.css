@@ -3,5 +3,5 @@
 }
 
 .description {
-    @apply text-sm line-clamp-2 block mt-2 text-gray-300 font-normal capitalize;
+    @apply text-sm line-clamp-2 block mt-2 text-neutral-300 font-normal capitalize;
 }

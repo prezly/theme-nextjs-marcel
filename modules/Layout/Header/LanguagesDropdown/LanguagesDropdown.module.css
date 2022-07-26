@@ -1,6 +1,6 @@
 @media screen and (max-width: 410px) {
     .container {
-        @apply bg-gray-500;
+        @apply bg-neutral-600;
     }
 
     .menu {

@@ -16,7 +16,7 @@ function Boilerplate({ companyInformation }: Props) {
     }
 
     return (
-        <div className="mb-12 text-gray-300">
+        <div className="mb-12 text-neutral-300">
             <h2 className="text-xl leading-6 mb-4 font-bold">
                 About
                 {name && ' '}

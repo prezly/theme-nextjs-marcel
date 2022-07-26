@@ -1,5 +1,5 @@
 function Divider() {
-    return <hr className="my-10 border-gray-500" />;
+    return <hr className="my-10 border-neutral-500" />;
 }
 
 export default Divider;
