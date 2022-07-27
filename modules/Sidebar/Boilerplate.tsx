@@ -24,7 +24,10 @@ function Boilerplate({ companyInformation }: Props) {
             </h2>
             {about && (
                 <div
-                    className={classNames('leading-7 mb-4 font-normal', styles.boilerplate)}
+                    className={classNames(
+                        'leading-7 mb-4 font-normal text-neutral-400',
+                        styles.boilerplate,
+                    )}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{ __html: about }}
                 />
@@ -45,7 +48,9 @@ function Boilerplate({ companyInformation }: Props) {
             )}
 
             {address && (
-                <address className="leading-7 not-italic">{companyInformation.address}</address>
+                <address className="leading-7 text-neutral-400 not-italic">
+                    {companyInformation.address}
+                </address>
             )}
         </div>
     );
