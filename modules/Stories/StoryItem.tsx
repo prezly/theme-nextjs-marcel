@@ -38,7 +38,7 @@ function StoryItem({ story }: Props) {
             <Link href={`/${slug}`} passHref>
                 <a
                     className={classNames(
-                        'inline-flex text-primary group font-medium items-center border-transparent text-sm',
+                        'inline-flex text-primary-light text-lg group font-medium items-center border-transparent',
                     )}
                 >
                     <FormattedMessage {...translations.actions.readMore} />
