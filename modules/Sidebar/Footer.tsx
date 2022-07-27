@@ -16,7 +16,7 @@ function Footer() {
                     href="https://prezly.com"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary"
+                    className="text-primary-lighter"
                 >
                     <LogoPrezly width={77} />
                 </a>
