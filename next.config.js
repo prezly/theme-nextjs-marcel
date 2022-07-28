@@ -55,6 +55,9 @@ const moduleExports = withBundleAnalyzer({
 
         return config;
     },
+    experimental: {
+        newNextLinkBehavior: true,
+    },
     i18n: {
         // These are all the locales you want to support in
         // your application
