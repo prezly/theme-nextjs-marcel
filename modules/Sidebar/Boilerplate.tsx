@@ -24,7 +24,10 @@ function Boilerplate({ companyInformation }: Props) {
             </h2>
             {about && (
                 <div
-                    className={classNames('leading-7 mb-4 font-normal', styles.boilerplate)}
+                    className={classNames(
+                        'leading-7 mb-4 font-normal text-neutral-400',
+                        styles.boilerplate,
+                    )}
                     // eslint-disable-next-line react/no-danger
                     dangerouslySetInnerHTML={{ __html: about }}
                 />
@@ -32,20 +35,22 @@ function Boilerplate({ companyInformation }: Props) {
 
             {email && (
                 <a className="flex items-center mt-4 mb-4" href={`mailto:${email}`}>
-                    <IconEmail className="mr-2 text-primary" width={14} height={14} />
-                    <span className="text-primary font-semibold">{email}</span>
+                    <IconEmail className="mr-2 text-primary-lighter" width={14} height={14} />
+                    <span className="text-primary-lighter font-semibold">{email}</span>
                 </a>
             )}
 
             {phone && (
                 <a className="flex items-center mt-4 mb-4" href={`tel:${phone}`}>
-                    <IconPhone className="mr-2 text-primary" width={14} height={14} />
-                    <span className="text-primary font-semibold">{phone}</span>
+                    <IconPhone className="mr-2 text-primary-lighter" width={14} height={14} />
+                    <span className="text-primary-lighter font-semibold">{phone}</span>
                 </a>
             )}
 
             {address && (
-                <address className="leading-7 not-italic">{companyInformation.address}</address>
+                <address className="leading-7 text-neutral-400 not-italic">
+                    {companyInformation.address}
+                </address>
             )}
         </div>
     );

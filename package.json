@@ -2,12 +2,12 @@
   "name": "theme-nextjs-marcel",
   "version": "0.1.0",
   "engines": {
-    "node": ">= 14.x",
-    "npm": ">= 7.x"
+    "node": ">= 16.x",
+    "npm": ">= 8.x"
   },
   "devEngines": {
-    "node": ">= 14.x",
-    "npm": ">= 7.x"
+    "node": ">= 16.x",
+    "npm": ">= 8.x"
   },
   "scripts": {
     "dev": "next",
@@ -38,9 +38,9 @@
     "@prezly/uploadcare": "2.3.4",
     "@prezly/uploadcare-image": "0.3.1",
     "@react-hookz/web": "14.7.1",
-    "@sentry/nextjs": "7.7.0",
+    "@sentry/nextjs": "7.8.0",
     "@tailwindcss/line-clamp": "0.4.0",
-    "algoliasearch": "4.14.1",
+    "algoliasearch": "4.14.2",
     "classnames": "2.3.1",
     "date-fns": "2.29.1",
     "intersection-observer": "0.12.2",
@@ -58,8 +58,8 @@
     "@next/bundle-analyzer": "12.2.3",
     "@prezly/eslint-config": "4.2.0",
     "@svgr/webpack": "6.3.1",
-    "@types/node": "16.11.45",
-    "@types/react": "17.0.47",
+    "@types/node": "16.11.46",
+    "@types/react": "17.0.48",
     "@types/react-dom": "17.0.17",
     "@types/react-instantsearch-dom": "6.12.3",
     "@types/tinycolor2": "1.4.3",
