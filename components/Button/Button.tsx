@@ -13,7 +13,6 @@ function Button<C extends ElementType = 'button'>({
     variant = 'primary',
     fullWidth = false,
     loading,
-    children,
     disabled,
     className,
     type = 'button',
