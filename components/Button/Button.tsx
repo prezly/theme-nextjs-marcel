@@ -50,7 +50,7 @@ const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
 
     return (
         <button
-            type={props.type ? props.type : 'button'}
+            type={props.type ?? 'button'}
             className={classNames(classes, {
                 'opacity-50 pointer-events-none': props.disabled || loading,
             })}
