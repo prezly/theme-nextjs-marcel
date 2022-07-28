@@ -52,6 +52,9 @@ const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
         <button
             type={props.type ? props.type : 'button'}
             className={classNames(classes, {
+                // It doesn't make sense for links to be in loading/disabled states
+                // That's why this logic is only applied to button
+                // https://stackoverflow.com/questions/18711317/is-disabled-a-valid-attribute-for-an-anchor-tag
                 'opacity-50 pointer-events-none': props.disabled || loading,
             })}
             disabled={props.disabled || loading}
