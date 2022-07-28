@@ -23,18 +23,14 @@ function HitComponent({ hit }: Props) {
             <StoryMeta story={story} />
             <h2 className={styles.title}>
                 <Link href={`/${slug}`} locale={false} passHref>
-                    <a>
-                        <Highlight hit={hit} attribute="attributes.title" tagName="span" />
-                    </a>
+                    <Highlight hit={hit} attribute="attributes.title" tagName="span" />
                 </Link>
             </h2>
             {subtitle && <h3 className={styles.subtitle}>{subtitle}</h3>}
 
-            <Link href={`/${slug}`} passHref>
-                <a className={styles.link}>
-                    <FormattedMessage {...translations.actions.readMore} />
-                    <IconArrowRight className={styles.icon} width={14} height={14} />
-                </a>
+            <Link href={`/${slug}`} passHref className={styles.link}>
+                <FormattedMessage {...translations.actions.readMore} />
+                <IconArrowRight className={styles.icon} width={14} height={14} />
             </Link>
         </div>
     );

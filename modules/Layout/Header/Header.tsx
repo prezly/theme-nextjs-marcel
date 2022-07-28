@@ -100,24 +100,25 @@ function Header({ hasError }: Props) {
         >
             <div className="w-full">
                 <nav role="navigation" className={styles.header}>
-                    <Link href="/" locale={getLinkLocaleSlug()} passHref>
-                        <a
-                            className={classNames(styles.newsroom, {
-                                [styles.withoutLogo]: !newsroom_logo,
-                            })}
-                        >
-                            {newsroom_logo ? (
-                                <Image
-                                    layout="fill"
-                                    objectFit="contain"
-                                    imageDetails={newsroom_logo}
-                                    alt={newsroomName}
-                                    className={styles.logo}
-                                />
-                            ) : (
-                                newsroomName
-                            )}
-                        </a>
+                    <Link
+                        href="/"
+                        locale={getLinkLocaleSlug()}
+                        passHref
+                        className={classNames(styles.newsroom, {
+                            [styles.withoutLogo]: !newsroom_logo,
+                        })}
+                    >
+                        {newsroom_logo ? (
+                            <Image
+                                layout="fill"
+                                objectFit="contain"
+                                imageDetails={newsroom_logo}
+                                alt={newsroomName}
+                                className={styles.logo}
+                            />
+                        ) : (
+                            newsroomName
+                        )}
                     </Link>
 
                     <div className={styles.navigationWrapper}>

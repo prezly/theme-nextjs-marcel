@@ -22,10 +22,13 @@ function CategoryLink({ category, className }: Props) {
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
 
     return (
-        <Link href={getCategoryUrl(category, currentLocale)} locale={getLinkLocaleSlug()} passHref>
-            <a className={classNames(styles.link, className)}>
-                <span>{name}</span>
-            </a>
+        <Link
+            href={getCategoryUrl(category, currentLocale)}
+            locale={getLinkLocaleSlug()}
+            passHref
+            className={classNames(styles.link, className)}
+        >
+            <span>{name}</span>
         </Link>
     );
 }
