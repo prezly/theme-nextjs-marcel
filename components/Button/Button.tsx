@@ -1,46 +1,64 @@
 import classNames from 'classnames';
-import type { ComponentPropsWithoutRef, ElementType } from 'react';
+import Link from 'next/link';
+import type { LinkProps } from 'next/link';
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
-type Props<C extends ElementType> = {
-    component?: C;
+type SharedProps = {
     variant?: 'primary' | 'secondary' | 'tertiary';
     loading?: boolean;
     fullWidth?: boolean;
-} & ComponentPropsWithoutRef<C>;
+    className?: string;
+    children: ReactNode;
+};
+type ButtonProps = SharedProps & ComponentPropsWithoutRef<'button'>;
+type ButtonAsLinkProps = SharedProps & LinkProps;
+type ButtonOverload = {
+    (props: ButtonProps): JSX.Element;
+    (props: ButtonAsLinkProps): JSX.Element;
+};
 
-function Button<C extends ElementType = 'button'>({
-    component,
-    variant = 'primary',
-    fullWidth = false,
-    loading,
-    disabled,
-    className,
-    type = 'button',
-    ...props
-}: Props<C>) {
-    const Component = component || 'button';
-    return (
-        <Component
-            type={Component === 'button' ? type : undefined}
-            className={classNames(
-                'rounded-lg inline-flex gap-x-2 justify-center items-center transition-all active:ring-0 cursor-pointer',
-                {
-                    'py-3 px-4 bg-primary-darker hover:bg-primary focus:bg-primary-light focus:ring-4 focus:ring-primary-lightest active:bg-primary-darkest text-white':
-                        variant === 'primary',
-                    'bg-transparent text-primary-light hover:text-primary-lightest focus:text-primary-light focus:ring-3 focus:ring-primary-light active:text-primary':
-                        variant === 'secondary',
-                    'py-1 px-3 bg-transparent hover:bg-neutral-700 focus:ring-3 focus:bg-neutral-700 focus:ring-primary-light active:bg-neutral-700 text-white':
-                        variant === 'tertiary',
-                    'opacity-50 pointer-events-none': disabled || loading,
-                    'w-full': fullWidth,
-                },
-                className,
-            )}
-            disabled={disabled || loading}
+function hasHref(props: ButtonProps | ButtonAsLinkProps): props is ButtonAsLinkProps {
+    return 'href' in props;
+}
+
+// eslint-disable-next-line func-style
+const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
+    const { variant = 'primary', fullWidth = false, loading = false, className, ...rest } = props;
+
+    const classes = classNames(
+        'rounded-lg inline-flex gap-x-2 justify-center items-center transition-all active:ring-0 cursor-pointer',
+        {
+            'py-3 px-4 bg-primary-darker hover:bg-primary focus:bg-primary-light focus:ring-4 focus:ring-primary-lightest active:bg-primary-darkest text-white':
+                variant === 'primary',
+            'bg-transparent text-primary-light hover:text-primary-lightest focus:text-primary-light focus:ring-3 focus:ring-primary-light active:text-primary':
+                variant === 'secondary',
+            'py-1 px-3 bg-transparent hover:bg-neutral-700 focus:ring-3 focus:bg-neutral-700 focus:ring-primary-light active:bg-neutral-700 text-white':
+                variant === 'tertiary',
+            'w-full': fullWidth,
+        },
+        className,
+    );
+
+    if (hasHref(props)) {
+        return (
             // eslint-disable-next-line react/jsx-props-no-spreading
-            {...props}
+            <Link className={classes} {...props}>
+                {props.children}
+            </Link>
+        );
+    }
+
+    return (
+        <button
+            type={props.type ? props.type : 'button'}
+            className={classNames(classes, {
+                'opacity-50 pointer-events-none': props.disabled || loading,
+            })}
+            disabled={props.disabled || loading}
+            // eslint-disable-next-line react/jsx-props-no-spreading
+            {...rest}
         />
     );
-}
+};
 
 export default Button;
