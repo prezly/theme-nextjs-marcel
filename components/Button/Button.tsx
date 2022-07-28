@@ -50,7 +50,7 @@ const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
 
     return (
         <button
-            type={props.type ? props.type : 'button'}
+            type={props.type ?? 'button'}
             className={classNames(classes, {
                 // It doesn't make sense for links to be in loading/disabled states
                 // That's why this logic is only applied to button
