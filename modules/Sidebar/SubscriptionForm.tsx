@@ -1,11 +1,13 @@
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { getPrivacyPortalUrl, useCurrentLocale, useNewsroom } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
-import { Button, FormInput } from '@prezly/themes-ui-components';
+import { Button } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent, PropsWithChildren } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import Input from '@/components/Input';
 
 import { getLocaleCodeForCaptcha, validateEmail } from './utils';
 
@@ -96,15 +98,16 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
 
             <div className={classNames(inlineForm && 'lg:flex')}>
                 <div className={inlineForm ? 'flex-grow' : 'mb-4'}>
-                    <FormInput
+                    <Input
                         name="email"
                         type="email"
-                        label={formatMessage(translations.subscription.labelEmail)}
                         placeholder={formatMessage(translations.subscription.labelEmail)}
-                        inputClassName={classNames('placeholder:font-medium', styles.input)}
+                        className="font-medium"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        error={emailError}
+                        helper={emailError}
+                        isError={!!emailError}
+                        isLoading={isSubmitting}
                     />
                 </div>
 
