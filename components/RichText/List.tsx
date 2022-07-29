@@ -1,3 +1,4 @@
+import type { ListItemNode, ListItemTextNode } from '@prezly/story-content-format';
 import { Alignment, ListNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
@@ -27,10 +28,18 @@ export function List({ node, children }: PropsWithChildren<Props>) {
     );
 }
 
-export function ListItem({ children }: PropsWithChildren<{}>) {
+interface ListItemProps {
+    node: ListItemNode;
+}
+
+export function ListItem({ children }: PropsWithChildren<ListItemProps>) {
     return <li>{children}</li>;
 }
 
-export function ListItemText({ children }: PropsWithChildren<{}>) {
+interface ListItemTextProps {
+    node: ListItemTextNode;
+}
+
+export function ListItemText({ children }: PropsWithChildren<ListItemTextProps>) {
     return <>{children}</>;
 }
