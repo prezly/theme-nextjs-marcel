@@ -5,7 +5,3 @@
 .disclaimerLink {
     @apply font-medium text-primary hover:text-primary-dark focus:text-primary-dark;
 }
-
-.button {
-    @apply w-full bg-primary-darker border-0 rounded-lg px-6 py-3 font-medium hover:!bg-primary-dark text-white;
-}

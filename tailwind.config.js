@@ -26,6 +26,9 @@ module.exports = {
             },
         }),
         extend: {
+            ringWidth: {
+                3: '3px',
+            },
             colors: {
                 neutral: {
                     50: '#F9FAFB',

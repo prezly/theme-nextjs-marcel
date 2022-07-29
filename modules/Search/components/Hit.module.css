@@ -18,11 +18,3 @@
 .content {
     @apply mb-4 text-neutral-400 leading-7 line-clamp-3;
 }
-
-.link {
-    @apply inline-flex text-primary font-medium items-center border-transparent uppercase text-sm;
-}
-
-.icon {
-    @apply ml-2;
-}

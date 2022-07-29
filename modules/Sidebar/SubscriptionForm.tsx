@@ -1,12 +1,12 @@
 import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { getPrivacyPortalUrl, useCurrentLocale, useNewsroom } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
-import { Button } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import { useEffect, useRef, useState } from 'react';
 import type { FormEvent, PropsWithChildren } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
 
+import Button from '@/components/Button';
 import Input from '@/components/Input';
 
 import { getLocaleCodeForCaptcha, validateEmail } from './utils';
@@ -111,12 +111,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
                     />
                 </div>
 
-                <Button
-                    type="submit"
-                    variation="primary"
-                    className={styles.button}
-                    isLoading={isSubmitting}
-                >
+                <Button fullWidth type="submit" variant="primary" loading={isSubmitting}>
                     <FormattedMessage {...translations.actions.subscribe} />
                 </Button>
 
