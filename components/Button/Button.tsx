@@ -42,7 +42,7 @@ const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
     if (hasHref(props)) {
         return (
             // eslint-disable-next-line react/jsx-props-no-spreading
-            <Link className={classes} {...props}>
+            <Link {...props} className={classes}>
                 {props.children}
             </Link>
         );
