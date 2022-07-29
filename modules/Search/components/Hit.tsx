@@ -6,6 +6,7 @@ import type { Hit } from 'react-instantsearch-core';
 import { Highlight } from 'react-instantsearch-dom';
 import { FormattedMessage } from 'react-intl';
 
+import Button from '@/components/Button';
 import StoryMeta from '@/components/StoryMeta';
 
 import styles from './Hit.module.css';
@@ -28,10 +29,14 @@ function HitComponent({ hit }: Props) {
             </h2>
             {subtitle && <h3 className={styles.subtitle}>{subtitle}</h3>}
 
-            <Link href={`/${slug}`} passHref className={styles.link}>
+            <Button variant="secondary" href={`/${slug}`} className="text-lg group">
                 <FormattedMessage {...translations.actions.readMore} />
-                <IconArrowRight className={styles.icon} width={14} height={14} />
-            </Link>
+                <IconArrowRight
+                    className="transform translate-x-0 group-hover:translate-x-1 transition-transform"
+                    width={14}
+                    height={14}
+                />
+            </Button>
         </div>
     );
 }

@@ -6,6 +6,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 import { FormattedMessage } from 'react-intl';
 
+import Button from '@/components/Button';
 import StoryMeta from '@/components/StoryMeta';
 
 type Props = {
@@ -33,20 +34,14 @@ function StoryItem({ story }: Props) {
                     {subtitle}
                 </h3>
             )}
-            <Link
-                href={`/${slug}`}
-                passHref
-                className={classNames(
-                    'inline-flex text-primary-light text-lg group font-medium items-center border-transparent',
-                )}
-            >
+            <Button variant="secondary" href={`/${slug}`} className="text-lg group">
                 <FormattedMessage {...translations.actions.readMore} />
                 <IconArrowRight
-                    className="ml-1 transform translate-x-0 group-hover:translate-x-1 transition-transform"
+                    className="transform translate-x-0 group-hover:translate-x-1 transition-transform"
                     width={14}
                     height={14}
                 />
-            </Link>
+            </Button>
         </div>
     );
 }
