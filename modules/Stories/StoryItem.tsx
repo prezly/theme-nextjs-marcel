@@ -20,13 +20,15 @@ function StoryItem({ story }: Props) {
         <div className="mb-16">
             <StoryMeta story={story} />
             <h2 className="text-neutral-50 text-[1.6rem] font-semibold mb-2 leading-9 md:mt-4">
-                <Link
-                    href={`/${slug}`}
-                    locale={false}
-                    passHref
-                    className={classNames('hover:underline', 'focus:outline-none focus:underline ')}
-                >
-                    {title}
+                <Link href={`/${slug}`} locale={false} passHref>
+                    <a
+                        className={classNames(
+                            'hover:underline',
+                            'focus:outline-none focus:underline ',
+                        )}
+                    >
+                        {title}
+                    </a>
                 </Link>
             </h2>
             {subtitle && (

@@ -14,23 +14,20 @@ function GalleryItem({ gallery }: Props) {
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
 
     return (
-        <Link
-            href={`/media/album/${gallery.uuid}`}
-            locale={getLinkLocaleSlug()}
-            passHref
-            className={classNames(styles.container, 'group')}
-        >
-            <Image
-                alt={gallery.title}
-                imageDetails={gallery.images[0].uploadcare_image}
-                lazy
-                layout="fill"
-                objectFit="cover"
-                className={styles.image}
-            />
-            <span className={classNames(styles.title, 'group-hover:underline')}>
-                {gallery.title}
-            </span>
+        <Link href={`/media/album/${gallery.uuid}`} locale={getLinkLocaleSlug()} passHref>
+            <a className={classNames(styles.container, 'group')}>
+                <Image
+                    alt={gallery.title}
+                    imageDetails={gallery.images[0].uploadcare_image}
+                    lazy
+                    layout="fill"
+                    objectFit="cover"
+                    className={styles.image}
+                />
+                <span className={classNames(styles.title, 'group-hover:underline')}>
+                    {gallery.title}
+                </span>
+            </a>
         </Link>
     );
 }

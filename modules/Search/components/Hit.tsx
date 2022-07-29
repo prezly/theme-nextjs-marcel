@@ -24,7 +24,9 @@ function HitComponent({ hit }: Props) {
             <StoryMeta story={story} />
             <h2 className={styles.title}>
                 <Link href={`/${slug}`} locale={false} passHref>
-                    <Highlight hit={hit} attribute="attributes.title" tagName="span" />
+                    <a>
+                        <Highlight hit={hit} attribute="attributes.title" tagName="span" />
+                    </a>
                 </Link>
             </h2>
             {subtitle && <h3 className={styles.subtitle}>{subtitle}</h3>}
