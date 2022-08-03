@@ -1,3 +1,4 @@
+import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import { IconArrowTop } from '@prezly/icons';
 import { PageSeo, useNewsroom } from '@prezly/theme-kit-nextjs';
 import { LoadingBar, ScrollToTopButton } from '@prezly/themes-ui-components';
@@ -21,6 +22,7 @@ interface Props {
 
 function Layout({ title, description, imageUrl, hasError, children }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
+    const { isEnabled: isAnalyticsEnabled } = useAnalyticsContext();
 
     const [isLoadingPage, setIsLoadingPage] = useState(false);
 
@@ -42,7 +44,13 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
 
     return (
         <>
-            <PageSeo title={title} description={description} imageUrl={imageUrl} />
+            <PageSeo
+                title={title}
+                description={description}
+                imageUrl={imageUrl}
+                noindex={!isAnalyticsEnabled}
+                nofollow={!isAnalyticsEnabled}
+            />
             <Branding newsroom={newsroom} />
             <Header />
             <div className="container">

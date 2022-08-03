@@ -1,3 +1,4 @@
+import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import type { ExtendedStory } from '@prezly/sdk';
 import { StoryFormatVersion } from '@prezly/sdk';
 import { StorySeo } from '@prezly/theme-kit-nextjs';
@@ -14,6 +15,8 @@ type Props = {
 };
 
 function Story({ story }: Props) {
+    const { isEnabled: isAnalyticsEnabled } = useAnalyticsContext();
+
     const { format_version, content, title, subtitle, links } = story;
     const headerImage = story.header_image ? JSON.parse(story.header_image) : null;
 
@@ -21,7 +24,7 @@ function Story({ story }: Props) {
 
     return (
         <>
-            <StorySeo story={story} />
+            <StorySeo story={story} noindex={!isAnalyticsEnabled} />
             <StoryMeta story={story} />
             <article>
                 <h1 className="text-4xl font-bold text-neutral-100 mt-6">{title}</h1>
