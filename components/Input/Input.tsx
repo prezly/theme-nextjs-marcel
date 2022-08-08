@@ -1,4 +1,4 @@
-import { IconLoading } from '@prezly/icons';
+import { IconCheck, IconLoading, IconWarning } from '@prezly/icons';
 import classNames from 'classnames';
 import { forwardRef } from 'react';
 import type { ComponentPropsWithRef, ForwardedRef, ReactNode } from 'react';
@@ -54,10 +54,8 @@ function Input(
                 />
                 {hasIcon && (
                     <div className="absolute top-1/2 right-4 transform -translate-y-1/2 flex justify-center items-center w-4 h-4">
-                        {/* TODO: add IconWarning to @prezly/icons for isError icon */}
-                        {/* {isError && <IconWarning className="text-error-tint" />} */}
-                        {/* TODO: add IconCheck to @prezly/icons for isSuccess icon */}
-                        {/* {isSuccess && <IconCheck className="text-success-tint" />} */}
+                        {isError && <IconWarning className="text-error-tint" />}
+                        {isSuccess && <IconCheck className="text-success-tint" />}
                         {isLoading && (
                             <IconLoading width={16} height={16} className="animate-spin" />
                         )}
