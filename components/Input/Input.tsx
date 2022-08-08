@@ -6,8 +6,8 @@ import type { ComponentPropsWithRef, ForwardedRef, ReactNode } from 'react';
 type Props = {
     helper?: ReactNode;
     wrapperClassName?: string;
-    isError?: boolean;
-    isSuccess?: boolean;
+    error?: string;
+    success?: string;
     isLoading?: boolean;
 } & ComponentPropsWithRef<'input'>;
 
@@ -15,8 +15,8 @@ function Input(
     {
         wrapperClassName,
         helper,
-        isError,
-        isSuccess,
+        error,
+        success,
         isLoading,
         className,
         type = 'text',
@@ -25,6 +25,8 @@ function Input(
     }: Props,
     ref: ForwardedRef<HTMLInputElement>,
 ) {
+    const isError = Boolean(error);
+    const isSuccess = Boolean(success);
     const hasIcon = isError || isLoading || isSuccess;
     return (
         <div
@@ -62,16 +64,12 @@ function Input(
                     </div>
                 )}
             </div>
-            {helper && (
-                <span
-                    className={classNames('font-semibold text-sm', {
-                        'text-success-tint': isSuccess,
-                        'text-error-tint': isError,
-                        'text-neutral-300': !isError && !isSuccess,
-                    })}
-                >
-                    {helper}
-                </span>
+            {(helper || error || success) && (
+                <div className="font-semibold text-sm flex flex-col gap-y-2">
+                    {helper && <span className="text-neutral-300">{helper}</span>}
+                    {error && <span className="text-error-tint">{error}</span>}
+                    {success && <span className="text-success-tint">{success}</span>}
+                </div>
             )}
         </div>
     );

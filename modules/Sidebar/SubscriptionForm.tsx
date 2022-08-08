@@ -105,8 +105,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
                         className="font-medium"
                         value={email}
                         onChange={(event) => setEmail(event.target.value)}
-                        helper={emailError}
-                        isError={!!emailError}
+                        error={emailError}
                         isLoading={isSubmitting}
                     />
                 </div>
