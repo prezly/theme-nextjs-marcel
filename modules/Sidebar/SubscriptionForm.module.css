@@ -5,7 +5,3 @@
 .disclaimerLink {
     @apply font-medium text-primary hover:text-primary-dark focus:text-primary-dark;
 }
-
-.input {
-    @apply bg-neutral-700 border-none focus:outline-none text-neutral-200;
-}
