@@ -8,6 +8,8 @@ import type { RefinementListExposed, RefinementListProvided } from 'react-instan
 import { connectRefinementList } from 'react-instantsearch-dom';
 import { FormattedDate, FormattedMessage } from 'react-intl';
 
+import Checkbox from '@/components/Checkbox';
+
 import { FacetAttribute } from '../types';
 
 import styles from './Facet.module.css';
@@ -74,19 +76,24 @@ function Facet({ attribute, items, refine }: RefinementListProvided & Refinement
                     </Disclosure.Button>
                     <Disclosure.Panel className={styles.panel}>
                         <ul className={styles.list}>
-                            {visibleItems.map((item) => (
-                                <li key={`${attribute}_${item.label}`} className={styles.listItem}>
-                                    <label className={styles.listItemInner}>
-                                        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
-                                        <input
-                                            type="checkbox"
-                                            checked={item.isRefined}
-                                            onChange={() => refine(item.value)}
-                                            className={styles.input}
-                                        />
-                                        <span className={styles.label}>{getItemLabel(item)}</span>
-                                        <span className={styles.count}>({item.count})</span>
-                                    </label>
+                            {visibleItems.map((item, index) => (
+                                <li
+                                    key={`${attribute}_${item.label}`}
+                                    className="mb-2 last:mb-0 flex items-center"
+                                >
+                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
+                                    <Checkbox
+                                        id={`${item.label + index}`}
+                                        htmlFor={`${item.label + index}`}
+                                        checked={item.isRefined}
+                                        onChange={() => refine(item.value)}
+                                        label={
+                                            <>
+                                                {getItemLabel(item)}
+                                                <span className={styles.count}>({item.count})</span>
+                                            </>
+                                        }
+                                    />
                                 </li>
                             ))}
                         </ul>
