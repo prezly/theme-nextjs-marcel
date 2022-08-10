@@ -7,7 +7,7 @@ type Props = {
     htmlFor?: string;
 } & ComponentPropsWithoutRef<'input'>;
 
-function Checkbox({ htmlFor, label, className, disabled, type = 'checkbox', ...props }: Props) {
+function Checkbox({ htmlFor, label, className, disabled, type, ...props }: Props) {
     return (
         <div
             className={classNames('flex items-center gap-x-2', {
@@ -16,7 +16,7 @@ function Checkbox({ htmlFor, label, className, disabled, type = 'checkbox', ...p
         >
             <div className="relative flex items-center">
                 <input
-                    type={type}
+                    type="checkbox"
                     className={classNames(
                         'w-4 h-4 appearance-none border checked:bg-neutral-600 rounded border-neutral-300 peer focus:ring-primary-light focus:ring-4',
                         className,
