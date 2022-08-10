@@ -41,11 +41,11 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
             />
             <Button
                 variation="navigation"
-                icon={IconFilter}
                 iconPlacement="left"
                 onClick={toggleFacets}
-                contentClassName="font-semibold tracking-wide text-sm uppercase text-neutral-200"
+                contentClassName="font-semibold tracking-wide text-sm uppercase text-neutral-200 flex gap-x-2 items-center"
             >
+                <IconFilter width={14} height={14} />
                 <FormattedMessage {...translations.search.filters} />
             </Button>
             <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
