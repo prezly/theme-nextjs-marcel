@@ -11,7 +11,7 @@ module.exports = {
             'warn',
             {
                 assert: 'either',
-                controlComponents: ['Field'],
+                controlComponents: ['Field', 'Input', 'Checkbox'],
             },
         ],
 

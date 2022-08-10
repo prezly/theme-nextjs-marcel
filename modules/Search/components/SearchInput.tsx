@@ -40,11 +40,12 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 autoComplete="off"
             />
             <Button
-                variation="navigation"
                 icon={IconFilter}
                 iconPlacement="left"
+                variation="navigation"
                 onClick={toggleFacets}
-                contentClassName="font-semibold tracking-wide text-sm uppercase text-neutral-200"
+                className="!text-neutral-200"
+                contentClassName="font-semibold tracking-wide text-sm uppercase flex gap-x-2 items-center"
             >
                 <FormattedMessage {...translations.search.filters} />
             </Button>

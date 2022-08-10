@@ -36,18 +36,6 @@
     @apply list-none m-0 p-0;
 }
 
-.listItem:not(:last-child) {
-    @apply mb-2;
-}
-
-.listItemInner {
-    @apply text-sm flex items-center;
-}
-
-.label {
-    @apply ml-2;
-}
-
 .count {
     @apply ml-2 opacity-75;
 }
