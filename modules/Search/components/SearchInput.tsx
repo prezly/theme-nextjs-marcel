@@ -44,7 +44,7 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
                 iconPlacement="left"
                 variation="navigation"
                 onClick={toggleFacets}
-                className="text-neutral-200"
+                className="!text-neutral-200"
                 contentClassName="font-semibold tracking-wide text-sm uppercase flex gap-x-2 items-center"
             >
                 <FormattedMessage {...translations.search.filters} />
