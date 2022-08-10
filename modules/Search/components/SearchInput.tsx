@@ -41,7 +41,6 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
             />
             <Button
                 variation="navigation"
-                iconPlacement="left"
                 onClick={toggleFacets}
                 contentClassName="font-semibold tracking-wide text-sm uppercase text-neutral-200 flex gap-x-2 items-center"
             >
