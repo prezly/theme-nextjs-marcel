@@ -76,15 +76,12 @@ function Facet({ attribute, items, refine }: RefinementListProvided & Refinement
                     </Disclosure.Button>
                     <Disclosure.Panel className={styles.panel}>
                         <ul className={styles.list}>
-                            {visibleItems.map((item, index) => (
+                            {visibleItems.map((item) => (
                                 <li
                                     key={`${attribute}_${item.label}`}
                                     className="mb-2 last:mb-0 flex items-center"
                                 >
-                                    {/* eslint-disable-next-line jsx-a11y/control-has-associated-label */}
                                     <Checkbox
-                                        id={`${item.label + index}`}
-                                        htmlFor={`${item.label + index}`}
                                         checked={item.isRefined}
                                         onChange={() => refine(item.value)}
                                         label={

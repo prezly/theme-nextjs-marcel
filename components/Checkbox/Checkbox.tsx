@@ -3,13 +3,13 @@ import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 type Props = {
-    label?: ReactNode;
+    label: ReactNode;
     htmlFor?: string;
 } & ComponentPropsWithoutRef<'input'>;
 
 function Checkbox({ htmlFor, label, className, disabled, type, ...props }: Props) {
     return (
-        <div
+        <label
             className={classNames('flex items-center gap-x-2', {
                 'opacity-50 pointer-events-none select-none': disabled,
             })}
@@ -29,14 +29,11 @@ function Checkbox({ htmlFor, label, className, disabled, type, ...props }: Props
                     className="absolute top-1/2 right-1/2 transform translate-x-1/2 -translate-y-1/2 hidden peer-checked:block"
                     width={10}
                     height={10}
+                    aria-hidden="true"
                 />
             </div>
-            {label && (
-                <label className="text-white font-medium" htmlFor={htmlFor}>
-                    {label}
-                </label>
-            )}
-        </div>
+            <div className="text-white font-medium">{label}</div>
+        </label>
     );
 }
 
