@@ -1,7 +1,7 @@
 import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import { IconArrowTop } from '@prezly/icons';
-import { PageSeo, useNewsroom } from '@prezly/theme-kit-nextjs';
-import { LoadingBar, ScrollToTopButton } from '@prezly/themes-ui-components';
+import { PageSeo, useNewsroom, useNewsroomContext } from '@prezly/theme-kit-nextjs';
+import { LoadingBar, NotificationsBar, ScrollToTopButton } from '@prezly/themes-ui-components';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
@@ -22,6 +22,7 @@ interface Props {
 
 function Layout({ title, description, imageUrl, hasError, children }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
+    const { notifications } = useNewsroomContext();
     const { isEnabled: isAnalyticsEnabled } = useAnalyticsContext();
 
     const [isLoadingPage, setIsLoadingPage] = useState(false);
@@ -30,6 +31,7 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
         function onRouteChangeStart() {
             setIsLoadingPage(true);
         }
+
         function routeChangeComplete() {
             setIsLoadingPage(false);
         }
@@ -52,6 +54,7 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
                 nofollow={!isAnalyticsEnabled}
             />
             <Branding newsroom={newsroom} />
+            <NotificationsBar notifications={notifications} />
             <Header />
             <div className="container">
                 <div className="pt-10 lg:flex lg:flex-nowrap">
