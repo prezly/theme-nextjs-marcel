@@ -57,6 +57,6 @@ jobs:
         sleep 90
         set -e -o pipefail
         curl --fail --request POST \
-            --url https://admin-api.prezly.com/v1/themes/7fbe6c11-191b-4122-848c-82c69cd44d3a/clear-cache \
+            --url https://${{ secrets.PREZLY_CACHE_ENDPOINT }}/${{ secrets.PREZLY_THEME_ID }}/clear-cache \
             --header 'Authorization: Bearer ${{ secrets.PREZLY_API_TOKEN }}' \
             --header 'Content-Type: application/json'
