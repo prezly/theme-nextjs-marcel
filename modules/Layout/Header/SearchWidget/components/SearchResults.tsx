@@ -15,7 +15,7 @@ type Props = Pick<StateResultsProvided<AlgoliaStory>, 'searchResults'> & {
 };
 
 function SearchResults({ searchResults, query }: Props) {
-    const { nbHits: totalResults } = searchResults;
+    const totalResults = searchResults?.nbHits ?? 0;
 
     return (
         <div className="px-6 py-2">
