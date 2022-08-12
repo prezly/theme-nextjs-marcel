@@ -4,7 +4,7 @@ import type { LinkProps } from 'next/link';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 type SharedProps = {
-    variant?: 'primary' | 'secondary' | 'tertiary';
+    variant?: 'primary' | 'secondary' | 'tertiary' | 'outlined';
     loading?: boolean;
     fullWidth?: boolean;
     className?: string;
@@ -34,6 +34,8 @@ const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
                 variant === 'secondary',
             'py-1 px-3 bg-transparent hover:bg-neutral-700 focus:ring-3 focus:bg-neutral-700 focus:ring-primary-light active:bg-neutral-700 text-white':
                 variant === 'tertiary',
+            'border py-3 px-4 rounded-lg border-primary-dark hover:bg-primary-darkest hover:bg-opacity-30 focus:bg-primary-darkest focus:bg-opacity-30 focus:ring-primary-dark focus:ring-4 active:bg-primary-darkest active:bg-opacity-20':
+                variant === 'outlined',
             'w-full': fullWidth,
         },
         className,

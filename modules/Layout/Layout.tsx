@@ -2,6 +2,7 @@ import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import { IconArrowTop } from '@prezly/icons';
 import { PageSeo, useNewsroom, useNewsroomContext } from '@prezly/theme-kit-nextjs';
 import { LoadingBar, NotificationsBar, ScrollToTopButton } from '@prezly/themes-ui-components';
+import dynamic from 'next/dynamic';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
@@ -19,6 +20,10 @@ interface Props {
     imageUrl?: string;
     hasError?: boolean;
 }
+
+const CookieConsentBar = dynamic(() => import('./CookieConsentBar'), {
+    ssr: false,
+});
 
 function Layout({ title, description, imageUrl, hasError, children }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
@@ -55,6 +60,7 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
             />
             <Branding newsroom={newsroom} />
             <NotificationsBar notifications={notifications} />
+            <CookieConsentBar />
             <Header />
             <div className="container">
                 <div className="pt-10 lg:flex lg:flex-nowrap">
