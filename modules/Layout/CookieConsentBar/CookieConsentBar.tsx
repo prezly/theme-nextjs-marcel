@@ -30,13 +30,9 @@ function CookieConsentBar() {
                             </div>
                             <div className="flex lg:justify-center lg:items-end flex-col">
                                 <div className="flex md:flex-row flex-col gap-y-4 md:gap-y-0 md:gap-x-4 mb-4">
-                                    <button
-                                        type="button"
-                                        className="border py-3 px-4 rounded-lg border-primary-dark"
-                                        onClick={onReject}
-                                    >
+                                    <Button variant="outlined" onClick={onReject}>
                                         <FormattedMessage {...translations.cookieConsent.reject} />
-                                    </button>
+                                    </Button>
                                     <Button onClick={onAccept}>
                                         <FormattedMessage {...translations.cookieConsent.accept} />
                                     </Button>
