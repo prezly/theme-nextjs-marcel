@@ -19,11 +19,17 @@ function HitComponent({ hit }: Props) {
     const { attributes: story } = hit;
     const { slug, subtitle } = story;
 
+    // strip query params from story links
+    const storyLink = {
+        pathname: '/[slug]',
+        query: { slug },
+    };
+
     return (
         <div className="mb-16">
             <StoryMeta story={story} />
             <h2 className={styles.title}>
-                <Link href={`/${slug}`} locale={false} passHref>
+                <Link href={storyLink} locale={false} passHref>
                     <a>
                         <Highlight hit={hit} attribute="attributes.title" tagName="span" />
                     </a>
@@ -31,7 +37,7 @@ function HitComponent({ hit }: Props) {
             </h2>
             {subtitle && <h3 className={styles.subtitle}>{subtitle}</h3>}
 
-            <Button variant="secondary" href={`/${slug}`} className="text-lg group">
+            <Button variant="secondary" href={storyLink} className="text-lg group">
                 <FormattedMessage {...translations.actions.readMore} />
                 <IconArrowRight
                     className="transform translate-x-0 group-hover:translate-x-1 transition-transform"
