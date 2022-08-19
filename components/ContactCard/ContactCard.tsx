@@ -1,4 +1,11 @@
-import { IconEmail, IconFacebook, IconGlobe, IconPhone, IconTwitter } from '@prezly/icons';
+import {
+    IconEmail,
+    IconFacebook,
+    IconGlobe,
+    IconMobile,
+    IconPhone,
+    IconTwitter,
+} from '@prezly/icons';
 import type { ContactNode } from '@prezly/story-content-format';
 import classNames from 'classnames';
 
@@ -52,7 +59,7 @@ function ContactCard({ node }: Props) {
                 )}
                 {mobile && (
                     <a href={`tel:${mobile}`} className="default-link mr-6 flex items-center">
-                        <IconPhone className="mr-2" width={16} height={16} />
+                        <IconMobile className="mr-2" width={16} height={16} />
                         {mobile}
                     </a>
                 )}
