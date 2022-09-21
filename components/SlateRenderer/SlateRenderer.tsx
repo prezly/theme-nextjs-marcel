@@ -12,9 +12,9 @@ import {
     ListItemTextNode,
     ListNode,
     ParagraphNode,
-    PlaceholderNode,
     QuoteNode,
     StoryBookmarkNode,
+    VariableNode,
 } from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
 
@@ -33,8 +33,8 @@ import {
 import Attachment from './components/Attachment';
 import Gallery from './components/Gallery';
 import Image from './components/Image';
-import Placeholder from './components/Placeholder';
 import { StoryBookmark } from './components/StoryBookmark';
+import { Variable } from './components/Variable';
 
 interface Props {
     nodes: Node | Node[];
@@ -54,9 +54,9 @@ function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
             <Component match={AttachmentNode.isAttachmentNode} component={Attachment} />
             <Component match={QuoteNode.isQuoteNode} component={Quote} />
             <Component match={LinkNode.isLinkNode} component={Link} />
-            <Component match={PlaceholderNode.isPlaceholderNode} component={Placeholder} />
             <Component match={DividerNode.isDividerNode} component={Divider} />
             <Component match={StoryBookmarkNode.isStoryBookmarkNode} component={StoryBookmark} />
+            <Component match={VariableNode.isVariableNode} component={Variable} />
         </Renderer>
     );
 }

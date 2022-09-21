@@ -1,25 +1,22 @@
-import type { PlaceholderNode } from '@prezly/story-content-format';
+import { VariableNode } from '@prezly/story-content-format';
 import { useCurrentStory } from '@prezly/theme-kit-nextjs';
 
 import StoryPublicationDate from '../../StoryPublicationDate';
 
 interface Props {
-    node: PlaceholderNode;
+    node: VariableNode;
 }
 
-function Placeholder({ node }: Props) {
+export function Variable({ node }: Props) {
     const currentStory = useCurrentStory();
 
     if (!currentStory) {
         return null;
     }
 
-    // TODO: `PlaceholderNode` doesn't have correct types for `key` property
-    if (node.key === 'publication.date') {
+    if (node.key === VariableNode.Key.PUBLICATION_DATE) {
         return <StoryPublicationDate story={currentStory} />;
     }
 
     return null;
 }
-
-export default Placeholder;
