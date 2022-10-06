@@ -52,7 +52,7 @@
     "react-instantsearch-core": "6.36.0",
     "react-instantsearch-dom": "6.36.0",
     "react-intl": "6.1.2",
-    "social-links": "1.8.1",
+    "social-links": "1.9.0",
     "tinycolor2": "1.4.2"
   },
   "devDependencies": {
