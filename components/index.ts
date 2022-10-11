@@ -1,3 +1,4 @@
+export { default as Button } from './Button';
 export { default as CategoryTag } from './CategoryTag';
 export { default as ContactCard } from './ContactCard';
 export { default as Dropdown } from './Dropdown';
