@@ -27,9 +27,7 @@ function Gallery({ gallery }: Props) {
         <div>
             <div className={styles.header}>
                 <h1 className={styles.title}>{name}</h1>
-                {(description || true) && (
-                    <p className="text-white text-lg leading-7">{description}</p>
-                )}
+                {description && <p className="text-white text-lg leading-7">{description}</p>}
             </div>
 
             <div className={styles.actions}>
