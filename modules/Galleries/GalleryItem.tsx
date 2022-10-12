@@ -17,7 +17,7 @@ function GalleryItem({ gallery }: Props) {
         <Link href={`/media/album/${gallery.uuid}`} locale={getLinkLocaleSlug()} passHref>
             <a className={classNames(styles.container, 'group')}>
                 <Image
-                    alt={gallery.title}
+                    alt={gallery.name}
                     imageDetails={gallery.images[0].uploadcare_image}
                     lazy
                     layout="fill"
@@ -25,7 +25,7 @@ function GalleryItem({ gallery }: Props) {
                     className={styles.image}
                 />
                 <span className={classNames(styles.title, 'group-hover:underline')}>
-                    {gallery.title}
+                    {gallery.name}
                 </span>
             </a>
         </Link>

@@ -12,10 +12,10 @@ const Gallery = dynamic(() => import('@/modules/Gallery'), { ssr: true });
 type Props = BasePageProps & GalleryAlbumPageProps;
 
 const GalleryPage: FunctionComponent<Props> = ({ gallery }) => {
-    const { title, images } = gallery;
+    const { name, images } = gallery;
 
     return (
-        <Layout title={title} imageUrl={images[0].uploadcare_image.uuid}>
+        <Layout title={name} imageUrl={images[0].uploadcare_image.uuid}>
             <Gallery gallery={gallery} />
         </Layout>
     );
