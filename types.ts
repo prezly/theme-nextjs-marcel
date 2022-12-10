@@ -1,4 +1,4 @@
-import type { ExtraStoryFields, Story } from '@prezly/sdk';
+import type { Story } from '@prezly/sdk';
 
 export interface Env {
     NODE_ENV: 'production' | 'development' | 'test';
@@ -6,7 +6,7 @@ export interface Env {
     PREZLY_NEWSROOM_UUID: string;
 }
 
-export type StoryWithImage = Story & Pick<ExtraStoryFields, 'thumbnail_image'>;
+export type StoryWithImage = Story & Pick<Story.ExtraFields, 'thumbnail_image'>;
 
 export type AlternateLanguageLink = {
     href: string;
