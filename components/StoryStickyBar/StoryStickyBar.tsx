@@ -1,5 +1,6 @@
 import { LogoPrezly } from '@prezly/icons';
 import type { ExtendedStory } from '@prezly/sdk';
+import { useNewsroom } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 
@@ -10,6 +11,8 @@ interface Props {
 }
 
 function StoryStickyBar({ story }: PropsWithChildren<Props>) {
+    const newsroom = useNewsroom();
+
     return (
         <div className="lg:full-width lg:fixed lg:bottom-0 lg:bg-neutral-800">
             <div
@@ -18,15 +21,17 @@ function StoryStickyBar({ story }: PropsWithChildren<Props>) {
                     'lg:py-4 lg:flex lg:items-center lg:justify-between',
                 )}
             >
-                <p className="flex items-center">
-                    Powered by
-                    <a
-                        href="https://www.prezly.com/"
-                        className="ml-2 text-blue-400 hover:text-blue-500"
-                    >
-                        <LogoPrezly className="w-auto h-5" />
-                    </a>
-                </p>
+                {!newsroom.is_white_labeled && (
+                    <p className="flex items-center">
+                        Powered by
+                        <a
+                            href="https://www.prezly.com/"
+                            className="ml-2 text-blue-400 hover:text-blue-500"
+                        >
+                            <LogoPrezly className="w-auto h-5" />
+                        </a>
+                    </p>
+                )}
 
                 <StoryShare story={story} />
             </div>
