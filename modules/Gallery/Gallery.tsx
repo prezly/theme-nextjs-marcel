@@ -1,4 +1,3 @@
-import { IconDownload } from '@prezly/icons';
 import type { NewsroomGallery } from '@prezly/sdk';
 import { getUploadcareGroupUrl } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
@@ -6,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { Button, SlateRenderer, StoryShareSocial } from '@/components';
+import { IconDownload } from '@/icons';
 
 import styles from './Gallery.module.css';
 

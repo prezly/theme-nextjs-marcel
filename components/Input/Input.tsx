@@ -1,7 +1,8 @@
-import { IconCheck, IconLoading, IconWarning } from '@prezly/icons';
 import classNames from 'classnames';
 import { forwardRef } from 'react';
 import type { ComponentPropsWithRef, ForwardedRef, ReactNode } from 'react';
+
+import { IconCheck, IconLoading, IconWarning } from '@/icons';
 
 type Props = {
     helper?: ReactNode;

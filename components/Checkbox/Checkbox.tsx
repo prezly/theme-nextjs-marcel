@@ -1,6 +1,7 @@
-import { IconCheck } from '@prezly/icons';
 import classNames from 'classnames';
 import type { ComponentPropsWithoutRef, ReactNode } from 'react';
+
+import { IconCheck } from '@/icons';
 
 type Props = {
     label: ReactNode;

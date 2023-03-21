@@ -1,10 +1,11 @@
-import { IconCalendar } from '@prezly/icons';
 import type { Story } from '@prezly/sdk';
 import { getStoryPublicationDate } from '@prezly/theme-kit-nextjs';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { FormattedDate } from 'react-intl';
+
+import { IconCalendar } from '@/icons';
 
 interface Props {
     story: Story | AlgoliaStory;
