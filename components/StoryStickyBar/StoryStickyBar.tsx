@@ -1,8 +1,9 @@
-import { LogoPrezly } from '@prezly/icons';
 import type { ExtendedStory } from '@prezly/sdk';
 import { useNewsroom } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
+
+import { LogoPrezly } from '@/icons';
 
 import StoryShare from './StoryShare';
 

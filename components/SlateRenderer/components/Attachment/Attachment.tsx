@@ -1,10 +1,11 @@
 import { STORY_FILE, useAnalytics } from '@prezly/analytics-nextjs';
-import { IconDownload } from '@prezly/icons';
 import type { AttachmentNode } from '@prezly/story-content-format';
 import translations from '@prezly/themes-intl-messages';
 import { UploadcareFile } from '@prezly/uploadcare';
 import classNames from 'classnames';
 import { FormattedMessage } from 'react-intl';
+
+import { IconDownload } from '@/icons';
 
 import FileTypeIcon from './FileTypeIcon';
 import formatBytes from './lib/formatBytes';

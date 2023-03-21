@@ -1,4 +1,3 @@
-import { IconArrowRight } from '@prezly/icons';
 import type { Story } from '@prezly/sdk';
 import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
 import translations from '@prezly/themes-intl-messages';
@@ -8,6 +7,7 @@ import { FormattedMessage } from 'react-intl';
 
 import Button from '@/components/Button';
 import StoryMeta from '@/components/StoryMeta';
+import { IconArrowRight } from '@/icons';
 
 type Props = {
     story: Story | AlgoliaStory;

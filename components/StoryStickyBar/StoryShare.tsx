@@ -1,7 +1,8 @@
-import { IconPaste } from '@prezly/icons';
 import type { ExtendedStory } from '@prezly/sdk';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
+
+import { IconPaste } from '@/icons';
 
 interface Props {
     story: ExtendedStory;

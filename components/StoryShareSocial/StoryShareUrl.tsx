@@ -1,8 +1,9 @@
 import { Transition } from '@headlessui/react';
-import { IconLink } from '@prezly/icons';
 import translations from '@prezly/themes-intl-messages';
 import { Fragment, useState } from 'react';
 import { FormattedMessage, useIntl } from 'react-intl';
+
+import { IconLink } from '@/icons';
 
 import styles from './StoryShareUrl.module.css';
 

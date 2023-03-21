@@ -1,6 +1,7 @@
-import { IconEmail, IconPhone } from '@prezly/icons';
 import type { NewsroomCompanyInformation } from '@prezly/sdk';
 import classNames from 'classnames';
+
+import { IconEmail, IconPhone } from '@/icons';
 
 import styles from './Boilerplate.module.css';
 
