@@ -3,6 +3,7 @@ export { default as IconClose } from './close.svg';
 export { default as IconDownload } from './download.svg';
 export { default as IconEmail } from './email.svg';
 export { default as IconFilter } from './filter.svg';
+export { default as IconLink } from './link.svg';
 export { default as IconLoading } from './loading.svg';
 export { default as IconMenu } from './menu.svg';
 export { default as IconPaste } from './paste.svg';
