@@ -40,7 +40,7 @@
     "@react-hookz/web": "14.7.1",
     "@sentry/nextjs": "7.46.0",
     "@tailwindcss/line-clamp": "0.4.2",
-    "algoliasearch": "4.16.0",
+    "algoliasearch": "4.17.0",
     "classnames": "2.3.2",
     "date-fns": "2.29.3",
     "intersection-observer": "0.12.2",
