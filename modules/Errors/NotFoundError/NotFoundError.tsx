@@ -1,21 +1,34 @@
 import translations from '@prezly/themes-intl-messages';
+import { Button } from '@prezly/themes-ui-components';
 import { useRouter } from 'next/router';
-import { useIntl } from 'react-intl';
+import { FormattedMessage } from 'react-intl';
 
-import Error from '@/components/Error';
+import Layout from '@/modules/Layout';
+
+import styles from './error.module.css';
 
 function NotFoundError() {
-    const { formatMessage } = useIntl();
     const router = useRouter();
 
     return (
-        <Error
-            action={() => router.push('/')}
-            actionTitle={formatMessage(translations.actions.backToHomePage)}
-            statusCode={404}
-            title={formatMessage(translations.notFound.title)}
-            description={formatMessage(translations.notFound.subtitle)}
-        />
+        <Layout hasError>
+            <div className={styles.container}>
+                <h2 className={styles.statusCode}>404</h2>
+                <p className={styles.title}>
+                    <FormattedMessage {...translations.notFound.title} />
+                </p>
+                <p className={styles.description}>
+                    <FormattedMessage {...translations.notFound.subtitle} />
+                </p>
+                <Button
+                    variation="primary"
+                    onClick={() => router.push('/')}
+                    className={styles.button}
+                >
+                    <FormattedMessage {...translations.actions.backToHomePage} />
+                </Button>
+            </div>
+        </Layout>
     );
 }
 

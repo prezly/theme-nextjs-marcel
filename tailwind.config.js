@@ -1,5 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-const lineClampPlugin = require('@tailwindcss/line-clamp');
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 /** @type {import('tailwindcss').Config} */
@@ -73,5 +72,4 @@ module.exports = {
     variants: {
         extend: {},
     },
-    plugins: [lineClampPlugin],
 };
