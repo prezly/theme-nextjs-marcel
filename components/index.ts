@@ -2,7 +2,6 @@ export { default as Button } from './Button';
 export { default as CategoryTag } from './CategoryTag';
 export { default as ContactCard } from './ContactCard';
 export { default as Dropdown } from './Dropdown';
-export { default as Error } from './Error';
 export { default as SlateRenderer } from './SlateRenderer';
 export { default as StoryPublicationDate } from './StoryPublicationDate';
 export { default as StoryStickyBar } from './StoryStickyBar';
