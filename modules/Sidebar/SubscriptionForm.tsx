@@ -30,6 +30,11 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [emailError, setEmailError] = useState<string>();
     const [captchaToken, setCaptchaToken] = useState<string>();
+    const [isMounted, setIsMounted] = useState(false);
+
+    useEffect(() => {
+        setIsMounted(true);
+    }, []);
 
     const captchaRef = useRef<HCaptcha>(null);
 
@@ -139,7 +144,7 @@ function SubscriptionForm({ className, inlineForm }: PropsWithChildren<Props>) {
                 </p>
             </div>
 
-            {NEXT_PUBLIC_HCAPTCHA_SITEKEY && (
+            {isMounted && NEXT_PUBLIC_HCAPTCHA_SITEKEY && (
                 <HCaptcha
                     sitekey={NEXT_PUBLIC_HCAPTCHA_SITEKEY}
                     size="invisible"
