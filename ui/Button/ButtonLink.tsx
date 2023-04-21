@@ -1,5 +1,4 @@
-import { LocaleObject } from '@prezly/theme-kit-core';
-import { useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
+import { LocaleObject, useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import type { LinkProps as NextLinkProps } from 'next/link';
 import NextLink from 'next/link';
