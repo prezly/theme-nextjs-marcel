@@ -1,5 +1,5 @@
 import type { Story } from '@prezly/sdk';
-import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import type { AlgoliaStory } from '@prezly/theme-kit-core';
 import translations from '@prezly/themes-intl-messages';
 import classNames from 'classnames';
 import Link from 'next/link';

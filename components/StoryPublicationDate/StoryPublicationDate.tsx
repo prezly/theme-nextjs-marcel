@@ -1,6 +1,6 @@
 import type { Story } from '@prezly/sdk';
-import { getStoryPublicationDate } from '@prezly/theme-kit-nextjs';
-import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import { getStoryPublicationDate } from '@prezly/theme-kit-core';
+import type { AlgoliaStory } from '@prezly/theme-kit-core';
 import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { FormattedDate } from 'react-intl';
