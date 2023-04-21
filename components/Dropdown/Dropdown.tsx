@@ -38,7 +38,6 @@ function Dropdown({
                     <Menu.Button as={Fragment}>
                         <Button
                             variation="navigation"
-                            isActive={open}
                             icon={icon}
                             className={classNames(styles.dropdownButton, buttonClassName, {
                                 [styles.buttonWithMobileDisplay]: withMobileDisplay,

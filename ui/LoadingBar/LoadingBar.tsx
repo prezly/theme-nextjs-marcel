@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import styles from './LoadingBar.module.scss';
+import styles from './LoadingBar.module.css';
 
 interface Props {
     isLoading: boolean;

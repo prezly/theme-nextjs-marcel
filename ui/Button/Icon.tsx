@@ -4,7 +4,7 @@ import { IconLoading } from '@/icons';
 
 import type { BaseProps } from './types';
 
-import styles from './Button.module.scss';
+import styles from './Button.module.css';
 
 interface Props {
     icon?: BaseProps['icon'];

@@ -5,7 +5,7 @@ import { forwardRef } from 'react';
 import { Icon } from './Icon';
 import type { BaseProps } from './types';
 
-import styles from './Button.module.scss';
+import styles from './Button.module.css';
 
 export interface ButtonProps extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;

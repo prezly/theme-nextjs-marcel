@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { PropsWithChildren } from 'react';
 import { Fragment } from 'react';
 
-import styles from './Modal.module.scss';
+import styles from './Modal.module.css';
 
 interface Props {
     id?: string;

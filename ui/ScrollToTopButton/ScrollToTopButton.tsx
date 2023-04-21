@@ -1,10 +1,11 @@
-import { IconCaret, type IconComponentType } from '@prezly/icons';
 import classNames from 'classnames';
 import { useEffect, useState } from 'react';
 
+import { IconArrowTop, type IconComponentType } from '@/icons';
+
 import { Button } from '../Button';
 
-import styles from './ScrollToTopButton.module.scss';
+import styles from './ScrollToTopButton.module.css';
 
 const SCROLL_TOP_MIN_HEIGHT = 300;
 
@@ -16,7 +17,7 @@ interface Props {
 }
 
 export function ScrollToTopButton({
-    icon: IconComponent = IconCaret,
+    icon: IconComponent = IconArrowTop,
     iconClassName,
     className,
     ariaLabel = 'Scroll to top',
