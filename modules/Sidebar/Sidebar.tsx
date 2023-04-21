@@ -1,5 +1,6 @@
 import { useCompanyInformation } from '@prezly/theme-kit-nextjs';
-import { SocialMedia } from '@prezly/themes-ui-components';
+
+import { SocialMedia } from '@/components';
 
 import Boilerplate from './Boilerplate';
 import Footer from './Footer';
