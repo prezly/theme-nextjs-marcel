@@ -1,0 +1,47 @@
+.dialog {
+    @apply fixed inset-0 z-10 overflow-y-auto;
+}
+
+.dialogWrapper {
+    @apply container;
+
+    @apply !max-w-none min-h-screen text-center;
+}
+
+.backdrop {
+    @apply fixed inset-0 bg-neutral-700 bg-opacity-50;
+}
+
+.spacer {
+    @apply inline-block h-screen align-middle;
+}
+
+.modal {
+    @apply inline-block relative w-full max-w-2xl overflow-hidden text-left bg-white p-6 mt-[25vh] shadow-xl rounded-lg;
+}
+
+.backdropTransition {
+    transition: opacity 0.2s ease;
+}
+
+.backdropTransitionOpenStart {
+    opacity: 0;
+}
+
+.backdropTransitionOpenFinish {
+    opacity: 1;
+}
+
+.modalTransition {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.modalTransitionOpenStart {
+    opacity: 0;
+    transform: translateY(-1 * $spacing-5);
+}
+
+.modalTransitionOpenFinish {
+    opacity: 1;
+    transform: translateY(0);
+}

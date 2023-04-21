@@ -1,0 +1,72 @@
+.button {
+    @apply inline-flex items-center justify-center bg-none no-underline appearance-none shadow-none cursor-pointer;
+    @apply border border-transparent font-semibold px-4 py-3 rounded-lg text-base leading-[1.375rem];
+}
+
+.button:disabled {
+    @apply cursor-not-allowed opacity-40;
+}
+
+.button.loading {
+    @apply cursor-wait;
+}
+
+.primary {
+    @apply bg-primary border-primary text-white;
+}
+
+.primary:not(:disabled) {
+    @apply hover:bg-primary-darkest hover:border-primary-darkest;
+    @apply focus:bg-primary-darkest focus:border-primary-darkest;
+    @apply active:bg-primary-darkest active:border-primary-darkest;
+}
+
+.secondary {
+    @apply border-neutral-200 text-neutral-700;
+}
+
+.secondary:not(:disabled) {
+    @apply hover:bg-neutral-400 active:bg-neutral-50;
+    @apply focus:border-primary-lightest active:border-primary-lightest;
+}
+
+.navigation {
+    @apply text-neutral-700 py-2 px-3;
+    @apply rounded-none sm:rounded-lg;
+}
+
+.navigation:not(:disabled) {
+    @apply sm:hover:opacity-80 sm:focus:opacity-80 sm:active:opacity-100 sm:active:border-neutral-200;
+}
+
+.icon {
+    width: 1em;
+    height: 1em;
+}
+
+.icon.loading {
+    transform-origin: center;
+    animation: spin 1s infinite linear;
+}
+
+.icon.left {
+    @apply mr-2;
+}
+
+.icon.right {
+    @apply ml-2;
+}
+
+.iconOnly .icon {
+    @apply m-0;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}

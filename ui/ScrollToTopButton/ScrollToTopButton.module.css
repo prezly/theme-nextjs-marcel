@@ -1,0 +1,12 @@
+.button {
+    @apply fixed hidden text-sm bg-white w-10 h-10 z-20;
+    @apply right-4 bottom-4 sm:right-6 sm:bottom-6 md:right-20 md:bottom-20;
+}
+
+.button.visible {
+    @apply flex items-center justify-center;
+}
+
+.icon {
+    @apply w-4 h-4 mt-2;
+}

@@ -1,12 +1,13 @@
 import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import { PageSeo, useNewsroom, useNewsroomContext } from '@prezly/theme-kit-nextjs';
-import { LoadingBar, NotificationsBar, ScrollToTopButton } from '@prezly/themes-ui-components';
 import dynamic from 'next/dynamic';
 import { Router } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useState } from 'react';
 
+import { NotificationsBar } from '@/components';
 import { IconArrowTop } from '@/icons';
+import { LoadingBar, ScrollToTopButton } from '@/ui';
 
 import Sidebar from '../Sidebar';
 

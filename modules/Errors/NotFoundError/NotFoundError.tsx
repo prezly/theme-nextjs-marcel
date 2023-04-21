@@ -1,9 +1,9 @@
 import translations from '@prezly/themes-intl-messages';
-import { Button } from '@prezly/themes-ui-components';
 import { useRouter } from 'next/router';
 import { FormattedMessage } from 'react-intl';
 
 import Layout from '@/modules/Layout';
+import { Button } from '@/ui';
 
 import styles from './error.module.css';
 

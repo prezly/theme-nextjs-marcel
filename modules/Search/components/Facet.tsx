@@ -1,6 +1,5 @@
 import { Disclosure } from '@headlessui/react';
 import translations from '@prezly/themes-intl-messages';
-import { Button } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import { useCallback, useMemo, useState } from 'react';
 import type { RefinementListExposed, RefinementListProvided } from 'react-instantsearch-core';
@@ -9,6 +8,7 @@ import { FormattedDate, FormattedMessage } from 'react-intl';
 
 import Checkbox from '@/components/Checkbox';
 import { IconCaret } from '@/icons';
+import { Button } from '@/ui';
 
 import { type ArrayElement, FacetAttribute } from '../types';
 

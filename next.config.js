@@ -45,7 +45,7 @@ const moduleExports = withBundleAnalyzer({
         domains: ['cdn.uc.assets.prezly.com'],
     },
     eslint: {
-        dirs: ['@types', 'components', 'hooks', 'modules', 'pages', 'utils'],
+        dirs: ['@types', 'components', 'hooks', 'modules', 'pages', 'utils', 'ui'],
     },
     webpack(config) {
         config.module.rules.push({

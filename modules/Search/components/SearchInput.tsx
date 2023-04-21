@@ -1,5 +1,4 @@
 import translations from '@prezly/themes-intl-messages';
-import { Button, FormInput } from '@prezly/themes-ui-components';
 import classNames from 'classnames';
 import { useState } from 'react';
 import type { SearchBoxExposed, SearchBoxProvided } from 'react-instantsearch-core';
@@ -7,6 +6,7 @@ import { connectSearchBox } from 'react-instantsearch-dom';
 import { FormattedMessage, useIntl } from 'react-intl';
 
 import { IconFilter, IconSearch } from '@/icons';
+import { Button, FormInput } from '@/ui';
 
 import { AVAILABLE_FACET_ATTRIBUTES } from '../utils';
 
