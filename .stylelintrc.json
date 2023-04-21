@@ -7,6 +7,7 @@
       {
         "ignoreAtRules": ["tailwind", "apply", "layer"]
       }
-    ]
+    ],
+    "media-feature-range-notation": "prefix"
   }
 }

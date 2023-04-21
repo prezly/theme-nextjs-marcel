@@ -4,10 +4,10 @@
 
 .dot::before,
 .dot::after {
-    content: "";
-    display: block;
     @apply bg-blue-400 w-2.5 h-2.5 rounded-full;
 
+    content: "";
+    display: block;
     animation-duration: 0.4s;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
