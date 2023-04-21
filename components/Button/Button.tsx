@@ -43,14 +43,16 @@ const Button: ButtonOverload = (props: ButtonProps | ButtonAsLinkProps) => {
 
     if (hasHref(props)) {
         return (
+            // @ts-expect-error - TS does not seem to respect the type guard above
             // eslint-disable-next-line react/jsx-props-no-spreading
-            <Link {...props} className={classes}>
+            <Link href={props.href} {...rest} className={classes}>
                 {props.children}
             </Link>
         );
     }
 
     return (
+        // @ts-expect-error - TS does not seem to respect the type guard above
         <button
             type={props.type ?? 'button'}
             className={classNames(classes, {
