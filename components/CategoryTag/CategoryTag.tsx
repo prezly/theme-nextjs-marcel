@@ -27,10 +27,12 @@ function CategoryTag({ additionalCategories, category, className, onClick }: Pro
 
     if (category) {
         return (
-            <Link key={category.id} href={getCategoryUrl(category, locale)} passHref>
-                <a className={classNames(styles.categoryTag, className)}>
-                    {(category as Category).display_name || (category as AlgoliaCategoryRef).name}
-                </a>
+            <Link
+                key={category.id}
+                href={getCategoryUrl(category, locale)}
+                className={classNames(styles.categoryTag, className)}
+            >
+                {(category as Category).display_name || (category as AlgoliaCategoryRef).name}
             </Link>
         );
     }
