@@ -2,8 +2,8 @@
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
     enabled: process.env.ANALYZE === 'true',
 });
+const locales = require('@prezly/theme-kit-core/localeConfig');
 const { DUMMY_DEFAULT_LOCALE } = require('@prezly/theme-kit-nextjs');
-const locales = require('@prezly/theme-kit-nextjs/build/intl/localeConfig');
 const { withSentryConfig } = require('@sentry/nextjs');
 
 const moduleExports = withBundleAnalyzer({

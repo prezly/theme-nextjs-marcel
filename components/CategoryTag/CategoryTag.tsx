@@ -1,6 +1,7 @@
 import type { Category } from '@prezly/sdk/dist/types';
-import type { AlgoliaCategoryRef } from '@prezly/theme-kit-nextjs';
-import { getCategoryUrl, useCurrentLocale } from '@prezly/theme-kit-nextjs';
+import type { AlgoliaCategoryRef } from '@prezly/theme-kit-core';
+import { getCategoryUrl } from '@prezly/theme-kit-core';
+import { useCurrentLocale } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import Link from 'next/link';
 

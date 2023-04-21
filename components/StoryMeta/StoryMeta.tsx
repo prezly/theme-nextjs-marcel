@@ -1,5 +1,5 @@
 import type { Story } from '@prezly/sdk';
-import type { AlgoliaStory } from '@prezly/theme-kit-nextjs';
+import type { AlgoliaStory } from '@prezly/theme-kit-core';
 import { useState } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
