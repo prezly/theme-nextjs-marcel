@@ -6,7 +6,7 @@ import { useRef, useState } from 'react';
 import { useOnResize } from './lib';
 import { LinkedText } from './LinkedText';
 
-import styles from './NotificationsBar.module.scss';
+import styles from './NotificationsBar.module.css';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
     notifications: Notification[];
@@ -23,6 +23,7 @@ function Notifications({ className, notifications, style, ...attributes }: Props
 
     return (
         <div
+            // eslint-disable-next-line react/jsx-props-no-spreading
             {...attributes}
             className={classNames(styles.container, className)}
             ref={container}
@@ -46,5 +47,6 @@ export function NotificationsBar({ notifications, ...props }: Props) {
         return null;
     }
 
+    // eslint-disable-next-line react/jsx-props-no-spreading
     return <Notifications {...props} notifications={notifications} />;
 }

@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react';
 import type { ShareableSocialNetwork } from './types';
 import { getSocialShareUrl } from './utils';
 
-import styles from './SocialShareButton.module.scss';
+import styles from './SocialShareButton.module.css';
 
 interface ShareButtonProps {
     network: ShareableSocialNetwork;

@@ -1,0 +1,15 @@
+.container {
+    @apply h-10;
+}
+
+.banner {
+    @apply fixed top-0 left-0 right-0 min-h-full p-2 text-center text-white bg-error-shade flex items-center justify-center z-[100];
+}
+
+.content {
+    @apply leading-[1.4] text-center;
+}
+
+.content a {
+    @apply !text-inherit;
+}

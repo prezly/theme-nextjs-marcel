@@ -1,0 +1,12 @@
+.container {
+    @apply flex gap-4;
+}
+
+.link {
+    @apply block text-white;
+    @apply hover:text-neutral-300 focus:text-neutral-300;
+}
+
+.icon {
+    @apply w-6 h-6;
+}
