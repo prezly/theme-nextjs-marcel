@@ -1,4 +1,4 @@
-export { Button } from './Button';
+export { Button, ButtonLink } from './Button';
 export { FormInput } from './FormInput';
 export { LoadingBar } from './LoadingBar';
 export { Modal } from './Modal';

@@ -48,11 +48,11 @@
 
 .secondary {
     border-color: $color-borders;
-    color: $color-neutral-700;
+    color: $color-base-700;
 
     &:not(:disabled) {
         &:hover {
-            border-color: $color-neutral-400;
+            border-color: $color-base-400;
         }
 
         &:focus,
@@ -61,13 +61,13 @@
         }
 
         &:active {
-            background-color: $color-neutral-50;
+            background-color: $color-base-50;
         }
     }
 }
 
 .navigation {
-    color: $color-neutral-700;
+    color: $color-base-700;
     padding: $spacing-1 $spacing-2;
 
     @include tablet-up {
@@ -79,8 +79,7 @@
             }
 
             /* stylelint-disable-next-line max-nesting-depth */
-            &:active,
-            &.active {
+            &:active {
                 opacity: 1;
                 border-color: $color-borders;
             }

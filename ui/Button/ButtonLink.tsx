@@ -1,4 +1,5 @@
-import { LocaleObject, useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
+import { LocaleObject } from '@prezly/theme-kit-core';
+import { useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
 import classNames from 'classnames';
 import type { LinkProps as NextLinkProps } from 'next/link';
 import NextLink from 'next/link';
@@ -16,7 +17,7 @@ export interface LinkProps extends BaseProps, HTMLProps<HTMLAnchorElement> {
     forceRefresh?: boolean;
 }
 
-const Link = forwardRef<
+export const ButtonLink = forwardRef<
     HTMLAnchorElement,
     Omit<PropsWithChildren<LinkProps>, 'onResize' | 'onResizeCapture'>
 >(
@@ -74,6 +75,4 @@ const Link = forwardRef<
     },
 );
 
-Link.displayName = 'Button.Link';
-
-export { Link };
+ButtonLink.displayName = 'ButtonLink';

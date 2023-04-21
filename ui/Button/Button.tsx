@@ -2,10 +2,7 @@ import classNames from 'classnames';
 import type { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 import { forwardRef } from 'react';
 
-import { makeCompoundComponent } from '@/utils';
-
 import { Icon } from './Icon';
-import { Link } from './Link';
 import type { BaseProps } from './types';
 
 import styles from './Button.module.scss';
@@ -13,14 +10,11 @@ import styles from './Button.module.scss';
 export interface ButtonProps extends BaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
     isLoading?: boolean;
     isDisabled?: boolean;
-    // TODO: This prop does basically nothing (and only works for navigation)
-    isActive?: boolean;
-    activeClassName?: string;
     onClick?: () => void;
     contentClassName?: string;
 }
 
-const ButtonComponent = forwardRef<
+export const Button = forwardRef<
     HTMLButtonElement,
     Omit<PropsWithChildren<ButtonProps>, 'onResize' | 'onResizeCapture'>
 >(
@@ -33,8 +27,6 @@ const ButtonComponent = forwardRef<
             iconPlacement = 'left',
             isLoading,
             isDisabled,
-            isActive,
-            activeClassName,
             onClick,
             children,
             contentClassName,
@@ -51,10 +43,6 @@ const ButtonComponent = forwardRef<
                 [styles.secondary]: variation === 'secondary',
                 [styles.navigation]: variation === 'navigation',
                 [styles.loading]: isLoading,
-                [styles.active]: isActive,
-                ...(activeClassName && {
-                    [activeClassName]: isActive,
-                }),
                 [styles.iconOnly]: Boolean(icon) && !children,
             })}
             onClick={onClick}
@@ -74,6 +62,4 @@ const ButtonComponent = forwardRef<
     ),
 );
 
-ButtonComponent.displayName = 'Button';
-
-export const Button = makeCompoundComponent(ButtonComponent, { Link });
+Button.displayName = 'Button';
