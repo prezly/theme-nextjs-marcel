@@ -4,7 +4,6 @@
 
 .dialogWrapper {
     @apply container;
-
     @apply !max-w-none min-h-screen text-center;
 }
 
