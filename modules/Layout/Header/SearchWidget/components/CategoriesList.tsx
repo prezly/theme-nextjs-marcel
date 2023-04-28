@@ -14,7 +14,7 @@ function CategoriesList() {
         () =>
             categories.filter(
                 (category) =>
-                    category.stories_number > 0 &&
+                    category.public_stories_number > 0 &&
                     getCategoryHasTranslation(category, currentLocale),
             ),
         [categories, currentLocale],
