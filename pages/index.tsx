@@ -1,5 +1,6 @@
-import type { HomePageProps } from '@prezly/theme-kit-nextjs';
-import { getHomepageServerSideProps, useNewsroom } from '@prezly/theme-kit-nextjs';
+import { useNewsroom } from '@prezly/theme-kit-nextjs';
+import type { HomePageProps } from '@prezly/theme-kit-nextjs/server';
+import { getHomepageServerSideProps } from '@prezly/theme-kit-nextjs/server';
 import type { FunctionComponent } from 'react';
 
 import Layout from '@/modules/Layout';

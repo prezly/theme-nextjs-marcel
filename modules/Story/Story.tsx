@@ -1,6 +1,6 @@
 import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import type { ExtendedStory } from '@prezly/sdk';
-import { Story as StorySdk } from '@prezly/sdk';
+import { FormatVersion } from '@prezly/theme-kit-core';
 import { StorySeo } from '@prezly/theme-kit-nextjs';
 import Image from '@prezly/uploadcare-image';
 import dynamic from 'next/dynamic';
@@ -44,11 +44,11 @@ function Story({ story }: Props) {
                 )}
 
                 <div className="pt-12 py-6 lg:max-w-[920px] lg:mx-auto">
-                    {format_version === StorySdk.FormatVersion.HTML && (
+                    {format_version === FormatVersion.HTML && (
                         // eslint-disable-next-line react/no-danger
                         <div dangerouslySetInnerHTML={{ __html: content }} />
                     )}
-                    {format_version === StorySdk.FormatVersion.SLATEJS && (
+                    {format_version === FormatVersion.SLATEJS && (
                         <SlateRenderer nodes={JSON.parse(content)} />
                     )}
                 </div>

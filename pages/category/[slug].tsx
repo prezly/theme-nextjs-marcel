@@ -1,6 +1,7 @@
 import type { Category } from '@prezly/sdk/dist/types';
-import type { CategoryPageProps } from '@prezly/theme-kit-nextjs';
-import { getCategoryPageServerSideProps, useCurrentCategory } from '@prezly/theme-kit-nextjs';
+import { useCurrentCategory } from '@prezly/theme-kit-nextjs';
+import type { CategoryPageProps } from '@prezly/theme-kit-nextjs/server';
+import { getCategoryPageServerSideProps } from '@prezly/theme-kit-nextjs/server';
 import type { FunctionComponent } from 'react';
 
 import Layout from '@/modules/Layout';
