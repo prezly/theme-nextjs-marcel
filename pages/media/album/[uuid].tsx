@@ -1,5 +1,5 @@
-import type { GalleryAlbumPageProps } from '@prezly/theme-kit-nextjs';
-import { getGalleryAlbumPageServerSideProps } from '@prezly/theme-kit-nextjs';
+import type { GalleryAlbumPageProps } from '@prezly/theme-kit-nextjs/server';
+import { getGalleryAlbumPageServerSideProps } from '@prezly/theme-kit-nextjs/server';
 import dynamic from 'next/dynamic';
 import type { FunctionComponent } from 'react';
 
