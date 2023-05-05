@@ -1,4 +1,5 @@
 .container {
+    /* stylelint-disable-next-line scss/operator-no-unspaced */
     @apply flex items-center justify-center w-full flex-col h-[calc(100vh-128px)];
 }
 
