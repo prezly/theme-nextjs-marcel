@@ -15,11 +15,19 @@
 }
 
 .newsroom {
-    @apply no-underline text-neutral-100 uppercase text-3xl z-20;
+    @apply no-underline text-neutral-100;
 }
 
 .newsroom.withoutLogo {
     @apply text-primary hover:text-neutral-100 hover:opacity-80;
+}
+
+.title {
+    @apply uppercase text-3xl z-20 text-inherit;
+}
+
+.title.hidden {
+    @apply sr-only;
 }
 
 .logo {
