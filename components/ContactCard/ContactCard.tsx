@@ -12,7 +12,7 @@ interface Props {
 function ContactCard({ node }: Props) {
     const { contact, layout, show_avatar } = node;
     const { avatar_url, name, description, company, email, phone, mobile } = contact;
-    const website = new URL(contact.website);
+    const website = contact.website ? new URL(contact.website) : null;
 
     const isCard = layout === 'card';
     const isSignature = layout === 'signature';
