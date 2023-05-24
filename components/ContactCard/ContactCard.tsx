@@ -25,7 +25,6 @@ function ContactCard({ node }: Props) {
         <div
             className={classNames('text-neutral-300 my-10', {
                 'rounded-xl p-6 border-[1px] border-neutral-600': isCard,
-                '': isSignature,
             })}
         >
             <div className="flex items-center">
