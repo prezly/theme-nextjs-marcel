@@ -4,6 +4,7 @@ import { IconEmail, IconFacebook, IconGlobe, IconMobile, IconPhone, IconTwitter 
 
 import { AvatarWithName } from './AvatarWithName';
 import getSocialHandles from './lib/getSocialHandles';
+import { getUrl } from './lib/getUrl';
 
 interface Props {
     node: ContactNode;
@@ -12,7 +13,7 @@ interface Props {
 export function ContactCard({ node }: Props) {
     const { contact, show_avatar } = node;
     const { email, phone, mobile } = contact;
-    const website = contact.website ? new URL(contact.website) : null;
+    const website = getUrl(contact.website);
     const { twitter, facebook } = getSocialHandles(contact);
 
     return (
