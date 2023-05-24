@@ -18,7 +18,7 @@ import {
 } from '@prezly/story-content-format';
 import type { PropsWithChildren } from 'react';
 
-import ContactCard from '@/components/ContactCard';
+import { Contact } from '@/components/Contact';
 import {
     Divider,
     Heading,
@@ -50,7 +50,7 @@ function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
             <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
             <Component match={ImageNode.isImageNode} component={Image} />
             <Component match={GalleryNode.isGalleryNode} component={Gallery} />
-            <Component match={ContactNode.isContactNode} component={ContactCard} />
+            <Component match={ContactNode.isContactNode} component={Contact} />
             <Component match={AttachmentNode.isAttachmentNode} component={Attachment} />
             <Component match={QuoteNode.isQuoteNode} component={Quote} />
             <Component match={LinkNode.isLinkNode} component={Link} />
