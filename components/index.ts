@@ -1,6 +1,6 @@
 export { default as Button } from './Button';
 export { default as CategoryTag } from './CategoryTag';
-export { default as ContactCard } from './ContactCard';
+export { Contact } from './Contact';
 export { default as Dropdown } from './Dropdown';
 export { NotificationsBar } from './NotificationsBar';
 export { default as SlateRenderer } from './SlateRenderer';
