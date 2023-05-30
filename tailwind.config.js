@@ -64,6 +64,7 @@ module.exports = {
                     tint: '#F9CD44',
                     DEFAULT: '#EAB308',
                     shade: '#856605',
+                    bg: '#fef3c7',
                 },
                 modalBg: 'rgba(31, 41, 55, 0.92)',
             },

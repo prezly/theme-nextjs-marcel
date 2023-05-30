@@ -1,9 +1,10 @@
 import { useAnalyticsContext } from '@prezly/analytics-nextjs';
+import type { Notification } from '@prezly/sdk';
 import { PageSeo, useNewsroom, useNewsroomContext } from '@prezly/theme-kit-nextjs';
 import dynamic from 'next/dynamic';
-import { Router } from 'next/router';
+import { Router, useRouter } from 'next/router';
 import type { PropsWithChildren } from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import { NotificationsBar } from '@/components';
 import { IconArrowTop } from '@/icons';
@@ -31,8 +32,26 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
     const newsroom = useNewsroom();
     const { notifications } = useNewsroomContext();
     const { isEnabled: isAnalyticsEnabled } = useAnalyticsContext();
-
     const [isLoadingPage, setIsLoadingPage] = useState(false);
+    const { pathname } = useRouter();
+
+    const displayedNotifications = useMemo(() => {
+        if (pathname === '/s/[uuid]') {
+            return [
+                ...notifications,
+                {
+                    id: 'preview-warning',
+                    type: 'preview-warning',
+                    style: 'warning',
+                    title: 'This is a preview with a temporary URL which will change after publishing.',
+                    description: '',
+                    actions: [],
+                } as Notification,
+            ];
+        }
+
+        return notifications;
+    }, [notifications, pathname]);
 
     useEffect(() => {
         function onRouteChangeStart() {
@@ -61,7 +80,7 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
                 nofollow={!isAnalyticsEnabled}
             />
             <Branding newsroom={newsroom} />
-            <NotificationsBar notifications={notifications} />
+            <NotificationsBar notifications={displayedNotifications} />
             <CookieConsentBar />
             <Header />
             <div className="container">

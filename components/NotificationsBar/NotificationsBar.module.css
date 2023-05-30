@@ -3,13 +3,30 @@
 }
 
 .banner {
-    @apply fixed top-0 left-0 right-0 min-h-full p-2 text-center text-white bg-error-shade flex items-center justify-center z-[100];
+    @apply fixed top-0 left-0 right-0 z-[100];
 }
 
-.content {
-    @apply leading-[1.4] text-center;
+.notification {
+    @apply min-h-[2.5rem] m-0 p-2 align-middle bg-neutral-300 text-neutral-700;
+    @apply leading-[1.4] text-center font-medium;
 }
 
-.content a {
+.notification a {
     @apply !text-inherit;
+}
+
+.notification.success {
+    @apply bg-success-shade text-white;
+}
+
+.notification.info {
+    @apply bg-neutral-300;
+}
+
+.notification.danger {
+    @apply bg-error-shade text-white;
+}
+
+.notification.warning {
+    @apply bg-warning-bg;
 }
