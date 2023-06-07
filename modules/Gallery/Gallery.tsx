@@ -4,7 +4,7 @@ import translations from '@prezly/themes-intl-messages';
 import { useEffect, useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-import { Button, SlateRenderer, StoryShareSocial } from '@/components';
+import { Button, ContentRenderer, StoryShareSocial } from '@/components';
 import { IconDownload } from '@/icons';
 
 import styles from './Gallery.module.css';
@@ -44,7 +44,7 @@ function Gallery({ gallery }: Props) {
                 {url && <StoryShareSocial url={url} className={styles.social} />}
             </div>
 
-            <SlateRenderer nodes={JSON.parse(content)} />
+            <ContentRenderer nodes={JSON.parse(content)} />
         </div>
     );
 }
