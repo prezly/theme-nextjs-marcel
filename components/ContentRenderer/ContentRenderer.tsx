@@ -1,4 +1,4 @@
-import { Component, Renderer } from '@prezly/content-renderer-react-js';
+import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js';
 import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
@@ -40,12 +40,15 @@ interface Props {
     nodes: Node | Node[];
 }
 
-function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
+function ContentRenderer({ nodes }: PropsWithChildren<Props>) {
     return (
         <Renderer nodes={nodes} defaultComponents>
             <Component match={ListNode.isListNode} component={List} />
             <Component match={ListItemNode.isListItemNode} component={ListItem} />
             <Component match={ListItemTextNode.isListItemTextNode} component={ListItemText} />
+            {/* Title and Subtitle heading rules must be defined above the general Heading */}
+            <Component match={HeadingNode.isTitleHeadingNode} component={Elements.Ignore} />
+            <Component match={HeadingNode.isSubtitleHeadingNode} component={Elements.Ignore} />
             <Component match={HeadingNode.isHeadingNode} component={Heading} />
             <Component match={ParagraphNode.isParagraphNode} component={Paragraph} />
             <Component match={ImageNode.isImageNode} component={Image} />
@@ -61,4 +64,4 @@ function SlateRenderer({ nodes }: PropsWithChildren<Props>) {
     );
 }
 
-export default SlateRenderer;
+export default ContentRenderer;
