@@ -26,7 +26,7 @@ function StoryStickyBar({ story }: PropsWithChildren<Props>) {
                     <p className="flex items-center">
                         Powered by
                         <a
-                            href="https://www.prezly.com/"
+                            href="https://prez.ly/storytelling-platform"
                             className="ml-2 text-blue-400 hover:text-blue-500"
                         >
                             <LogoPrezly className="w-auto h-5" />

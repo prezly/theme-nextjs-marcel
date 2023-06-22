@@ -18,7 +18,7 @@ function Footer() {
                 <p className="mt-8 flex items-center">
                     <span className="mr-2">Powered by</span>{' '}
                     <a
-                        href="https://prezly.com"
+                        href="https://prez.ly/storytelling-platform"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-primary-lighter"
