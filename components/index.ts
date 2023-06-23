@@ -3,6 +3,7 @@ export { default as CategoryTag } from './CategoryTag';
 export { Contact } from './Contact';
 export { default as ContentRenderer } from './ContentRenderer';
 export { default as Dropdown } from './Dropdown';
+export { MadeWithPrezly } from './MadeWithPrezly';
 export { NotificationsBar } from './NotificationsBar';
 export { default as StoryPublicationDate } from './StoryPublicationDate';
 export { default as StoryStickyBar } from './StoryStickyBar';

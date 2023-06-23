@@ -6,7 +6,7 @@ import { Router, useRouter } from 'next/router';
 import type { PropsWithChildren } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 
-import { NotificationsBar } from '@/components';
+import { MadeWithPrezly, NotificationsBar } from '@/components';
 import { IconArrowTop } from '@/icons';
 import { LoadingBar, ScrollToTopButton } from '@/ui';
 
@@ -94,6 +94,7 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
                     icon={IconArrowTop}
                     iconClassName={styles.scrollToTopIcon}
                 />
+                {!newsroom.is_white_labeled && <MadeWithPrezly />}
             </div>
         </>
     );

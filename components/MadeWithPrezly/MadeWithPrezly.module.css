@@ -1,0 +1,12 @@
+.wrapper {
+    @apply shadow-lg no-underline px-3 py-2 flex items-center gap-2 rounded-lg bg-neutral-600;
+    @apply fixed left-4 bottom-4 sm:left-6 sm:bottom-6 md:left-20 md:bottom-20 z-20;
+}
+
+.logo {
+    @apply h-[1.125rem];
+}
+
+.text {
+    @apply text-base font-medium;
+}
