@@ -1,4 +1,5 @@
 import type { NewsroomGallery } from '@prezly/sdk';
+import { getGalleryThumbnail } from '@prezly/theme-kit-core';
 import { useGetLinkLocaleSlug } from '@prezly/theme-kit-nextjs';
 import Image from '@prezly/uploadcare-image';
 import classNames from 'classnames';
@@ -12,6 +13,7 @@ interface Props {
 
 function GalleryItem({ gallery }: Props) {
     const getLinkLocaleSlug = useGetLinkLocaleSlug();
+    const galleryThumbnail = getGalleryThumbnail(gallery);
 
     return (
         <Link
@@ -19,14 +21,16 @@ function GalleryItem({ gallery }: Props) {
             locale={getLinkLocaleSlug()}
             className={classNames(styles.container, 'group')}
         >
-            <Image
-                alt={gallery.name}
-                imageDetails={gallery.images[0].uploadcare_image}
-                lazy
-                layout="fill"
-                objectFit="cover"
-                className={styles.image}
-            />
+            {galleryThumbnail && (
+                <Image
+                    alt={gallery.name}
+                    imageDetails={galleryThumbnail}
+                    lazy
+                    layout="fill"
+                    objectFit="cover"
+                    className={styles.image}
+                />
+            )}
             <span className={classNames(styles.title, 'group-hover:underline')}>
                 {gallery.name}
             </span>
