@@ -1,4 +1,3 @@
-import { useNewsroom } from '@prezly/theme-kit-nextjs';
 import type { HomePageProps } from '@prezly/theme-kit-nextjs/server';
 import { getHomepageServerSideProps } from '@prezly/theme-kit-nextjs/server';
 import type { FunctionComponent } from 'react';
@@ -10,15 +9,11 @@ import type { BasePageProps } from 'types';
 
 type Props = BasePageProps & HomePageProps;
 
-const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => {
-    const newsroom = useNewsroom();
-
-    return (
-        <Layout title={newsroom.display_name}>
-            <InfiniteStories initialStories={stories} pagination={pagination} />
-        </Layout>
-    );
-};
+const IndexPage: FunctionComponent<Props> = ({ stories, pagination }) => (
+    <Layout>
+        <InfiniteStories initialStories={stories} pagination={pagination} />
+    </Layout>
+);
 
 export const getServerSideProps = getHomepageServerSideProps<BasePageProps>(
     async (context, { newsroomContextProps }) => ({
