@@ -7,12 +7,12 @@
 }
 
 .notification {
-    @apply min-h-[2.5rem] m-0 p-2 align-middle bg-neutral-300 text-neutral-700;
-    @apply leading-[1.4] text-center font-medium;
+    @apply min-h-[2.5rem] m-0 p-4 align-middle bg-neutral-300 text-neutral-700;
+    @apply text-base text-center font-medium;
 }
 
 .notification a {
-    @apply !text-inherit;
+    @apply !text-inherit underline font-semibold;
 }
 
 .notification.success {
@@ -24,7 +24,7 @@
 }
 
 .notification.danger {
-    @apply bg-error-shade text-white;
+    @apply bg-danger-shade text-white;
 }
 
 .notification.warning {

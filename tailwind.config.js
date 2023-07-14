@@ -60,6 +60,9 @@ module.exports = {
                     DEFAULT: '#EF4444',
                     shade: '#BC1010',
                 },
+                danger: {
+                    shade: '#E11D48',
+                },
                 warning: {
                     tint: '#F9CD44',
                     DEFAULT: '#EAB308',
