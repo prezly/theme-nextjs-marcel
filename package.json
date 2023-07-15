@@ -46,7 +46,7 @@
     "date-fns": "2.30.0",
     "intersection-observer": "0.12.2",
     "modern-normalize": "1.1.0",
-    "next": "13.4.9",
+    "next": "13.4.10",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-instantsearch-core": "6.40.1",
@@ -56,7 +56,7 @@
     "tinycolor2": "1.6.0"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "13.4.9",
+    "@next/bundle-analyzer": "13.4.10",
     "@prezly/eslint-config": "5.2.0",
     "@svgr/webpack": "6.5.1",
     "@types/node": "16.18.38",
