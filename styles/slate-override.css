@@ -156,3 +156,11 @@ figure.prezly-slate-gallery--full-width {
 .prezly-slate-table--withBorders .prezly-slate-table-cell {
     @apply border-gray-600;
 }
+
+.prezly-slate-button-block {
+    @apply bg-primary-darker hover:bg-primary focus:bg-primary-light focus:ring-4 focus:ring-primary-lightest active:bg-primary-darkest text-white;
+}
+
+.prezly-slate-button-block--outlined {
+    @apply bg-transparent border-white border hover:bg-neutral-50 hover:bg-opacity-30 focus:bg-neutral-50 focus:bg-opacity-30 focus:ring-white focus:ring-4 active:bg-neutral-50 active:bg-opacity-20;
+}
