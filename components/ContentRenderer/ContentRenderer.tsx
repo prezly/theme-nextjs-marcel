@@ -2,6 +2,7 @@ import { Component, Elements, Renderer } from '@prezly/content-renderer-react-js
 import type { Node } from '@prezly/story-content-format';
 import {
     AttachmentNode,
+    ButtonBlockNode,
     ContactNode,
     DividerNode,
     GalleryNode,
@@ -55,6 +56,7 @@ function ContentRenderer({ nodes }: PropsWithChildren<Props>) {
             <Component match={GalleryNode.isGalleryNode} component={Gallery} />
             <Component match={ContactNode.isContactNode} component={Contact} />
             <Component match={AttachmentNode.isAttachmentNode} component={Attachment} />
+            <Component match={ButtonBlockNode.isButtonBlockNode} component={Elements.ButtonBlock} />
             <Component match={QuoteNode.isQuoteNode} component={Quote} />
             <Component match={LinkNode.isLinkNode} component={Link} />
             <Component match={DividerNode.isDividerNode} component={Divider} />
