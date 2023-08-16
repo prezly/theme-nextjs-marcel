@@ -1,4 +1,3 @@
-import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import { Notification, Story } from '@prezly/sdk';
 import {
     PageSeo,
@@ -33,11 +32,12 @@ const CookieConsentBar = dynamic(() => import('./CookieConsentBar'), {
     ssr: false,
 });
 
+const noIndex = process.env.VERCEL === '1';
+
 function Layout({ title, description, imageUrl, hasError, children }: PropsWithChildren<Props>) {
     const newsroom = useNewsroom();
     const story = useCurrentStory();
     const { notifications } = useNewsroomContext();
-    const { isEnabled: isAnalyticsEnabled } = useAnalyticsContext();
     const [isLoadingPage, setIsLoadingPage] = useState(false);
     const { query, pathname } = useRouter();
 
@@ -88,8 +88,8 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
                 title={title}
                 description={description}
                 imageUrl={imageUrl}
-                noindex={!isAnalyticsEnabled}
-                nofollow={!isAnalyticsEnabled}
+                noindex={noIndex}
+                nofollow={noIndex}
             />
             <Branding newsroom={newsroom} />
             <NotificationsBar notifications={displayedNotifications} />
