@@ -1,4 +1,3 @@
-import { useAnalyticsContext } from '@prezly/analytics-nextjs';
 import type { ExtendedStory } from '@prezly/sdk';
 import { isEmbargoStory } from '@prezly/theme-kit-core';
 import { StorySeo } from '@prezly/theme-kit-nextjs';
@@ -15,9 +14,9 @@ type Props = {
     story: ExtendedStory;
 };
 
-function Story({ story }: Props) {
-    const { isEnabled: isAnalyticsEnabled } = useAnalyticsContext();
+const noIndex = process.env.VERCEL === '1';
 
+function Story({ story }: Props) {
     const { links } = story;
     const nodes = JSON.parse(story.content);
 
@@ -25,7 +24,7 @@ function Story({ story }: Props) {
 
     return (
         <>
-            <StorySeo story={story} noindex={!isAnalyticsEnabled} />
+            <StorySeo story={story} noindex={noIndex} />
             {isEmbargoStory(story) && <Embargo story={story} />}
             <StoryMeta story={story} />
             <article>
