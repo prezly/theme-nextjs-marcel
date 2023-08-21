@@ -127,6 +127,16 @@ figure.prezly-slate-gallery--expanded,
 figure.prezly-slate-gallery--full-width {
     @apply left-0 right-0 w-full ml-0 mr-0 !important;
 }
+
+.prezly-slate-video__html--full-width,
+.prezly-slate-video__html--expanded,
+.prezly-slate-video__thumbnail-placeholder--full-width,
+.prezly-slate-video__thumbnail-placeholder--expanded,
+.prezly-slate-video__thumbnail--full-width,
+.prezly-slate-video__thumbnail--expanded {
+    @apply left-0 right-0 w-full ml-0 mr-0 !important;
+}
+
 /* stylelint-enable selector-no-qualifying-type */
 
 .prezly-slate-bookmark-card-component__container {
