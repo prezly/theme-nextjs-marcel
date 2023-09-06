@@ -1,5 +1,6 @@
 import type { Story } from '@prezly/sdk';
 import type { AlgoliaStory } from '@prezly/theme-kit-core';
+import classNames from 'classnames';
 import { useState } from 'react';
 
 import { useDevice } from '@/hooks/useDevice';
@@ -9,9 +10,10 @@ import StoryPublicationDate from '../StoryPublicationDate';
 
 interface Props {
     story: Story | AlgoliaStory;
+    className?: string;
 }
 
-function StoryMeta({ story }: Props) {
+function StoryMeta({ story, className }: Props) {
     const { categories } = story;
     const [showAdditionalCategories, setShowAdditionalCategories] = useState(false);
     const { isMobile } = useDevice();
@@ -24,7 +26,7 @@ function StoryMeta({ story }: Props) {
 
     return (
         <>
-            <div className="md:flex md:items-center md:mb-4">
+            <div className={classNames('md:flex md:items-center md:mb-4', className)}>
                 <StoryPublicationDate
                     story={story}
                     className="mb-6 md:mb-0 text-neutral-400 whitespace-nowrap"
