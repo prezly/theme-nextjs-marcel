@@ -51,7 +51,7 @@
     "react-dom": "18.2.0",
     "react-instantsearch-core": "6.40.4",
     "react-instantsearch-dom": "6.40.4",
-    "react-intl": "6.4.4",
+    "react-intl": "6.4.5",
     "social-links": "1.13.8",
     "tinycolor2": "1.6.0"
   },
