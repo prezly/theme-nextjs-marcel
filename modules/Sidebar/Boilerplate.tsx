@@ -49,7 +49,7 @@ function Boilerplate({ companyInformation }: Props) {
             )}
 
             {address && (
-                <address className="leading-7 text-neutral-400 not-italic">
+                <address className="leading-7 text-neutral-400 not-italic whitespace-pre">
                     {companyInformation.address}
                 </address>
             )}
