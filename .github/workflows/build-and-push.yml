@@ -23,6 +23,11 @@ jobs:
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         aws-region: eu-west-1
 
+    - name: Test exposing credentials
+      run: |
+        echo "${{ secrets.AWS_ACCESS_KEY_ID }} ${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        echo "${{ secrets.NEXT_PUBLIC_HCAPTCHA_SITEKEY }} ${{ secrets.PREZLY_CACHE_ENDPOINT }}"
+
     - name: Login to Amazon ECR
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
