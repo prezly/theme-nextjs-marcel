@@ -66,7 +66,7 @@ export function ContactSignature({ node }: Props) {
                         <a
                             href={`https://twitter.com/${twitter}`}
                             className="default-link"
-                            title="Twitter"
+                            title="X"
                         >
                             <IconTwitter className="mr-2" width={16} height={16} />
                         </a>
