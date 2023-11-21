@@ -7,7 +7,7 @@ interface Props {
 
 export function AvatarWithName({ contact, showAvatar }: Props) {
     const { avatar_url, company, description, name } = contact;
-    const subtitle = description && company ? `${description}, ${company}` : description;
+    const subtitle = description && company ? `${description}, ${company}` : description || company;
 
     return (
         <div className="flex items-center">
