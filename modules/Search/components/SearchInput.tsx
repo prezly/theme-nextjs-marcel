@@ -52,7 +52,13 @@ function SearchInput({ currentRefinement, refine }: SearchBoxProvided & SearchBo
             </Button>
             <div className={classNames(styles.facets, { [styles.facetsOpen]: isShown })}>
                 {AVAILABLE_FACET_ATTRIBUTES.map((attribute) => (
-                    <Facet key={attribute} attribute={attribute} />
+                    <Facet
+                        key={attribute}
+                        attribute={attribute}
+                        // This is a hack to make Algolia return more than 10 facets by default. We need to upgrade to v7 to allow finer control over this.
+                        showMore
+                        showMoreLimit={50}
+                    />
                 ))}
             </div>
         </form>
