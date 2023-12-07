@@ -1,5 +1,5 @@
 import type { AlgoliaStory } from '@prezly/theme-kit-core';
-import translations from '@prezly/themes-intl-messages';
+import { translations } from '@prezly/theme-kit-intl';
 import Link from 'next/link';
 import type { Hit } from 'react-instantsearch-core';
 import { Highlight } from 'react-instantsearch-dom';
