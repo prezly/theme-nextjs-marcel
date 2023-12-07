@@ -1,4 +1,4 @@
-import translations from '@prezly/themes-intl-messages';
+import { translations } from '@prezly/theme-kit-intl';
 import { useRouter } from 'next/router';
 import { FormattedMessage } from 'react-intl';
 
