@@ -21,7 +21,7 @@ type Props = {
 const noIndex = process.env.VERCEL === '1';
 
 function Story({ story }: Props) {
-    const { links } = story;
+    const { links, visibility } = story;
     const nodes = JSON.parse(story.content);
 
     const url = links.short || links.newsroom_view;
@@ -43,7 +43,7 @@ function Story({ story }: Props) {
             <article>
                 <HeaderRenderer nodes={nodes} />
 
-                {url && (
+                {url && visibility === 'public' && (
                     <StoryShareSocial
                         className={classNames({
                             'justify-start': headerAlignment === Alignment.LEFT,
