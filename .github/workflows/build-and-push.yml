@@ -8,16 +8,16 @@ on:
 jobs:
   build:
     name: Build docker image
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
       with:
         fetch-depth: '1'
 
     - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v1
+      uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -25,7 +25,7 @@ jobs:
 
     - name: Login to Amazon ECR
       id: login-ecr
-      uses: aws-actions/amazon-ecr-login@v1
+      uses: aws-actions/amazon-ecr-login@v2
 
     - name: Generate build ID
       id: prep
@@ -50,13 +50,3 @@ jobs:
           "NEXT_PUBLIC_HCAPTCHA_SITEKEY=${{ secrets.NEXT_PUBLIC_HCAPTCHA_SITEKEY }}"
           "SENTRY_AUTH_TOKEN=${{ secrets.SENTRY_AUTH_TOKEN }}"
           "NEXT_PUBLIC_SENTRY_DSN=${{ secrets.NEXT_PUBLIC_SENTRY_DSN }}"
-
-    - name: Clear cache
-      id: clear-cache
-      run: |
-        sleep 90
-        set -e -o pipefail
-        curl --fail --request POST \
-            --url https://${{ secrets.PREZLY_CACHE_ENDPOINT }}/${{ secrets.PREZLY_THEME_ID }}/clear-cache \
-            --header 'Authorization: Bearer ${{ secrets.PREZLY_API_TOKEN }}' \
-            --header 'Content-Type: application/json'
