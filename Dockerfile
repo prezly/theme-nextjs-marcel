@@ -28,6 +28,9 @@ WORKDIR /app
 
 RUN apk update && apk upgrade 
 
+# upgrade npm
+RUN npm install -g npm@latest
+
 ENV NODE_ENV production
 ENV NODE_OPTIONS='-r next-logger'
 # You only need to copy next.config.js if you are NOT using the default configuration
