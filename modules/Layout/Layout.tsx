@@ -11,6 +11,7 @@ import type { PropsWithChildren } from 'react';
 import { useEffect, useMemo, useState } from 'react';
 
 import { NotificationsBar } from '@/components';
+import { PreviewPageMask } from '@/components/PreviewPageMask';
 import { IconArrowTop } from '@/icons';
 import { LoadingBar, ScrollToTopButton } from '@/ui';
 
@@ -106,6 +107,7 @@ function Layout({ title, description, imageUrl, hasError, children }: PropsWithC
                     icon={IconArrowTop}
                     iconClassName={styles.scrollToTopIcon}
                 />
+                <PreviewPageMask />
             </div>
         </>
     );
