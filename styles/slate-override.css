@@ -58,6 +58,16 @@
     @apply list-decimal;
 }
 
+.prezly-slate-document mark {
+    @apply text-neutral-300 text-inherit;
+
+    background-color: color-mix(in srgb, #2c64af 24%, transparent);
+}
+
+.prezly-slate-callout {
+    @apply text-neutral-300 text-base leading-8 font-normal;
+}
+
 .story-blockquote {
     @apply my-6;
     @apply text-neutral-300 text-base leading-8 font-normal;
